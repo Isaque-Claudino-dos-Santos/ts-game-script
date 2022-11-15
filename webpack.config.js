@@ -40,7 +40,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', , 'd.ts', '...'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
 };
 
