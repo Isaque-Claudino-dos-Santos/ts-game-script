@@ -1,10 +1,10 @@
 import Canvas from './Canvas';
-import Context2d from './Context2d';
+import Context2D from './Context2D';
 import Drawing from './Drawing';
 
 const canvas: Canvas = new Canvas();
 canvas.addBorder();
-const context2d: Context2d = new Context2d(canvas.screen);
+const context2d: Context2D = new Context2D(canvas.screen);
 
 const draw: Drawing = new Drawing(context2d.context);
 

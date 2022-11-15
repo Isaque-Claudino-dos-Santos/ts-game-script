@@ -1,4 +1,4 @@
-import { InterfaceContext2d, TypeContext2d } from '../Types/Context2d';
+import { InterfaceContext2d, TypeContext2d } from '../Types/Context2D';
 import { CanvasElement } from '../Types/Canvas';
 
 export default class Context2d implements InterfaceContext2d {

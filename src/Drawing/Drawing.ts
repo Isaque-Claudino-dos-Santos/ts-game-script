@@ -1,4 +1,4 @@
-import { TypeContext2d } from '../Types/Context2d';
+import { TypeContext2d } from '../Types/Context2D';
 import { InterfaceDrawing, TypeRect } from '../Types/Drawing';
 
 export default class Drawing implements InterfaceDrawing {
