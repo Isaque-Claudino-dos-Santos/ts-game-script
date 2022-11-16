@@ -13,4 +13,6 @@ const draw: Drawing = new Drawing(context2d.context);
 
 const player = new PlayerObject();
 
-console.log(player);
+window.onload = () => {
+  draw.image(player.shape);
+};

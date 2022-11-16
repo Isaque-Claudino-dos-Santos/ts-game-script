@@ -1,6 +1,8 @@
 import { TypeContext2d } from '../Types/Render';
 import { InterfaceDrawing } from '../Types/Render';
 import { TypeImage, TypeRect } from '../Types/Shapes';
+import ShapeImage from './Shapes/ShapeImage';
+import ShapeRect from './Shapes/ShapeRect';
 
 export default class Drawing implements InterfaceDrawing {
   private context: TypeContext2d;
@@ -9,7 +11,14 @@ export default class Drawing implements InterfaceDrawing {
     this.context = context;
   }
 
-  public rect({ x, y, width, height, color, type }: TypeRect): void {
+  public rect({
+    x,
+    y,
+    width,
+    height,
+    color,
+    type,
+  }: TypeRect | ShapeRect): void {
     this.context[`${type}Style`] = color;
     this.context[`${type}Rect`](x, y, width, height);
     this.context[type]();
@@ -34,7 +43,7 @@ export default class Drawing implements InterfaceDrawing {
     imageY,
     imageWidth,
     imageHeight,
-  }: TypeImage): void {
+  }: TypeImage | ShapeImage): void {
     this.context.drawImage(
       sourceImage,
       imageX,

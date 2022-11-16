@@ -1,7 +1,17 @@
 import ModelObject from '../GameModel/ModelObject';
 import ShapeImage from '../Render/Shapes/ShapeImage';
-import { TypeShapes } from '../Types/Shapes';
+import { InterfaceShapeImage, TypeImage, TypeShapes } from '../Types/Shapes';
 
 export default class PlayerObject extends ModelObject {
-  shape: TypeShapes = new ShapeImage('images/spr_rect.svg', 10, 10, 30, 30);
+  shape: InterfaceShapeImage = new ShapeImage(
+    'images/spaceship.svg',
+    0,
+    0,
+    50,
+    50,
+    0,
+    0,
+    100,
+    100
+  );
 }
