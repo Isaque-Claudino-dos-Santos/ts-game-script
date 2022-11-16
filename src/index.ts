@@ -1,10 +1,7 @@
 import Canvas from './Render/Canvas';
 import Context2D from './Render/Context2D';
 import Drawing from './Render/Drawing';
-
 import PlayerObject from './app/PlayerObject';
-
-import ShapeRect from './Render/Shapes/ShapeRect';
 
 const canvas: Canvas = new Canvas();
 canvas.addBorder();
