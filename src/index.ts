@@ -1,13 +1,16 @@
-import Canvas from './Canvas';
-import Context2D from './Context2D';
-import Drawing from './Drawing';
-import Game2D from './Game2D';
+import Canvas from './Render/Canvas';
+import Context2D from './Render/Context2D';
+import Drawing from './Render/Drawing';
+
+import PlayerObject from './app/PlayerObject';
+
+import ShapeRect from './Render/Shapes/ShapeRect';
 
 const canvas: Canvas = new Canvas();
 canvas.addBorder();
 const context2d: Context2D = new Context2D(canvas.screen);
 const draw: Drawing = new Drawing(context2d.context);
 
-const game = new Game2D(canvas, context2d, draw);
+const player = new PlayerObject();
 
-game.endRules();
+console.log(player);

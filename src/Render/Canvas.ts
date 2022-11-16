@@ -1,4 +1,4 @@
-import { CanvasElement, InterfaceCanvas } from '../Types/Canvas';
+import { CanvasElement, InterfaceCanvas } from '../Types/Render';
 
 export default class Canvas implements InterfaceCanvas {
   public screen: CanvasElement;
@@ -16,9 +16,8 @@ export default class Canvas implements InterfaceCanvas {
   }
 
   private appendInElement(queryElement: string): void {
-    document
-      .querySelector(queryElement)
-      .appendChild<CanvasElement>(this.screen);
+    const e = document.querySelector(queryElement);
+    if (e) e.appendChild(this.screen);
   }
 
   public resize(width: number, height: number): void {
