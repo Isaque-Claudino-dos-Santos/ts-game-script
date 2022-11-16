@@ -1,6 +1,6 @@
 import { TypeContext2d } from '../Types/Render';
 import { InterfaceDrawing } from '../Types/Render';
-import { TypeRect } from '../Types/Shapes';
+import { TypeImage, TypeRect } from '../Types/Shapes';
 
 export default class Drawing implements InterfaceDrawing {
   private context: TypeContext2d;
@@ -22,5 +22,29 @@ export default class Drawing implements InterfaceDrawing {
     height,
   }: Omit<TypeRect, 'color' | 'type'>): void {
     this.context.clearRect(x, y, width, height);
+  }
+
+  public image({
+    sourceImage,
+    x,
+    y,
+    width,
+    height,
+    imageX,
+    imageY,
+    imageWidth,
+    imageHeight,
+  }: TypeImage): void {
+    this.context.drawImage(
+      sourceImage,
+      imageX,
+      imageY,
+      imageWidth,
+      imageHeight,
+      x,
+      y,
+      width,
+      height
+    );
   }
 }
