@@ -1,24 +1,26 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const dotenv = require("dotenv-webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV == 'production';
+const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
-  entry: './src/index.ts',
+  entry: "./src/index.ts",
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     open: true,
-    host: 'localhost',
+    host: "localhost",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: "public/index.html",
     }),
+    new dotenv(),
 
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -27,12 +29,12 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx)$/i,
-        loader: 'ts-loader',
-        exclude: ['/node_modules/'],
+        loader: "ts-loader",
+        exclude: ["/node_modules/"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg)$/i,
-        type: 'asset',
+        type: "asset",
       },
 
       // Add your rules for custom modules here
@@ -40,15 +42,15 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
   },
 };
 
 module.exports = () => {
   if (isProduction) {
-    config.mode = 'production';
+    config.mode = "production";
   } else {
-    config.mode = 'development';
+    config.mode = "development";
   }
   return config;
 };

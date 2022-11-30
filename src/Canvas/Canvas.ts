@@ -1,18 +1,20 @@
-import { CanvasElement, InterfaceCanvas } from '../Types/Render';
+import { CanvasElement, InterfaceCanvas } from "../Types/Render";
 
 export default class Canvas implements InterfaceCanvas {
   public screen: CanvasElement;
-  public width: number;
-  public height: number;
 
   constructor() {
     this.createElement();
-    this.appendInElement('body');
-    this.resize(400, 400);
+    this.appendInElement("body");
+    this.resize(
+      Number(process.env.CANVAS_WIDTH) ?? 400,
+      Number(process.env.CANVAS_HEIGHT) ?? 400
+    );
   }
 
   private createElement(): void {
-    this.screen = document.createElement('canvas');
+    this.screen = document.createElement("canvas");
+    this.screen.id = process.env.CANVAS_ELEMENT_ID ?? "";
   }
 
   private appendInElement(queryElement: string): void {
@@ -23,11 +25,9 @@ export default class Canvas implements InterfaceCanvas {
   public resize(width: number, height: number): void {
     this.screen.width = width;
     this.screen.height = height;
-    this.width = width;
-    this.height = height;
   }
 
-  public addBorder(color: string = 'black', size: number = 1): void {
+  public addBorder(color: string = "black", size: number = 1): void {
     this.screen.style.border = `${size}px solid ${color}`;
   }
 }

@@ -17,5 +17,10 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
+    "fs": "^0.0.1-security"
   }
 }
