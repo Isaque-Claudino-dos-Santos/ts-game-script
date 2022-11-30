@@ -1,7 +1,7 @@
 import InterfaceCanvas from './InterfaceCanvas'
 
 export default class Canvas implements InterfaceCanvas {
-  public screen: HTMLCanvasElement;
+  public element: HTMLCanvasElement;
 
   constructor() {
     this.createElement();
@@ -13,17 +13,17 @@ export default class Canvas implements InterfaceCanvas {
   }
 
   private createElement(): void {
-    this.screen = document.createElement("canvas");
-    this.screen.id = process.env.CANVAS_ELEMENT_ID ?? "";
+    this.element = document.createElement("canvas");
+    this.element.id = process.env.CANVAS_ELEMENT_ID ?? "";
   }
 
   private appendInElement(queryElement: string): void {
     const e = document.querySelector(queryElement);
-    if (e) e.appendChild(this.screen);
+    if (e) e.appendChild(this.element);
   }
 
   public resize(width: number, height: number): void {
-    this.screen.width = width;
-    this.screen.height = height;
+    this.element.width = width;
+    this.element.height = height;
   }
 }

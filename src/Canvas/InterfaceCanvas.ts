@@ -1,5 +1,5 @@
 export default interface InterfaceCanvas {
-  screen: HTMLCanvasElement;
+  element: HTMLCanvasElement;
 
   resize(width: number, height: number): void;
 }
