@@ -9,7 +9,7 @@
     "outDir": "dist",
     "moduleResolution": "node"
   },
-  "include": ["*.ts", "Types/*.d.ts"],
+  "include": ["*.ts"],
   "files": ["src/index.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,23 +1,17 @@
 import Shapes from "../Types/Shapes";
 import InterfaceDrawing from "./InterfaceDrawing";
+
 export default class Drawing implements InterfaceDrawing {
   constructor(readonly context: CanvasRenderingContext2D) {}
 
-  public rect({
-    x,
-    y,
-    width,
-    height,
-    color,
-    type,
-  }: Shapes.TypeRect): void {
+  public rect({ x, y, width, height, color, type }: Shapes.TypeRect): void {
     this.context[`${type}Style`] = color;
     this.context[`${type}Rect`](x, y, width, height);
     this.context[type]();
   }
 
   public image({
-    sourceImage,
+    imageElement,
     x,
     y,
     width,
@@ -27,8 +21,9 @@ export default class Drawing implements InterfaceDrawing {
     imageWidth,
     imageHeight,
   }: Shapes.TypeImage): void {
+   
     this.context.drawImage(
-      sourceImage,
+      imageElement,
       imageX,
       imageY,
       imageWidth,
@@ -38,5 +33,7 @@ export default class Drawing implements InterfaceDrawing {
       width,
       height
     );
+
+
   }
 }

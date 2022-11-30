@@ -8,7 +8,7 @@ type TypeRect = {
 };
 
 type TypeImage = {
-  sourceImage: HTMLImageElement;
+  imageElement: HTMLImageElement;
   x: number;
   y: number;
   width: number;

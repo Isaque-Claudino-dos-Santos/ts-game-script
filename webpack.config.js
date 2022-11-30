@@ -33,8 +33,10 @@ const config = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg)$/i,
-        type: "asset",
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg|webp)$/i,
+        type: "asset/resource",
+        use: [{ loader: "file-loader" }],
+
       },
 
       // Add your rules for custom modules here
