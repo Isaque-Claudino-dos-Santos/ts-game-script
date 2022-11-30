@@ -1,7 +1,7 @@
-import { CanvasElement, InterfaceCanvas } from "../Types/Render";
+import InterfaceCanvas from './InterfaceCanvas'
 
 export default class Canvas implements InterfaceCanvas {
-  public screen: CanvasElement;
+  public screen: HTMLCanvasElement;
 
   constructor() {
     this.createElement();
@@ -25,9 +25,5 @@ export default class Canvas implements InterfaceCanvas {
   public resize(width: number, height: number): void {
     this.screen.width = width;
     this.screen.height = height;
-  }
-
-  public addBorder(color: string = "black", size: number = 1): void {
-    this.screen.style.border = `${size}px solid ${color}`;
   }
 }

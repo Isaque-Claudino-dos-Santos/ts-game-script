@@ -6,7 +6,7 @@ import PlayerObject from './app/PlayerObject';
 
 
 const canvas: Canvas = new Canvas();
-canvas.addBorder();
+
 const context2d: Context2D = new Context2D(canvas.screen);
 const draw: Drawing = new Drawing(context2d.context);
 

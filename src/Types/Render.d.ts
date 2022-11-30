@@ -2,16 +2,7 @@ import { TypeImage, TypeRect } from './Shapes';
 export type CanvasElement = HTMLCanvasElement;
 export type TypeContext2d = CanvasRenderingContext2D;
 
-export interface InterfaceCanvas {
-  screen: CanvasElement;
- 
-  resize(width: number, height: number): void;
-  addBorder(color?: string, size?: number): void;
-}
 
-export interface InterfaceContext2d {
-  context: TypeContext2d;
-}
 
 export interface InterfaceDrawing {
   rect(dataRect: TypeRect): void;
