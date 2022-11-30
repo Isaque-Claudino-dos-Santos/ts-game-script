@@ -6,6 +6,7 @@ export default class Canvas implements InterfaceCanvas {
   constructor() {
     this.createElement();
     this.appendInElement("body");
+  
     this.resize(
       Number(process.env.CANVAS_WIDTH) ?? 400,
       Number(process.env.CANVAS_HEIGHT) ?? 400
