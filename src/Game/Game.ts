@@ -1,6 +1,6 @@
 import Drawing from '../Drawing'
 import DisplayHandler from '../Handlers/DisplayHandler'
-import InterfaceTsGame from './InterfaceTsGame'
+import InterfaceTsGame from './InterfaceGame'
 import Context2D from '../Context2D'
 import Keyboard from '../KeyBoard'
 

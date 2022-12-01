@@ -1,6 +1,2 @@
-import TsGame from "./Game";
-
-const tsGame = new TsGame();
-
-
-export default tsGame
+import Game from "./Game";
+export default Game
