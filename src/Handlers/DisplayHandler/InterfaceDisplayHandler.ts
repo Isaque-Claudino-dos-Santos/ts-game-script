@@ -1,3 +1,6 @@
 export default interface InterfaceDisplayHandler {
-    readonly canvas: HTMLCanvasElement
+  readonly canvas: HTMLCanvasElement;
+  width: number;
+  height: number;
+
 }

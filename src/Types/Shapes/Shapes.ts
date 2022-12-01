@@ -1,4 +1,4 @@
-type TypeRect = {
+export type TypeRect = {
   x: number;
   y: number;
   width: number;
@@ -7,7 +7,7 @@ type TypeRect = {
   type: "fill" | "stroke";
 };
 
-type TypeImage = {
+export type TypeImage = {
   imageElement: HTMLImageElement;
   x: number;
   y: number;
@@ -19,4 +19,4 @@ type TypeImage = {
   imageHeight: number;
 };
 
-export { TypeRect,TypeImage };
+
