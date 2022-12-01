@@ -11,9 +11,8 @@ const player = tsg.draw.rect({
   type: "fill",
 });
 
-
 function loop() {
-
+ 
 
   requestAnimationFrame(loop);
 }
