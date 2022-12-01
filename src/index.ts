@@ -9,13 +9,13 @@ const player = tsg.draw.rect({
   height: 30,
   color: "purple",
   type: "fill",
-})
+});
 
 
 function loop() {
-    player.x++
-    
-    requestAnimationFrame(loop)
+
+
+  requestAnimationFrame(loop);
 }
 
-loop()
+loop();
