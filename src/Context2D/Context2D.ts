@@ -1,10 +1,10 @@
 import InterfaceContext2D from './InterfaceContext2D'
 
 export default class Context2d implements InterfaceContext2D {
-  readonly context: CanvasRenderingContext2D;
+  readonly ref: CanvasRenderingContext2D;
 
   constructor(canvas: HTMLCanvasElement) {
-    this.context = this.getContext(canvas);
+    this.ref = this.getContext(canvas);
   }
 
   private getContext(canvas: HTMLCanvasElement):CanvasRenderingContext2D {

@@ -1,2 +1,2 @@
-import * as Axis from './Axis'
-export default Axis
+import Axis from "./Axis";
+export default Axis;

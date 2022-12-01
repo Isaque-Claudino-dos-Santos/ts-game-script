@@ -1,2 +1,2 @@
-import * as Size from "./Size";
-export default { Size };
+import Size from "./Size";
+export default Size;

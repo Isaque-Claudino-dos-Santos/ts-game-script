@@ -1,3 +1,4 @@
+import Size from '../Types/Size';
 import InterfaceCanvas from './InterfaceCanvas'
 
 export default class Canvas implements InterfaceCanvas {
@@ -16,5 +17,10 @@ export default class Canvas implements InterfaceCanvas {
   private appendInElement(queryElement: string): void {
     const e = document.querySelector(queryElement);
     if (e) e.appendChild(this.element);
+  }
+
+  public resize(width: Size.TypeWidth, height: Size.TypeHeight): void {
+    this.element.width = width;
+    this.element.height = height;
   }
 }

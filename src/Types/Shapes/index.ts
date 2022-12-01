@@ -1,2 +1,2 @@
-import * as Shapes  from './Shapes'
-export default Shapes
+import Shapes from "./Shapes";
+export default Shapes;

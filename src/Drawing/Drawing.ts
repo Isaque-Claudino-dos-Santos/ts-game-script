@@ -4,24 +4,26 @@ import InterfaceDrawing from "./InterfaceDrawing";
 export default class Drawing implements InterfaceDrawing {
   constructor(readonly context: CanvasRenderingContext2D) {}
 
-  public rect({ x, y, width, height, color, type }: Shapes.TypeRect): void {
+  public rect(dataRect: Shapes.TypeRect): Shapes.TypeRect {
+    const { x, y, width, height, color, type } = dataRect;
     this.context[`${type}Style`] = color;
     this.context[`${type}Rect`](x, y, width, height);
     this.context[type]();
+    return dataRect;
   }
 
-  public image({
-    imageElement,
-    x,
-    y,
-    width,
-    height,
-    imageX,
-    imageY,
-    imageWidth,
-    imageHeight,
-  }: Shapes.TypeImage): void {
-   
+  public image(dataImage: Shapes.TypeImage): Shapes.TypeImage {
+    const {
+      imageElement,
+      x,
+      y,
+      width,
+      height,
+      imageX,
+      imageY,
+      imageWidth,
+      imageHeight,
+    } = dataImage;
     this.context.drawImage(
       imageElement,
       imageX,
@@ -33,7 +35,6 @@ export default class Drawing implements InterfaceDrawing {
       width,
       height
     );
-
-
+    return dataImage;
   }
 }
