@@ -3,4 +3,5 @@ export default interface InterfaceKeyBoardClick {
   isDown: boolean;
   active: boolean;
   check(key: string): boolean;
+ 
 }
