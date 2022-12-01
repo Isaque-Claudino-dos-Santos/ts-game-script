@@ -1,20 +1,6 @@
-import TsGame from "./TsGame";
+import TsGame from "./Game";
 
-const tsg = new TsGame();
+const tsGame = new TsGame();
 
-const player = tsg.draw.rect({
-  x: 10,
-  y: 10,
-  width: 30,
-  height: 30,
-  color: "purple",
-  type: "fill",
-});
 
-function loop() {
- 
-
-  requestAnimationFrame(loop);
-}
-
-loop();
+export default tsGame
