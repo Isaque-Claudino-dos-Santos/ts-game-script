@@ -1,17 +1,8 @@
 {
-  "version": "1.0.9",
-  "description": "Create Game With JS Canvas",
-  "name": "js-2d-game",
+  "version": "1.0.0",
+  "description": "Create game with TypeScript",
+  "name": "ts-2d-game-engine",
   "author": "Isaque-Claudino-dos-Santos",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "keywords": [
-    "game2d",
-    "game",
-    "js",
-    "canvas",
-    "gamejs"
-  ],
   "devDependencies": {
     "@webpack-cli/generators": "^2.5.0",
     "file-loader": "^6.2.0",
@@ -25,7 +16,6 @@
     "dotenv": "^16.0.3"
   },
   "scripts": {
-    "build:ts": "npx tsc",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",

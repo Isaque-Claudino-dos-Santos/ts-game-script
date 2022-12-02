@@ -7,8 +7,6 @@
     "allowJs": true,
     "rootDir": "src",
     "outDir": "dist",
-    "moduleResolution": "node",
-    "declaration": true
   },
   "include": ["*.ts"],
   "files": ["src/index.ts"],
