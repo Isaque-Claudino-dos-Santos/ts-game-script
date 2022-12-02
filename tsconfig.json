@@ -9,7 +9,7 @@
     "outDir": "dist",
     "moduleResolution": "Node"
   },
-  "include": ["*.ts","*.test.ts"],
+  "include": ["*.ts"],
   "files": ["src/index.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "jest.config.ts"]
 }
