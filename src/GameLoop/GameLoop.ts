@@ -1,19 +1,19 @@
 import InterfaceGameLoop from "./InterfaceGameLoop";
 export default class GameLoop implements InterfaceGameLoop {
-  public onStart: () => void;
-  public onRender: () => void;
-  public onUpdate: () => void;
-  public onEnd: () => void;
+  public onStart = () => {};
+  public onRender = () => {};
+  public onUpdate = () => {};
+  public onEnd = () => {};
 
-  private loop(): void {
+  private loop = () => {
     this.onUpdate();
     this.onRender();
     requestAnimationFrame(this.loop);
-  }
+  };
 
-  public init(): void {
+  public init() {
     this.onStart();
     this.loop();
     this.onEnd();
-  }
+  };
 }
