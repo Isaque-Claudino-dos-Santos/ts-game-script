@@ -20,14 +20,11 @@ export default class Keyboard implements InterfaceKeyBoard {
   }
 
   private applyRulePressInKeyDownEvent(key: string): void {
-    this.press.key = key;
-    this.press.isDown = true;
+    this.press.keys[key].isDown = true;
   }
 
   private applyRulePressInKeyUpEvent(key: string): void {
-    if (this.press.key === key) {
-      this.press.isDown = false;
-    }
+    this.press.keys[key].isDown = false;
   }
 
   private handlerKeyDown = (event: KeyboardEvent) => {

@@ -1,5 +1,5 @@
+import KeyBoardKeys from "../../Types/KeyBoardKeys";
 export default interface InterfaceKeyBoardPress {
-  key: string;
-  isDown: boolean;
-  check(key: string): 1 | 0;
+  keys: { [index: string]: KeyBoardKeys.TypeKeys };
+  check(key: string): boolean;
 }
