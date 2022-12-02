@@ -11,7 +11,7 @@ export default class KeyBoardPress implements InterfaceKeyBoardPress {
     };
   }
 
-  private existKey(key: string): boolean {
+  public existKey(key: string): boolean {
     return key in this.keys;
   }
 
