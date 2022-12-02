@@ -21,7 +21,14 @@ const playerSpeed: { x: number; y: number } = {
 };
 
 //In update function
-function playerMoviment() {}
+function playerMoviment() {
+  const { press } = tsg.keyBoard;
+
+  if (press.check("d")) player.x += playerSpeed.x;
+  if (press.check("a")) player.x -= playerSpeed.x;
+  if (press.check("w")) player.y -= playerSpeed.y;
+  if (press.check("s")) player.y += playerSpeed.y;
+}
 
 //In render functions
 function renderBackground() {
