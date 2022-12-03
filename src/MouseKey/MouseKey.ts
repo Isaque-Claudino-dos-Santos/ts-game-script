@@ -1,8 +1,8 @@
-import Mouse from "../Types/Mouse";
+import TypeMouse from "../Types/TypeMouse";
 import InterfaceMouseKey from "./InterfaceMouseKey";
 
 export default class MouseKey implements InterfaceMouseKey {
-  public readonly point: Mouse.TypeMousePoint = {
+  public readonly point: TypeMouse.MousePoint = {
     x: 0,
     y: 0,
   };
@@ -20,7 +20,6 @@ export default class MouseKey implements InterfaceMouseKey {
     const [mouseX, mouseY] = [event.offsetX, event.offsetY];
 
     this.setPoint(mouseX, mouseY);
-  
   };
 
   private activeEvents(elementRef: HTMLElement): void {

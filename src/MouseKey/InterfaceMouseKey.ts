@@ -1,5 +1,5 @@
-import Mouse from "../Types/Mouse";
+import TypeMouse from "../Types/TypeMouse";
 
 export default interface InterfaceMouseKey {
-  point: Mouse.TypeMousePoint;
+  point: TypeMouse.MousePoint;
 }

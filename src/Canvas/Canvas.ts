@@ -1,5 +1,5 @@
-import Size from '../Types/Size';
-import InterfaceCanvas from './InterfaceCanvas'
+import TypeSize from "../Types/TypeSize";
+import InterfaceCanvas from "./InterfaceCanvas";
 
 export default class Canvas implements InterfaceCanvas {
   public element: HTMLCanvasElement;
@@ -19,7 +19,7 @@ export default class Canvas implements InterfaceCanvas {
     if (e) e.appendChild(this.element);
   }
 
-  public resize(width: Size.TypeWidth, height: Size.TypeHeight): void {
+  public resize(width: TypeSize.Width, height: TypeSize.Height): void {
     this.element.width = width;
     this.element.height = height;
   }

@@ -1,10 +1,10 @@
-import Size from "../../Types/Size";
+import TypeSize from "../../Types/TypeSize";
 export default interface InterfaceDisplayHandler {
   readonly screen: HTMLCanvasElement;
 
-  width: Size.TypeWidth;
-  height: Size.TypeHeight;
+  width: TypeSize.Width;
+  height: TypeSize.Height;
 
-  getSize(): Size.TypeSize;
-  setSize(size: Size.TypeSize): void;
+  getSize(): TypeSize.Size;
+  setSize(size: TypeSize.Size): void;
 }
