@@ -3,75 +3,53 @@ import TypeCollider from "../../Types/TypeCollider";
 import Mesure from "../Mesure";
 
 export default class MesureCollider implements InterfaceMesureCollider {
-  cathetusX(
-    blocked: TypeCollider.RectInX,
-    blocker: TypeCollider.RectInX
-  ): number {
+  cathetusX(rect1: TypeCollider.RectInX, rect2: TypeCollider.RectInX): number {
     return Mesure.cathetus(
-      Mesure.center(blocked.x, blocked.width),
-      Mesure.center(blocker.x, blocker.width)
+      Mesure.center(rect1.x, rect1.width),
+      Mesure.center(rect2.x, rect2.width)
     );
   }
 
-  cathetusY(
-    blocked: TypeCollider.RectInY,
-    blocker: TypeCollider.RectInY
-  ): number {
+  cathetusY(rect1: TypeCollider.RectInY, rect2: TypeCollider.RectInY): number {
     return Mesure.cathetus(
-      Mesure.center(blocked.y, blocked.height),
-      Mesure.center(blocker.y, blocker.height)
+      Mesure.center(rect1.y, rect1.height),
+      Mesure.center(rect2.y, rect2.height)
     );
   }
 
   cathetusXAbs(
-    blocked: TypeCollider.RectInX,
-    blocker: TypeCollider.RectInX
+    rect1: TypeCollider.RectInX,
+    rect2: TypeCollider.RectInX
   ): number {
-    return Math.abs(this.cathetusX(blocked, blocker));
+    return Math.abs(this.cathetusX(rect1, rect2));
   }
 
   cathetusYAbs(
-    blocked: TypeCollider.RectInY,
-    blocker: TypeCollider.RectInY
+    rect1: TypeCollider.RectInY,
+    rect2: TypeCollider.RectInY
   ): number {
-    return Math.abs(this.cathetusY(blocked, blocker));
+    return Math.abs(this.cathetusY(rect1, rect2));
   }
 
   sumHalfWidth(
-    blocked: TypeCollider.RectInX,
-    blocker: TypeCollider.RectInX
+    rect1: TypeCollider.RectInX,
+    rect2: TypeCollider.RectInX
   ): number {
-    return Mesure.sumHalf(
-      Mesure.half(blocked.width),
-      Mesure.half(blocker.width)
-    );
+    return Mesure.sumHalf(Mesure.half(rect1.width), Mesure.half(rect2.width));
   }
 
   sumHalfHeight(
-    blocked: TypeCollider.RectInY,
-    blocker: TypeCollider.RectInY
+    rect1: TypeCollider.RectInY,
+    rect2: TypeCollider.RectInY
   ): number {
-    return Mesure.sumHalf(
-      Mesure.half(blocked.height),
-      Mesure.half(blocker.height)
-    );
+    return Mesure.sumHalf(Mesure.half(rect1.height), Mesure.half(rect2.height));
   }
 
-  overlapX(
-    blocked: TypeCollider.RectInX,
-    blocker: TypeCollider.RectInX
-  ): number {
-    return (
-      this.sumHalfWidth(blocked, blocker) - this.cathetusXAbs(blocked, blocker)
-    );
+  overlapX(rect1: TypeCollider.RectInX, rect2: TypeCollider.RectInX): number {
+    return this.sumHalfWidth(rect1, rect2) - this.cathetusXAbs(rect1, rect2);
   }
 
-  overlapY(
-    blocked: TypeCollider.RectInY,
-    blocker: TypeCollider.RectInY
-  ): number {
-    return (
-      this.sumHalfHeight(blocked, blocker) - this.cathetusYAbs(blocked, blocker)
-    );
+  overlapY(rect1: TypeCollider.RectInY, rect2: TypeCollider.RectInY): number {
+    return this.sumHalfHeight(rect1, rect2) - this.cathetusYAbs(rect1, rect2);
   }
 }
