@@ -1,3 +1,5 @@
-export default class Collider {
-    
+import InterfaceCollider from "./InterfaceCollider";
+
+export default class Collider implements InterfaceCollider {
+
 }
