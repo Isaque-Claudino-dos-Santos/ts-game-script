@@ -43,7 +43,7 @@ export default class ColliderRect implements InterfaceColliderSolidRect {
     const sumHalfHeight: number = Mesure.collider.sumHalfHeight(rang, touched);
 
     if (catXAbs < sumHalfWidth && catYAbs < sumHalfHeight) {
-      callback();
+      if (typeof callback !== "undefined") callback();
       return true;
     }
 
