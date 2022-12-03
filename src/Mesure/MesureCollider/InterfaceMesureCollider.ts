@@ -2,42 +2,42 @@ import TypeCollider from "../../Types/TypeCollider";
 
 export default interface InterfaceMesureCollider {
   cathetusX(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number;
 
   cathetusY(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number;
 
   cathetusXAbs(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number;
 
   cathetusYAbs(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number;
 
   sumHalfWidth(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number;
 
   sumHalfHeight(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number;
 
   overlapX(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number;
 
   overlapY(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number;
 }

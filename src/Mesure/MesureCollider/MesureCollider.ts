@@ -4,8 +4,8 @@ import Mesure from "../Mesure";
 
 export default class MesureCollider implements InterfaceMesureCollider {
   cathetusX(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number {
     return Mesure.cathetus(
       Mesure.center(blocked.x, blocked.width),
@@ -14,8 +14,8 @@ export default class MesureCollider implements InterfaceMesureCollider {
   }
 
   cathetusY(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number {
     return Mesure.cathetus(
       Mesure.center(blocked.y, blocked.height),
@@ -24,22 +24,22 @@ export default class MesureCollider implements InterfaceMesureCollider {
   }
 
   cathetusXAbs(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number {
     return Math.abs(this.cathetusX(blocked, blocker));
   }
 
   cathetusYAbs(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number {
     return Math.abs(this.cathetusY(blocked, blocker));
   }
 
   sumHalfWidth(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number {
     return Mesure.sumHalf(
       Mesure.half(blocked.width),
@@ -48,8 +48,8 @@ export default class MesureCollider implements InterfaceMesureCollider {
   }
 
   sumHalfHeight(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number {
     return Mesure.sumHalf(
       Mesure.half(blocked.height),
@@ -58,8 +58,8 @@ export default class MesureCollider implements InterfaceMesureCollider {
   }
 
   overlapX(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
+    blocked: TypeCollider.RectInX,
+    blocker: TypeCollider.RectInX
   ): number {
     return (
       this.sumHalfWidth(blocked, blocker) - this.cathetusXAbs(blocked, blocker)
@@ -67,8 +67,8 @@ export default class MesureCollider implements InterfaceMesureCollider {
   }
 
   overlapY(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
+    blocked: TypeCollider.RectInY,
+    blocker: TypeCollider.RectInY
   ): number {
     return (
       this.sumHalfHeight(blocked, blocker) - this.cathetusYAbs(blocked, blocker)
