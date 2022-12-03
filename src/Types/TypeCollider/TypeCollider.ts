@@ -1,26 +1,9 @@
 import TypeSize from "../TypeSize";
 import TypeAxis from "../TypeAxis";
 namespace TypeCollider {
-  export type BlockedRectSolid = TypeSize.Size & TypeAxis.Axis;
-  export type BlockerRectSolid = TypeSize.Size & TypeAxis.Axis;
-
-  export type BlockedRectSolidInX = Omit<
-    TypeCollider.BlockedRectSolid,
-    "y" | "height"
-  >;
-  export type BlockerRectSolidInX = Omit<
-    TypeCollider.BlockerRectSolid,
-    "y" | "height"
-  >;
-
-  export type BlockedRectSolidInY = Omit<
-    TypeCollider.BlockedRectSolid,
-    "x" | "width"
-  >;
-  export type BlockerRectSolidInY = Omit<
-    TypeCollider.BlockerRectSolid,
-    "x" | "width"
-  >;
+  export type Rect = TypeSize.Size & TypeAxis.Axis;
+  export type RectInX = Omit<TypeCollider.Rect, "y" | "height">;
+  export type RectInY = Omit<TypeCollider.Rect, "x" | "width">;
 }
 
 export default TypeCollider;
