@@ -3,60 +3,37 @@ import InterfaceColliderSolidRect from "./InterfaceColliderSolidRect";
 import Mesure from "../../../Mesure";
 
 export default class ColliderSolidRect implements InterfaceColliderSolidRect {
-  cathetusX(
-    blocked: TypeCollider.BlockedRectSolidInX,
-    blocker: TypeCollider.BlockerRectSolidInX
-  ): number {
-    return Mesure.cathetus(
-      Mesure.center(blocked.x, blocked.width),
-      Mesure.center(blocker.x, blocker.width)
+  efectIn(
+    blocked: TypeCollider.BlockedRectSolid,
+    blocker: TypeCollider.BlockerRectSolid
+  ): void {
+    const MesureCollider = Mesure.collider;
+
+    const catX: number = MesureCollider.cathetusX(blocked, blocker);
+    const catXAbs: number = MesureCollider.cathetusXAbs(blocked, blocker);
+
+    const catY: number = MesureCollider.cathetusY(blocked, blocker);
+    const catYAbs: number = MesureCollider.cathetusYAbs(blocked, blocker);
+
+    const sumHalfWidth: number = MesureCollider.sumHalfWidth(blocked, blocker);
+    const sumHalfHeight: number = MesureCollider.sumHalfHeight(
+      blocked,
+      blocker
     );
-  }
 
-  cathetusY(
-    blocked: TypeCollider.BlockedRectSolidInY,
-    blocker: TypeCollider.BlockerRectSolidInY
-  ): number {
-    return Mesure.cathetus(
-      Mesure.center(blocked.y, blocked.height),
-      Mesure.center(blocker.y, blocker.height)
-    );
-  }
+    const overlapX: number = MesureCollider.overlapX(blocked, blocker);
+    const overlapY: number = MesureCollider.overlapY(blocked, blocker);
 
-  /*
-  t(r1, r2) {
-    //r1 ->
-    //r2 -> blocker
-    //catetos; armazenam a distância entre os retângulos
-    const catX = r1.centerX() - r2.centerX();
-    const catY = r1.centerY() - r2.centerY();
-
-    //soma das metades
-    var sumHalfWidth = r1.halfWidth() + r2.halfWidth();
-    var sumHalfHeight = r1.halfHeight() + r2.halfHeight();
-
-    if (Math.abs(catX) < sumHalfWidth && Math.abs(catY) < sumHalfHeight) {
-      var overlapX = sumHalfWidth - Math.abs(catX);
-      var overlapY = sumHalfHeight - Math.abs(catY);
-
+    if (catXAbs < sumHalfWidth && catYAbs < sumHalfHeight) {
       if (overlapX >= overlapY) {
-        //colisão por cima ou por baixo
-        if (catY > 0) {
-          //por cima
-          r1.posY += overlapY;
-        } else {
-          r1.posY -= overlapY;
-        }
+        //Collider top or bottom
+        if (catY > 0) blocked.y += overlapY; //top
+        else blocked.y -= overlapY; //down
       } else {
-        //colisão pela esquerda ou direita
-        if (catX > 0) {
-          //colisão pela esquerda
-          r1.posX += overlapX;
-        } else {
-          r1.posX -= overlapX;
-        }
+        //Collider by left or right
+        if (catX > 0) blocked.x += overlapX; //left
+        else blocked.x -= overlapX; //right
       }
     }
   }
-  */
 }
