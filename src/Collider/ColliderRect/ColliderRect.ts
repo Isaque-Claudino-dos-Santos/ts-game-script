@@ -3,26 +3,21 @@ import InterfaceColliderSolidRect from "./InterfaceSolidRect";
 import Mesure from "../../Mesure";
 
 export default class ColliderRect implements InterfaceColliderSolidRect {
-  solid(
-    blocked: TypeCollider.BlockedRectSolid,
-    blocker: TypeCollider.BlockerRectSolid
-  ): void {
-    const MesureCollider = Mesure.collider;
+  solid(blocked: TypeCollider.Rect, blocker: TypeCollider.Rect): void {
+    const catX: number = Mesure.collider.cathetusX(blocked, blocker);
+    const catXAbs: number = Mesure.collider.cathetusXAbs(blocked, blocker);
 
-    const catX: number = MesureCollider.cathetusX(blocked, blocker);
-    const catXAbs: number = MesureCollider.cathetusXAbs(blocked, blocker);
+    const catY: number = Mesure.collider.cathetusY(blocked, blocker);
+    const catYAbs: number = Mesure.collider.cathetusYAbs(blocked, blocker);
 
-    const catY: number = MesureCollider.cathetusY(blocked, blocker);
-    const catYAbs: number = MesureCollider.cathetusYAbs(blocked, blocker);
-
-    const sumHalfWidth: number = MesureCollider.sumHalfWidth(blocked, blocker);
-    const sumHalfHeight: number = MesureCollider.sumHalfHeight(
+    const sumHalfWidth: number = Mesure.collider.sumHalfWidth(blocked, blocker);
+    const sumHalfHeight: number = Mesure.collider.sumHalfHeight(
       blocked,
       blocker
     );
 
-    const overlapX: number = MesureCollider.overlapX(blocked, blocker);
-    const overlapY: number = MesureCollider.overlapY(blocked, blocker);
+    const overlapX: number = Mesure.collider.overlapX(blocked, blocker);
+    const overlapY: number = Mesure.collider.overlapY(blocked, blocker);
 
     if (catXAbs < sumHalfWidth && catYAbs < sumHalfHeight) {
       if (overlapX >= overlapY) {
@@ -35,5 +30,23 @@ export default class ColliderRect implements InterfaceColliderSolidRect {
         else blocked.x -= overlapX; //right
       }
     }
+  }
+
+  touch(
+    rang: TypeCollider.Rect,
+    touched: TypeCollider.Rect,
+    callback?: () => void
+  ): boolean {
+    const catXAbs: number = Mesure.collider.cathetusXAbs(rang, touched);
+    const catYAbs: number = Mesure.collider.cathetusYAbs(rang, touched);
+    const sumHalfWidth: number = Mesure.collider.sumHalfWidth(rang, touched);
+    const sumHalfHeight: number = Mesure.collider.sumHalfHeight(rang, touched);
+
+    if (catXAbs < sumHalfWidth && catYAbs < sumHalfHeight) {
+      callback();
+      return true;
+    }
+
+    return false;
   }
 }
