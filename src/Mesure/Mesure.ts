@@ -1,6 +1,9 @@
 import InterfaceMesure from "./InterfaceMesure";
+import MesureCollider from "./MesureCollider";
 
 class Mesure implements InterfaceMesure {
+  readonly collider: MesureCollider = new MesureCollider();
+
   half(n: number): number {
     return n / 2;
   }
