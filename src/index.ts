@@ -45,6 +45,7 @@ function playerMoviment(player: Shapes.TypeRect) {
 
 loop.onUpdate = () => {
   playerMoviment(player);
+  tsg.collider.solid.react.efectIn(player,wall)
 };
 
 loop.onRender = () => {
