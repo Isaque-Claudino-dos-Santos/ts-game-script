@@ -1,5 +1,5 @@
-import ColliderSolid from "./ColliderSolid";
+import ColliderRect from "./ColliderRect";
 
 export default interface InterfaceCollider {
-  readonly solid: ColliderSolid;
+  readonly rect: ColliderRect;
 }

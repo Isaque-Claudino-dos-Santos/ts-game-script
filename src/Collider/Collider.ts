@@ -1,6 +1,6 @@
-import ColliderSolid from "./ColliderSolid";
+import ColliderRect from './ColliderRect'
 import InterfaceCollider from "./InterfaceCollider";
 
 export default class Collider implements InterfaceCollider {
-  readonly solid: ColliderSolid = new ColliderSolid();
+  readonly rect: ColliderRect = new ColliderRect();
 }
