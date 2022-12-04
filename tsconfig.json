@@ -11,6 +11,6 @@
     "declaration": true
   },
   "include": ["*.ts"],
-  "files": ["./src/index.ts", "./jest.config.ts"],
-  "exclude": ["node_modules"]
+  "files": ["./src/index.ts"],
+  "exclude": ["node_modules", "./jest.config.ts", "./src/**/*.test.ts"]
 }
