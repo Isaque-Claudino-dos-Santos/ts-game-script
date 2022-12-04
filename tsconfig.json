@@ -7,8 +7,7 @@
     "allowJs": true,
     "rootDir": "src",
     "outDir": "dist",
-    "moduleResolution": "Node",
-    "declaration": true
+    "moduleResolution": "Node"
   },
   "files": ["src/index.ts"],
   "exclude": ["node_modules", "./jest.config.ts", "src/**/*.test.ts"]
