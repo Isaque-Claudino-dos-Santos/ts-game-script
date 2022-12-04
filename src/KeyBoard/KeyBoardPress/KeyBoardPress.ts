@@ -1,8 +1,9 @@
-import KeyBoradKeys from "../../Types/KeyBoardKeys/KeyBoardKeys";
+import TypeKeyBoard from "../../Types/TypeKeyBoard";
+
 import InterfaceKeyBoardPress from "./InterfaceKeyBoardPress";
 
 export default class KeyBoardPress implements InterfaceKeyBoardPress {
-  public keys: { [index: string]: KeyBoradKeys.TypeKeys } = {};
+  public keys: { [index: string]: TypeKeyBoard.Keys } = {};
 
   private setKey(key: string): void {
     this.keys[key] = {

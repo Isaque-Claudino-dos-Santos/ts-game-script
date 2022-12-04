@@ -1,5 +1,5 @@
 import TsGame2D from "./TsGame2D";
-import Shapes from "./Types/Shapes";
+import TypeShapes from "./Types/TypeShapes";
 
 const tsg = new TsGame2D();
 
@@ -34,7 +34,7 @@ const wall = tsg.draw.rect({
   type: "fill",
 });
 
-function playerMoviment(player: Shapes.TypeRect) {
+function playerMoviment(player: TypeShapes.Rect) {
   const { press } = tsg.keyBoard;
 
   if (press.check("d")) player.x += playerSpeed.x;

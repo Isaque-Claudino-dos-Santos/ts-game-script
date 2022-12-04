@@ -1,5 +1,5 @@
-namespace Shapes {
-  export type TypeRect = {
+namespace TypeShapes {
+  export type Rect = {
     x: number;
     y: number;
     width: number;
@@ -8,7 +8,7 @@ namespace Shapes {
     type: "fill" | "stroke";
   };
 
-  export type TypeImage = {
+  export type Image = {
     imageElement: HTMLImageElement;
     x: number;
     y: number;
@@ -21,4 +21,4 @@ namespace Shapes {
   };
 }
 
-export default Shapes
+export default TypeShapes;

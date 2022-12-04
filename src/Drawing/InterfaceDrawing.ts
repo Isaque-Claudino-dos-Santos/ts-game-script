@@ -1,8 +1,8 @@
-import Shapes from "../Types/Shapes";
+import TypeShapes from "../Types/TypeShapes";
 
 export default interface InterfaceDrawing {
   readonly context: CanvasRenderingContext2D;
 
-  rect(dataRect: Shapes.TypeRect): Shapes.TypeRect;
-  image(dataImage: Shapes.TypeImage): Shapes.TypeImage;
+  rect(dataRect: TypeShapes.Rect): TypeShapes.Rect;
+  image(dataImage: TypeShapes.Image): TypeShapes.Image;
 }

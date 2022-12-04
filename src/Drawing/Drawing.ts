@@ -1,10 +1,11 @@
-import Shapes from "../Types/Shapes";
+import TypeShapes from "../Types/TypeShapes";
+
 import InterfaceDrawing from "./InterfaceDrawing";
 
 export default class Drawing implements InterfaceDrawing {
   constructor(readonly context: CanvasRenderingContext2D) {}
 
-  public rect(dataRect: Shapes.TypeRect): Shapes.TypeRect {
+  public rect(dataRect: TypeShapes.Rect): TypeShapes.Rect {
     const { x, y, width, height, color, type } = dataRect;
     this.context[`${type}Style`] = color;
     this.context[`${type}Rect`](x, y, width, height);
@@ -12,7 +13,7 @@ export default class Drawing implements InterfaceDrawing {
     return dataRect;
   }
 
-  public image(dataImage: Shapes.TypeImage): Shapes.TypeImage {
+  public image(dataImage: TypeShapes.Image): TypeShapes.Image {
     const {
       imageElement,
       x,
