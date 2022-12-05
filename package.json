@@ -4,7 +4,8 @@
   "name": "ts-2d-game-engine",
   "author": "Isaque-Claudino-dos-Santos",
   "main": "dist/index.js",
-  "types": "dist/@types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@webpack-cli/generators": "^2.5.0",
@@ -25,7 +26,7 @@
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
-    "build:ts": "rm -rf ./dist/* && tsc --declaration --declarationDir ./dist/@types",
+    "build:ts": "rm -rf ./dist/* && tsc --declaration",
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "jest"
