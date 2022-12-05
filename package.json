@@ -1,11 +1,8 @@
 {
-  "version": "1.0.14",
+  "version": "1.0.16",
   "description": "Create game with TypeScript",
   "name": "ts-2d-game-engine",
   "author": "Isaque-Claudino-dos-Santos",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@webpack-cli/generators": "^2.5.0",
@@ -23,10 +20,9 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
+    "build": "rm -rf ./dist/* && webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
-    "build:ts": "rm -rf ./dist/* && tsc --declaration",
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "jest"

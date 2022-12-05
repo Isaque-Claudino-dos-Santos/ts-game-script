@@ -1,9 +1,0 @@
-/.env
-/environment.d.ts
-/Global.d.ts
-/jest.config.ts
-/tsconfig.json
-/webpack.config.js
-/.gitignore
-/src
-/public
