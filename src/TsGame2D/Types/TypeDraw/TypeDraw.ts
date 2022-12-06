@@ -19,6 +19,21 @@ namespace TypeDraw {
     imageWidth: number;
     imageHeight: number;
   };
+
+  export type Text = {
+    x: number;
+    y: number;
+    size: number;
+    family: string;
+    measureUnit: "%" | "px" | "rem" | "em";
+    color: CanvasPattern | string;
+    type: "fill" | "stroke";
+    base: CanvasTextBaseline;
+    directio: CanvasDirection;
+    align: CanvasTextAlign;
+    text: string;
+    maxWidth: number;
+  };
 }
 
 export default TypeDraw;

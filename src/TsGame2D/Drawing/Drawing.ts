@@ -1,11 +1,12 @@
 import TypeDraw from "../Types/TypeDraw";
 import DrawImage from "./DrawImage";
 import DrawRect from "./DrawRect";
+import DrawText from "./DrawText";
 
 import InterfaceDrawing from "./InterfaceDrawing";
 
 export default class Drawing implements InterfaceDrawing {
-  constructor(readonly context: CanvasRenderingContext2D) {}
+  constructor(private readonly context: CanvasRenderingContext2D) {}
 
   public rect(dataRect: Partial<TypeDraw.Rect>): DrawRect {
     return new DrawRect(
@@ -30,7 +31,25 @@ export default class Drawing implements InterfaceDrawing {
       dataImage.imageX ?? 0,
       dataImage.imageY ?? 0,
       dataImage.imageWidth ?? 100,
-      dataImage.imageHeight ?? 100,
+      dataImage.imageHeight ?? 100
     );
+  }
+
+  public text(dataText?: Partial<TypeDraw.Text>): DrawText {
+    return new DrawText(
+      this.context,
+      dataText.x ?? 0,
+      dataText.y ?? 0,
+      dataText.size ?? 10,
+      dataText.family ?? "Arial",
+      dataText.measureUnit ?? "px",
+      dataText.color ?? "black",
+      dataText.type ?? "fill",
+      dataText.base ?? "ideographic",
+      dataText.directio ?? "inherit",
+      dataText.align ?? "center",
+      dataText.text ?? "",
+      dataText.maxWidth ?? undefined
+      );
   }
 }

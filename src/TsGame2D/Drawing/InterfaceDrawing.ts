@@ -1,10 +1,12 @@
-import TypeShapes from "../Types/TypeDraw";
+import TypeDraw from "../Types/TypeDraw";
 import DrawRect from "./DrawRect";
 import DrawImage from "./DrawImage";
+import DrawText from "./DrawText";
 
 export default interface InterfaceDrawing {
-  readonly context: CanvasRenderingContext2D;
+  rect(dataRect?: Partial<TypeDraw.Rect>): DrawRect;
 
-  rect(dataRect?: Partial<TypeShapes.Rect>): DrawRect;
-  image(dataImage?: Partial<TypeShapes.Image>): DrawImage;
+  image(dataImage?: Partial<TypeDraw.Image>): DrawImage;
+
+  text(dataText?: Partial<TypeDraw.Text>): DrawText;
 }
