@@ -1,28 +1,27 @@
 namespace TypeDraw {
-  export type Rect = {
+  export type Position = {
     x: number;
     y: number;
+  };
+
+  export type Rect = {
     width: number;
     height: number;
     color: CanvasPattern | string;
     type: "fill" | "stroke";
-  };
+  } & Position;
 
   export type Image = {
     imageElement: HTMLImageElement;
-    x: number;
-    y: number;
     width: number;
     height: number;
     imageX: number;
     imageY: number;
     imageWidth: number;
     imageHeight: number;
-  };
+  } & Position;
 
   export type Text = {
-    x: number;
-    y: number;
     size: number;
     family: string;
     measureUnit: "%" | "px" | "rem" | "em";
@@ -33,7 +32,7 @@ namespace TypeDraw {
     align: CanvasTextAlign;
     text: string;
     maxWidth: number;
-  };
+  } & Position;
 }
 
 export default TypeDraw;

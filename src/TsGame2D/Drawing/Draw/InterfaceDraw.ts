@@ -1,6 +1,11 @@
+import TypeDraw from "../../Types/TypeDraw";
 import Draw from "./Draw";
 
-export default interface InterfaceDraw {
+export default interface InterfaceDraw extends TypeDraw.Position {
   render(): void;
-  relativeWith(intanceOfDraw: Draw, x: number, y: number): void;
+  relativeWith(
+    instanceOfDraw: TypeDraw.Position,
+    ajustX?: number,
+    ajustY?: number
+  ): void;
 }
