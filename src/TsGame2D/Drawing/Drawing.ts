@@ -1,4 +1,5 @@
 import TypeDraw from "../Types/TypeDraw";
+import DrawArc from "./DrawArc";
 import DrawImage from "./DrawImage";
 import DrawRect from "./DrawRect";
 import DrawText from "./DrawText";
@@ -8,7 +9,7 @@ import InterfaceDrawing from "./InterfaceDrawing";
 export default class Drawing implements InterfaceDrawing {
   constructor(private readonly context: CanvasRenderingContext2D) {}
 
-  public rect(dataRect: Partial<TypeDraw.Rect>): DrawRect {
+  public rect(dataRect: Partial<TypeDraw.Rect> = {}): DrawRect {
     return new DrawRect(
       this.context,
       dataRect.x ?? 0,
@@ -20,7 +21,7 @@ export default class Drawing implements InterfaceDrawing {
     );
   }
 
-  public image(dataImage?: Partial<TypeDraw.Image>): DrawImage {
+  public image(dataImage: Partial<TypeDraw.Image> = {}): DrawImage {
     return new DrawImage(
       this.context,
       dataImage.imageElement,
@@ -35,7 +36,7 @@ export default class Drawing implements InterfaceDrawing {
     );
   }
 
-  public text(dataText?: Partial<TypeDraw.Text>): DrawText {
+  public text(dataText: Partial<TypeDraw.Text> = {}): DrawText {
     return new DrawText(
       this.context,
       dataText.x ?? 0,
@@ -50,6 +51,20 @@ export default class Drawing implements InterfaceDrawing {
       dataText.align ?? "center",
       dataText.text ?? "",
       dataText.maxWidth ?? undefined
-      );
+    );
+  }
+
+  public arc(dataArc: Partial<TypeDraw.Arc> = {}): DrawArc {
+    return new DrawArc(
+      this.context,
+      dataArc.x ?? 0,
+      dataArc.y ?? 0,
+      dataArc.radius ?? 5,
+      dataArc.startAngle ?? 0,
+      dataArc.endAngle ?? Math.PI * 2,
+      dataArc.type ?? "fill",
+      dataArc.color ?? "black",
+      dataArc.counterclockwise ?? false
+    );
   }
 }
