@@ -36,4 +36,11 @@ export default class Mouse implements InterfaceMouse {
     this.click = false;
     this.button = undefined;
   }
+
+  onDown(
+    callback: (point: TypeMouse.Point) => void,
+    button: keyof TypeMouse.ButtonByID = "0"
+  ) {
+    if (this.isDown && this.button === Number(button)) callback(this.point);
+  }
 }
