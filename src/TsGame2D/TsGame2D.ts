@@ -1,11 +1,11 @@
-import Drawing from "../Drawing";
-import DisplayHandler from "../Handlers/DisplayHandler";
+import Drawing from "./Drawing";
+import DisplayHandler from "./Handlers/DisplayHandler";
 import InterfaceTsGame2D from "./InterfaceTsGame2D";
-import Context2D from "../Context2D";
-import Keyboard from "../KeyBoard";
-import GameLoop from "../GameLoop";
-import MouseKey from "../MouseKey";
-import Collider from "../Collider";
+import Context2D from "./Context2D";
+import Keyboard from "./KeyBoard";
+import GameLoop from "./GameLoop";
+import MouseKey from "./MouseKey";
+import Collider from "./Collider";
 
 export default class TsGame2D implements InterfaceTsGame2D {
   public readonly display: DisplayHandler = new DisplayHandler();
