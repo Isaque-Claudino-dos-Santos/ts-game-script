@@ -1,4 +1,6 @@
-import TsGame2D from "./TsGame2D";
+import tsg from "./TsGame2D";
 
-const tsg = new TsGame2D();
 
+const player = tsg.draw.rect({})
+
+player.render()

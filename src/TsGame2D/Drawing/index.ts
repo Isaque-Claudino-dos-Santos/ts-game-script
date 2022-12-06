@@ -1,2 +1,3 @@
-import Drawing from './Drawing'
+import Drawing from "./Drawing";
+
 export default Drawing
