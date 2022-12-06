@@ -18,7 +18,6 @@ export default class Player {
     this.nick = this.tsg.draw.text({
       text: "The Player",
       color: "white",
-      size: 11,
     });
   }
 
