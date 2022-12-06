@@ -4,7 +4,7 @@ import InterfaceTsGame2D from "./InterfaceTsGame2D";
 import Context2D from "./Context2D";
 import Keyboard from "./KeyBoard";
 import GameLoop from "./GameLoop";
-import MouseKey from "./MouseKey";
+import MouseKey from "./Mouse";
 import Collider from "./Collider";
 
 export default class TsGame2D implements InterfaceTsGame2D {

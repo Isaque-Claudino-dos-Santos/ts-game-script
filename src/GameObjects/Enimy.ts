@@ -23,10 +23,6 @@ export default class Enimy {
 
   public update(): void {
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
-
-    this.tsg.mouse.checkClickRect(this.draw, () => {
-      console.log('ok')
-    });
   }
 
   public render(): void {

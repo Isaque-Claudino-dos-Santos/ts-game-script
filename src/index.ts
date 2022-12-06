@@ -11,19 +11,18 @@ const loop = tsg.gameLoop;
 const background = new Background(tsg);
 const player = new Player(tsg);
 const enimy = new Enimy(tsg);
-const bullet = new Bullet(tsg)
-
+const bullet = new Bullet(tsg);
 
 loop.onUpdate = () => {
   player.update();
-  enimy.update()
+  enimy.update();
 };
 
 loop.onRender = () => {
   background.render();
   player.render();
-  enimy.render()
-  bullet.render()
+  enimy.render();
+  bullet.render();
 };
 
 loop.init();
