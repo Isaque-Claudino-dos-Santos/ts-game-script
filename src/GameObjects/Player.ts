@@ -39,7 +39,6 @@ export default class Player {
       bullet.angle = this.draw.angle;
       bullet.slot = this.bullets.length;
       this.bullets.push(bullet);
-      console.log(this.bullets)
     });
   }
 
