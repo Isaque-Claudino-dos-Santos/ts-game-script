@@ -39,6 +39,7 @@ export default class DrawRect extends Draw implements InterfaceDrawRect {
     let x = this.x;
     let y = this.y;
     this.context.save();
+    this.context.beginPath()
 
     if (this.onRotate) {
       const { x: newX, y: newY } = this.implementRotate();
@@ -50,6 +51,7 @@ export default class DrawRect extends Draw implements InterfaceDrawRect {
     this.context[`${this.type}Rect`](x, y, this.width, this.height);
     this.context[this.type]();
 
+    this.context.closePath()
     this.context.restore();
   }
 }
