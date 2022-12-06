@@ -1,6 +1,7 @@
+import Draw from "../Draw/Draw";
 import InterfaceDrawRect from "./InterfaceDrawRect";
 
-export default class DrawRect implements InterfaceDrawRect {
+export default class DrawRect extends Draw implements InterfaceDrawRect {
   constructor(
     private context: CanvasRenderingContext2D,
     public x: number,
@@ -9,7 +10,9 @@ export default class DrawRect implements InterfaceDrawRect {
     public height: number,
     public color: string | CanvasPattern,
     public type: "fill" | "stroke"
-  ) {}
+  ) {
+    super()
+  }
 
   public render(): void {
     this.context[`${this.type}Style`] = this.color;

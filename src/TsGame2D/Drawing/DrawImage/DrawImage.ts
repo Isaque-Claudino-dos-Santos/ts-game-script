@@ -1,6 +1,7 @@
 import InterfaceDrawImage from "./InterfaceDrawImage";
+import Draw from "../Draw";
 
-export default class DrawImage implements InterfaceDrawImage {
+export default class DrawImage extends Draw implements InterfaceDrawImage {
   constructor(
     private context: CanvasRenderingContext2D,
     public imageElement: HTMLImageElement,
@@ -12,7 +13,9 @@ export default class DrawImage implements InterfaceDrawImage {
     public imageY: number,
     public imageWidth: number,
     public imageHeight: number
-  ) {}
+  ) {
+    super()
+  }
 
   render(): void {
     this.context.drawImage(

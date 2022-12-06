@@ -1,6 +1,7 @@
+import Draw from "../Draw/Draw";
 import InterfaceDrawText from "./InterfaceDrawText";
 
-export default class DrawText implements InterfaceDrawText {
+export default class DrawText extends Draw implements InterfaceDrawText {
   constructor(
     private context: CanvasRenderingContext2D,
     public x: number,
@@ -15,7 +16,9 @@ export default class DrawText implements InterfaceDrawText {
     public align: CanvasTextAlign,
     public text: string,
     public maxWidth: number
-  ) {}
+  ) {
+    super()
+  }
 
   public render(): void {
     this.context[`${this.type}Style`] = this.color;
