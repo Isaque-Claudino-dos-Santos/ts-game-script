@@ -1,4 +1,4 @@
-namespace TypeShapes {
+namespace TypeDraw {
   export type Rect = {
     x: number;
     y: number;
@@ -21,4 +21,4 @@ namespace TypeShapes {
   };
 }
 
-export default TypeShapes;
+export default TypeDraw;
