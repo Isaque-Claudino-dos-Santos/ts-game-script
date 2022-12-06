@@ -2,7 +2,7 @@ import DisplayHandler from "./Handlers/DisplayHandler";
 import Drawing from "./Drawing";
 import KeyBoard from "./KeyBoard";
 import GameLoop from "./GameLoop";
-import MouseKey from "./Mouse";
+import Mouse from "./Mouse";
 import Collider from './Collider'
 
 export default interface InterfaceTsGame2D {
@@ -10,6 +10,6 @@ export default interface InterfaceTsGame2D {
   readonly draw: Drawing;
   readonly keyBoard: KeyBoard;
   readonly gameLoop: GameLoop;
-  readonly mouse: MouseKey;
+  readonly mouse: Mouse;
   readonly collider: Collider
 }

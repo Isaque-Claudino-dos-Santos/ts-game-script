@@ -1,34 +1,25 @@
 import InterfaceMouse from "./InterfaceMouse";
-import MouseDown from "./MouseDown";
-import MouseUp from "./MouseUp";
-import MouseMove from "./MouseMove";
 import TypeMouse from "../Types/TypeMouse";
 
 export default class Mouse implements InterfaceMouse {
-  private readonly down: MouseDown;
-  private readonly up: MouseUp;
-  private readonly move: MouseMove;
-
-  point: TypeMouse.Point = { x: 0, y: 0 };
-
-  constructor(elementRef: HTMLElement) {
-    this.down = new MouseDown(elementRef);
-    this.up = new MouseUp(elementRef);
-    this.move = new MouseMove(elementRef);
-
-    this.down.handlerEvent = (event: MouseEvent) => {
-      this.down.buttonID = event.button;
-      this.down.active = true;
-      this.up.active = false;
+  public point: TypeMouse.Point = { x: 0, y: 0 };
+  public isDown: boolean = false;
+  public button: number;
+  constructor(private readonly elementRef: HTMLElement) {
+    this.elementRef.onmousedown = (event: MouseEvent) => {
+      this.button = event.button;
+      this.isDown = true;
     };
 
-    this.up.handlerEvent = (event: MouseEvent) => {
-      this.up.buttonID = event.button;
-      this.up.active = true;
-      this.down.active = false;
+    this.elementRef.onmouseup = (event: MouseEvent) => {
+      this.button = event.button;
+      this.isDown = false;
     };
 
-    this.point.x = this.move.mouseX;
-    this.point.y = this.move.mouseY;
+    this.elementRef.onmousemove = (event: MouseEvent) => {
+      const [x, y] = [event.offsetX, event.offsetY];
+      this.point.x = x;
+      this.point.y = y;
+    };
   }
 }

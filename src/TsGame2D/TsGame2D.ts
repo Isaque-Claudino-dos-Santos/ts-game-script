@@ -4,7 +4,7 @@ import InterfaceTsGame2D from "./InterfaceTsGame2D";
 import Context2D from "./Context2D";
 import Keyboard from "./KeyBoard";
 import GameLoop from "./GameLoop";
-import MouseKey from "./Mouse";
+import Mouse from "./Mouse";
 import Collider from "./Collider";
 
 export default class TsGame2D implements InterfaceTsGame2D {
@@ -13,6 +13,6 @@ export default class TsGame2D implements InterfaceTsGame2D {
   public readonly draw: Drawing = new Drawing(this.context.ref);
   public readonly keyBoard: Keyboard = new Keyboard();
   public readonly gameLoop: GameLoop = new GameLoop();
-  public readonly mouse: MouseKey = new MouseKey(this.display.screen);
+  public readonly mouse: Mouse = new Mouse(this.display.screen);
   public readonly collider: Collider = new Collider();
 }

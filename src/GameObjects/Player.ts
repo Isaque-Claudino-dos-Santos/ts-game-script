@@ -1,5 +1,6 @@
 import DrawRect from "../TsGame2D/Drawing/DrawRect";
 import DrawText from "../TsGame2D/Drawing/DrawText";
+import Mesure from "../TsGame2D/Mesure";
 import TsGame2D from "../TsGame2D/TsGame2D";
 
 export default class Player {
@@ -15,10 +16,23 @@ export default class Player {
       color: "blue",
     });
 
+    this.draw.onRotate = true;
+    this.draw.originX = this.draw.width / 2;
+    this.draw.originY = this.draw.height / 2;
+
     this.nick = this.tsg.draw.text({
       text: "The Player",
       color: "white",
     });
+  }
+
+  mirar() {
+    const catX = Mesure.cathetus(this.draw.originX, this.tsg.mouse.point.x);
+    const catY = Mesure.cathetus(this.draw.originY, this.tsg.mouse.point.y);
+    const angle = Math.atan2(catY, catX);
+    console.log(catY);
+    
+    this.draw.angle = angle;
   }
 
   freeMoviment(): void {
@@ -38,5 +52,6 @@ export default class Player {
   update(): void {
     this.freeMoviment();
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
+    this.mirar();
   }
 }
