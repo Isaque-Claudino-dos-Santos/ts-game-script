@@ -33,6 +33,15 @@ namespace TypeDraw {
     text: string;
     maxWidth: number;
   } & Position;
+
+  export type Arc = {
+    radius: number;
+    startAngle: number;
+    endAngle: number;
+    counterclockwise: boolean;
+    type: "fill" | "stroke";
+    color: CanvasPattern | string;
+  } & Position;
 }
 
 export default TypeDraw;
