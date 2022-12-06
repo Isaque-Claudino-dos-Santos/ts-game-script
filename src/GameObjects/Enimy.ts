@@ -6,8 +6,8 @@ export default class Enimy {
   private readonly draw: DrawRect;
   private readonly nick: DrawText;
 
-  constructor(tsg: TsGame2D) {
-    this.draw = tsg.draw.rect({
+  constructor(private tsg: TsGame2D) {
+    this.draw = this.tsg.draw.rect({
       x: 250,
       y: 120,
       width: 30,
@@ -15,7 +15,7 @@ export default class Enimy {
       color: "red",
     });
 
-    this.nick = tsg.draw.text({
+    this.nick = this.tsg.draw.text({
       text: "The Enimy",
       color: "white",
     });
@@ -23,10 +23,14 @@ export default class Enimy {
 
   public update(): void {
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
+
+    this.tsg.mouse.checkClickRect(this.draw, () => {
+      console.log('ok')
+    });
   }
 
   public render(): void {
     this.draw.render();
-    this.nick.render()
+    this.nick.render();
   }
 }
