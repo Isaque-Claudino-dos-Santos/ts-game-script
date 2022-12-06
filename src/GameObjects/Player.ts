@@ -2,10 +2,13 @@ import DrawRect from "../TsGame2D/Drawing/DrawRect";
 import DrawText from "../TsGame2D/Drawing/DrawText";
 import Mesure from "../TsGame2D/Mesure";
 import TsGame2D from "../TsGame2D/TsGame2D";
+import Bullet from "./Bullet";
 
 export default class Player {
   private readonly draw: DrawRect;
   private readonly nick: DrawText;
+
+  private readonly bullets: Bullet[] = [];
 
   constructor(private tsg: TsGame2D) {
     this.draw = this.tsg.draw.rect({
@@ -23,6 +26,19 @@ export default class Player {
     this.nick = this.tsg.draw.text({
       text: "The Player",
       color: "white",
+    });
+  }
+
+  shoot() {
+    const mouse = this.tsg.mouse;
+
+    mouse.onClick(({ x, y }) => {
+      const bullet = new Bullet(this.tsg);
+      bullet.draw.x = this.draw.x + this.draw.width / 2;
+      bullet.draw.y = this.draw.y + this.draw.height / 2;
+      bullet.catX = x - bullet.draw.x;
+      bullet.catY = y - bullet.draw.y;
+      this.bullets.push(bullet);
     });
   }
 
@@ -52,11 +68,15 @@ export default class Player {
   render(): void {
     this.draw.render();
     this.nick.render();
+
+    this.bullets.forEach((b) => b.render());
   }
 
   update(): void {
     this.mirar();
     this.freeMoviment();
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
+    this.shoot();
+    this.bullets.forEach((b) => b.goToTarget());
   }
 }
