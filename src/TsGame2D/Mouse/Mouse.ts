@@ -9,7 +9,7 @@ export default class Mouse implements InterfaceMouse {
   private readonly up: MouseUp;
   private readonly move: MouseMove;
 
-  point: TypeMouse.Point;
+  point: TypeMouse.Point = { x: 0, y: 0 };
 
   constructor(elementRef: HTMLElement) {
     this.down = new MouseDown(elementRef);
