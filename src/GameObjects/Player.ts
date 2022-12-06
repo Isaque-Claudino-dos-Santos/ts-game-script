@@ -34,11 +34,12 @@ export default class Player {
 
     mouse.onClick(({ x, y }) => {
       const bullet = new Bullet(this.tsg);
-      bullet.draw.x = this.draw.x + this.draw.width / 2;
-      bullet.draw.y = this.draw.y + this.draw.height / 2;
-      bullet.catX = x - bullet.draw.x;
-      bullet.catY = y - bullet.draw.y;
+      bullet.draw.x = this.draw.x + this.draw.originX;
+      bullet.draw.y = this.draw.y + this.draw.originY;
+      bullet.angle = this.draw.angle;
+      bullet.slot = this.bullets.length;
       this.bullets.push(bullet);
+      console.log(this.bullets)
     });
   }
 
@@ -77,6 +78,7 @@ export default class Player {
     this.freeMoviment();
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
     this.shoot();
+    this.bullets.forEach((b) => b.ruleToDestroy(this.bullets));
     this.bullets.forEach((b) => b.goToTarget());
   }
 }
