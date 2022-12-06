@@ -27,12 +27,17 @@ export default class Player {
   }
 
   mirar() {
-    const catX = Mesure.cathetus(this.draw.originX, this.tsg.mouse.point.x);
-    const catY = Mesure.cathetus(this.draw.originY, this.tsg.mouse.point.y);
+    const catX = Mesure.cathetus(
+      this.draw.x + this.draw.width / 2,
+      this.tsg.mouse.point.x
+    );
+    const catY = Mesure.cathetus(
+      this.draw.y + this.draw.height / 2,
+      this.tsg.mouse.point.y
+    );
     const angle = Math.atan2(catY, catX);
-    console.log(catY);
-    
-    this.draw.angle = angle;
+
+    this.draw.angle = Mesure.toDeg(angle);
   }
 
   freeMoviment(): void {
@@ -50,8 +55,8 @@ export default class Player {
   }
 
   update(): void {
+    this.mirar();
     this.freeMoviment();
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
-    this.mirar();
   }
 }
