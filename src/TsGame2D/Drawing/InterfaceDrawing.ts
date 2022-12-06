@@ -1,4 +1,4 @@
-import TypeShapes from "../Types/TypeShapes";
+import TypeShapes from "../Types/TypeDraw";
 import DrawRect from "./DrawRect";
 import DrawImage from "./DrawImage";
 

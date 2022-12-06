@@ -1,5 +1,5 @@
-import TypeShapes from "../../Types/TypeShapes";
+import TypeDraw from "../../Types/TypeDraw";
 
-export default interface InterfaceDrawRect extends TypeShapes.Rect {
+export default interface InterfaceDrawRect extends TypeDraw.Rect {
   render(): void;
 }

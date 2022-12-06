@@ -1,4 +1,4 @@
-import TypeShapes from "../Types/TypeShapes";
+import TypeDraw from "../Types/TypeDraw";
 import DrawImage from "./DrawImage";
 import DrawRect from "./DrawRect";
 
@@ -7,7 +7,7 @@ import InterfaceDrawing from "./InterfaceDrawing";
 export default class Drawing implements InterfaceDrawing {
   constructor(readonly context: CanvasRenderingContext2D) {}
 
-  public rect(dataRect: Partial<TypeShapes.Rect>): DrawRect {
+  public rect(dataRect: Partial<TypeDraw.Rect>): DrawRect {
     return new DrawRect(
       this.context,
       dataRect.x ?? 0,
@@ -19,7 +19,7 @@ export default class Drawing implements InterfaceDrawing {
     );
   }
 
-  public image(dataImage?: Partial<TypeShapes.Image>): DrawImage {
+  public image(dataImage?: Partial<TypeDraw.Image>): DrawImage {
     return new DrawImage(
       this.context,
       dataImage.imageElement,
