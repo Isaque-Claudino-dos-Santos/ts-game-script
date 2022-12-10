@@ -7,7 +7,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
-  entry: ["./src/index.ts", "./TsGame2D/index.ts"],
+  entry: {
+    main: "./src/index.ts",
+    vendor: "./TsGame2D/index.ts",
+  },
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
