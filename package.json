@@ -3,6 +3,7 @@
   "description": "Create game with TypeScript",
   "name": "ts-2d-game-engine",
   "author": "Isaque-Claudino-dos-Santos",
+  "type": "module",
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@webpack-cli/generators": "^2.5.0",
@@ -25,6 +26,8 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "test": "jest"
+    "test": "jest",
+
+    "game:obj": "npx ts-node vendor/TsGameCommands/index.ts"
   }
 }
