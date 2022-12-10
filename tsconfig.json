@@ -5,10 +5,10 @@
     "module": "ES6",
     "target": "ES6",
     "allowJs": true,
-    "rootDirs": ["TsGame2D", "src"],
+    "rootDirs": ["vendor/TsGame2D", "src"],
     "outDir": "dist",
     "moduleResolution": "Node"
   },
-  "files": ["src/index.ts","TsGame2D/index.ts"],
+  "files": ["src/index.ts","vendor/TsGame2D/index.ts"],
   "exclude": ["node_modules", "./jest.config.ts", "src/**/*.test.ts"]
 }

@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV == "production";
 const config = {
   entry: {
     main: "./src/index.ts",
-    vendor: "./TsGame2D/index.ts",
+    vendor: "./vendor/TsGame2D/index.ts",
   },
   output: {
     filename: "index.js",
