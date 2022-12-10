@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
-  entry: "./src/index.ts",
+  entry: ["./src/index.ts", "./TsGame2D/index.ts"],
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
@@ -36,7 +36,6 @@ const config = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg|webp)$/i,
         type: "asset/resource",
         use: [{ loader: "file-loader" }],
-
       },
 
       // Add your rules for custom modules here
