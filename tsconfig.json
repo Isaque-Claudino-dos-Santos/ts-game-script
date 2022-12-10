@@ -9,6 +9,6 @@
     "outDir": "dist",
     "moduleResolution": "Node"
   },
-  "files": ["src/index.ts"],
+  "files": ["src/index.ts","TsGame2D/index.ts"],
   "exclude": ["node_modules", "./jest.config.ts", "src/**/*.test.ts"]
 }
