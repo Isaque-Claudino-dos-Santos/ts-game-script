@@ -7,8 +7,11 @@
     "allowJs": true,
     "rootDirs": ["vendor/TsGame2D", "src"],
     "outDir": "dist",
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
   },
+ 
+
   "files": ["src/index.ts","vendor/TsGame2D/index.ts"],
   "exclude": ["node_modules", "./jest.config.ts", "src/**/*.test.ts"]
 }
