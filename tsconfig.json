@@ -10,6 +10,20 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
   },
+
+  "ts-node": {
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": true,
+      "module": "ES6",
+      "target": "ES6",
+      "allowJs": true,
+      "rootDirs": ["vendor/TsGameCommands"],
+      "outDir": "dist",
+      "moduleResolution": "Node",
+      "esModuleInterop": true,
+    },
+  },
  
 
   "files": ["src/index.ts","vendor/TsGame2D/index.ts"],
