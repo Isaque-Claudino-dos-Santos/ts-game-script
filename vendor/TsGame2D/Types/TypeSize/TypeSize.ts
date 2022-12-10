@@ -6,6 +6,8 @@ namespace TypeSize {
     width: Width;
     height: Height;
   };
+
+  export type Radius = { radius: number };
 }
 
 export default TypeSize;

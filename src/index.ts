@@ -12,10 +12,18 @@ const loop = tsg.gameLoop;
 
 loop.onUpdate = () => {
   player.moviment();
+  if (
+    !tsg.collider.arc.touch(
+      player.draw,
+      ball.draw,
+      () => (ball.draw.color = "blue")
+    )
+  )
+    ball.draw.color = "grey";
 };
 
 loop.onRender = () => {
-    background.render()
+  background.render();
   ball.render();
   player.render();
 };
