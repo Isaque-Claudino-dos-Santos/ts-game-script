@@ -3,7 +3,6 @@
   "description": "Create game with TypeScript",
   "name": "ts-2d-game-engine",
   "author": "Isaque-Claudino-dos-Santos",
-  "type": "module",
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@webpack-cli/generators": "^2.5.0",
