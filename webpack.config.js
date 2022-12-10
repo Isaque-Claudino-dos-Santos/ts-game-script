@@ -12,7 +12,8 @@ const config = {
     vendor: "./vendor/TsGame2D/index.ts",
   },
   output: {
-    filename: "index.js",
+    filename: "[name].js",
+    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
