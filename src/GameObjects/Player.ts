@@ -6,7 +6,7 @@ import Bullet from "./Bullet";
 import Enimy from "./Enimy";
 
 export default class Player {
-  private readonly draw: DrawRect;
+  public readonly draw: DrawRect;
   private readonly nick: DrawText;
 
   private readonly bullets: Bullet[] = [];
