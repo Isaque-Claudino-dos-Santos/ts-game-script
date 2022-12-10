@@ -3,8 +3,8 @@ import DrawRect from "../TsGame2D/Drawing/DrawRect";
 import DrawText from "../TsGame2D/Drawing/DrawText";
 
 export default class Enimy {
-  private readonly draw: DrawRect;
-  private readonly nick: DrawText;
+  public readonly draw: DrawRect;
+  public readonly nick: DrawText;
 
   constructor(private tsg: TsGame2D) {
     this.draw = this.tsg.draw.rect({

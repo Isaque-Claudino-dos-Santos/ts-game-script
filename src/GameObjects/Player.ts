@@ -3,6 +3,7 @@ import DrawText from "../TsGame2D/Drawing/DrawText";
 import Mesure from "../TsGame2D/Mesure";
 import TsGame2D from "../TsGame2D/TsGame2D";
 import Bullet from "./Bullet";
+import Enimy from "./Enimy";
 
 export default class Player {
   private readonly draw: DrawRect;
@@ -10,7 +11,7 @@ export default class Player {
 
   private readonly bullets: Bullet[] = [];
 
-  constructor(private tsg: TsGame2D) {
+  constructor(private tsg: TsGame2D, private enimy: Enimy) {
     this.draw = this.tsg.draw.rect({
       x: 10,
       y: 10,
@@ -32,7 +33,7 @@ export default class Player {
   shoot() {
     const mouse = this.tsg.mouse;
 
-    mouse.onClick(({ x, y }) => {
+    mouse.onClick(() => {
       const bullet = new Bullet(this.tsg);
       bullet.draw.x = this.draw.x + this.draw.originX;
       bullet.draw.y = this.draw.y + this.draw.originY;
@@ -77,7 +78,10 @@ export default class Player {
     this.freeMoviment();
     this.nick.relativeWith(this.draw, this.draw.width / 2, -2);
     this.shoot();
-    this.bullets.forEach((b) => b.ruleToDestroy(this.bullets));
-    this.bullets.forEach((b) => b.goToTarget());
+    this.bullets.forEach((b) => {
+      b.checkEnimyCollider(this.enimy,this.bullets);
+      b.ruleToDestroy(this.bullets);
+      b.goToTarget();
+    });
   }
 }

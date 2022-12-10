@@ -8,8 +8,8 @@ const tsg: TsGame2D = new TsGame2D();
 const loop = tsg.gameLoop;
 
 const background = new Background(tsg);
-const player = new Player(tsg);
 const enimy = new Enimy(tsg);
+const player = new Player(tsg,enimy);
 
 loop.onUpdate = () => {
   player.update();
