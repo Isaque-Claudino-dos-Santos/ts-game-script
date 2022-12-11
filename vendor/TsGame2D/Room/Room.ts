@@ -49,12 +49,13 @@ export default class Room implements InterfaceRoom {
   }
 
   public callUpdate(): void {
-    if (!this.existCurrentRoom()) return;
+    if (!this.existCurrentRoom() || !this.currentRoom.active) return;
     this.currentRoom.update();
   }
 
   public callRender(): void {
-    if (!this.existCurrentRoom()) return;
+    if (!this.existCurrentRoom() || !this.currentRoom.active) return;
+
     this.currentRoom.render();
   }
 }
