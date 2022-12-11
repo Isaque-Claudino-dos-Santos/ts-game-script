@@ -6,6 +6,7 @@
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@webpack-cli/generators": "^2.5.0",
+    "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "file-loader": "^6.2.0",
@@ -26,7 +27,6 @@
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "jest",
-
     "game": "npx ts-node vendor/TsGameCommands/index.ts"
   }
 }
