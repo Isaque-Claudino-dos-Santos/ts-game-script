@@ -1,6 +1,12 @@
-import Command from './Command'
+import dotenv from 'dotenv';
+dotenv.config();
 
-const args:string[] = process.argv
+import Command from './Commands';
 
+const args: string[] = process.argv.slice(2, process.argv.length);
 
-const command = new Command(args)
+console.log('ARGS: ', args);
+
+const command = new Command(args);
+
+command.execute();
