@@ -27,6 +27,6 @@
     "serve": "webpack serve",
     "test": "jest",
 
-    "game:obj": "npx ts-node vendor/TsGameCommands/index.ts"
+    "game": "npx ts-node vendor/TsGameCommands/index.ts"
   }
 }
