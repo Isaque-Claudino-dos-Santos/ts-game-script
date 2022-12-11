@@ -19,12 +19,6 @@
 > ```
 > npm run game [verb]=[action] [options [flag=value]]
 > ```
->
-> ## Example
->
-> ```
-> npm run game create=object name=player draw=arc
-> ```
 
 > ## Options
 >
@@ -32,3 +26,16 @@
 > | ---- | ---------------------- | -------- | ------- |
 > | name | name of class and file | True     | Error   |
 > | draw | rect,text,arc,image    | False    | rect    |
+
+> ## Create
+>
+> ```
+> npm run game create=[optionCreate] [options [flag=value]]
+> ```
+>
+> ### What Write
+>
+> | create=... | options    |
+> | ---------- | ---------- |
+> | object     | name, draw |
+> | room       | name       |
