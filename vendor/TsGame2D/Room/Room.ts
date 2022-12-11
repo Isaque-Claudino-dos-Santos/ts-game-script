@@ -32,6 +32,15 @@ export default class Room implements InterfaceRoom {
     this.currentRoom = nextRoom;
   }
 
+  public disable(name: string): void {
+    if (!this.existRoom(name)) return;
+    const nextRoom = this.rooms[name];
+    nextRoom.active = false;
+
+    if (this.existCurrentRoom()) this.currentRoom.active = false;
+    this.currentRoom = nextRoom;
+  }
+
   public setLoop(name: string, render: () => void, update: () => void): void {
     if (!this.existRoom(name)) return;
 
