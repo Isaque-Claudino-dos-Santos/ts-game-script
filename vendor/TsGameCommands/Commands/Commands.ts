@@ -1,7 +1,6 @@
 import InterfaceCommands from './InterfaceCommands';
 import CommandCreate from './CommandCreate';
 import TypeCommand from '../Types/TypeCommand';
-import { BlockLike } from 'typescript';
 
 export default class Commands implements InterfaceCommands {
   private readonly action: string[];
