@@ -1,0 +1,16 @@
+import TsGame2D from '../../vendor/TsGame2D';
+import VAR_TYPE_DRAW from '../../vendor/TsGame2D/Drawing/VAR_TYPE_DRAW';
+
+export default class VAR_CLASS_NAME {
+  public readonly body: VAR_TYPE_DRAW;
+
+  constructor(private readonly tsg: TsGame2D) {
+    this.body = this.tsg.draw.VAR_METHOD_DRAW();
+  }
+
+  public update(): void {}
+
+  public render(): void {
+    this.body.render();
+  }
+}
