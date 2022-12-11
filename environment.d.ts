@@ -7,6 +7,7 @@ declare global {
       readonly APP_DIR_SRC: string;
       readonly APP_FILE_ENTRY: string;
       readonly APP_DIR_GAME_OBJECT: string;
+      readonly APP_DIR_GAME_ROOMS: string;
     }
   }
 }
