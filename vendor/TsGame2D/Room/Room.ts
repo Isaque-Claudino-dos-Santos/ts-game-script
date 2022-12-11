@@ -2,7 +2,7 @@ import TypeRoom from '../Types/TypeRoom';
 import InterfaceRoom from './InterfaceRoom';
 
 export default class Room implements InterfaceRoom {
-  private readonly rooms: { [index: string]: TypeRoom.Room };
+  private readonly rooms: { [index: string]: TypeRoom.Room } = {};
   private currentRoom: TypeRoom.Room;
 
   private existRoom(name: string): boolean {
