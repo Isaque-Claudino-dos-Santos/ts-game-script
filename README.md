@@ -1,15 +1,34 @@
-# 🚀 Welcome to your new awesome project!
+# 🎮 Create Game in TypeScript
 
-This project has been created using **webpack-cli**, you can now run
+> ## Build Project
+>
+> ```
+> npm run build
+> ```
+>
+> ## Run Server
+>
+> ```
+> npm run serve
+> ```
 
-```
-npm run build
-```
+<hr>
 
-or
+> # Command to game
+>
+> ```
+> npm run game [verb]=[action] [options [flag=value]]
+> ```
+>
+> ## Example
+>
+> ```
+> npm run game create=object name=player draw=arc
+> ```
 
-```
-yarn build
-```
-
-to bundle your application
+> ## Options
+>
+> | Flag | Values                 | Required | Default |
+> | ---- | ---------------------- | -------- | ------- |
+> | name | name of class and file | True     | Error   |
+> | draw | rect,text,arc,image    | False    | rect    |
