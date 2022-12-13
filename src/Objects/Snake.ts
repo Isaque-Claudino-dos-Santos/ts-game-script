@@ -4,7 +4,7 @@ import DrawRect from '../../vendor/TsGame2D/Drawing/DrawRect';
 export default class Snake {
   public readonly body: DrawRect;
 
-  public controller = {
+  private controller = {
     left: 'a',
     top: 'w',
     right: 'd',
