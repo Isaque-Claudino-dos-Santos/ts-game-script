@@ -1,8 +1,9 @@
-import InterfaceMouse from "./InterfaceMouse";
-import TypeMouse from "../Types/TypeMouse";
+import InterfaceMouse from './InterfaceMouse';
+import TypeMouse from '../Types/TypeMouse';
 
 export default class Mouse implements InterfaceMouse {
-  public point: TypeMouse.Point = { x: 0, y: 0 };
+  public mouseX: number;
+  public mouseY: number;
   public isDown: boolean = false;
   public click: boolean = false;
   public button: number;
@@ -21,26 +22,27 @@ export default class Mouse implements InterfaceMouse {
 
     this.elementRef.onmousemove = (event: MouseEvent) => {
       const [x, y] = [event.offsetX, event.offsetY];
-      this.point.x = x;
-      this.point.y = y;
+      this.mouseX = x;
+      this.mouseY = y;
     };
   }
 
   onClick(
-    callback: (point: TypeMouse.Point) => void,
-    button: keyof TypeMouse.ButtonByID = "0"
+    callback: (mouseX: number, mouseY: number) => void,
+    button: keyof TypeMouse.ButtonByID = '0'
   ): void {
     if (this.click && this.isDown && this.button === Number(button))
-      callback(this.point);
+      callback(this.mouseX, this.mouseY);
 
     this.click = false;
     this.button = undefined;
   }
 
   onDown(
-    callback: (point: TypeMouse.Point) => void,
-    button: keyof TypeMouse.ButtonByID = "0"
+    callback: (mouseX: number, mouseY: number) => void,
+    button: keyof TypeMouse.ButtonByID = '0'
   ) {
-    if (this.isDown && this.button === Number(button)) callback(this.point);
+    if (this.isDown && this.button === Number(button))
+      callback(this.mouseX, this.mouseY);
   }
 }

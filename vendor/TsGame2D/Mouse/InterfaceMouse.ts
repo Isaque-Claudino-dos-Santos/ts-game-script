@@ -1,5 +1,4 @@
-import TypeMouse from '../Types/TypeMouse'
-
 export default interface InterfaceMouse {
-    point: TypeMouse.Point
+  mouseX: number;
+  mouseY: number;
 }
