@@ -9,6 +9,8 @@ import Collider from './Collider';
 import Room from './Room';
 
 export default class TsGame2D implements InterfaceTsGame2D {
+  public fps: number = 60;
+
   public readonly display: DisplayHandler = new DisplayHandler();
   private readonly context: Context2D = new Context2D(this.display.screen);
   public readonly draw: Drawing = new Drawing(this.context.ref);
@@ -23,6 +25,6 @@ export default class TsGame2D implements InterfaceTsGame2D {
     this.room.active('main');
     this.gameLoop.onUpdate = () => this.room.callUpdate();
     this.gameLoop.onRender = () => this.room.callRender();
-    this.gameLoop.init();
+    this.gameLoop.init(this.fps);
   }
 }

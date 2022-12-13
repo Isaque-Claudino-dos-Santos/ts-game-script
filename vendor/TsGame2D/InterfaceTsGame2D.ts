@@ -7,6 +7,8 @@ import Collider from './Collider';
 import Room from './Room';
 
 export default interface InterfaceTsGame2D {
+  fps: number;
+
   readonly display: DisplayHandler;
   readonly draw: Drawing;
   readonly keyBoard: KeyBoard;
