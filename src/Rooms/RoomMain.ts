@@ -20,7 +20,11 @@ export default class RoomMain {
       ...tsg.display.getSize(),
     });
 
-    snake.setTarget(new Fruit(this.tsg, this.size));
+    this.aplicateRule();
+  }
+
+  private aplicateRule(): void {
+    this.snake.setTarget(new Fruit(this.tsg, this.size));
   }
 
   public update = () => {
