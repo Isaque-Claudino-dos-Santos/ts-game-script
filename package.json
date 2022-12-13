@@ -27,6 +27,6 @@
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "jest",
-    "game": "npx ts-node vendor/TsGameCommands/index.ts"
+    "game": "npx ts-node vendor/TsGameCommands"
   }
 }
