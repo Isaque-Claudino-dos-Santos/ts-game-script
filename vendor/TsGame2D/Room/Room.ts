@@ -58,4 +58,8 @@ export default class Room implements InterfaceRoom {
 
     this.currentRoom.render();
   }
+
+  public current(): string {
+    if (this.existCurrentRoom()) return this.currentRoom.name;
+  }
 }
