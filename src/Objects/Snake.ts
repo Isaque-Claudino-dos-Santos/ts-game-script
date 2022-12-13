@@ -19,9 +19,9 @@ export default class Snake {
     down: false,
   };
 
-  private target: Fruit;
-
   private movimentTime = 0;
+
+  private target: Fruit;
 
   constructor(private readonly tsg: TsGame2D, private readonly size: number) {
     this.body = this.tsg.draw.rect({
