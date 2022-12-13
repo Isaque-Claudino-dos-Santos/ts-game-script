@@ -15,7 +15,10 @@ export default class Fruit {
   }
 
   private randomPosition(): number {
-    return Math.floor(Math.random() * this.tsg.display.width);
+    const r: number =
+      Math.round((Math.random() * this.tsg.display.width) / 40) * this.size;
+
+    return r;
   }
 
   public update(): void {}
