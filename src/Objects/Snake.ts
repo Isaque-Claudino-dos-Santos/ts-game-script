@@ -88,7 +88,6 @@ export default class Snake {
 
   public render(): void {
     this.body.render();
-    if (typeof this.target === 'undefined') return;
-    this.target.render();
+    if (typeof this.target !== 'undefined') this.target.render();
   }
 }
