@@ -3,5 +3,5 @@ export default interface GameLoopInterface {
   onRender: () => void;
   onUpdate: () => void;
   onEnd: () => void;
-  init(fps: number): void;
+  init(): void;
 }

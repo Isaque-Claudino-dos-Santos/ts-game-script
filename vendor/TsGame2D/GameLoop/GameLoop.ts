@@ -8,11 +8,11 @@ export default class GameLoop implements InterfaceGameLoop {
   private loop = () => {
     this.onUpdate();
     this.onRender();
+    requestAnimationFrame(this.loop);
   };
 
-  public init(fps: number): void {
+  public init(): void {
     this.onStart();
-    setInterval(this.loop, 1000 / fps);
     this.loop();
     this.onEnd();
   }
