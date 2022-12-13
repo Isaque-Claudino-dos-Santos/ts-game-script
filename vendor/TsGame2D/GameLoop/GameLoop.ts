@@ -1,4 +1,4 @@
-import InterfaceGameLoop from "./InterfaceGameLoop";
+import InterfaceGameLoop from './InterfaceGameLoop';
 export default class GameLoop implements InterfaceGameLoop {
   public onStart = () => {};
   public onRender = () => {};
@@ -8,12 +8,12 @@ export default class GameLoop implements InterfaceGameLoop {
   private loop = () => {
     this.onUpdate();
     this.onRender();
-    requestAnimationFrame(this.loop);
   };
 
-  public init() {
+  public init(fps: number): void {
     this.onStart();
+    setInterval(this.loop, 1000 / fps);
     this.loop();
     this.onEnd();
-  };
+  }
 }
