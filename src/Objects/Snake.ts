@@ -4,11 +4,67 @@ import DrawRect from '../../vendor/TsGame2D/Drawing/DrawRect';
 export default class Snake {
   public readonly body: DrawRect;
 
-  constructor(private readonly tsg: TsGame2D) {
-    this.body = this.tsg.draw.rect();
+  public controller = {
+    left: 'a',
+    top: 'w',
+    right: 'd',
+    down: 's',
+  };
+
+  private stateDirectionMoviment = {
+    left: false,
+    top: false,
+    right: false,
+    down: false,
+  };
+
+  constructor(private readonly tsg: TsGame2D, private readonly size: number) {
+    this.body = this.tsg.draw.rect({
+      width: this.size,
+      height: this.size,
+      color: 'blue',
+    });
   }
 
-  public update(): void {}
+  private resetStateDirectionMoviment(): void {
+    this.stateDirectionMoviment = {
+      left: false,
+      top: false,
+      right: false,
+      down: false,
+    };
+  }
+
+  private onMoviment(): void {
+    const { check } = this.tsg.keyBoard.click;
+    const { down, left, right, top } = this.stateDirectionMoviment;
+
+    if (check(this.controller.right) && !left) {
+      this.resetStateDirectionMoviment();
+      this.stateDirectionMoviment.right = true;
+    }
+    if (check(this.controller.left) && !right) {
+      this.resetStateDirectionMoviment();
+      this.stateDirectionMoviment.left = true;
+    }
+    if (check(this.controller.top) && !down) {
+      this.resetStateDirectionMoviment();
+      this.stateDirectionMoviment.top = true;
+    }
+    if (check(this.controller.down) && !top) {
+      this.resetStateDirectionMoviment();
+      this.stateDirectionMoviment.down = true;
+    }
+
+    if (right) this.body.x += this.size;
+    if (left) this.body.x -= this.size;
+    if (top) this.body.y -= this.size;
+    if (down) this.body.y += this.size;
+  }
+
+  public update(): void {
+    this.onMoviment();
+  }
 
   public render(): void {
     this.body.render();
