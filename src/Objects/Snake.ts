@@ -21,6 +21,8 @@ export default class Snake {
 
   private target: Fruit;
 
+  private movimentTime = 0;
+
   constructor(private readonly tsg: TsGame2D, private readonly size: number) {
     this.body = this.tsg.draw.rect({
       width: this.size,
@@ -63,10 +65,13 @@ export default class Snake {
       this.stateDirectionMoviment.down = true;
     }
 
-    if (right) this.body.x += this.size;
-    if (left) this.body.x -= this.size;
-    if (top) this.body.y -= this.size;
-    if (down) this.body.y += this.size;
+    if (this.movimentTime >= 10) {
+      if (right) this.body.x += this.size;
+      if (left) this.body.x -= this.size;
+      if (top) this.body.y -= this.size;
+      if (down) this.body.y += this.size;
+      this.movimentTime = 0;
+    } else this.movimentTime++;
   }
 
   private onCollectTarget(): void {
