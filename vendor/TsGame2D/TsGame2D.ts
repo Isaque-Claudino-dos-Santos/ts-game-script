@@ -17,4 +17,12 @@ export default class TsGame2D implements InterfaceTsGame2D {
   public readonly mouse: Mouse = new Mouse(this.display.screen);
   public readonly collider: Collider = new Collider();
   public readonly room: Room = new Room();
+
+  public init() {
+    this.room.create('main');
+    this.room.active('main');
+    this.gameLoop.onUpdate = () => this.room.callUpdate();
+    this.gameLoop.onRender = () => this.room.callRender();
+    this.gameLoop.init();
+  }
 }

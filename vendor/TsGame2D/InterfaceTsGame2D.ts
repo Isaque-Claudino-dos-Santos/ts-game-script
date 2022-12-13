@@ -14,4 +14,6 @@ export default interface InterfaceTsGame2D {
   readonly mouse: Mouse;
   readonly collider: Collider;
   readonly room: Room;
+
+  init(): void;
 }
