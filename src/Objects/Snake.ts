@@ -1,5 +1,6 @@
 import TsGame2D from '../../vendor/TsGame2D';
 import DrawRect from '../../vendor/TsGame2D/Drawing/DrawRect';
+import Fruit from './Fruit';
 
 export default class Snake {
   public readonly body: DrawRect;
@@ -18,12 +19,18 @@ export default class Snake {
     down: false,
   };
 
+  private target: Fruit;
+
   constructor(private readonly tsg: TsGame2D, private readonly size: number) {
     this.body = this.tsg.draw.rect({
       width: this.size,
       height: this.size,
       color: 'blue',
     });
+  }
+
+  public setTarget(target: Fruit): void {
+    this.target = target;
   }
 
   private resetStateDirectionMoviment(): void {
@@ -62,11 +69,21 @@ export default class Snake {
     if (down) this.body.y += this.size;
   }
 
+  private onCollectTarget(): void {
+    if (typeof this.target === 'undefined') return;
+    this.tsg.collider.rect.touch(this.body, this.target.body, () => {
+      this.body.color = 'yellow';
+    });
+  }
+
   public update(): void {
     this.onMoviment();
+    this.onCollectTarget();
   }
 
   public render(): void {
     this.body.render();
+    if (typeof this.target === 'undefined') return;
+    this.target.render();
   }
 }
