@@ -3,7 +3,6 @@ import RoomMain from './Rooms/RoomMain';
 import Snake from './Objects/Snake';
 
 const tsg: TsGame2D = new TsGame2D();
-tsg.fps = 10;
 tsg.init();
 
 tsg.display.setSize({
@@ -15,4 +14,4 @@ const size = tsg.display.width / 40;
 
 const snake = new Snake(tsg, size);
 
-new RoomMain(tsg, snake);
+new RoomMain(tsg, size, snake);
