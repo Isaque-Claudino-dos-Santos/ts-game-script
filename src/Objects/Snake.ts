@@ -77,7 +77,7 @@ export default class Snake {
   private onCollectTarget(): void {
     if (typeof this.target === 'undefined') return;
     this.tsg.collider.rect.touch(this.body, this.target.body, () => {
-      this.body.color = 'yellow';
+      this.target = undefined;
     });
   }
 
