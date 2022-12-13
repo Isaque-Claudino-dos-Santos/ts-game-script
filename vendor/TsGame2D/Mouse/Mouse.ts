@@ -4,9 +4,9 @@ import TypeMouse from '../Types/TypeMouse';
 export default class Mouse implements InterfaceMouse {
   public mouseX: number;
   public mouseY: number;
-  public isDown: boolean = false;
-  public click: boolean = false;
-  public button: number;
+  private isDown: boolean = false;
+  private click: boolean = false;
+  private button: number;
 
   constructor(private readonly elementRef: HTMLElement) {
     this.elementRef.onmousedown = (event: MouseEvent) => {
