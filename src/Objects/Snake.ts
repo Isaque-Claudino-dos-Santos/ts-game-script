@@ -3,7 +3,7 @@ import DrawRect from '../../vendor/TsGame2D/Drawing/DrawRect';
 import Fruit from './Fruit';
 
 export default class Snake {
-  public readonly head: DrawRect;
+  public readonly body: DrawRect;
 
   private controller = {
     left: 'a',
@@ -24,7 +24,7 @@ export default class Snake {
   private target: Fruit;
 
   constructor(private readonly tsg: TsGame2D, private readonly size: number) {
-    this.head = this.tsg.draw.rect({
+    this.body = this.tsg.draw.rect({
       width: this.size,
       height: this.size,
       color: 'blue',
@@ -66,17 +66,17 @@ export default class Snake {
     }
 
     if (this.movimentTime >= 10) {
-      if (right) this.head.x += this.size;
-      if (left) this.head.x -= this.size;
-      if (top) this.head.y -= this.size;
-      if (down) this.head.y += this.size;
+      if (right) this.body.x += this.size;
+      if (left) this.body.x -= this.size;
+      if (top) this.body.y -= this.size;
+      if (down) this.body.y += this.size;
       this.movimentTime = 0;
     } else this.movimentTime++;
   }
 
   private onCollectTarget(): void {
     if (typeof this.target === 'undefined') return;
-    this.tsg.collider.rect.touch(this.head, this.target.body, () => {
+    this.tsg.collider.rect.touch(this.body, this.target.body, () => {
       this.target = undefined;
     });
   }
@@ -87,7 +87,7 @@ export default class Snake {
   }
 
   public render(): void {
-    this.head.render();
+    this.body.render();
     if (typeof this.target !== 'undefined') this.target.render();
   }
 }
