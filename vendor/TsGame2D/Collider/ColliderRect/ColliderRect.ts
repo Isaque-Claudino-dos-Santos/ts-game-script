@@ -1,6 +1,6 @@
-import TypeCollider from "../../Types/TypeCollider";
-import InterfaceColliderSolidRect from "./InterfaceSolidRect";
-import Mesure from "../../Mesure";
+import TypeCollider from '../../Types/TypeCollider';
+import InterfaceColliderSolidRect from './InterfaceSolidRect';
+import Mesure from '../../Mesure';
 
 export default class ColliderRect implements InterfaceColliderSolidRect {
   solid(blocked: TypeCollider.Rect, blocker: TypeCollider.Rect): void {
@@ -43,7 +43,7 @@ export default class ColliderRect implements InterfaceColliderSolidRect {
     const sumHalfHeight: number = Mesure.collider.sumHalfHeight(rang, touched);
 
     if (catXAbs < sumHalfWidth && catYAbs < sumHalfHeight) {
-      if (typeof callback !== "undefined") callback();
+      if (typeof callback !== 'undefined') callback();
       return true;
     }
 
