@@ -5,12 +5,13 @@
     "module": "ES6",
     "target": "ES6",
     "allowJs": true,
-    "rootDirs": ["vendor/TsGame2D", "src"],
+    "rootDirs": ["TsGame2D", "src"],
     "outDir": "dist",
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "paths": {
-      "@TsGame2D": ["./vendor/TsGame2D"]
+      "@TsGame2D": ["./TsGame2D"],
+      "@Drawing": ["./TsGame2D/Drawing"]
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
@@ -30,6 +31,6 @@
     }
   },
 
-  "files": ["src/index.ts", "vendor/TsGame2D/index.ts"],
+  "files": ["src/index.ts", "TsGame2D/index.ts"],
   "exclude": ["node_modules", "./jest.config.ts", "src/**/*.test.ts"]
 }
