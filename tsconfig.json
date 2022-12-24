@@ -10,7 +10,7 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "paths": {
-      "@TsGame2D": ["./TsGame2D"],
+      "@TsGame2D/*": ["./TsGame2D/index.ts"],
       "@Drawing/*": ["./TsGame2D/Drawing/*"]
     },
     "emitDecoratorMetadata": true,

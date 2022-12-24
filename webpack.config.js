@@ -50,7 +50,7 @@ const config = {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
 
     alias: {
-      '@TsGame2D': path.resolve(__dirname, 'TsGame2D'),
+      '@TsGame2D': path.resolve(__dirname, 'TsGame2D', 'index.ts'),
       '@Drawing/*': path.resolve(__dirname, 'TsGame2D', 'Drawing/*'),
     },
   },
