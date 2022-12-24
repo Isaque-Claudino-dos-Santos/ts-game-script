@@ -8,7 +8,12 @@
     "rootDirs": ["vendor/TsGame2D", "src"],
     "outDir": "dist",
     "moduleResolution": "Node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@TsGame2D": ["./vendor/TsGame2D"]
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
 
   "ts-node": {

@@ -1,5 +1,5 @@
-import TsGame2D from '../vendor/TsGame2D';
+import TsGame2D from '@TsGame2D'
 
-const tsg: TsGame2D = new TsGame2D();
+const tsg = new TsGame2D()
 
-tsg.init();
+tsg.init()
