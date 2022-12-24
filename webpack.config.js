@@ -51,7 +51,7 @@ const config = {
 
     alias: {
       '@TsGame2D': path.resolve(__dirname, 'TsGame2D'),
-      '@Drawing': path.resolve(__dirname, 'TsGame2D', 'Drawing'),
+      '@Drawing/*': path.resolve(__dirname, 'TsGame2D', 'Drawing/*'),
     },
   },
 }

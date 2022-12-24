@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "paths": {
       "@TsGame2D": ["./TsGame2D"],
-      "@Drawing": ["./TsGame2D/Drawing"]
+      "@Drawing/*": ["./TsGame2D/Drawing/*"]
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
