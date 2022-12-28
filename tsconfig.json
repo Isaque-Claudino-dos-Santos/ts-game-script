@@ -9,11 +9,7 @@
     "outDir": "dist",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "paths": {
-      "@vendor/*": ["./vendor/*"],
-      "@TsGame2D": ["./vendor/TsGame2D/index.ts"],
-      "@Drawing/*": ["./vendor/TsGame2D/Drawing/*"]
-    },
+
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },

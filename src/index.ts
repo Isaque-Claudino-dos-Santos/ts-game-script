@@ -1,2 +1,3 @@
-import TsGame2D from '@TsGame2D'
-import DrawRect from '@Drawing/DrawRect'
+import TsGame2D from '../vendor/TsGame2D'
+
+const tg = new TsGame2D()

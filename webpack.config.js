@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV == 'production'
 const config = {
   entry: {
     main: './src/index.ts',
-    tsgame2d: './TsGame2D/index.ts',
+    tsgame2d: './vendor/TsGame2D/index.ts',
   },
   output: {
     filename: '[name].js',
@@ -48,12 +48,6 @@ const config = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
-
-    alias: {
-      '@vendor': path.resolve(__dirname, 'vendor'),
-      '@TsGame2D': path.resolve(__dirname, 'vendor', 'TsGame2D', 'index.ts'),
-      '@Drawing/*': path.resolve(__dirname, 'vendor', 'TsGame2D', 'Drawing/*'),
-    },
   },
 }
 
