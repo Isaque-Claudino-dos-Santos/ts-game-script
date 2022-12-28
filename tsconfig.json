@@ -9,7 +9,7 @@
     "outDir": "dist",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-
+    "lib": ["DOM", "DOM.Iterable", "ES6"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
