@@ -1,3 +1,5 @@
-import TsGame2D from '../vendor/TsGame2D'
+import TsGame2D from './TsGame2D'
 
 const tg = new TsGame2D()
+
+export default tg

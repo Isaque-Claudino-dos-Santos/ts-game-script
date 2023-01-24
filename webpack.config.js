@@ -7,55 +7,54 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const isProduction = process.env.NODE_ENV == 'production'
 
 const config = {
-  entry: {
-    main: './src/index.ts',
-    tsgame2d: './vendor/TsGame2D/index.ts',
-  },
-  output: {
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    open: true,
-    host: 'localhost',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'public/index.html',
-    }),
-    new dotenv(),
+    entry: {
+        main: './src/index.ts',
+    },
+    output: {
+        filename: '[name].js',
+        chunkFilename: '[name].chunk.js',
+        path: path.resolve(__dirname, 'build'),
+    },
+    devServer: {
+        open: true,
+        host: 'localhost',
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'public/index.html',
+        }),
+        new dotenv(),
 
-    // Add your plugins here
-    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)$/i,
-        loader: 'ts-loader',
-        exclude: ['/node_modules/'],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg|webp)$/i,
-        type: 'asset/resource',
-        use: [{ loader: 'file-loader' }],
-      },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
+        // Add your plugins here
+        // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
-  },
+    module: {
+        rules: [
+            {
+                test: /\.(ts|tsx)$/i,
+                loader: 'ts-loader',
+                exclude: ['/node_modules/'],
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg|webp)$/i,
+                type: 'asset/resource',
+                use: [{ loader: 'file-loader' }],
+            },
+
+            // Add your rules for custom modules here
+            // Learn more about loaders from https://webpack.js.org/loaders/
+        ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    },
 }
 
 module.exports = () => {
-  if (isProduction) {
-    config.mode = 'production'
-  } else {
-    config.mode = 'development'
-  }
-  return config
+    if (isProduction) {
+        config.mode = 'production'
+    } else {
+        config.mode = 'development'
+    }
+    return config
 }
