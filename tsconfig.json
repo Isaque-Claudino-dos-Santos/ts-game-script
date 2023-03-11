@@ -1,34 +1,16 @@
 {
     "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "noImplicitAny": true,
-        "module": "ES6",
-        "target": "ES6",
+        "module": "ES2020",
+        "target": "ES2020",
         "allowJs": true,
-        "rootDirs": ["src"],
-        "outDir": "build",
-        "moduleResolution": "Node",
         "esModuleInterop": true,
-
+        "checkJs": true,
+        "strict": true,
+        "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "rootDir": "src",
+        "outDir": "dist"
     },
-
-    "ts-node": {
-        "compilerOptions": {
-            "allowSyntheticDefaultImports": true,
-            "noImplicitAny": true,
-            "module": "commonjs",
-            "target": "ES6",
-            "allowJs": true,
-            "rootDirs": ["vendor/TsGameCommands"],
-            "outDir": "dist",
-            "moduleResolution": "Node",
-            "esModuleInterop": true
-        }
-    },
-
     "files": ["src/index.ts"],
-    "exclude": ["node_modules", "./jest.config.ts", "src/**/*.test.ts"],
-    "include": ["**/*.ts"]
+    "exclude": ["node_modules"]
 }
