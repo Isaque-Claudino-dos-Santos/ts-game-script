@@ -1,15 +1,23 @@
 # Rect
-- This is Class
-- Render in canvas one rectangle
+
+Handdle rect in canvas
+
+## Summary
+
+- [Instance](#instance)
+- [Attributes](#attributes)
+- [Methods](#methods)
 
 ### Instance
+
 ```ts
 import Rect from '@Draw/Rect'
 
 const r1 = new Rect(context: CanvasRenderingContext2D)
 ```
 
-### Attributes
+## Attributes
+
 | Name   | Type   | Default |
 | ------ | ------ | ------- |
 | x      | number | 0       |
@@ -20,7 +28,64 @@ const r1 = new Rect(context: CanvasRenderingContext2D)
 | rotate | number | 0       |
 
 ## Methods
-  - [reposition(x,y)](#reposition)
 
-### [Reposition](#reposition)
- > Define attributes **x** and **y**
+- [render(type)](#render)
+- [reposition(x,y)](#reposition)
+- [resize(width,height)](#resize)
+
+### Render
+>  
+> Method which really render in canvas the rectangle
+>
+> | Param  | Type               | Default |
+> | ------ | ------------------ | ------- |
+> | `type` | 'fill' or 'stroke' | 'fill'  |
+> Return: `Void`
+>  
+> ```ts
+> import Rect from '@Draw/Rect'
+>  
+> const r1 = new Rect(context: CanvasRenderingContext2D)
+>  
+> r1.render('fill') 
+> //    OR
+> r1.render('stroke')
+>  ```
+>
+
+### Reposition
+>
+> Reposition rect in canvas
+>
+> | Param | Type   | Describe             |
+>  | ----- | ------ | -------------------- |
+> | `x`   | number | Define position in x |
+> | `y`   | number | Define position in y |
+>  
+> Return: `Void`
+>
+> ```ts
+> import Rect from '@Draw/Rect'
+>
+> const r1 = new Rect(context: CanvasRenderingContext2D)
+>
+> r1.reposition(10,10)
+> ```
+
+### Resize
+>
+> Resize rect in canvas
+>
+> | Param  | Type     |
+> | ------ | -------- |
+> | `width` | number  |
+> | `height` |number  |
+> Return: `Void`
+>
+> ```ts
+> import Rect from '@Draw/Rect'
+> 
+> const r1 = new Rect(context: CanvasRenderingContext2D)
+> 
+> r1.resize(10,10)
+>```
