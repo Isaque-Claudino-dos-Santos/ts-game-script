@@ -6,7 +6,7 @@ export default class Rect {
     color: string = 'black'
     rotate: number = 0
 
-    constructor(public context: CanvasRenderingContext2D) { }
+    constructor(private readonly context: CanvasRenderingContext2D) { }
 
     public reposition(x: number, y: number) {
         this.x = x
