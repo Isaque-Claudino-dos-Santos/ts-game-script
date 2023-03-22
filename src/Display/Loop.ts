@@ -2,15 +2,19 @@ export default class Loop {
   /**
    * @toOverride
    */
-  onupdate = () => { }
+  onUpdate = () => { }
   /**
    * @toOverride
    */
-  onrender = () => { }
+  onRender = () => { }
 
   private loop = () => {
-    this.onupdate()
-    this.onrender()
+    this.onUpdate()
+    this.onRender()
     requestAnimationFrame(this.loop)
+  }
+
+  public init() {
+    this.loop()
   }
 }
