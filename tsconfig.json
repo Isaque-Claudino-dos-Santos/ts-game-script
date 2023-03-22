@@ -10,8 +10,20 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "rootDir": "src",
-        "outDir": "dist"
+        "outDir": "dist",
+        "paths": {
+            "@Draw/*": [
+                "./src/Draw/*"
+            ],
+            "@Display/*": [
+                "./src/Display/*"
+            ]
+        }
     },
-    "files": ["src/index.ts"],
-    "exclude": ["node_modules"]
+    "files": [
+        "src/index.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
