@@ -61,7 +61,6 @@ const r1 = new Rect(context: CanvasRenderingContext2D)
 >  | ----- | ------ | -------------------- |
 > | `x`   | number | Define position in x |
 > | `y`   | number | Define position in y |
->  
 > Return: `Void`
 >
 > ```ts
