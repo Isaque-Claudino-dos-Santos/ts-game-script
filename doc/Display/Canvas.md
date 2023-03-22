@@ -13,7 +13,6 @@
 
 ## Instance
 
-
  | Params   | Type   | Default |
  | -------- | ------ | ------- |
  | `width`  | number | 300     |
