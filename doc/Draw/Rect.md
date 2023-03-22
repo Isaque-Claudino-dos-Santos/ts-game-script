@@ -2,13 +2,15 @@
 
 Handdle rect in canvas
 
-## Summary
+- [Rect](#rect)
+  - [Instance](#instance)
+  - [Attributes](#attributes)
+  - [Methods](#methods)
+    - [Render](#render)
+    - [Reposition](#reposition)
+    - [Resize](#resize)
 
-- [Instance](#instance)
-- [Attributes](#attributes)
-- [Methods](#methods)
-
-### Instance
+## Instance
 
 ```ts
 import Rect from '@Draw/Rect'
@@ -29,62 +31,61 @@ const r1 = new Rect(context: CanvasRenderingContext2D)
 
 ## Methods
 
-- [render(type)](#render)
-- [reposition(x,y)](#reposition)
-- [resize(width,height)](#resize)
-
 ### Render
->  
-> Method which really render in canvas the rectangle
->
-> | Param  | Type               | Default |
-> | ------ | ------------------ | ------- |
-> | `type` | 'fill' or 'stroke' | 'fill'  |
-> Return: `Void`
->  
-> ```ts
-> import Rect from '@Draw/Rect'
->  
-> const r1 = new Rect(context: CanvasRenderingContext2D)
->  
-> r1.render('fill') 
-> //    OR
-> r1.render('stroke')
->  ```
->
+
+Method which really render in canvas the rectangle
+
+| Param  | Type               | Default |
+| ------ | ------------------ | ------- |
+| `type` | 'fill' or 'stroke' | 'fill'  |
+
+Return: `Void`
+
+```ts
+import Rect from '@Draw/Rect'
+
+const r1 = new Rect(context: CanvasRenderingContext2D)
+
+r1.render('fill') 
+//    OR
+r1.render('stroke')
+```
+
 
 ### Reposition
->
-> Reposition rect in canvas
->
-> | Param | Type   | Describe             |
->  | ----- | ------ | -------------------- |
-> | `x`   | number | Define position in x |
-> | `y`   | number | Define position in y |
-> Return: `Void`
->
-> ```ts
-> import Rect from '@Draw/Rect'
->
-> const r1 = new Rect(context: CanvasRenderingContext2D)
->
-> r1.reposition(10,10)
-> ```
+
+Reposition rect in canvas
+
+| Param | Type   | Describe             |
+| ----- | ------ | -------------------- |
+| `x`   | number | Define position in x |
+| `y`   | number | Define position in y |
+
+Return: `Void`
+
+```ts
+import Rect from '@Draw/Rect'
+
+const r1 = new Rect(context: CanvasRenderingContext2D)
+
+r1.reposition(10,10)
+```
 
 ### Resize
->
-> Resize rect in canvas
->
-> | Param  | Type     |
-> | ------ | -------- |
-> | `width` | number  |
-> | `height` |number  |
-> Return: `Void`
->
-> ```ts
-> import Rect from '@Draw/Rect'
-> 
-> const r1 = new Rect(context: CanvasRenderingContext2D)
-> 
-> r1.resize(10,10)
->```
+
+Resize rect in canvas
+
+| Param    | Type   |
+| -------- | ------ |
+| `width`  | number |
+| `height` | number |
+
+Return: `Void`
+
+```ts
+import Rect from '@Draw/Rect'
+
+const r1 = new Rect(context: CanvasRenderingContext2D)
+
+r1.resize(10,10)
+```
