@@ -27,8 +27,8 @@ export default class Rect {
         this.context.rotate(this.rotate)
         this.context.fillStyle = this.color
         this.context[`${type}Rect`](
-            this.x + -this.width / 2,
-            this.y + -this.height / 2,
+            -this.width / 2,
+            -this.height / 2,
             this.width,
             this.height
         )
