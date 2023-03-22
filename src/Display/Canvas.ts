@@ -1,12 +1,12 @@
 export default class Canvas {
-  public readonly canvas: HTMLCanvasElement;
+  public readonly screen: HTMLCanvasElement;
   public readonly context: CanvasRenderingContext2D
 
   constructor(width: number = 300, height: number = 300) {
-    this.canvas = document.querySelector('canvas') ?? document.createElement('canvas')
-    this.canvas.width = width
-    this.canvas.height = height
-    this.context = this.getCanvasContext2D(this.canvas)
+    this.screen = document.querySelector('canvas') ?? document.createElement('canvas')
+    this.screen.width = width
+    this.screen.height = height
+    this.context = this.getCanvasContext2D(this.screen)
   }
 
 
