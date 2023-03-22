@@ -1,5 +1,6 @@
 # 🎮 Create Game in TypeScript
 
-### Classes
+## Classes
 
+- [Canvas](./doc/Display/Canvas.md)
 - [Rect](./doc/Draw/Rect.md)
