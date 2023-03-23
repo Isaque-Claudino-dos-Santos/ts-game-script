@@ -3,5 +3,5 @@
 ## Classes
 
 - [Canvas](./doc/Display/Canvas.md)
-- [Loop](./doc/Draw/Loop.md)
+- [Loop](./doc/Display/Loop.md)
 - [Rect](./doc/Draw/Rect.md)
