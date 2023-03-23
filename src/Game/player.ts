@@ -11,21 +11,23 @@ const speed = {
 const playerLoop = new Loop()
 const playerKey = new Keyborad()
 
+player.reposition(10, 10)
+player.resize(30, 30)
+player.color = '#ff55aa'
+
 playerKey.create('KeyD', () => player.x += speed.x)
 playerKey.create('KeyA', () => player.x -= speed.x)
 playerKey.create('KeyS', () => player.y += speed.y)
 playerKey.create('KeyW', () => player.y -= speed.y)
+playerKey.create('ControlLeft', () => player.color = player.color === '#dddddd' ? '#ff55aa' : '#dddddd')
 
-
-player.reposition(10, 10)
-player.resize(30, 30)
-player.color = '#ff55aa'
 
 playerLoop.onUpdate = () => {
   playerKey.checkPress('KeyD')
   playerKey.checkPress('KeyA')
   playerKey.checkPress('KeyS')
   playerKey.checkPress('KeyW')
+  playerKey.checkClick('ControlLeft')
 }
 
 playerLoop.onRender = () => {
