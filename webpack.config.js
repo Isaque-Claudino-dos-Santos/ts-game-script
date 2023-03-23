@@ -49,7 +49,8 @@ const config = {
         extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
         alias: {
             '@Draw': path.resolve(__dirname, 'src', 'Draw'),
-            '@Display': path.resolve(__dirname, 'src', 'Display')
+            '@Display': path.resolve(__dirname, 'src', 'Display'),
+            '@Event': path.resolve(__dirname, 'src', 'Event')
         }
     },
 }

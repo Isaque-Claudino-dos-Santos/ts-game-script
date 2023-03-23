@@ -17,6 +17,9 @@
             ],
             "@Display/*": [
                 "./src/Display/*"
+            ],
+            "@Event/*": [
+                "./src/Event/*"
             ]
         }
     },
