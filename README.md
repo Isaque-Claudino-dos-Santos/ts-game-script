@@ -6,3 +6,4 @@
 - [Loop](./doc/Display/Loop.md)
 - [Rect](./doc/Draw/Rect.md)
 - [Keyboard](./doc/Event/Keyboard.md)
+- [Gravity](./doc/Physical/Gravity.md)
