@@ -4,7 +4,6 @@ import Loop from '@Display/Loop'
 import Keyborad from '@Event/Keyboard'
 import Gravity from '@Physical/Gravity'
 
-
 const player = new Rect(context)
 const speed = {
   x: 5,
