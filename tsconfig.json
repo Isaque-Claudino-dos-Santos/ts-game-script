@@ -20,6 +20,9 @@
             ],
             "@Event/*": [
                 "./src/Event/*"
+            ],
+            "@Physical/*": [
+                "./src/Physical/*"
             ]
         }
     },

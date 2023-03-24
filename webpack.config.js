@@ -50,7 +50,8 @@ const config = {
         alias: {
             '@Draw': path.resolve(__dirname, 'src', 'Draw'),
             '@Display': path.resolve(__dirname, 'src', 'Display'),
-            '@Event': path.resolve(__dirname, 'src', 'Event')
+            '@Event': path.resolve(__dirname, 'src', 'Event'),
+            '@Physical': path.resolve(__dirname, 'src', 'Physical')
         }
     },
 }
