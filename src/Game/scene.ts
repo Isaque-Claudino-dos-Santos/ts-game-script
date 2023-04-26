@@ -1,5 +1,5 @@
 import Rect from '@Draw/Rect'
-import Loop from '@Display/Loop'
+import Loop from '@Event/Loop'
 import { context, screen } from './canvas'
 
 const sceneLoop = new Loop()
