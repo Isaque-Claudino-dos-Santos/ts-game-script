@@ -34,4 +34,8 @@ export default class Rect {
         )
         this.context.restore()
     }
+
+    public log() {
+        console.log(this)
+    }
 }

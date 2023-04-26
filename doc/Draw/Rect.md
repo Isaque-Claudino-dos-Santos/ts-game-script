@@ -11,6 +11,7 @@ Handdle rect in canvas
     - [Render](#render)
     - [Reposition](#reposition)
     - [Resize](#resize)
+    - [Log](#log)
 
 ## Instance
 
@@ -90,4 +91,17 @@ import Rect from '@Draw/Rect'
 const r1 = new Rect(context: CanvasRenderingContext2D)
 
 r1.resize(10,10)
+```
+
+### Log
+
+Log this in console
+
+
+```ts
+import Rect from '@Draw/Rect'
+
+const r1 = new Rect(context: CanvasRenderingContext2D)
+
+r1.log() //return this istance in console
 ```
