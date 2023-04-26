@@ -13,7 +13,7 @@ floor.resize(screen.width, 10)
 floor.reposition(0, screen.height - floor.height)
 floor.color = '#ff6600'
 
-sceneLoop.onUpdate = () => { }
+sceneLoop.onUpdate = () => {}
 
 sceneLoop.onRender = () => {
   bg.render()
