@@ -23,12 +23,12 @@ const playerMouse = {
   onDown() {
     this.isDown = true
   },
-  onUp() {
-    this.isDown = false
-  },
 }
 
 const backgroundMouse = {
+  onUp() {
+    playerMouse.isDown = false
+  },
   onMove(mouse: TypeMouse) {
     if (!playerMouse.isDown) return
     player.x = mouse.x - player.width / 2
