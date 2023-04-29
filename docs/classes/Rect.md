@@ -20,6 +20,7 @@
 
 ### Methods
 
+- [angle](Rect.md#angle)
 - [log](Rect.md#log)
 - [render](Rect.md#render)
 - [reposition](Rect.md#reposition)
@@ -39,7 +40,7 @@
 
 #### Defined in
 
-[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L9)
+[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L9)
 
 ## Properties
 
@@ -49,7 +50,7 @@
 
 #### Defined in
 
-[Draw/Rect.ts:6](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L6)
+[Draw/Rect.ts:6](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L6)
 
 ___
 
@@ -59,7 +60,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L9)
+[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L9)
 
 ___
 
@@ -69,7 +70,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L5)
+[Draw/Rect.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L5)
 
 ___
 
@@ -79,7 +80,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:7](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L7)
+[Draw/Rect.ts:7](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L7)
 
 ___
 
@@ -89,7 +90,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:4](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L4)
+[Draw/Rect.ts:4](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L4)
 
 ___
 
@@ -99,7 +100,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:2](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L2)
+[Draw/Rect.ts:2](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L2)
 
 ___
 
@@ -109,27 +110,47 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:3](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L3)
+[Draw/Rect.ts:3](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L3)
 
 ## Methods
 
-### log
+### angle
 
-▸ **log**(): `void`
+▸ **angle**(`angle`): [`Rect`](Rect.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `angle` | `number` |
 
 #### Returns
 
-`void`
+[`Rect`](Rect.md)
 
 #### Defined in
 
-[Draw/Rect.ts:35](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L35)
+[Draw/Rect.ts:23](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L23)
+
+___
+
+### log
+
+▸ **log**(): [`Rect`](Rect.md)
+
+#### Returns
+
+[`Rect`](Rect.md)
+
+#### Defined in
+
+[Draw/Rect.ts:43](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L43)
 
 ___
 
 ### render
 
-▸ **render**(`type?`): `void`
+▸ **render**(`type?`): [`Rect`](Rect.md)
 
 #### Parameters
 
@@ -139,17 +160,17 @@ ___
 
 #### Returns
 
-`void`
+[`Rect`](Rect.md)
 
 #### Defined in
 
-[Draw/Rect.ts:21](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L21)
+[Draw/Rect.ts:28](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L28)
 
 ___
 
 ### reposition
 
-▸ **reposition**(`x`, `y`): `void`
+▸ **reposition**(`x`, `y`): [`Rect`](Rect.md)
 
 #### Parameters
 
@@ -160,17 +181,17 @@ ___
 
 #### Returns
 
-`void`
+[`Rect`](Rect.md)
 
 #### Defined in
 
-[Draw/Rect.ts:11](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L11)
+[Draw/Rect.ts:11](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L11)
 
 ___
 
 ### resize
 
-▸ **resize**(`width`, `height`): `void`
+▸ **resize**(`width`, `height`): [`Rect`](Rect.md)
 
 #### Parameters
 
@@ -181,8 +202,8 @@ ___
 
 #### Returns
 
-`void`
+[`Rect`](Rect.md)
 
 #### Defined in
 
-[Draw/Rect.ts:16](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L16)
+[Draw/Rect.ts:17](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Draw/Rect.ts#L17)

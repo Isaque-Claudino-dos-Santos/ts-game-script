@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[Display/Canvas.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Display/Canvas.ts#L5)
+[Display/Canvas.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Display/Canvas.ts#L5)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[Display/Canvas.ts:3](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Display/Canvas.ts#L3)
+[Display/Canvas.ts:3](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Display/Canvas.ts#L3)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[Display/Canvas.ts:2](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Display/Canvas.ts#L2)
+[Display/Canvas.ts:2](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Display/Canvas.ts#L2)
 
 ## Methods
 
@@ -72,4 +72,4 @@ ___
 
 #### Defined in
 
-[Display/Canvas.ts:13](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Display/Canvas.ts#L13)
+[Display/Canvas.ts:13](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Display/Canvas.ts#L13)

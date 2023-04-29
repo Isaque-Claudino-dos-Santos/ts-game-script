@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[Event/Keyboard.ts:7](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Keyboard.ts#L7)
+[Event/Keyboard.ts:7](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Event/Keyboard.ts#L7)
 
 ## Properties
 
@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[Event/Keyboard.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Keyboard.ts#L5)
+[Event/Keyboard.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Event/Keyboard.ts#L5)
 
 ## Methods
 
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[Event/Keyboard.ts:33](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Keyboard.ts#L33)
+[Event/Keyboard.ts:33](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Event/Keyboard.ts#L33)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[Event/Keyboard.ts:28](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Keyboard.ts#L28)
+[Event/Keyboard.ts:28](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Event/Keyboard.ts#L28)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[Event/Keyboard.ts:24](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Keyboard.ts#L24)
+[Event/Keyboard.ts:24](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Event/Keyboard.ts#L24)
 
 ___
 
@@ -112,4 +112,4 @@ ___
 
 #### Defined in
 
-[Event/Keyboard.ts:40](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Keyboard.ts#L40)
+[Event/Keyboard.ts:40](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/2a7898a/src/Event/Keyboard.ts#L40)
