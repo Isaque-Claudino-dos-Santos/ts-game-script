@@ -1,4 +1,9 @@
-type TypeKey = { code: string, event: () => any, isDown: boolean, isClick: boolean }
+type TypeKey = {
+  code: string
+  event: () => any
+  isDown: boolean
+  isClick: boolean
+}
 type TypeKeys = { [index: string]: TypeKey }
 
 export default class KeyBoard {
@@ -21,23 +26,26 @@ export default class KeyBoard {
     })
   }
 
-  public create(code: string, event: () => any): void {
+  public create(code: string, event: () => any): this {
     this.keys[code] = { code, event, isDown: false, isClick: false }
+    return this
   }
 
-  public checkPress(code: string): void {
+  public checkPress(code: string): this {
     const key = this.keys[code]
     if (key.isDown) key.event()
+    return this
   }
 
-  public checkClick(code: string): void {
+  public checkClick(code: string): this {
     const key = this.keys[code]
     if (key.isDown && !key.isClick) key.event()
-    if (key.isDown)
-      key.isClick = true
+    if (key.isDown) key.isClick = true
+    return this
   }
 
-  public logKeyCode() {
+  public logKeyCode(): this {
     addEventListener('keydown', (event) => console.log(event.code))
+    return this
   }
 }
