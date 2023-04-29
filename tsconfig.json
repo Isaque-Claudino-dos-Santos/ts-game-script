@@ -23,7 +23,8 @@
             ],
             "@Physical/*": [
                 "./src/Physical/*"
-            ]
+            ],
+            "Game": ["./src/Game/index.ts"]
         }
     },
     "files": [
