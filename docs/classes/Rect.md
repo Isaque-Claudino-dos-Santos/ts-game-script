@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L9)
+[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L9)
 
 ## Properties
 
@@ -49,7 +49,7 @@
 
 #### Defined in
 
-[Draw/Rect.ts:6](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L6)
+[Draw/Rect.ts:6](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L6)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L9)
+[Draw/Rect.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L9)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L5)
+[Draw/Rect.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L5)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:7](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L7)
+[Draw/Rect.ts:7](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L7)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:4](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L4)
+[Draw/Rect.ts:4](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L4)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:2](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L2)
+[Draw/Rect.ts:2](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L2)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:3](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L3)
+[Draw/Rect.ts:3](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L3)
 
 ## Methods
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:35](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L35)
+[Draw/Rect.ts:35](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L35)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:21](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L21)
+[Draw/Rect.ts:21](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L21)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:11](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L11)
+[Draw/Rect.ts:11](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L11)
 
 ___
 
@@ -185,4 +185,4 @@ ___
 
 #### Defined in
 
-[Draw/Rect.ts:16](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Draw/Rect.ts#L16)
+[Draw/Rect.ts:16](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Draw/Rect.ts#L16)

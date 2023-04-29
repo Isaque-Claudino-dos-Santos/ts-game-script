@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[Event/Loop.ts:17](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Event/Loop.ts#L17)
+[Event/Loop.ts:17](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Loop.ts#L17)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[Event/Loop.ts:11](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Event/Loop.ts#L11)
+[Event/Loop.ts:11](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Loop.ts#L11)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[Event/Loop.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Event/Loop.ts#L9)
+[Event/Loop.ts:9](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Loop.ts#L9)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[Event/Loop.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b1bfb21/src/Event/Loop.ts#L5)
+[Event/Loop.ts:5](https://github.com/Isaque-Claudino-dos-Santos/ts-game-script/blob/b372196/src/Event/Loop.ts#L5)
