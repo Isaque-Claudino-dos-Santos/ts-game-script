@@ -1,6 +1,5 @@
 type TypeCurrent = { x: number; y: number; width: number; height: number }
-type TypeMouse = { x: number; y: number }
-type TypeMouseWithButton = TypeMouse & { button: number }
+export type TypeMouse = { x: number; y: number }
 type TypeAction = (mouse: TypeMouse) => void
 type TypeActions = {
   onMove?: TypeAction
