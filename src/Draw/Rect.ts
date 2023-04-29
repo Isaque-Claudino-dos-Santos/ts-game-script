@@ -21,7 +21,7 @@ export default class Rect {
   }
 
   public angle(angle: number): this {
-    this.rotate = angle
+    this.rotate = angle * (Math.PI / 180)
     return this
   }
 
