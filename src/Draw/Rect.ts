@@ -8,17 +8,24 @@ export default class Rect {
 
   constructor(private readonly context: CanvasRenderingContext2D) {}
 
-  public reposition(x: number, y: number) {
+  public reposition(x: number, y: number): this {
     this.x = x
     this.y = y
+    return this
   }
 
-  public resize(width: number, height: number) {
+  public resize(width: number, height: number): this {
     this.width = width
     this.height = height
+    return this
   }
 
-  public render(type: 'fill' | 'stroke' = 'fill') {
+  public angle(angle: number): this {
+    this.rotate = angle
+    return this
+  }
+
+  public render(type: 'fill' | 'stroke' = 'fill'): this {
     this.context.save()
     this.context.translate(this.x + this.width / 2, this.y + this.height / 2)
     this.context.rotate(this.rotate)
@@ -30,9 +37,11 @@ export default class Rect {
       this.height
     )
     this.context.restore()
+    return this
   }
 
-  public log() {
+  public log(): this {
     console.log(this)
+    return this
   }
 }
