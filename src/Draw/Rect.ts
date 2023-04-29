@@ -8,6 +8,11 @@ export default class Rect {
 
   constructor(private readonly context: CanvasRenderingContext2D) {}
 
+  public setColor(color: string): this {
+    this.color = color
+    return this
+  }
+
   public reposition(x: number, y: number): this {
     this.x = x
     this.y = y
