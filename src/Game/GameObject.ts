@@ -22,15 +22,15 @@ export default abstract class GameObject {
    * @toOverrite
    * @arrowFunction
    */
-  public abstract boot: () => void
+  public boot() {}
   /**
    * @toOverrite
    * @arrowFunction
    */
-  public abstract update: () => void
+  public update() {}
   /**
    * @toOverrite
    * @arrowFunction
    **/
-  public abstract render: () => void
+  public render() {}
 }
