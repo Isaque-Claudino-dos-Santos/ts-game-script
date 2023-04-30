@@ -1,55 +1,87 @@
 import Rect from '@Draw/Rect'
+import { TypeMouseActions } from '@Event/Mouse'
+import GameObject from '@Game/GameObject'
 import Game from 'Game'
 
-const {
-  keyboard,
-  loop,
-  mouse,
-  canvas: { context, screen },
-} = new Game()
+const game = new Game()
+const { loop } = game
 
-const background = new Rect(context)
-  .resize(screen.width, screen.height)
-  .setColor('#232323')
+class Player extends GameObject {
+  public isDown = false
 
-const player = new Rect(context)
-  .resize(30, 30)
-  .reposition(30, 30)
-  .setColor('#aa00ff')
+  constructor(game: Game) {
+    super(game)
+  }
 
-const playerMouse = {
-  isDown: false,
-  onDown() {
-    this.isDown = true
-  },
+  readonly body = new Rect(this.game.canvas.context)
+    .resize(30, 30)
+    .reposition(30, 30)
+    .setColor('#aa00ff')
+
+  mouse0: TypeMouseActions = {
+    onDown: () => {
+      this.isDown = true
+    },
+  }
+
+  public boot = () => {
+    this.keyboard
+      .create('KeyD', () => (player.body.x += 4))
+      .create('KeyS', () => (player.body.y += 4))
+      .create('KeyW', () => (player.body.y -= 4))
+      .create('KeyA', () => (player.body.x -= 4))
+    this.game.mouse.addEvents(this.body, 0, this.mouse0)
+  }
+
+  public update = () => {
+    this.keyboard
+      .checkPress('KeyD')
+      .checkPress('KeyS')
+      .checkPress('KeyW')
+      .checkPress('KeyA')
+  }
+
+  public render = () => {
+    this.body.render()
+  }
 }
 
-const backgroundMouse = {
-  onUp() {
-    playerMouse.isDown = false
-  },
-  onMove(mouse) {
-    if (!playerMouse.isDown) return
-    player.x = mouse.x - player.width / 2
-    player.y = mouse.y - player.height / 2
-  },
+class Background extends GameObject {
+  constructor(game: Game) {
+    super(game)
+  }
+
+  body = new Rect(this.game.canvas.context)
+    .resize(this.game.canvas.screen.width, this.game.canvas.screen.height)
+    .setColor('#232323')
+
+  public boot = () => {
+    this.game.mouse.addEvents(this.body, 0, {
+      onUp: () => {
+        player.isDown = false
+      },
+      onMove: (mouse) => {
+        if (player.isDown) {
+          player.body.x = mouse.x - player.body.width / 2
+          player.body.y = mouse.y - player.body.height / 2
+        }
+      },
+    })
+  }
+  public update = () => {}
+  public render = () => {
+    this.body.render()
+  }
 }
 
-const playerKey = keyboard()
-  .create('KeyD', () => (player.x += 4))
-  .create('KeyS', () => (player.y += 4))
-  .create('KeyW', () => (player.y -= 4))
-  .create('KeyA', () => (player.x -= 4))
+const player = new Player(game)
+const background = new Background(game)
 
-mouse.addEvents(background, 0, backgroundMouse)
-mouse.addEvents(player, 0, playerMouse)
+player.boot()
+background.boot()
 
 loop.onUpdate = () => {
-  playerKey
-    .checkPress('KeyD')
-    .checkPress('KeyS')
-    .checkPress('KeyW')
-    .checkPress('KeyA')
+  player.update()
 }
 
 loop.onRender = () => {
