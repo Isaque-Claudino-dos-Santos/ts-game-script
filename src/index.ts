@@ -1,13 +1,12 @@
-import Canvas from '@Display/Canvas'
 import Rect from '@Draw/Rect'
-import KeyBoard from '@Event/Keyboard'
-import Loop from '@Event/Loop'
-import Mouse, { TypeMouse } from '@Event/Mouse'
+import Game from 'Game'
 
-const { context, screen } = new Canvas(600, 450)
-const keyboard = new KeyBoard()
-const mouse = new Mouse(screen)
-const loop = new Loop()
+const {
+  keyboard,
+  loop,
+  mouse,
+  canvas: { context, screen },
+} = new Game()
 
 const background = new Rect(context)
   .resize(screen.width, screen.height)
@@ -29,14 +28,14 @@ const backgroundMouse = {
   onUp() {
     playerMouse.isDown = false
   },
-  onMove(mouse: TypeMouse) {
+  onMove(mouse) {
     if (!playerMouse.isDown) return
     player.x = mouse.x - player.width / 2
     player.y = mouse.y - player.height / 2
   },
 }
 
-keyboard
+const playerKey = keyboard()
   .create('KeyD', () => (player.x += 4))
   .create('KeyS', () => (player.y += 4))
   .create('KeyW', () => (player.y -= 4))
@@ -46,7 +45,7 @@ mouse.addEvents(background, 0, backgroundMouse)
 mouse.addEvents(player, 0, playerMouse)
 
 loop.onUpdate = () => {
-  keyboard
+  playerKey
     .checkPress('KeyD')
     .checkPress('KeyS')
     .checkPress('KeyW')
