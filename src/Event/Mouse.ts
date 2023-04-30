@@ -1,14 +1,14 @@
 type TypeCurrent = { x: number; y: number; width: number; height: number }
 export type TypeMouse = { x: number; y: number }
 type TypeAction = (mouse: TypeMouse) => void
-type TypeActions = {
+export type TypeMouseActions = {
   onMove?: TypeAction
   onUp?: TypeAction
   onDown?: TypeAction
 }
 type TypeTarget = {
   button: number
-  actions: TypeActions
+  actions: TypeMouseActions
   current: TypeCurrent
 }
 type TypeTargets = TypeTarget[]
@@ -40,7 +40,7 @@ export default class Mouse {
   private handlerMouseDown() {
     this.screen.addEventListener('mousedown', (e) => {
       this.button = e.button
-      for (const target of this.targets) {
+      this.targets.forEach((target) => {
         const actions = target.actions
         if (!this.mouseInTarget(target)) return
         if (actions.onDown)
@@ -48,13 +48,13 @@ export default class Mouse {
             x: this.x,
             y: this.y,
           })
-      }
+      })
     })
   }
 
   private handlerMouseUp() {
     this.screen.addEventListener('mouseup', (e) => {
-      for (const target of this.targets) {
+      this.targets.forEach((target) => {
         const actions = target.actions
         if (!this.mouseInTarget(target)) return
         if (actions.onUp)
@@ -62,7 +62,7 @@ export default class Mouse {
             x: this.x,
             y: this.y,
           })
-      }
+      })
     })
   }
 
@@ -70,7 +70,7 @@ export default class Mouse {
     this.screen.addEventListener('mousemove', (e) => {
       this.x = e.offsetX
       this.y = e.offsetY
-      for (const target of this.targets) {
+      this.targets.forEach((target) => {
         const { actions } = target
         if (!this.mouseInTarget(target)) return
         if (actions.onMove)
@@ -78,7 +78,7 @@ export default class Mouse {
             x: this.x,
             y: this.y,
           })
-      }
+      })
     })
   }
 
@@ -86,7 +86,11 @@ export default class Mouse {
     this.screen.addEventListener('contextmenu', (e) => e.preventDefault())
   }
 
-  addEvents(current: TypeCurrent, button: number, actions: TypeActions = {}) {
+  addEvents(
+    current: TypeCurrent,
+    button: number,
+    actions: TypeMouseActions = {}
+  ) {
     this.targets.push({
       current,
       button,
