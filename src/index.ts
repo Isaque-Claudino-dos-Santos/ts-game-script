@@ -55,18 +55,20 @@ class Background extends GameObject {
     .resize(this.game.canvas.screen.width, this.game.canvas.screen.height)
     .setColor('#232323')
 
+  public mouse0: TypeMouseActions = {
+    onUp: () => {
+      player.isDown = false
+    },
+    onMove: (mouse) => {
+      if (player.isDown) {
+        player.body.x = mouse.x - player.body.width / 2
+        player.body.y = mouse.y - player.body.height / 2
+      }
+    },
+  }
+
   public boot = () => {
-    this.game.mouse.addEvents(this.body, 0, {
-      onUp: () => {
-        player.isDown = false
-      },
-      onMove: (mouse) => {
-        if (player.isDown) {
-          player.body.x = mouse.x - player.body.width / 2
-          player.body.y = mouse.y - player.body.height / 2
-        }
-      },
-    })
+    this.game.mouse.addEvents(this.body, 0, this.mouse0)
   }
   public update = () => {}
   public render = () => {
