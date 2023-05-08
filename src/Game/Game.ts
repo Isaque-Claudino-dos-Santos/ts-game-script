@@ -32,9 +32,9 @@ export default class Game {
 
   public createGameObject(
     callback: (gameObject: GameObject, game: Game) => void
-  ) {
+  ): number {
     const gameObject = new GameObject()
     callback(gameObject, this)
-    this.gameObjects.unshift(gameObject)
+    return this.gameObjects.unshift(gameObject)
   }
 }
