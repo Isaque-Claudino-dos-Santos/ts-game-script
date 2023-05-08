@@ -1,25 +1,25 @@
 import Game from 'Game'
-import Background from './Background'
-import Player from './Player'
+import Rect from '@Draw/Rect'
 
 const game = new Game()
-const { loop } = game
 
-const player = new Player(game)
-const background = new Background(game)
+game.createGameObject((player, { canvas: { context, screen } }) => {
+  player.body = new Rect(context)
+    .resize(30, 30)
+    .reposition(40, 40)
+    .setColor('#88ff')
 
-background.player = player
+  player.render = () => {
+    player.body.render()
+  }
+})
 
-player.boot()
-background.boot()
+game.createGameObject((background, { canvas: { context, screen } }) => {
+  background.body = new Rect(context)
+    .resize(screen.width, screen.height)
+    .setColor('#232323')
 
-loop.onUpdate = () => {
-  player.update()
-}
-
-loop.onRender = () => {
-  background.render()
-  player.render()
-}
-
-loop.init()
+  background.render = () => {
+    background.body.render()
+  }
+})
