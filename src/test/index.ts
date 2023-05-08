@@ -3,18 +3,31 @@ import Rect from '@Draw/Rect'
 
 const game = new Game()
 
-game.createGameObject((player, { canvas: { context, screen } }) => {
+const playerID = game.createGameObject((player, game) => {
+  const {
+    canvas: { context },
+    keyboard,
+  } = game
+
   player.body = new Rect(context)
     .resize(30, 30)
     .reposition(40, 40)
     .setColor('#88ff')
+
+  const key = keyboard().create('Space', () =>
+    player.body.setColor('red' === player.body.color ? 'blue ' : 'red')
+  )
 
   player.render = () => {
     player.body.render()
   }
 })
 
-game.createGameObject((background, { canvas: { context, screen } }) => {
+const bgID = game.createGameObject((background, game) => {
+  const {
+    canvas: { context, screen },
+  } = game
+
   background.body = new Rect(context)
     .resize(screen.width, screen.height)
     .setColor('#232323')
