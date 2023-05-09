@@ -1,4 +1,5 @@
 import Rect from '@Draw/Rect'
+import KeyBoard from '@Event/Keyboard'
 
 type TypeBody = Rect
 type TypeFn = () => void
@@ -9,6 +10,7 @@ export default class GameObject {
   public readonly renders: TypeFnArray = []
   public readonly boots: TypeFnArray = []
   public readonly updates: TypeFnArray = []
+  public readonly keyboard = new KeyBoard()
 
   public boot(callback: TypeFn) {
     this.boots.push(callback)
