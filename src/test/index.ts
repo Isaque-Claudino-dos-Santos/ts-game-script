@@ -2,6 +2,8 @@ import Game from 'Game'
 import Rect from '@Draw/Rect'
 
 const game = new Game()
+const keyboard = game.keyboard()
+const { context, screen } = game.canvas
 
 const playerID = game.createGameObject((player, game) => {
   const {
@@ -23,11 +25,7 @@ const playerID = game.createGameObject((player, game) => {
   })
 })
 
-const bgID = game.createGameObject((background, game) => {
-  const {
-    canvas: { context, screen },
-  } = game
-
+const bgID = game.createGameObject((background) => {
   background.body = new Rect(context)
     .resize(screen.width, screen.height)
     .setColor('#232323')
@@ -37,10 +35,8 @@ const bgID = game.createGameObject((background, game) => {
   })
 })
 
-game.socketGameObject([playerID, bgID], ([player, bg], game) => {
-  const keyboard = game
-    .keyboard()
-    .create('Space', () => (bg.body.color = '#0066aa'))
+game.socketGameObject([playerID, bgID], ([player, bg]) => {
+  keyboard.create('Space', () => (bg.body.color = '#0066aa'))
 
   player.body.color = '#004422'
 
