@@ -4,6 +4,16 @@ import Loop from '@Event/Loop'
 import Mouse from '@Event/Mouse'
 import GameObject from './GameObject'
 
+export type TypeCreateGameObjectCallback = (
+  gameObject: GameObject,
+  game: Game
+) => void
+
+export type TypeSocketGameObjectCallback = (
+  gameObjects: GameObject[],
+  game: Game
+) => void
+
 export default class Game {
   public readonly canvas = new Canvas(600, 400)
   public readonly mouse = new Mouse(this.canvas.screen)
@@ -15,13 +25,22 @@ export default class Game {
     this.handleGameObjects()
   }
 
-  private handleGameObjects() {
-    this.gameObjects.forEach((gameObject) => gameObject.boot())
+  private handleGameObjects(): void {
+    this.gameObjects.forEach((gameObject) =>
+      gameObject.boots.forEach((fn) => fn())
+    )
 
-    this.loop.onUpdate = () =>
-      this.gameObjects.forEach((gameObject) => gameObject.update())
-    this.loop.onRender = () =>
-      this.gameObjects.forEach((gameObject) => gameObject.render())
+    this.loop.onUpdate = () => {
+      this.gameObjects.forEach((gameObject) =>
+        gameObject.updates.forEach((fn) => fn())
+      )
+    }
+
+    this.loop.onRender = () => {
+      this.gameObjects.forEach((gameObject) =>
+        gameObject.renders.forEach((fn) => fn())
+      )
+    }
 
     this.loop.init()
   }
@@ -30,11 +49,18 @@ export default class Game {
     return new KeyBoard()
   }
 
-  public createGameObject(
-    callback: (gameObject: GameObject, game: Game) => void
-  ): number {
+  public createGameObject(callback: TypeCreateGameObjectCallback): number {
     const gameObject = new GameObject()
     callback(gameObject, this)
-    return this.gameObjects.unshift(gameObject)
+    this.gameObjects.unshift(gameObject)
+    return this.gameObjects.indexOf(gameObject)
+  }
+
+  public socketGameObject(
+    gameObjectsID: number[],
+    callback: TypeSocketGameObjectCallback
+  ) {
+    const gameObjects = gameObjectsID.map((id) => this.gameObjects[id])
+    callback(gameObjects, this)
   }
 }
