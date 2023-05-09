@@ -18,9 +18,9 @@ const playerID = game.createGameObject((player, game) => {
     player.body.setColor('red' === player.body.color ? 'blue ' : 'red')
   )
 
-  player.render = () => {
+  player.render(() => {
     player.body.render()
-  }
+  })
 })
 
 const bgID = game.createGameObject((background, game) => {
@@ -32,7 +32,19 @@ const bgID = game.createGameObject((background, game) => {
     .resize(screen.width, screen.height)
     .setColor('#232323')
 
-  background.render = () => {
+  background.render(() => {
     background.body.render()
-  }
+  })
+})
+
+game.socketGameObject([playerID, bgID], ([player, bg], game) => {
+  const keyboard = game
+    .keyboard()
+    .create('Space', () => (bg.body.color = '#0066aa'))
+
+  player.body.color = '#004422'
+
+  player.update(() => {
+    keyboard.checkClick('Space')
+  })
 })
