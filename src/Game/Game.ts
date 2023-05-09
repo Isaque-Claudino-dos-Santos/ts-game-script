@@ -22,10 +22,10 @@ export default class Game {
   public readonly gameObject = new GameObjectHandler(this)
 
   constructor() {
-    this.handleGameObjects()
+    this.handleGameObjectsAndCallMethodsInLoop()
   }
 
-  private handleGameObjects(): void {
+  private handleGameObjectsAndCallMethodsInLoop(): void {
     this.gameObject.GameObjectsCallBoots()
 
     this.loop.onUpdate = () => {
