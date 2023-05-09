@@ -5,7 +5,7 @@ const game = new Game()
 const { gameObject } = game
 const { context, screen } = game.canvas
 
-const playerID = gameObject.create((player, game) => {
+const playerID = gameObject.create((player) => {
   player.body = new Rect(context)
     .resize(30, 30)
     .reposition(40, 40)
