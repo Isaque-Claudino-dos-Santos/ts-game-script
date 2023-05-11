@@ -30,9 +30,6 @@ export default class GameObjectHandler {
     this.gameObjects.forEach((o) => o.renders.forEach((r) => r()))
   }
 
-  /**
-   * @return {number} this is ID
-   */
   public create(callback: TypeCreateGameObjectCallback): number {
     const gameObject = new GameObject()
     callback(gameObject, this.game)
