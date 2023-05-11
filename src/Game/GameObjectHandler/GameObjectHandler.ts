@@ -14,7 +14,7 @@ export type TypeSocketGameObjectCallback = (
 export type TypeGameObjectArray = GameObject[]
 
 export default class GameObjectHandler {
-  private readonly gameObjects: TypeGameObjectArray = []
+  private gameObjects: TypeGameObjectArray = []
 
   constructor(private readonly game: Game) {}
 
@@ -30,6 +30,11 @@ export default class GameObjectHandler {
     this.gameObjects.forEach((o) => o.renders.forEach((r) => r()))
   }
 
+  public indexTo(currentIndex: number, newIndex: number) {
+    this.gameObjects.splice(currentIndex, 1, this.gameObjects[newIndex])
+    this.gameObjects = this.gameObjects.filter(Boolean)
+  }
+
   public create(
     callback: TypeCreateGameObjectCallback,
     index: number | null = null
@@ -42,7 +47,8 @@ export default class GameObjectHandler {
       return index
     }
     this.gameObjects.push(gameObject)
-    return this.gameObjects.indexOf(gameObject)
+    gameObject.index = this.gameObjects.indexOf(gameObject)
+    return gameObject.index
   }
 
   public socket(

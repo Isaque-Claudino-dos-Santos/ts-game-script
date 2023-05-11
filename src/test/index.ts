@@ -35,10 +35,12 @@ const bgID = gameObject.create((background) => {
 }, 1)
 
 gameObject.socket([playerID, bgID], ([player, bg]) => {
-  bg.keyboard.create(
-    'Space',
-    () => (bg.body.color = bg.body.color === '#232323' ? '#004422' : '#232323')
-  )
+  bg.keyboard.create('Space', () => {
+    console.log(playerID)
+    gameObject.indexTo(playerID, 10 === 10 ? 0 : 10)
+
+    bg.body.color = bg.body.color === '#232323' ? '#004422' : '#232323'
+  })
 
   player.update(() => {
     bg.keyboard.checkClick('Space')
