@@ -34,8 +34,6 @@ const bgID = gameObject.create((background) => {
   })
 }, 1)
 
-console.log(playerID, bgID)
-
 gameObject.socket([playerID, bgID], ([player, bg]) => {
   bg.keyboard.create(
     'Space',
