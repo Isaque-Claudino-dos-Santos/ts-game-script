@@ -7,55 +7,79 @@ export type TypeCreateGameObjectCallback = (
 ) => void
 
 export type TypeSocketGameObjectCallback = (
-  gameObjects: GameObject[],
+  gameObjects: TypeGameObjects,
   game: Game
 ) => void
-
-export type TypeGameObjectArray = GameObject[]
+type TypeGameObjectsForFN = (gameObject: GameObject, index: string) => void
+type TypeGameObjectsMapFN = (
+  gameObject: GameObject,
+  index: string
+) => GameObject
+export type TypeGameObjects = { [index: string]: GameObject }
 
 export default class GameObjectHandler {
-  private gameObjects: TypeGameObjectArray = []
+  private gameObjects: TypeGameObjects = {}
 
   constructor(private readonly game: Game) {}
 
+  private gameObjectsFor(callback: TypeGameObjectsForFN) {
+    for (const name in this.gameObjects) {
+      const gameObject = this.gameObjects[name]
+      callback(gameObject, name)
+    }
+  }
+
+  private gameObjectsMap(callback: TypeGameObjectsMapFN): TypeGameObjects {
+    const items = {}
+    for (const name in this.gameObjects) {
+      const gameObject = this.gameObjects[name]
+      items[name] = callback(gameObject, name)
+    }
+    return items
+  }
+
+  private gameObjectForByName(names: string[], callback: TypeGameObjectsForFN) {
+    names.forEach((name) => {
+      callback(this.gameObjects[name], name)
+    })
+  }
+
+  private gameObjectMapByName(
+    names: string[],
+    callback: TypeGameObjectsMapFN
+  ): TypeGameObjects {
+    const items = {}
+    names.forEach((name) => {
+      items[name] = callback(this.gameObjects[name], name)
+    })
+    return items
+  }
+
   public GameObjectsCallUpdates() {
-    this.gameObjects.forEach((o) => o.updates.forEach((u) => u()))
+    this.gameObjectsFor((o) => o.updates.forEach((u) => u()))
   }
 
   public GameObjectsCallBoots() {
-    this.gameObjects.forEach((o) => o.boots.forEach((b) => b()))
+    this.gameObjectsFor((o) => o.boots.forEach((b) => b()))
   }
 
   public GameObjectsCallRenders() {
-    this.gameObjects.forEach((o) => o.renders.forEach((r) => r()))
+    this.gameObjectsFor((o) => o.renders.forEach((r) => r()))
   }
 
-  public indexTo(currentIndex: number, newIndex: number) {
-    this.gameObjects.splice(currentIndex, 1, this.gameObjects[newIndex])
-    this.gameObjects = this.gameObjects.filter(Boolean)
-  }
-
-  public create(
-    callback: TypeCreateGameObjectCallback,
-    index: number | null = null
-  ): number {
+  public create(callback: TypeCreateGameObjectCallback, name: string): string {
     const gameObject = new GameObject()
+    gameObject.name = name
     callback(gameObject, this.game)
-    if (index) {
-      gameObject.index = index
-      this.gameObjects[index] = gameObject
-      return index
-    }
-    this.gameObjects.push(gameObject)
-    gameObject.index = this.gameObjects.indexOf(gameObject)
-    return gameObject.index
+    this.gameObjects[name] = gameObject
+    return name
   }
 
-  public socket(
-    gameObjectsID: number[],
-    callback: TypeSocketGameObjectCallback
-  ) {
-    const gameObjects = gameObjectsID.map((id) => this.gameObjects[id])
+  public socket(callback: TypeSocketGameObjectCallback, names: string[]) {
+    const gameObjects = this.gameObjectMapByName(
+      names,
+      (gameObject) => gameObject
+    )
     callback(gameObjects, this.game)
   }
 }
