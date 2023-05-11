@@ -5,7 +5,7 @@ const game = new Game()
 const { gameObject } = game
 const { context, screen } = game.canvas
 
-const playerID = gameObject.create((player) => {
+gameObject.create((player) => {
   player.body = new Rect(context)
     .resize(30, 30)
     .reposition(40, 40)
@@ -22,9 +22,9 @@ const playerID = gameObject.create((player) => {
   player.render(() => {
     player.body.render()
   })
-}, 2)
+}, 'player')
 
-const bgID = gameObject.create((background) => {
+gameObject.create((background) => {
   background.body = new Rect(context)
     .resize(screen.width, screen.height)
     .setColor('#232323')
@@ -32,17 +32,18 @@ const bgID = gameObject.create((background) => {
   background.render(() => {
     background.body.render()
   })
-}, 1)
+}, 'background')
 
-gameObject.socket([playerID, bgID], ([player, bg]) => {
-  bg.keyboard.create('Space', () => {
-    console.log(playerID)
-    gameObject.indexTo(playerID, 10 === 10 ? 0 : 10)
+gameObject.socket(
+  ({ background, player }) => {
+    background.keyboard.create('Space', () => {
+      background.body.color =
+        background.body.color === '#232323' ? '#004422' : '#232323'
+    })
 
-    bg.body.color = bg.body.color === '#232323' ? '#004422' : '#232323'
-  })
-
-  player.update(() => {
-    bg.keyboard.checkClick('Space')
-  })
-})
+    player.update(() => {
+      background.keyboard.checkClick('Space')
+    })
+  },
+  ['player', 'background']
+)
