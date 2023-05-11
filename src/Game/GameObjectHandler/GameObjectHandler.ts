@@ -29,21 +29,6 @@ export default class GameObjectHandler {
     }
   }
 
-  private gameObjectsMap(callback: TypeGameObjectsMapFN): TypeGameObjects {
-    const items = {}
-    for (const name in this.gameObjects) {
-      const gameObject = this.gameObjects[name]
-      items[name] = callback(gameObject, name)
-    }
-    return items
-  }
-
-  private gameObjectForByName(names: string[], callback: TypeGameObjectsForFN) {
-    names.forEach((name) => {
-      callback(this.gameObjects[name], name)
-    })
-  }
-
   private gameObjectMapByName(
     names: string[],
     callback: TypeGameObjectsMapFN
@@ -67,19 +52,19 @@ export default class GameObjectHandler {
     this.gameObjectsFor((o) => o.renders.forEach((r) => r()))
   }
 
-  public create(callback: TypeCreateGameObjectCallback, name: string): string {
+  public create(callback: TypeCreateGameObjectCallback): GameObject {
     const gameObject = new GameObject()
-    gameObject.name = name
     callback(gameObject, this.game)
+    return gameObject
+  }
+
+  public save(name: string, gameObject: GameObject) {
+    gameObject.name = name
     this.gameObjects[name] = gameObject
-    return name
   }
 
   public socket(callback: TypeSocketGameObjectCallback, names: string[]) {
-    const gameObjects = this.gameObjectMapByName(
-      names,
-      (gameObject) => gameObject
-    )
+    const gameObjects = this.gameObjectMapByName(names, (g) => g)
     callback(gameObjects, this.game)
   }
 }
