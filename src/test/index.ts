@@ -22,7 +22,7 @@ const player = gameObject.create((player) => {
   player.render(() => {
     player.body.render()
   })
-})
+}, 'player')
 
 const background = gameObject.create((background) => {
   background.body = new Rect(context)
@@ -32,20 +32,15 @@ const background = gameObject.create((background) => {
   background.render(() => {
     background.body.render()
   })
+}, 'background')
+
+gameObject.save(background).save(player)
+
+background.keyboard.create('Space', () => {
+  background.body.color =
+    background.body.color === '#232323' ? '#004422' : '#232323'
 })
 
-gameObject.save('background', background).save('player', player)
-
-gameObject.socket(
-  ({ background, player }) => {
-    background.keyboard.create('Space', () => {
-      background.body.color =
-        background.body.color === '#232323' ? '#004422' : '#232323'
-    })
-
-    player.update(() => {
-      background.keyboard.checkClick('Space')
-    })
-  },
-  ['player', 'background']
-)
+player.update(() => {
+  background.keyboard.checkClick('Space')
+})
