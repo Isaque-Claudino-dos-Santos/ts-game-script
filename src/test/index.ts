@@ -5,7 +5,7 @@ const game = new Game()
 const { gameObject } = game
 const { context, screen } = game.canvas
 
-gameObject.create((player) => {
+const player = gameObject.create((player) => {
   player.body = new Rect(context)
     .resize(30, 30)
     .reposition(40, 40)
@@ -22,9 +22,9 @@ gameObject.create((player) => {
   player.render(() => {
     player.body.render()
   })
-}, 'player')
+})
 
-gameObject.create((background) => {
+const background = gameObject.create((background) => {
   background.body = new Rect(context)
     .resize(screen.width, screen.height)
     .setColor('#232323')
@@ -32,7 +32,10 @@ gameObject.create((background) => {
   background.render(() => {
     background.body.render()
   })
-}, 'background')
+})
+
+gameObject.save('background', background)
+gameObject.save('player', player)
 
 gameObject.socket(
   ({ background, player }) => {
