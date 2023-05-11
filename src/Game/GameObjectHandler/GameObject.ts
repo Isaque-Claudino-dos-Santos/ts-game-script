@@ -6,8 +6,8 @@ type TypeFn = () => void
 type TypeFnArray = TypeFn[]
 
 export default class GameObject {
+  public name!: string
   public body!: TypeBody
-  public index!: number
   public readonly renders: TypeFnArray = []
   public readonly boots: TypeFnArray = []
   public readonly updates: TypeFnArray = []
