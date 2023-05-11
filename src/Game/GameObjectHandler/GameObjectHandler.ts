@@ -30,10 +30,18 @@ export default class GameObjectHandler {
     this.gameObjects.forEach((o) => o.renders.forEach((r) => r()))
   }
 
-  public create(callback: TypeCreateGameObjectCallback): number {
+  public create(
+    callback: TypeCreateGameObjectCallback,
+    index: number | null = null
+  ): number {
     const gameObject = new GameObject()
     callback(gameObject, this.game)
-    this.gameObjects.unshift(gameObject)
+    if (index) {
+      gameObject.index = index
+      this.gameObjects[index] = gameObject
+      return index
+    }
+    this.gameObjects.push(gameObject)
     return this.gameObjects.indexOf(gameObject)
   }
 
