@@ -35,7 +35,9 @@ export default class Game {
     this.loop.onRender = () => {
       this.gameObject.GameObjectsCallRenders()
     }
+  }
 
+  public init() {
     this.loop.init()
   }
 }
