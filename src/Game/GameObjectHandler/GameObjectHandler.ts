@@ -58,9 +58,10 @@ export default class GameObjectHandler {
     return gameObject
   }
 
-  public save(name: string, gameObject: GameObject) {
+  public save(name: string, gameObject: GameObject): this {
     gameObject.name = name
     this.gameObjects[name] = gameObject
+    return this
   }
 
   public socket(callback: TypeSocketGameObjectCallback, names: string[]) {
