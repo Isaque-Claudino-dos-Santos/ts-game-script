@@ -7,8 +7,9 @@ const background = gameObject.create((background) => {
     .setColor('#232323')
 
   background.keyboard.create('Space', () => {
-    background.body.color =
+    background.body.setColor(
       background.body.color === '#232323' ? '#004422' : '#232323'
+    )
   })
 
   background.render(() => {
