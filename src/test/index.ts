@@ -22,7 +22,7 @@ const playerID = gameObject.create((player) => {
   player.render(() => {
     player.body.render()
   })
-})
+}, 2)
 
 const bgID = gameObject.create((background) => {
   background.body = new Rect(context)
@@ -32,7 +32,9 @@ const bgID = gameObject.create((background) => {
   background.render(() => {
     background.body.render()
   })
-})
+}, 1)
+
+console.log(playerID, bgID)
 
 gameObject.socket([playerID, bgID], ([player, bg]) => {
   bg.keyboard.create(
