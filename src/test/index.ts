@@ -34,8 +34,7 @@ const background = gameObject.create((background) => {
   })
 })
 
-gameObject.save('background', background)
-gameObject.save('player', player)
+gameObject.save('background', background).save('player', player)
 
 gameObject.socket(
   ({ background, player }) => {
