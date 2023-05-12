@@ -54,6 +54,8 @@ const config = {
       '@Physical': path.resolve(__dirname, 'src', 'Physical'),
       '@Game': path.resolve(__dirname, 'src', 'Game'),
       '@Module': path.resolve(__dirname, 'src', 'Modules'),
+      '@Engine': path.resolve(__dirname, 'src', 'Engine'),
+      '@Interface': path.resolve(__dirname, 'src', 'Interfaces'),
       Game$: path.resolve(__dirname, 'src', 'Game', 'index.ts'),
     },
   },

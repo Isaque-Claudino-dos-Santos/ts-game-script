@@ -26,8 +26,10 @@
                 "./src/Physical/*"
             ],
             "@Module/*": ["./src/Modules/*"],
+            "@Engine/*": ["./src/Engine/*"],
             "Game": ["./src/Game/index.ts"],
-            "@Game/*": ["./src/Game/*"]
+            "@Game/*": ["./src/Game/*"],
+            "@Interface/*":["./src/Interfaces/*"]
         }
     },
     "files": [
