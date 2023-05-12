@@ -52,13 +52,9 @@ export default class GameObjectHandler {
     this.gameObjectsFor((o) => o.renders.forEach((r) => r()))
   }
 
-  public create(
-    callback: TypeCreateGameObjectCallback,
-    name: string
-  ): GameObject {
+  public create(name: string): GameObject {
     const gameObject = new GameObject()
     gameObject.name = name
-    callback(gameObject, this.game)
     return gameObject
   }
 
