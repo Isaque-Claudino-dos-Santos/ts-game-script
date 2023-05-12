@@ -25,6 +25,7 @@
             "@Physical/*": [
                 "./src/Physical/*"
             ],
+            "@Module/*": ["./src/Modules/*"],
             "Game": ["./src/Game/index.ts"],
             "@Game/*": ["./src/Game/*"]
         }

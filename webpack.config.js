@@ -53,6 +53,7 @@ const config = {
       '@Event': path.resolve(__dirname, 'src', 'Event'),
       '@Physical': path.resolve(__dirname, 'src', 'Physical'),
       '@Game': path.resolve(__dirname, 'src', 'Game'),
+      '@Module': path.resolve(__dirname, 'src', 'Modules'),
       Game$: path.resolve(__dirname, 'src', 'Game', 'index.ts'),
     },
   },
