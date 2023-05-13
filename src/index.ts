@@ -1,8 +1,8 @@
 import Canvas2d from '@Game/Canvas2d'
 import Engine from '@Engine/Engine'
-import PacMan from './PacMan/PacMan'
+import GamePacMan from './PacMan/GamePacMan'
 
 const engine = new Engine(new Canvas2d(600, 450))
-engine.game = new PacMan(engine)
+engine.game = new GamePacMan(engine)
 
 engine.init()

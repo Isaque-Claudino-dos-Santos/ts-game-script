@@ -3,7 +3,7 @@ import Player from './Player'
 import Background from './Background'
 import FPSCounter from './FPSCounter'
 
-export default class PacMan extends Game {
+export default class GamePacMan extends Game {
   readonly obj = {
     fpsCounter: new FPSCounter(this.engine),
     background: new Background(this.engine),
