@@ -9,6 +9,19 @@ export default class Arc extends Shape implements InterfaceArc {
   endAngle: number = Math.PI * 180
   counterclockwise: boolean = false
 
+  centerX(): number {
+    return this.x
+  }
+
+  centerY(): number {
+    return this.y
+  }
+
+  resize(size: number): this {
+    this.radius = size
+    return this
+  }
+
   draw(context: CanvasRenderingContext2D): this {
     context.beginPath()
     context[`${this.paint}Style`] = this.color

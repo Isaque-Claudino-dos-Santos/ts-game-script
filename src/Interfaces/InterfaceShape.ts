@@ -9,7 +9,9 @@ export default interface InterfaceShape {
   readonly shape: TypeShape
 
   draw(context: CanvasRenderingContext2D): this
+  centerX(): number
+  centerY(): number
   setColor(color: string): this
-  reposition(x: number, y: number): this
+  moveTo(x: number, y: number): this
   setPaint(paint: TypePaint): this
 }

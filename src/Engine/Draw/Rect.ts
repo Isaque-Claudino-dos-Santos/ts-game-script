@@ -8,6 +8,20 @@ export default class Rect extends Shape implements InterfaceRect {
   height: number = 10
   angle: number = 0
 
+  centerX(): number {
+    return this.x + this.width / 2
+  }
+
+  centerY(): number {
+    return this.y + this.height / 2
+  }
+
+  resize(width: number, height: number): this {
+    this.width = width
+    this.height = height
+    return this
+  }
+
   draw(context: CanvasRenderingContext2D): this {
     context.save()
     context.beginPath()

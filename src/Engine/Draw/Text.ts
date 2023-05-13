@@ -12,6 +12,14 @@ export default class Text extends Shape implements InterfaceText {
   direction: CanvasDirection = 'rtl'
   maxWidth: number | undefined
 
+  centerX(): number {
+    return this.x
+  }
+
+  centerY(): number {
+    return this.y
+  }
+
   draw(context: CanvasRenderingContext2D): this {
     context.beginPath()
     context[`${this.paint}Style`] = this.color

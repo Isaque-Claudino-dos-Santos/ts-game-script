@@ -8,8 +8,10 @@ export default abstract class Shape implements InterfaceShape {
   paint: TypePaint = 'fill'
 
   abstract draw(context: CanvasRenderingContext2D): this
+  abstract centerX(): number
+  abstract centerY(): number
 
-  reposition(x: number, y: number): this {
+  moveTo(x: number, y: number): this {
     this.x = x
     this.y = y
     return this
