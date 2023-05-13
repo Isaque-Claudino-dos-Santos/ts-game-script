@@ -1,5 +1,7 @@
+export type TypeGameLoopFN = () => void
+
 export default interface InterfaceGameLoop {
-  init: () => void
-  update: () => void
-  render: () => void
+  init: TypeGameLoopFN
+  update: TypeGameLoopFN
+  render: TypeGameLoopFN
 }
