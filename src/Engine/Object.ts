@@ -1,8 +1,8 @@
 import Engine from '@Engine/Engine'
-import InterfaceGameObject from '@Interface/InterfaceGameObject'
+import InterfaceObject from '@Interface/InterfaceObject'
 import TypeSprite2d from '@Type/TypeSprite2d'
 
-export default abstract class GameObject implements InterfaceGameObject {
+export default abstract class Object implements InterfaceObject {
   abstract sprite: TypeSprite2d
 
   constructor(public engine: Engine) {}

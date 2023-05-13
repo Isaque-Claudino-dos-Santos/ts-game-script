@@ -1,7 +1,7 @@
 import Text2d from '@Engine/Draw2d/Text2d'
-import GameObject from '@Game/GameObject'
+import Object from '@Engine/Object'
 
-export default class FPSCounter extends GameObject {
+export default class FPSCounter extends Object {
   sprite = new Text2d().setColor('#ffffff')
 
   constructor(engine) {

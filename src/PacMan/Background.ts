@@ -1,8 +1,8 @@
 import Rect2d from '@Engine/Draw2d/Rect2d'
 import Engine from '@Engine/Engine'
-import GameObject from '@Game/GameObject'
+import Object from '@Engine/Object'
 
-export default class Background extends GameObject {
+export default class Background extends Object {
   sprite = new Rect2d().setColor('#010101').reposition(0, 0)
 
   constructor(public engine: Engine) {

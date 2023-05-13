@@ -4,7 +4,7 @@ import Engine from '@Engine/Engine'
 
 type Types = InterfaceGameLoop
 
-export default interface InterfaceGameObject extends Types {
+export default interface InterfaceObject extends Types {
   sprite: TypeSprite2d
   engine: Engine
 
