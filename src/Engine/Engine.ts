@@ -27,7 +27,6 @@ export default class Engine implements InterfaceEngine {
       this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000
       this.oldTimeStamp = timeStamp
       this.fps = Math.round(1 / this.secondsPassed)
-      console.log(`🏁 FPS: ${this.fps}`)
 
       if (!this.game) return
       this.game.update()
