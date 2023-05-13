@@ -1,9 +1,9 @@
-import Arc2d from '@Engine/Draw2d/Arc2d'
+import Arc from '@Engine/Draw/Arc'
 import Engine from '@Engine/Engine'
 import Object from '@Engine/Object'
 
 export default class Player extends Object {
-  sprite = new Arc2d().setColor('#ffff00').reposition(100, 100)
+  sprite = new Arc().setColor('#ffff00').reposition(100, 100)
 
   constructor(public engine: Engine) {
     super(engine)

@@ -1,9 +1,9 @@
-import Rect2d from '@Engine/Draw2d/Rect2d'
+import Rect from '@Engine/Draw/Rect'
 import Engine from '@Engine/Engine'
 import Object from '@Engine/Object'
 
 export default class Background extends Object {
-  sprite = new Rect2d().setColor('#010101').reposition(0, 0)
+  sprite = new Rect().setColor('#010101').reposition(0, 0)
 
   constructor(public engine: Engine) {
     super(engine)
