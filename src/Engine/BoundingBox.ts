@@ -1,7 +1,6 @@
 import InterfaceBoundingBox from '@Interface/InterfaceBoundingBox'
 import TypeSprite from '@Type/TypeSprite'
 import Rect from './Draw/Rect'
-import Arc from './Draw/Arc'
 
 export default class BoundingBox implements InterfaceBoundingBox {
   constructor(public box: TypeSprite, public parent: TypeSprite) {
