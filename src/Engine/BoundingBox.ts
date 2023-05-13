@@ -12,7 +12,7 @@ export default class BoundingBox<Box extends TypeSprite>
   update() {
     if (this.box.shape === 'rect') {
       const box = this.box as Rect
-      this.box.x = this.parent.x - box.width / 2
+      this.box.x = this.parent.centerX() - box.width / 2
       this.box.y = this.parent.centerY() - box.height / 2
     }
 
