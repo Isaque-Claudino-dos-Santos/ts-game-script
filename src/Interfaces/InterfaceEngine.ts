@@ -11,5 +11,7 @@ export default interface InterfaceEngine {
   readonly mouse: Mouse
   readonly game: Game | undefined
   readonly keyboard: Keyboard
+  fps: number
+
   init: TypeInitFN
 }
