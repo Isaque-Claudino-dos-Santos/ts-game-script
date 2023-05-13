@@ -56,6 +56,8 @@ const config = {
       '@Module': path.resolve(__dirname, 'src', 'Modules'),
       '@Engine': path.resolve(__dirname, 'src', 'Engine'),
       '@Interface': path.resolve(__dirname, 'src', 'Interfaces'),
+      '@Enum': path.resolve(__dirname, 'src', 'Enums'),
+      '@Type': path.resolve(__dirname, 'src', 'Types'),
       Game$: path.resolve(__dirname, 'src', 'Game', 'index.ts'),
     },
   },

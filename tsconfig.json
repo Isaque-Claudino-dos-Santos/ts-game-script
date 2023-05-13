@@ -29,7 +29,9 @@
             "@Engine/*": ["./src/Engine/*"],
             "Game": ["./src/Game/index.ts"],
             "@Game/*": ["./src/Game/*"],
-            "@Interface/*":["./src/Interfaces/*"]
+            "@Interface/*":["./src/Interfaces/*"],
+            "@Enum/*": ["./src/Enums/*"],
+            "@Type/*": ["./src/Types/*"]
         }
     },
     "files": [
