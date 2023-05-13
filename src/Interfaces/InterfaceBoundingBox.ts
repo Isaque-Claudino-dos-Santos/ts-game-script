@@ -1,8 +1,9 @@
 import TypeSprite from '@Type/TypeSprite'
 
 export default interface InterfaceBoundingBox {
-  shape: TypeSprite
+  box: TypeSprite
   parent: TypeSprite
 
-  update: () => void
+  update(): void
+  debug(context: CanvasRenderingContext2D): void
 }
