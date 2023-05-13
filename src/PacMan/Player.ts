@@ -10,7 +10,7 @@ export default class Player extends Object {
   constructor(public engine: Engine) {
     super(engine)
     this.sprite.radius = 16
-    this.bbox.box.resize(this.sprite.radius * 3.2)
+    this.bbox.box.resize(this.sprite.radius)
   }
 
   private moviment() {
