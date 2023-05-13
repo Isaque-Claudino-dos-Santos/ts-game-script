@@ -1,6 +1,6 @@
 export type TypeShapeType = 'fill' | 'stroke'
 
-export default interface InterfaceShape2d {
+export default interface InterfaceShape {
   x: number
   y: number
   color: string

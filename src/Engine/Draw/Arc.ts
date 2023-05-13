@@ -1,7 +1,7 @@
-import InterfaceArc2d from '@Interface/InterfaceArc2d'
-import Shape2d from '@Module/Shape2d'
+import InterfaceArc from '@Interface/InterfaceArc'
+import Shape from '@Module/Shape'
 
-export default class Arc2d extends Shape2d implements InterfaceArc2d {
+export default class Arc2d extends Shape implements InterfaceArc {
   radius: number = 5
   startAngle: number = 0
   endAngle: number = Math.PI * 180

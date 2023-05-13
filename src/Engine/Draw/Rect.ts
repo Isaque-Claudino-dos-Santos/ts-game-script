@@ -1,7 +1,7 @@
-import InterfaceRect2d from '@Interface/InterfaceRect2d'
-import Shape2d from '@Module/Shape2d'
+import InterfaceRect from '@Interface/InterfaceRect'
+import Shape from '@Module/Shape'
 
-export default class Rect2d extends Shape2d implements InterfaceRect2d {
+export default class Rect extends Shape implements InterfaceRect {
   width: number = 10
   height: number = 10
   angle: number = 0

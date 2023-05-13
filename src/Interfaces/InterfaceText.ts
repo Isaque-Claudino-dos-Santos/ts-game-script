@@ -1,4 +1,6 @@
-export default interface InterfaceText2d {
+import InterfaceShape from './InterfaceShape'
+
+export default interface InterfaceText extends InterfaceShape {
   text: string
   family: string
   size: string

@@ -1,6 +1,6 @@
-import InterfaceShape2d, { TypeShapeType } from '@Interface/InterfaceShape2d'
+import InterfaceShape, { TypeShapeType } from '@Interface/InterfaceShape'
 
-export default abstract class Shape2d implements InterfaceShape2d {
+export default abstract class Shape2d implements InterfaceShape {
   x: number = 0
   y: number = 0
   color: string = 'black'

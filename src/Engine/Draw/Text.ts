@@ -1,7 +1,7 @@
-import InterfaceText2d from '@Interface/InterfaceText2d'
-import Shape2d from '@Module/Shape2d'
+import InterfaceText from '@Interface/InterfaceText'
+import Shape from '@Module/Shape'
 
-export default class Text2d extends Shape2d implements InterfaceText2d {
+export default class Text extends Shape implements InterfaceText {
   text: string = ''
   family: string = 'Arial'
   size: string = '10px'
