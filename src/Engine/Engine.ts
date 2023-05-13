@@ -26,7 +26,7 @@ export default class Engine implements InterfaceEngine {
     const loop = (timeStamp: number = 0) => {
       this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000
       this.oldTimeStamp = timeStamp
-      this.fps = Math.round(1 / this.secondsPassed)
+      this.fps = Number((1 / this.secondsPassed).toFixed(1))
 
       if (!this.game) return
       this.game.update()
