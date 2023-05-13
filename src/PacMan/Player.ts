@@ -1,12 +1,17 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
-import Rect from '@Engine/Draw/Rect'
 import Engine from '@Engine/Engine'
 import Object from '@Engine/Object'
 
 export default class Player extends Object {
-  sprite = new Arc().setColor('#ffff00').reposition(100, 100)
-  bbox = new BoundingBox(new Rect(), this.sprite)
+  sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
+  bbox = new BoundingBox(
+    new Arc()
+      .setPaint('stroke')
+      .resize(this.sprite.radius * 3.2)
+      .setColor('#ff0000'),
+    this.sprite
+  )
 
   constructor(public engine: Engine) {
     super(engine)
@@ -33,9 +38,11 @@ export default class Player extends Object {
 
   override update = () => {
     this.moviment()
+    this.bbox.update()
   }
 
   override render = () => {
     this.draw()
+    this.bbox.debug(this.engine.context2d)
   }
 }
