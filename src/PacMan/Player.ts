@@ -1,9 +1,12 @@
+import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
+import Rect from '@Engine/Draw/Rect'
 import Engine from '@Engine/Engine'
 import Object from '@Engine/Object'
 
 export default class Player extends Object {
   sprite = new Arc().setColor('#ffff00').reposition(100, 100)
+  bbox = new BoundingBox(new Rect(), this.sprite)
 
   constructor(public engine: Engine) {
     super(engine)

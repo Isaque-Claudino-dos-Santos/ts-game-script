@@ -1,10 +1,11 @@
-import InterfaceShape, { TypeShapeType } from '@Interface/InterfaceShape'
+import InterfaceShape, { TypePaint, TypeShape } from '@Interface/InterfaceShape'
 
-export default abstract class Shape2d implements InterfaceShape {
+export default abstract class Shape implements InterfaceShape {
+  abstract readonly shape: TypeShape
   x: number = 0
   y: number = 0
   color: string = 'black'
-  type: TypeShapeType = 'fill'
+  paint: TypePaint = 'fill'
 
   abstract draw(context: CanvasRenderingContext2D): this
 
@@ -19,8 +20,8 @@ export default abstract class Shape2d implements InterfaceShape {
     return this
   }
 
-  setType(type: TypeShapeType): this {
-    this.type = type
+  setPaint(paint: TypePaint): this {
+    this.paint = paint
     return this
   }
 }

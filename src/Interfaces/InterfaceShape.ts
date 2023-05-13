@@ -1,13 +1,15 @@
-export type TypeShapeType = 'fill' | 'stroke'
+export type TypePaint = 'fill' | 'stroke'
+export type TypeShape = 'rect' | 'arc' | 'text'
 
 export default interface InterfaceShape {
   x: number
   y: number
   color: string
-  type: TypeShapeType
+  paint: TypePaint
+  readonly shape: TypeShape
 
   draw(context: CanvasRenderingContext2D): this
   setColor(color: string): this
   reposition(x: number, y: number): this
-  setType(type: TypeShapeType): this
+  setPaint(paint: TypePaint): this
 }
