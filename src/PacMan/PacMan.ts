@@ -1,18 +1,23 @@
-import Game, { TypeGameFN } from '@Game/Game'
+import Game from '@Game/Game'
+import Player from './Player'
+import Background from './Background'
 
 export default class PacMan extends Game {
-  override init: TypeGameFN = () => {
-    console.log(`Game Init ✅`)
-  }
-  override update: TypeGameFN = () => {
-    if (this.engine.keyboard.check('KeyA')) {
-      console.log('On Check 👉 A')
-    }
-
-    if (this.engine.keyboard.check('KeyD')) {
-      console.log('On Check 👉 D')
-    }
+  readonly obj = {
+    background: new Background(this.engine),
+    player: new Player(this.engine),
   }
 
-  override render: TypeGameFN = () => {}
+  override init = () => {
+    console.log(`Game In-it ✅`)
+  }
+
+  override update = () => {
+    this.obj.player.update()
+  }
+
+  override render = () => {
+    this.obj.background.render()
+    this.obj.player.render()
+  }
 }
