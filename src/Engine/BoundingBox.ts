@@ -2,8 +2,10 @@ import InterfaceBoundingBox from '@Interface/InterfaceBoundingBox'
 import TypeSprite from '@Type/TypeSprite'
 import Rect from './Draw/Rect'
 
-export default class BoundingBox implements InterfaceBoundingBox {
-  constructor(public box: TypeSprite, public parent: TypeSprite) {
+export default class BoundingBox<Box extends TypeSprite>
+  implements InterfaceBoundingBox
+{
+  constructor(public box: Box, public parent: TypeSprite) {
     this.box.setPaint('stroke').setColor('#ff0000')
   }
 
