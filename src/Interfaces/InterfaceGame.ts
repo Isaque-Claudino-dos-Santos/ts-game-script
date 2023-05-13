@@ -1,9 +1,8 @@
 import Engine from '@Engine/Engine'
+import InterfaceGameLoop from './InterfaceGameLoop'
 
-export default interface InterfaceGame {
+type Types = InterfaceGameLoop
+
+export default interface InterfaceGame extends Types {
   engine: Engine | undefined
-
-  init(): void
-  update(): void
-  render(): void
 }
