@@ -1,3 +1,4 @@
+import Keyboard from '@Engine/Keyboard'
 import Mouse from '@Engine/Mouse'
 import Game from '@Game/Game'
 import Window from '@Module/Window'
@@ -9,5 +10,6 @@ export default interface InterfaceEngine {
   readonly context2d: CanvasRenderingContext2D
   readonly mouse: Mouse
   readonly game: Game | undefined
+  readonly keyboard: Keyboard
   init: TypeInitFN
 }
