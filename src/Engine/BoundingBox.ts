@@ -4,7 +4,9 @@ import Rect from './Draw/Rect'
 import Arc from './Draw/Arc'
 
 export default class BoundingBox implements InterfaceBoundingBox {
-  constructor(public box: TypeSprite, public parent: TypeSprite) {}
+  constructor(public box: TypeSprite, public parent: TypeSprite) {
+    this.box.setPaint('stroke').setColor('#ff0000')
+  }
 
   update() {
     if (this.box.shape === 'rect') {

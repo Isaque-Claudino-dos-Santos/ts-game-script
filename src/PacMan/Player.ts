@@ -6,10 +6,7 @@ import Object from '@Engine/Object'
 export default class Player extends Object {
   sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
   bbox = new BoundingBox(
-    new Arc()
-      .setPaint('stroke')
-      .resize(this.sprite.radius * 3.2)
-      .setColor('#ff0000'),
+    new Arc().resize(this.sprite.radius * 3.2),
     this.sprite
   )
 
