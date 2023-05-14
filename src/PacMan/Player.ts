@@ -1,7 +1,7 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
 import Engine from '@Engine/Engine'
-import Object from '@Engine/Object'
+import Object from '@Engine/Modules/Object'
 
 export default class Player extends Object {
   sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
@@ -38,6 +38,6 @@ export default class Player extends Object {
 
   override render = () => {
     this.draw()
-    this.bbox.debug(this.engine.context2d)
+    this.bbox.debug(this.engine.canvas.context)
   }
 }

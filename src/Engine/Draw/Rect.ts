@@ -1,6 +1,6 @@
-import InterfaceRect from '@Interface/InterfaceRect'
-import { TypeShape } from '@Interface/InterfaceShape'
-import Shape from '@Module/Shape'
+import Shape from '@Engine/Modules/Shape'
+import InterfaceRect from '@Engine/Interfaces/InterfaceRect'
+import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
 
 export default class Rect extends Shape implements InterfaceRect {
   readonly shape: TypeShape = 'rect'

@@ -1,4 +1,4 @@
-import InterfaceMouse from '@Interface/InterfaceMouse'
+import InterfaceMouse from '@Engine/Interfaces/InterfaceMouse'
 
 export default class Mouse implements InterfaceMouse {
   x: number = 0

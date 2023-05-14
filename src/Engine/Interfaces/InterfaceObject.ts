@@ -1,4 +1,4 @@
-import TypeSprite from '@Type/TypeSprite'
+import TypeSprite from '@Engine/Types/TypeSprite'
 import InterfaceGameLoop from './InterfaceGameLoop'
 import Engine from '@Engine/Engine'
 

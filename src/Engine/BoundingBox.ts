@@ -1,5 +1,5 @@
-import InterfaceBoundingBox from '@Interface/InterfaceBoundingBox'
-import TypeSprite from '@Type/TypeSprite'
+import InterfaceBoundingBox from '@Engine/Interfaces/InterfaceBoundingBox'
+import TypeSprite from '@Engine/Types/TypeSprite'
 import Rect from './Draw/Rect'
 
 export default class BoundingBox<Box extends TypeSprite>

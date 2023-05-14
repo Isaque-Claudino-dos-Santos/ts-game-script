@@ -1,6 +1,6 @@
-import InterfaceArc from '@Interface/InterfaceArc'
-import { TypeShape } from '@Interface/InterfaceShape'
-import Shape from '@Module/Shape'
+import Shape from '@Engine/Modules/Shape'
+import InterfaceArc from '@Engine/Interfaces/InterfaceArc'
+import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
 
 export default class Arc extends Shape implements InterfaceArc {
   readonly shape: TypeShape = 'arc'

@@ -1,8 +1,8 @@
-import Canvas2d from '@Game/Canvas2d'
 import Engine from '@Engine/Engine'
 import GamePacMan from './PacMan/GamePacMan'
 
-const engine = new Engine(new Canvas2d(600, 450))
-engine.game = new GamePacMan(engine)
+const engine = new Engine()
 
-engine.init()
+engine.canvas.screenSize(550, 350)
+
+engine.init(new GamePacMan(engine))

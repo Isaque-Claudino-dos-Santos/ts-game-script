@@ -1,4 +1,7 @@
-import InterfaceShape, { TypePaint, TypeShape } from '@Interface/InterfaceShape'
+import InterfaceShape, {
+  TypePaint,
+  TypeShape,
+} from '@Engine/Interfaces/InterfaceShape'
 
 export default abstract class Shape implements InterfaceShape {
   abstract readonly shape: TypeShape

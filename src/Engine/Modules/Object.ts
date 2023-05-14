@@ -1,6 +1,6 @@
 import Engine from '@Engine/Engine'
-import InterfaceObject from '@Interface/InterfaceObject'
-import TypeSprite from '@Type/TypeSprite'
+import InterfaceObject from '@Engine/Interfaces/InterfaceObject'
+import TypeSprite from '@Engine/Types/TypeSprite'
 
 export default abstract class Object implements InterfaceObject {
   abstract sprite: TypeSprite
@@ -8,7 +8,7 @@ export default abstract class Object implements InterfaceObject {
   constructor(public engine: Engine) {}
 
   draw(): void {
-    this.sprite.draw(this.engine.context2d)
+    this.sprite.draw(this.engine.canvas.context)
   }
 
   init = () => {}

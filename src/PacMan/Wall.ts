@@ -1,6 +1,6 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Rect from '@Engine/Draw/Rect'
-import Object from '@Engine/Object'
+import Object from '@Engine/Modules/Object'
 
 export default class Wall extends Object {
   sprite = new Rect().resize(30, 120).moveTo(250, 150).setColor('#eeeeee')
@@ -17,6 +17,6 @@ export default class Wall extends Object {
 
   override render = () => {
     this.draw()
-    this.bbox.debug(this.engine.context2d)
+    this.bbox.debug(this.engine.canvas.context)
   }
 }

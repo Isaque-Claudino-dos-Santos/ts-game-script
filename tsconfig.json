@@ -31,7 +31,7 @@
             "@Game/*": ["./src/Game/*"],
             "@Interface/*":["./src/Interfaces/*"],
             "@Enum/*": ["./src/Enums/*"],
-            "@Type/*": ["./src/Types/*"]
+            "@Type/*": ["src/Engine/Types/*"]
         }
     },
     "files": [

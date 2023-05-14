@@ -1,4 +1,4 @@
-import InterfaceShape from '@Interface/InterfaceShape'
+import InterfaceShape from '@Engine/Interfaces/InterfaceShape'
 
 export default interface InterfaceRect2d extends InterfaceShape {
   width: number

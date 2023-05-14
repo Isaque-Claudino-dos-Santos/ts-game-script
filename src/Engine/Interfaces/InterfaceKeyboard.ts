@@ -1,4 +1,4 @@
-import TypeVK from '@Type/TypeVK'
+import TypeVK from '@Engine/Types/TypeVK'
 
 export type TypeKeyboardKey = {
   isDown: boolean

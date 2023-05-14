@@ -1,7 +1,7 @@
 import InterfaceKeyboard, {
   TypeKeyboardKeys,
-} from '@Interface/InterfaceKeyboard'
-import TypeVK from '@Type/TypeVK'
+} from '@Engine/Interfaces/InterfaceKeyboard'
+import TypeVK from '@Engine/Types/TypeVK'
 
 export default class Keyboard implements InterfaceKeyboard {
   readonly keys: TypeKeyboardKeys = {

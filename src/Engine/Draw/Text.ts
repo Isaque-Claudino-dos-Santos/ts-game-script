@@ -1,6 +1,6 @@
-import { TypeShape } from '@Interface/InterfaceShape'
-import InterfaceText from '@Interface/InterfaceText'
-import Shape from '@Module/Shape'
+import Shape from '@Engine/Modules/Shape'
+import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
+import InterfaceText from '@Engine/Interfaces/InterfaceText'
 
 export default class Text extends Shape implements InterfaceText {
   readonly shape: TypeShape = 'text'
