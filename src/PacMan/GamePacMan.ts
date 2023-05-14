@@ -13,7 +13,7 @@ export default class GamePacMan extends Game {
   }
 
   override init = () => {
-    console.log(`Game In-it ✅`)
+    console.log(`Game Init ✅`)
   }
 
   override update = () => {
