@@ -4,7 +4,7 @@ import Object from '@Engine/Modules/Object'
 
 export default class Player extends Object<Arc> {
   readonly sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
-  readonly boundingBox = new BoundingBox(this.sprite)
+  readonly boundingBox = new BoundingBox(this)
 
   constructor(engine) {
     super(engine)
