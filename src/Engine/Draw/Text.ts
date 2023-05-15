@@ -12,8 +12,8 @@ export default class Text extends Shape implements InterfaceText {
   direction: CanvasDirection = 'rtl'
   maxWidth: number | undefined
 
-  copy(): Text {
-    return Object.assign(new Text(), this)
+  copy<Text>(): Text {
+    return Object.assign(new Text(), this) as Text
   }
 
   draw(context: CanvasRenderingContext2D): this {

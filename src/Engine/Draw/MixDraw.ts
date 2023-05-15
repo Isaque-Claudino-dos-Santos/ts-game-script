@@ -1,16 +1,17 @@
 import InterfaceMixDraw from '@Engine/Interfaces/InterfaceMixDraw'
 import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
 import Shape from '@Engine/Modules/Shape'
+import TypeSprite from '@Engine/Types/TypeSprite'
 
 export default class MixDraw extends Shape implements InterfaceMixDraw {
   readonly shape: TypeShape = 'mix'
-  shapes: Shape[] = []
+  shapes: TypeSprite[] = []
 
-  copy(): MixDraw {
-    return Object.assign(new MixDraw(), this)
+  copy<MixDraw>(): MixDraw {
+    return Object.assign(new MixDraw(), this) as MixDraw
   }
 
-  add(shape: Shape): void {
+  add(shape: TypeSprite): void {
     this.shapes.push(shape)
   }
 
