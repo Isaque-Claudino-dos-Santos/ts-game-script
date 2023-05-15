@@ -1,10 +1,12 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
 import Object from '@Engine/Modules/Object'
+import Wall from './Wall'
 
 export default class Player extends Object<Arc> {
   readonly sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
   readonly boundingBox = new BoundingBox(this)
+  readonly speed = { x: 4, y: 4 }
 
   constructor(engine) {
     super(engine)
@@ -12,27 +14,22 @@ export default class Player extends Object<Arc> {
     this.boundingBox.box.resize(this.sprite.radius)
   }
 
+  msg(target: Wall) {}
+
   private moviment() {
     const key = this.engine.keyboard
-    const speed = { x: 4, y: 4 }
 
     if (key.check('KeyW')) {
-      this.sprite.y -= speed.y
+      this.sprite.y -= this.speed.y
     }
     if (key.check('KeyA')) {
-      this.sprite.x -= speed.x
+      this.sprite.x -= this.speed.x
     }
     if (key.check('KeyS')) {
-      this.sprite.y += speed.y
+      this.sprite.y += this.speed.y
     }
     if (key.check('KeyD')) {
-      this.sprite.x += speed.x
-    }
-  }
-
-  override init = () => {
-    this.boundingBox.onCollision = (bbox) => {
-      console.log('Hello Word')
+      this.sprite.x += this.speed.x
     }
   }
 
