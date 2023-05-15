@@ -7,7 +7,7 @@ export default abstract class Object<Sprite extends TypeSprite>
   implements InterfaceObject
 {
   abstract readonly sprite: Sprite
-  readonly boundingBox: BoundingBox<Sprite> | undefined
+  abstract readonly boundingBox: BoundingBox<Sprite>
 
   constructor(public engine: Engine) {}
 
