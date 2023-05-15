@@ -6,6 +6,7 @@ import Object from '@Engine/Modules/Object'
 
 export default class Tree extends Object<MixDraw> {
   readonly sprite = new MixDraw().moveTo(200, 70)
+  readonly boundingBox = new BoundingBox(this)
   private stem = new Rect().resize(20, 70).setColor('#aa4400')
   private sheets = new Rect().resize(30, 30).setColor('#005500').fixTo(-5, -30)
 

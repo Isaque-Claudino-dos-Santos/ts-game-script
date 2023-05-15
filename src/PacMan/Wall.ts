@@ -7,7 +7,7 @@ export default class Wall extends Object<Rect> {
     .resize(30, 120)
     .moveTo(250, 150)
     .setColor('#eeeeee')
-  readonly boundingBox = new BoundingBox(this)
+  readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this)
 
   constructor(engine) {
     super(engine)
