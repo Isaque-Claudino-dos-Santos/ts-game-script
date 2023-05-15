@@ -15,7 +15,22 @@ export default class Player extends Object<Arc> {
   }
 
   wallCollider(wall: Wall) {
-    console.log(wall.boundingBox.collidedSide)
+    const side = wall.boundingBox.collidedSide
+    if (side.left && this.engine.keyboard.check('KeyD')) {
+      this.sprite.x = wall.sprite.x - this.sprite.radius
+    }
+
+    if (side.right && this.engine.keyboard.check('KeyA')) {
+      this.sprite.x = wall.sprite.x + wall.sprite.width + this.sprite.radius
+    }
+
+    if (side.top && this.engine.keyboard.check('KeyS')) {
+      this.sprite.y = wall.sprite.y - this.sprite.radius
+    }
+
+    if (side.bottom && this.engine.keyboard.check('KeyW')) {
+      this.sprite.y = wall.sprite.y + wall.sprite.height + this.sprite.radius
+    }
   }
 
   private moviment() {
