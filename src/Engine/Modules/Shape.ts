@@ -1,6 +1,4 @@
 import InterfaceShape, {
-  TypeOriginPointX,
-  TypeOriginPointY,
   TypePaint,
   TypeShape,
 } from '@Engine/Interfaces/InterfaceShape'
@@ -14,16 +12,24 @@ export default abstract class Shape implements InterfaceShape {
   color: string = 'black'
   paint: TypePaint = 'fill'
   angle: number = 0
-
-  originPointX: TypeOriginPointX = 'center'
-  originPointY: TypeOriginPointY = 'center'
+  originX: number = 0
+  originY: number = 0
 
   abstract draw(context: CanvasRenderingContext2D): this
-  abstract centerX(): number
-  abstract centerY(): number
 
-  abstract originX(): number
-  abstract originY(): number
+  getOriginX(): number {
+    return this.x + this.originX
+  }
+
+  getOriginY(): number {
+    return this.y + this.originY
+  }
+
+  setOrigins(x: number, y: number): this {
+    this.originX = x
+    this.originY = y
+    return this
+  }
 
   moveTo(x: number, y: number): this {
     this.x = x
