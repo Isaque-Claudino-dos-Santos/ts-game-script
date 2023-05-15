@@ -2,14 +2,14 @@ import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
 import Object from '@Engine/Modules/Object'
 
-export default class Player extends Object {
-  sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
-  bbox = new BoundingBox(this.sprite)
+export default class Player extends Object<Arc> {
+  readonly sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
+  readonly boundingBox = new BoundingBox(this.sprite)
 
   constructor(engine) {
     super(engine)
     this.sprite.radius = 16
-    this.bbox.box.resize(this.sprite.radius)
+    this.boundingBox.box.resize(this.sprite.radius)
   }
 
   private moviment() {
@@ -31,18 +31,18 @@ export default class Player extends Object {
   }
 
   override init = () => {
-    this.bbox.onCollision = (bbox) => {
+    this.boundingBox.onCollision = (bbox) => {
       console.log('Hello Word')
     }
   }
 
   override update = () => {
     this.moviment()
-    this.bbox.update()
+    this.boundingBox.update()
   }
 
   override render = () => {
     this.draw()
-    this.bbox.debug(this.engine.canvas.context)
+    this.boundingBox.debug(this.engine.canvas.context)
   }
 }
