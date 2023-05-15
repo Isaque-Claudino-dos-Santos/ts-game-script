@@ -13,6 +13,8 @@ export default class BoundingBox<Sprite extends TypeSprite>
     this.box.setPaint('stroke').setColor('#ff55ff')
   }
 
+  onCollision = (collider: BoundingBox<TypeSprite>) => {}
+
   update = () => {
     this.box.setOrigins(this.sprite.originX, this.sprite.originY)
     this.box.moveTo(this.sprite.x, this.sprite.y)
