@@ -1,9 +1,13 @@
+import BoundingBox from '@Engine/BoundingBox'
 import Engine from '@Engine/Engine'
 import InterfaceObject from '@Engine/Interfaces/InterfaceObject'
 import TypeSprite from '@Engine/Types/TypeSprite'
 
-export default abstract class Object implements InterfaceObject {
-  abstract sprite: TypeSprite
+export default abstract class Object<Sprite extends TypeSprite>
+  implements InterfaceObject
+{
+  abstract readonly sprite: Sprite
+  readonly boundingBox: BoundingBox<Sprite> | undefined
 
   constructor(public engine: Engine) {}
 
