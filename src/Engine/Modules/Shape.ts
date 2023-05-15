@@ -14,6 +14,7 @@ export default abstract class Shape implements InterfaceShape {
   angle: number = 0
   originX: number = 0
   originY: number = 0
+  lineWidth: number = 1
 
   abstract draw(context: CanvasRenderingContext2D): this
 
