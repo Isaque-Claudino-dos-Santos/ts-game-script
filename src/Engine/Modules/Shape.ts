@@ -17,6 +17,8 @@ export default abstract class Shape implements InterfaceShape {
 
   abstract draw(context: CanvasRenderingContext2D): this
 
+  abstract copy(): any
+
   getOriginX(): number {
     return this.x + this.originX
   }
