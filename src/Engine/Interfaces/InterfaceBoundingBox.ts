@@ -1,13 +1,11 @@
-import BoundingBox from '@Engine/BoundingBox'
+import Object from '@Engine/Modules/Object'
 import TypeSprite from '@Type/TypeSprite'
 
 export default interface InterfaceBoundingBox {
   readonly box: TypeSprite
-  readonly sprite: TypeSprite
+  readonly object: Object<TypeSprite>
 
-  onCollision<Collided extends BoundingBox<TypeSprite>>(
-    collided: Collided
-  ): void
+  onCollision(collided: Object<TypeSprite>): void
   update(): void
   debug(context: CanvasRenderingContext2D): void
 }
