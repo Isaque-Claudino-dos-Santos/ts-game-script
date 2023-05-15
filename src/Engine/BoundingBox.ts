@@ -8,10 +8,8 @@ export default class BoundingBox<Box extends TypeSprite>
 
   update() {
     this.box.angle = this.parent.angle
-    this.box.originPointX = this.parent.originPointX
-    this.box.originPointY = this.parent.originPointY
-    this.box.x = this.parent.centerX() - this.box.originX()
-    this.box.y = this.parent.centerY() - this.box.originY()
+    this.box.setOrigins(this.parent.originX, this.parent.originY)
+    this.box.moveTo(this.parent.getOriginX(), this.parent.getOriginY())
   }
 
   debug(context: CanvasRenderingContext2D): void {
