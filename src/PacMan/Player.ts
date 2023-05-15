@@ -14,7 +14,7 @@ export default class Player extends Object<Arc> {
     this.boundingBox.box.resize(this.sprite.radius)
   }
 
-  msg(target: Wall) {}
+  wallCollider(wall: Wall) {}
 
   private moviment() {
     const key = this.engine.keyboard

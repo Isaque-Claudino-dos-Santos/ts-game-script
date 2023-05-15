@@ -32,8 +32,8 @@ export default class GamePacMan extends Game {
     this.obj.player.update()
     this.obj.wall.update()
     this.obj.tree.update()
-    this.engine.collider.arcWithRect(this.obj.player, this.obj.wall, (target) =>
-      this.obj.player.msg(target)
+    this.engine.collider.arcWithRect(this.obj.player, this.obj.wall, (t) =>
+      this.obj.player.wallCollider(t)
     )
   }
 
