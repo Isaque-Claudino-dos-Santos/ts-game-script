@@ -2,9 +2,14 @@ import InterfaceCollider from '@Engine/Interfaces/InterfaceCollider'
 import Rect from './Draw/Rect'
 import Arc from './Draw/Arc'
 import Object from './Modules/Object'
+import { TypeResolveCollider } from '@Engine/Interfaces/InterfaceCollider'
 
 export default class Collider implements InterfaceCollider {
-  rectWithRect(object1: Object<Rect>, object2: Object<Rect>): this {
+  rectWithRect(
+    object1: Object<Rect>,
+    object2: Object<Rect>,
+    resolve: TypeResolveCollider<typeof object2>
+  ): this {
     const box1 = object1.boundingBox
     const box2 = object2.boundingBox
 
@@ -16,13 +21,16 @@ export default class Collider implements InterfaceCollider {
       box1.box.y < box2.box.y + box2.box.height &&
       box1.box.y + box1.box.height > box2.box.y
     ) {
-      box1.onCollision(object2)
-      box2.onCollision(object1)
+      resolve(object2)
     }
     return this
   }
 
-  arcWithArc(object1: Object<Arc>, object2: Object<Arc>): this {
+  arcWithArc(
+    object1: Object<Arc>,
+    object2: Object<Arc>,
+    resolve: TypeResolveCollider<typeof object2>
+  ): this {
     const box1 = object1.boundingBox
     const box2 = object2.boundingBox
 
@@ -35,13 +43,16 @@ export default class Collider implements InterfaceCollider {
     const overlap = hpty - sumRadius
 
     if (overlap <= 0) {
-      box1.onCollision(object2)
-      box1.onCollision(object1)
+      resolve(object2)
     }
     return this
   }
 
-  arcWithRect(object1: Object<Arc>, object2: Object<Rect>): this {
+  arcWithRect(
+    object1: Object<Arc>,
+    object2: Object<Rect>,
+    resolve: TypeResolveCollider<typeof object2>
+  ): this {
     const box1 = object1.boundingBox
     const box2 = object2.boundingBox
 
@@ -64,8 +75,7 @@ export default class Collider implements InterfaceCollider {
     const overlap = hpty - box1.box.radius
 
     if (overlap <= 0) {
-      box1.onCollision(object2)
-      box2.onCollision(object1)
+      resolve(object2)
     }
     return this
   }
