@@ -10,6 +10,6 @@ export type TypeKeyboardKeys = {
 
 export default interface InterfaceKeyboard {
   readonly keys: TypeKeyboardKeys
-  check(vk: TypeVK): Boolean
+  check(vk: TypeVK): number
   lockKey(vk: TypeVK): void
 }
