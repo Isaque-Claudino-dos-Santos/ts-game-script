@@ -32,10 +32,6 @@ export default class GamePacMan extends Game {
     this.obj.player.update()
     this.obj.wall.update()
     this.obj.tree.update()
-    this.engine.collider.arcWithRect(
-      this.obj.player.boundingBox,
-      this.obj.tree.bboxStem
-    )
   }
 
   override render = () => {
