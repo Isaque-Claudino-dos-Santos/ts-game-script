@@ -2,18 +2,10 @@ import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
 import Engine from '@Engine/Engine'
 import Object from '@Engine/Modules/Object'
-import TypeVK from '@Engine/Types/TypeVK'
 
 export default class Player extends Object {
   sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
   bbox = new BoundingBox(this.sprite)
-
-  movimentControll: { [index: string]: TypeVK } = {
-    left: 'KeyA',
-    right: 'KeyD',
-    top: 'KeyW',
-    bottom: 'KeyS',
-  }
 
   constructor(public engine: Engine) {
     super(engine)
@@ -25,16 +17,16 @@ export default class Player extends Object {
     const key = this.engine.keyboard
     const speed = { x: 4, y: 4 }
 
-    if (key.check(this.movimentControll.top)) {
+    if (key.check('KeyW')) {
       this.sprite.y -= speed.y
     }
-    if (key.check(this.movimentControll.left)) {
+    if (key.check('KeyA')) {
       this.sprite.x -= speed.x
     }
-    if (key.check(this.movimentControll.bottom)) {
+    if (key.check('KeyS')) {
       this.sprite.y += speed.y
     }
-    if (key.check(this.movimentControll.right)) {
+    if (key.check('KeyD')) {
       this.sprite.x += speed.x
     }
   }
