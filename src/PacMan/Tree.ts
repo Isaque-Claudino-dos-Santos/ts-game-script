@@ -6,10 +6,8 @@ import Object from '@Engine/Modules/Object'
 
 export default class Tree extends Object {
   private stem = new Rect().resize(20, 70).setColor('#aa4400')
-  private sheets = new Arc()
-    .resize(20)
-    .setColor('#005500')
-    .fixTo(this.stem.width, 0)
+  private sheets = new Rect().resize(30, 30).setColor('#005500').fixTo(-5, -30)
+
   private bboxSheets = new BoundingBox(this.sheets, this.sprite)
   private bboxStem = new BoundingBox(this.stem, this.sprite)
   sprite = new MixDraw().moveTo(200, 70)
@@ -18,15 +16,12 @@ export default class Tree extends Object {
     super(engine)
     this.sprite.add(this.sheets)
     this.sprite.add(this.stem)
-    this.sheets.originPointX = 'left'
+    this.sheets.setOrigins(this.sheets.width / 2, this.sheets.height / 2)
   }
 
-  update = () => {
-    this.sheets.angle += 0.01
-  }
+  update = () => {}
 
   render = () => {
-    this.bboxSheets.debug(this.engine.canvas.context)
     this.sprite.draw(this.engine.canvas.context)
   }
 }
