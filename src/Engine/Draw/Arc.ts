@@ -23,6 +23,7 @@ export default class Arc extends Shape implements InterfaceArc {
     context.beginPath()
     context.translate(this.x + this.originX, this.y + this.originY)
     context.rotate(this.angle)
+    context.lineWidth = this.lineWidth
     context[`${this.paint}Style`] = this.color
     context.arc(
       this.originX,

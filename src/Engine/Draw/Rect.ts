@@ -22,6 +22,7 @@ export default class Rect extends Shape implements InterfaceRect {
     context.beginPath()
     context.translate(this.x + this.originX, this.y + this.originY)
     context.rotate(this.angle)
+    context.lineWidth = this.lineWidth
     context[`${this.paint}Style`] = this.color
     context[`${this.paint}Rect`](
       -this.originX,

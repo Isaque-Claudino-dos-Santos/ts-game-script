@@ -21,6 +21,7 @@ export default class Text extends Shape implements InterfaceText {
     context.beginPath()
     context.translate(this.x + this.originX, this.y + this.originY)
     context[`${this.paint}Style`] = this.color
+    context.lineWidth = this.lineWidth
     context.textAlign = this.align
     context.direction = this.direction
     context.textBaseline = this.baseLine
