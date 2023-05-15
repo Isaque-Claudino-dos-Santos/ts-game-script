@@ -16,8 +16,8 @@ export default class Collider implements InterfaceCollider {
       box1.box.y < box2.box.y + box2.box.height &&
       box1.box.y + box1.box.height > box2.box.y
     ) {
-      box1.onCollision(box2)
-      box2.onCollision(box1)
+      box1.onCollision(object2)
+      box2.onCollision(object1)
     }
     return this
   }
@@ -35,8 +35,8 @@ export default class Collider implements InterfaceCollider {
     const overlap = hpty - sumRadius
 
     if (overlap <= 0) {
-      box1.onCollision(box2)
-      box1.onCollision(box2)
+      box1.onCollision(object2)
+      box1.onCollision(object1)
     }
     return this
   }
@@ -64,8 +64,8 @@ export default class Collider implements InterfaceCollider {
     const overlap = hpty - box1.box.radius
 
     if (overlap <= 0) {
-      box1.onCollision(box2)
-      box2.onCollision(box1)
+      box1.onCollision(object2)
+      box2.onCollision(object1)
     }
     return this
   }
