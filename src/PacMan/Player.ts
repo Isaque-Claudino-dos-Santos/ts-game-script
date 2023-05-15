@@ -30,6 +30,12 @@ export default class Player extends Object {
     }
   }
 
+  override init = () => {
+    this.bbox.onCollision = (bbox) => {
+      console.log('Hello Word')
+    }
+  }
+
   override update = () => {
     this.moviment()
     this.bbox.update()
