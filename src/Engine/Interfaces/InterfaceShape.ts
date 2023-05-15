@@ -13,6 +13,7 @@ export default interface InterfaceShape {
 
   readonly shape: TypeShape
 
+  copy(): any
   draw(context: CanvasRenderingContext2D): this
   getOriginX(): number
   getOriginY(): number
