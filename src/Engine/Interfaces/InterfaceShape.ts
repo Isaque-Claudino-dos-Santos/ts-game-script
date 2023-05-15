@@ -10,6 +10,7 @@ export default interface InterfaceShape {
   paint: TypePaint
   originX: number
   originY: number
+  lineWidth: number
 
   readonly shape: TypeShape
 
