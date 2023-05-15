@@ -3,7 +3,7 @@ import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
 import Shape from '@Engine/Modules/Shape'
 
 export default class MixDraw extends Shape implements InterfaceMixDraw {
-  shape: TypeShape = 'mix'
+  readonly shape: TypeShape = 'mix'
   shapes: Shape[] = []
 
   add(shape: Shape): void {
