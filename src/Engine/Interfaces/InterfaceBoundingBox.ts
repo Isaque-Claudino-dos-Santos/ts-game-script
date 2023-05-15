@@ -5,7 +5,6 @@ export default interface InterfaceBoundingBox {
   readonly box: TypeSprite
   readonly object: Object<TypeSprite>
 
-  onCollision(collided: Object<TypeSprite>): void
   update(): void
   debug(context: CanvasRenderingContext2D): void
 }
