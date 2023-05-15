@@ -6,6 +6,10 @@ export default class MixDraw extends Shape implements InterfaceMixDraw {
   readonly shape: TypeShape = 'mix'
   shapes: Shape[] = []
 
+  copy(): MixDraw {
+    return Object.assign(new MixDraw(), this)
+  }
+
   add(shape: Shape): void {
     this.shapes.push(shape)
   }

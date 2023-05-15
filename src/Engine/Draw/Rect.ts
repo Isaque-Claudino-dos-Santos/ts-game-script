@@ -7,6 +7,10 @@ export default class Rect extends Shape implements InterfaceRect {
   width: number = 10
   height: number = 10
 
+  copy(): Rect {
+    return Object.assign(new Rect(), this)
+  }
+
   resize(width: number, height: number): this {
     this.width = width
     this.height = height

@@ -9,6 +9,10 @@ export default class Arc extends Shape implements InterfaceArc {
   endAngle: number = Math.PI * 180
   counterclockwise: boolean = false
 
+  copy(): Arc {
+    return Object.assign(new Arc(), this)
+  }
+
   resize(size: number): this {
     this.radius = size
     return this
