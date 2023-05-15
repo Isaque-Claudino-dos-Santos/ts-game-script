@@ -1,13 +1,12 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Arc from '@Engine/Draw/Arc'
-import Engine from '@Engine/Engine'
 import Object from '@Engine/Modules/Object'
 
 export default class Player extends Object {
   sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
   bbox = new BoundingBox(this.sprite)
 
-  constructor(public engine: Engine) {
+  constructor(engine) {
     super(engine)
     this.sprite.radius = 16
     this.bbox.box.resize(this.sprite.radius)

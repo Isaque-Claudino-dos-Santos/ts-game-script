@@ -1,5 +1,4 @@
 import Rect from '@Engine/Draw/Rect'
-import Engine from '@Engine/Engine'
 import Object from '@Engine/Modules/Object'
 
 export default class Background extends Object {
@@ -8,7 +7,7 @@ export default class Background extends Object {
     .moveTo(0, 0)
     .resize(this.engine.canvas.width(), this.engine.canvas.height())
 
-  constructor(public engine: Engine) {
+  constructor(engine) {
     super(engine)
   }
 
