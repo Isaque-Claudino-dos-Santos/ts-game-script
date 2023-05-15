@@ -3,7 +3,7 @@ import TypeSprite from '@Type/TypeSprite'
 
 export default interface InterfaceBoundingBox {
   readonly box: TypeSprite
-  sprite: TypeSprite
+  readonly sprite: TypeSprite
 
   onCollision<Collided extends BoundingBox<TypeSprite>>(
     collided: Collided
