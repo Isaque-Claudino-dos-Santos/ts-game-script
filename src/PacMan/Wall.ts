@@ -12,7 +12,6 @@ export default class Wall extends Object {
   }
 
   override update = () => {
-    this.sprite.angle += 0.01
     this.bbox.update()
   }
 

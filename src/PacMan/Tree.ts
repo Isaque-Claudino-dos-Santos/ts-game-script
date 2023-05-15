@@ -20,7 +20,6 @@ export default class Tree extends Object {
   }
 
   update = () => {
-    this.sprite.angle += 0.01
     this.bboxSheets.update()
     this.bboxStem.update()
   }
