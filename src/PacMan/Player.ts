@@ -5,7 +5,7 @@ import Object from '@Engine/Modules/Object'
 
 export default class Player extends Object {
   sprite = new Arc().setColor('#ffff00').moveTo(100, 100)
-  bbox = new BoundingBox(new Arc(), this.sprite)
+  bbox = new BoundingBox(this.sprite)
 
   constructor(public engine: Engine) {
     super(engine)

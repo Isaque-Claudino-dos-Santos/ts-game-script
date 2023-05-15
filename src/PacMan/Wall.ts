@@ -4,7 +4,7 @@ import Object from '@Engine/Modules/Object'
 
 export default class Wall extends Object {
   sprite = new Rect().resize(30, 120).moveTo(250, 150).setColor('#eeeeee')
-  bbox = new BoundingBox(new Rect(), this.sprite)
+  bbox = new BoundingBox(this.sprite)
 
   constructor(engine) {
     super(engine)
