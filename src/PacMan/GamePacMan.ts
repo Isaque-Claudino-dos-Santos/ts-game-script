@@ -1,9 +1,9 @@
-import Game from '@Game/Game'
 import Player from './Player'
 import Background from './Background'
 import Wall from './Wall'
 import Tree from './Tree'
 import Boll from './Boll'
+import Game from '@Engine/Modules/Game'
 
 export default class GamePacMan extends Game {
   obj = {
