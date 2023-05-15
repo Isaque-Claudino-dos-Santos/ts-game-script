@@ -1,10 +1,15 @@
 import InterfaceCollider from '@Engine/Interfaces/InterfaceCollider'
-import BoundingBox from './BoundingBox'
 import Rect from './Draw/Rect'
 import Arc from './Draw/Arc'
+import Object from './Modules/Object'
 
 export default class Collider implements InterfaceCollider {
-  rectWithRect(box1: BoundingBox<Rect>, box2: BoundingBox<Rect>): this {
+  rectWithRect(object1: Object<Rect>, object2: Object<Rect>): this {
+    const box1 = object1.boundingBox
+    const box2 = object2.boundingBox
+
+    if (!box1 || !box2) return this
+
     if (
       box1.box.x < box2.box.x + box2.box.width &&
       box1.box.x + box1.box.width < box2.box.x &&
@@ -17,7 +22,12 @@ export default class Collider implements InterfaceCollider {
     return this
   }
 
-  arcWithArc(box1: BoundingBox<Arc>, box2: BoundingBox<Arc>): this {
+  arcWithArc(object1: Object<Arc>, object2: Object<Arc>): this {
+    const box1 = object1.boundingBox
+    const box2 = object2.boundingBox
+
+    if (!box1 || !box2) return this
+
     const catX = box1.box.x - box2.box.x
     const catY = box1.box.y - box2.box.y
     const sumRadius = box1.box.radius + box2.box.radius
@@ -31,7 +41,12 @@ export default class Collider implements InterfaceCollider {
     return this
   }
 
-  arcWithRect(box1: BoundingBox<Arc>, box2: BoundingBox<Rect>): this {
+  arcWithRect(object1: Object<Arc>, object2: Object<Rect>): this {
+    const box1 = object1.boundingBox
+    const box2 = object2.boundingBox
+
+    if (!box1 || !box2) return this
+
     let pointX = box1.box.x
     let pointY = box1.box.y
 
