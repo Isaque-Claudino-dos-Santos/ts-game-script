@@ -1,4 +1,4 @@
-import InterfaceCollider from '@Interface/InterfaceCollider'
+import InterfaceCollider from '@Engine/Interfaces/InterfaceCollider'
 import BoundingBox from './BoundingBox'
 import Rect from './Draw/Rect'
 import Arc from './Draw/Arc'
