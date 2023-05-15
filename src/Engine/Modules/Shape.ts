@@ -2,6 +2,7 @@ import InterfaceShape, {
   TypePaint,
   TypeShape,
 } from '@Engine/Interfaces/InterfaceShape'
+import TypeSprite from '@Engine/Types/TypeSprite'
 
 export default abstract class Shape implements InterfaceShape {
   abstract readonly shape: TypeShape
@@ -18,7 +19,7 @@ export default abstract class Shape implements InterfaceShape {
 
   abstract draw(context: CanvasRenderingContext2D): this
 
-  abstract copy<Copy extends TypeShape>(): Copy
+  abstract copy<Copy extends TypeSprite>(): Copy
 
   getOriginX(): number {
     return this.x + this.originX

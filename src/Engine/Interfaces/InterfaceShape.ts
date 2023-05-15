@@ -1,3 +1,5 @@
+import TypeSprite from '@Engine/Types/TypeSprite'
+
 export type TypePaint = 'fill' | 'stroke'
 export type TypeShape = 'rect' | 'arc' | 'text' | 'mix'
 
@@ -14,7 +16,7 @@ export default interface InterfaceShape {
 
   readonly shape: TypeShape
 
-  copy(): any
+  copy<Copy extends TypeSprite>(): Copy
   draw(context: CanvasRenderingContext2D): this
   getOriginX(): number
   getOriginY(): number
