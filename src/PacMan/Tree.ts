@@ -16,7 +16,8 @@ export default class Tree extends Object {
     super(engine)
     this.sprite.add(this.sheets)
     this.sprite.add(this.stem)
-    this.sheets.setOrigins(this.sheets.width / 2, this.sheets.height / 2)
+    this.sheets.setOrigins(this.sheets.width / 2, this.sheets.height)
+    this.stem.setOrigins(this.stem.width / 2, 0)
   }
 
   update = () => {}
