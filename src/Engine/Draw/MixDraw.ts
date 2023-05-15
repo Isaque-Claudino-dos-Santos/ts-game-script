@@ -14,6 +14,7 @@ export default class MixDraw extends Shape implements InterfaceMixDraw {
     this.shapes.forEach((shape) => {
       shape.x = this.getOriginX() + shape.fixedX
       shape.y = this.getOriginY() + shape.fixedY
+      shape.angle = this.angle
       shape.draw(context)
     })
     return this
