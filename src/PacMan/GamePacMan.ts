@@ -2,12 +2,14 @@ import Game from '@Game/Game'
 import Player from './Player'
 import Background from './Background'
 import Wall from './Wall'
+import Tree from './Tree'
 
 export default class GamePacMan extends Game {
   obj = {
     background: new Background(this.engine),
     player: new Player(this.engine),
     wall: new Wall(this.engine),
+    tree: new Tree(this.engine),
   }
 
   private msgGameInit() {
@@ -26,11 +28,13 @@ export default class GamePacMan extends Game {
   override update = () => {
     this.obj.player.update()
     this.obj.wall.update()
+    this.obj.tree.update()
   }
 
   override render = () => {
     this.obj.background.render()
     this.obj.player.render()
     this.obj.wall.render()
+    this.obj.tree.render()
   }
 }

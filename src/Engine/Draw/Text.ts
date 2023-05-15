@@ -1,5 +1,9 @@
 import Shape from '@Engine/Modules/Shape'
-import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
+import {
+  TypeOriginPointX,
+  TypeOriginPointY,
+  TypeShape,
+} from '@Engine/Interfaces/InterfaceShape'
 import InterfaceText from '@Engine/Interfaces/InterfaceText'
 
 export default class Text extends Shape implements InterfaceText {
@@ -11,6 +15,17 @@ export default class Text extends Shape implements InterfaceText {
   baseLine: CanvasTextBaseline = 'middle'
   direction: CanvasDirection = 'rtl'
   maxWidth: number | undefined
+
+  originPointX: TypeOriginPointX = 'center'
+  originPointY: TypeOriginPointY = 'center'
+
+  originX(): number {
+    return 0
+  }
+
+  originY(): number {
+    return 0
+  }
 
   centerX(): number {
     return this.x
