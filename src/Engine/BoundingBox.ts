@@ -1,21 +1,25 @@
 import InterfaceBoundingBox from '@Engine/Interfaces/InterfaceBoundingBox'
 import TypeSprite from '@Engine/Types/TypeSprite'
 
-export default class BoundingBox<
-  Box extends TypeSprite,
-  Parent extends TypeSprite
-> implements InterfaceBoundingBox
+export default class BoundingBox<Sprite extends TypeSprite>
+  implements InterfaceBoundingBox
 {
-  constructor(public box: Box, public parent: Parent) {}
+  readonly box: Sprite
+  readonly sprite: Sprite
+
+  constructor(sprite: Sprite) {
+    this.sprite = sprite
+    this.box = this.sprite.copy() as Sprite
+    this.box.setPaint('stroke').setColor('#ff55ff')
+  }
 
   update = () => {
-    this.box.angle = this.parent.angle
-    this.box.setOrigins(this.parent.originX, this.parent.originY)
-    this.box.moveTo(this.parent.x, this.parent.y)
+    this.box.setOrigins(this.sprite.originX, this.sprite.originY)
+    this.box.moveTo(this.sprite.x, this.sprite.y)
+    this.box.angle = this.sprite.angle
   }
 
   debug(context: CanvasRenderingContext2D): void {
-    this.box.setPaint('stroke').setColor('#ff0000')
     this.box.draw(context)
   }
 }
