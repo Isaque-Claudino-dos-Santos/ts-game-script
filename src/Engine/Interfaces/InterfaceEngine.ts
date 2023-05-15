@@ -1,8 +1,8 @@
 import Collider from '@Engine/Collider'
 import Keyboard from '@Engine/Keyboard'
 import Canvas from '@Engine/Modules/Canvas'
+import Game from '@Engine/Modules/Game'
 import Mouse from '@Engine/Mouse'
-import Game from '@Game/Game'
 
 export type TypeInitFN = (game: Game) => void | never
 

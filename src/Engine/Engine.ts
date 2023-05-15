@@ -1,9 +1,9 @@
 import InterfaceEngine, { TypeInitFN } from '@Engine/Interfaces/InterfaceEngine'
 import Mouse from './Mouse'
-import Game from '@Game/Game'
 import Keyboard from './Keyboard'
 import Canvas2D from './Canvas2D'
 import Collider from './Collider'
+import Game from './Modules/Game'
 
 export default class Engine implements InterfaceEngine {
   readonly canvas = new Canvas2D()
