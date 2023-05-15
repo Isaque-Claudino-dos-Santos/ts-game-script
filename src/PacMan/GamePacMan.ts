@@ -25,12 +25,17 @@ export default class GamePacMan extends Game {
 
   override init = () => {
     this.msgGameInit()
+    this.obj.player.init()
   }
 
   override update = () => {
     this.obj.player.update()
     this.obj.wall.update()
     this.obj.tree.update()
+    this.engine.collider.arcWithRect(
+      this.obj.player.bbox,
+      this.obj.tree.bboxStem
+    )
   }
 
   override render = () => {
