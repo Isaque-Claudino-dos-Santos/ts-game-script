@@ -30,7 +30,7 @@ export default class Sprite extends Shape implements InterfaceSprite {
   }
 
   copy<Image>(): Image {
-    return Object.assign(new Image(), this) as Image
+    return Object.assign(new Sprite(), this) as Image
   }
 
   draw(context: CanvasRenderingContext2D): this {
