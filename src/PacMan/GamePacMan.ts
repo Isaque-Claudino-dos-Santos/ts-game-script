@@ -10,6 +10,7 @@ export default class GamePacMan extends Game {
     background: new Background(this.engine),
     player: new Player(this.engine),
     wall: new Wall(this.engine),
+    wall2: new Wall(this.engine),
     tree: new Tree(this.engine),
     boll: new Boll(this.engine),
   }
@@ -26,13 +27,18 @@ export default class GamePacMan extends Game {
   override init = () => {
     this.msgGameInit()
     this.obj.player.init()
+    this.obj.wall2.sprite.moveTo(308, 100)
   }
 
   override update = () => {
     this.obj.player.update()
     this.obj.wall.update()
+    this.obj.wall2.update()
     this.obj.tree.update()
     this.engine.collider.arcWithRect(this.obj.player, this.obj.wall, (t) =>
+      this.obj.player.wallCollider(t)
+    )
+    this.engine.collider.arcWithRect(this.obj.player, this.obj.wall2, (t) =>
       this.obj.player.wallCollider(t)
     )
   }
@@ -43,5 +49,6 @@ export default class GamePacMan extends Game {
     this.obj.wall.render()
     this.obj.tree.render()
     this.obj.boll.render()
+    this.obj.wall2.render()
   }
 }
