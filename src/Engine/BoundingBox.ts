@@ -3,14 +3,14 @@ import TypeSprite from '@Engine/Types/TypeSprite'
 import Object from './Modules/Object'
 import Collided from './Collided'
 
-export default class BoundingBox<Sprite extends TypeSprite>
+export default class BoundingBox<Box extends TypeSprite>
   implements InterfaceBoundingBox
 {
-  readonly box: Sprite
-  readonly object: Object<Sprite>
+  readonly box: Box
+  readonly object: Object<Box>
   readonly collided: Collided = new Collided()
 
-  constructor(object: Object<Sprite>) {
+  constructor(object: Object<Box>) {
     this.object = object
     this.box = this.object.sprite.copy()
     this.box.setPaint('stroke').setColor('#ff55ff')
