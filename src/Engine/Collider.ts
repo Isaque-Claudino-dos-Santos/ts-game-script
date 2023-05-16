@@ -22,12 +22,17 @@ export default class Collider implements InterfaceCollider {
     const collidedAny =
       collidedRight && collidedLeft && colliderTop && collidedBottom
 
+    box2.collided.distanceLeft = box1.box.x + box1.box.width - box2.box.x
+    box2.collided.distanceRight = box1.box.x - box2.box.x + box2.box.width
+    box2.collided.distanceTop = box1.box.y + box1.box.height - box2.box.y
+    box2.collided.distanceBottom = box1.box.y - box2.box.y + box2.box.height
+
     if (collidedAny) {
-      box2.collidedSide.left = collidedLeft
-      box2.collidedSide.right = collidedRight
-      box2.collidedSide.top = colliderTop
-      box2.collidedSide.bottom = collidedBottom
-      box2.collidedSide.any = collidedAny
+      box2.collided.onLeft = collidedLeft
+      box2.collided.onRight = collidedRight
+      box2.collided.onTop = colliderTop
+      box2.collided.onBottom = collidedBottom
+      box2.collided.onAny = collidedAny
 
       resolve(object2)
     }
@@ -60,11 +65,20 @@ export default class Collider implements InterfaceCollider {
     const colliderTop = isOnTop && overlap <= 0
     const collidedBottom = isOnBottom && overlap <= 0
 
-    box2.collidedSide.left = collidedLeft
-    box2.collidedSide.right = collidedRight
-    box2.collidedSide.top = colliderTop
-    box2.collidedSide.bottom = collidedBottom
-    box2.collidedSide.any = overlap <= 0
+    box2.collided.onLeft = collidedLeft
+    box2.collided.onRight = collidedRight
+    box2.collided.onTop = colliderTop
+    box2.collided.onBottom = collidedBottom
+    box2.collided.onAny = overlap <= 0
+
+    box2.collided.distanceLeft =
+      box1.box.x + box1.box.radius - box2.box.x + box2.box.radius
+    box2.collided.distanceRight =
+      box1.box.x + box1.box.radius - box2.box.x + box2.box.radius
+    box2.collided.distanceTop =
+      box1.box.y + box1.box.radius - box2.box.y + box2.box.radius
+    box2.collided.distanceBottom =
+      box1.box.y + box1.box.radius - box2.box.y + box2.box.radius
 
     if (overlap <= 0) {
       resolve(object2)
@@ -105,11 +119,18 @@ export default class Collider implements InterfaceCollider {
     const colliderTop = isOnTop && overlap <= 0
     const collidedBottom = isOnBottom && overlap <= 0
 
-    box2.collidedSide.left = collidedLeft
-    box2.collidedSide.right = collidedRight
-    box2.collidedSide.top = colliderTop
-    box2.collidedSide.bottom = collidedBottom
-    box2.collidedSide.any = overlap <= 0
+    box2.collided.onLeft = collidedLeft
+    box2.collided.onRight = collidedRight
+    box2.collided.onTop = colliderTop
+    box2.collided.onBottom = collidedBottom
+    box2.collided.onAny = overlap <= 0
+
+    box2.collided.distanceLeft = box1.box.x + box1.box.radius - box2.box.x
+    box2.collided.distanceRight =
+      box1.box.x + box1.box.radius - box2.box.x + box2.box.width
+    box2.collided.distanceTop = box1.box.y + box1.box.radius - box2.box.y
+    box2.collided.distanceBottom =
+      box1.box.y + box1.box.radius - box2.box.y + box2.box.height
 
     if (overlap <= 0) {
       resolve(object2)
