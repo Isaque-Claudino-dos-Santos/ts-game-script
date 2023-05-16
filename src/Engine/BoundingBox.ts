@@ -1,20 +1,14 @@
 import InterfaceBoundingBox from '@Engine/Interfaces/InterfaceBoundingBox'
 import TypeSprite from '@Engine/Types/TypeSprite'
 import Object from './Modules/Object'
-import TypeSide from './Types/TypeSide'
+import Collided from './Collided'
 
 export default class BoundingBox<Sprite extends TypeSprite>
   implements InterfaceBoundingBox
 {
   readonly box: Sprite
   readonly object: Object<Sprite>
-  readonly collidedSide: TypeSide<boolean> & { any: boolean } = {
-    top: false,
-    bottom: false,
-    left: false,
-    right: false,
-    any: false,
-  }
+  readonly collided: Collided = new Collided()
 
   constructor(object: Object<Sprite>) {
     this.object = object
