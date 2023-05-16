@@ -1,3 +1,4 @@
+import Collided from '@Engine/Collided'
 import Object from '@Engine/Modules/Object'
 import TypeSide from '@Engine/Types/TypeSide'
 import TypeSprite from '@Type/TypeSprite'
@@ -5,7 +6,7 @@ import TypeSprite from '@Type/TypeSprite'
 export default interface InterfaceBoundingBox {
   readonly box: TypeSprite
   readonly object: Object<TypeSprite>
-  readonly collidedSide: TypeSide<boolean>
+  readonly collided: Collided
 
   update(): void
   debug(context: CanvasRenderingContext2D): void
