@@ -12,6 +12,12 @@ export default class Sprite extends Shape implements InterfaceSprite {
   width: number = 0
   height: number = 0
 
+  resize(width: number, height: number): this {
+    this.width = width
+    this.height = height
+    return this
+  }
+
   setSourceImage(src: string): this {
     this.image.src = src
     return this
