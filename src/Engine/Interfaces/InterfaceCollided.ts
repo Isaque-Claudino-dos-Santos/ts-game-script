@@ -5,9 +5,8 @@ export default interface InterfaceCollided {
   onBottom: boolean
   onAny: boolean
 
-  pointLeft: number
-  pointRight: number
-  pointTop: number
-  pointBottom: number
-  pointAny: number
+  distanceLeft: number
+  distanceRight: number
+  distanceTop: number
+  distanceBottom: number
 }

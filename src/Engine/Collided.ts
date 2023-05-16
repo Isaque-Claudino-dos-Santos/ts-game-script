@@ -7,9 +7,8 @@ export default class Collided implements InterfaceCollided {
   onBottom: boolean = false
   onAny: boolean = false
 
-  pointLeft: number = 0
-  pointRight: number = 0
-  pointTop: number = 0
-  pointBottom: number = 0
-  pointAny: number = 0
+  distanceLeft: number = 0
+  distanceRight: number = 0
+  distanceTop: number = 0
+  distanceBottom: number = 0
 }
