@@ -1,7 +1,7 @@
 import TypeSprite from '@Engine/Types/TypeSprite'
 
 export type TypePaint = 'fill' | 'stroke'
-export type TypeShape = 'rect' | 'arc' | 'text' | 'mix'
+export type TypeShape = 'rect' | 'arc' | 'text' | 'mix' | 'image'
 
 export default interface InterfaceShape {
   x: number
