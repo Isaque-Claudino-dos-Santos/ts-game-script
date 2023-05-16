@@ -12,6 +12,7 @@
         "emitDecoratorMetadata": true,
         "rootDir": "src",
         "outDir": "dist",
+
         "paths": {
             "@Draw/*": [
                 "./src/Draw/*"
@@ -31,13 +32,14 @@
             "@Game/*": ["./src/Game/*"],
             "@Interface/*":["./src/Interfaces/*"],
             "@Enum/*": ["./src/Enums/*"],
-            "@Type/*": ["./src/Engine/Types/*"]
+            "@Type/*": ["./src/Engine/Types/*"],
+            "@Asset/*": ["./assets/*"]
         }
     },
     "files": [
         "src/index.ts"
     ],
-    "include": ["./src/**/*.ts"],
+    "include": ["./src/**/*.ts", "Global.d.ts"],
     "exclude": [
         "node_modules"
     ]
