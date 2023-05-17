@@ -7,12 +7,12 @@ export default class BoundingBox<Box extends TypeSprite>
   implements InterfaceBoundingBox
 {
   readonly box: Box
-  readonly object: Object<Box>
+  readonly object: Object<TypeSprite>
   readonly collided: Collided = new Collided()
 
-  constructor(object: Object<Box>) {
+  constructor(object: Object<TypeSprite>, box: Box) {
     this.object = object
-    this.box = this.object.sprite.copy()
+    this.box = box
     this.box.setPaint('stroke').setColor('#ff55ff')
   }
 
