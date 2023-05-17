@@ -29,6 +29,7 @@ export default abstract class Canvas<Context extends RenderingContext>
   }
 
   public screenSize(width: number, height: number): this {
+    this.screen.style.imageRendering = `pixelated`
     this.screen.style.width = `${width}px`
     this.screen.style.height = `${height}px`
     return this
