@@ -22,9 +22,16 @@ export default abstract class Canvas<Context extends RenderingContext>
     return canvas
   }
 
-  public screenSize(width: number, height: number): void {
+  public resolution(width: number, height: number): this {
     this.screen.width = width
     this.screen.height = height
+    return this
+  }
+
+  public screenSize(width: number, height: number): this {
+    this.screen.style.width = `${width}px`
+    this.screen.style.height = `${height}px`
+    return this
   }
 
   public width(): number {
