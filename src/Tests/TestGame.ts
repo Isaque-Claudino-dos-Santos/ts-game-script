@@ -8,6 +8,10 @@ export default class TestGame extends Game {
     this.player.init()
   }
 
+  update = () => {
+    this.player.update()
+  }
+
   render = () => {
     this.player.render()
   }
