@@ -12,8 +12,9 @@ export default class Mouse implements InterfaceMouse {
   private handleMouseMove() {
     this.canvas.screen.addEventListener('mousemove', (e) => {
       const { offsetX, offsetY } = e
-      this.x = offsetX - (this.canvas.screenWidth - this.canvas.width())
-      this.y = offsetY - (this.canvas.screenHeight - this.canvas.height())
+
+      this.x = offsetX * (this.canvas.width() / this.canvas.screenWidth)
+      this.y = offsetY * (this.canvas.height() / this.canvas.screenHeight)
     })
   }
 
