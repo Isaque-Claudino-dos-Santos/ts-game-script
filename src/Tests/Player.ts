@@ -24,6 +24,5 @@ export default class Player extends Object<Sprite> {
 
   render = () => {
     this.sprite.draw(this.engine.canvas.context)
-    this.boundingBox.debug(this.engine.canvas.context)
   }
 }
