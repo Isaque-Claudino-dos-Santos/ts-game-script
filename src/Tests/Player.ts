@@ -6,16 +6,16 @@ import Rect from '@Engine/Draw/Rect'
 
 export default class Player extends Object<Sprite> {
   readonly sprite = new Sprite()
-    .resizeSource(32, 32)
-    .moveTo(10, 10)
-    .resize(32, 32)
-  readonly boundingBox: BoundingBox<Rect> = new BoundingBox(
-    this,
-    new Rect().resize(15, 32)
-  ).moveTo(8, 0)
+  readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
 
   init = () => {
-    this.sprite.setSourceImage(img)
+    this.sprite
+      .resizeSource(32, 32)
+      .moveTo(10, 10)
+      .resize(32, 32)
+      .setSourceImage(img)
+    this.boundingBox.box.resize(15, 32)
+    this.boundingBox.moveTo(9, 0)
   }
 
   update = () => {
