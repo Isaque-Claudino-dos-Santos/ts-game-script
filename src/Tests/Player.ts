@@ -9,7 +9,10 @@ export default class Player extends Object<Sprite> {
     .resizeSource(32, 32)
     .moveTo(10, 10)
     .resize(32, 32)
-  readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
+  readonly boundingBox: BoundingBox<Rect> = new BoundingBox(
+    this,
+    new Rect().resize(15, 32)
+  ).moveTo(8, 0)
 
   init = () => {
     this.sprite.setSourceImage(img)
