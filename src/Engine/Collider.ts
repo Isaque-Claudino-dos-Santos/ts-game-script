@@ -4,6 +4,7 @@ import Arc from './Draw/Arc'
 import Object from './Modules/Object'
 import { TypeResolveCollider } from '@Engine/Interfaces/InterfaceCollider'
 import BoundingBox from './BoundingBox'
+import TypeSprite from './Types/TypeSprite'
 
 export default class Collider implements InterfaceCollider {
   private exceptionTypeBoundBox(msgType: string): never {
@@ -15,8 +16,8 @@ export default class Collider implements InterfaceCollider {
   }
 
   rectWithRect(
-    object1: Object<Rect>,
-    object2: Object<Rect>,
+    object1: Object<TypeSprite>,
+    object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
   ): this | never {
     const boundingBox1 = object1.boundingBox as BoundingBox<Rect>
@@ -58,8 +59,8 @@ export default class Collider implements InterfaceCollider {
   }
 
   arcWithArc(
-    object1: Object<Arc>,
-    object2: Object<Arc>,
+    object1: Object<TypeSprite>,
+    object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
   ): this {
     const boundingBox1 = object1.boundingBox as BoundingBox<Arc>
@@ -111,8 +112,8 @@ export default class Collider implements InterfaceCollider {
   }
 
   arcWithRect(
-    object1: Object<Arc>,
-    object2: Object<Rect>,
+    object1: Object<TypeSprite>,
+    object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
   ): this {
     const boundingBox1 = object1.boundingBox as BoundingBox<Arc>

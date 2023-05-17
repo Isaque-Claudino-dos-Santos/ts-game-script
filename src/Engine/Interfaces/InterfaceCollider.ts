@@ -9,18 +9,18 @@ export type TypeResolveCollider<Target extends Object<TypeSprite>> = (
 
 export default interface InterfaceCollider {
   rectWithRect(
-    object1: Object<Rect>,
-    object2: Object<Rect>,
+    object1: Object<TypeSprite>,
+    object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
   ): this
   arcWithArc(
-    object1: Object<Arc>,
-    object2: Object<Arc>,
+    object1: Object<TypeSprite>,
+    object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
   ): this
   arcWithRect(
-    object1: Object<Arc>,
-    object2: Object<Rect>,
+    object1: Object<TypeSprite>,
+    object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
   ): this
 }
