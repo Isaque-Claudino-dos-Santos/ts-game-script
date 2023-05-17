@@ -8,7 +8,7 @@ import TypeSprite from './Types/TypeSprite'
 
 export default class Collider implements InterfaceCollider {
   private exceptionTypeBoundBox(msgType: string): never {
-    throw console.log(
+    throw console.error(
       new Error(
         `The bounding box of object not is type BoundingBox<${msgType}>`
       )
@@ -23,16 +23,11 @@ export default class Collider implements InterfaceCollider {
     const boundingBox1 = object1.boundingBox as BoundingBox<Rect>
     const boundingBox2 = object2.boundingBox as BoundingBox<Rect>
     const box1 = boundingBox1.box
-    const box2 = boundingBox1.box
+    const box2 = boundingBox2.box
 
-    if (
-      !(boundingBox1 instanceof BoundingBox<Rect>) ||
-      !(boundingBox2 instanceof BoundingBox<Rect>)
-    ) {
-      this.exceptionTypeBoundBox('Rect')
+    if (!(box1 instanceof Rect) || !(box2 instanceof Rect)) {
+      return this.exceptionTypeBoundBox('Rect')
     }
-
-    if (!box1 || !box2) return this
 
     const collidedLeft = box1.x + box1.width <= box2.x
     const collidedRight = box1.x <= box2.x + box2.width
@@ -62,16 +57,14 @@ export default class Collider implements InterfaceCollider {
     object1: Object<TypeSprite>,
     object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
-  ): this {
-    const boundingBox1 = object1.boundingBox as BoundingBox<Arc>
-    const boundingBox2 = object2.boundingBox as BoundingBox<Arc>
-    const box1 = boundingBox1.box
-    const box2 = boundingBox2.box
-    if (
-      !(boundingBox1 instanceof BoundingBox<Rect>) ||
-      !(boundingBox2 instanceof BoundingBox<Rect>)
-    ) {
-      this.exceptionTypeBoundBox('Rect')
+  ): this | never {
+    const boundingBox1 = object1.boundingBox
+    const boundingBox2 = object2.boundingBox
+    const box1 = boundingBox1.box as Arc
+    const box2 = boundingBox2.box as Arc
+
+    if (!(box1 instanceof Arc) || !(box2 instanceof Arc)) {
+      return this.exceptionTypeBoundBox('Arc')
     }
 
     const catX = box1.x - box2.x
@@ -115,19 +108,14 @@ export default class Collider implements InterfaceCollider {
     object1: Object<TypeSprite>,
     object2: Object<TypeSprite>,
     resolve: TypeResolveCollider<typeof object2>
-  ): this {
-    const boundingBox1 = object1.boundingBox as BoundingBox<Arc>
-    const boundingBox2 = object2.boundingBox as BoundingBox<Rect>
+  ): this | never {
+    const boundingBox1 = object1.boundingBox
+    const boundingBox2 = object2.boundingBox
+    const box1 = boundingBox1.box as Arc
+    const box2 = boundingBox2.box as Rect
 
-    const box1 = boundingBox1.box
-    const box2 = boundingBox2.box
-
-    if (
-      !(boundingBox1 instanceof BoundingBox<Rect>) ||
-      !(boundingBox2 instanceof BoundingBox<Rect>)
-    ) {
-      this.exceptionTypeBoundBox('Rect')
-    }
+    if (!(box1 instanceof BoundingBox<Rect>)) this.exceptionTypeBoundBox('Rect')
+    if (!(box2 instanceof BoundingBox<Arc>)) this.exceptionTypeBoundBox('Arc')
 
     let pointX = box1.x
     let pointY = box1.y
