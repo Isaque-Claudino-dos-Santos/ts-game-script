@@ -9,6 +9,8 @@ export default class BoundingBox<Box extends TypeSprite>
   readonly box: Box
   readonly object: Object<TypeSprite>
   readonly collided: Collided = new Collided()
+  x: number = 0
+  y: number = 0
 
   constructor(object: Object<TypeSprite>, box: Box) {
     this.object = object
@@ -18,7 +20,10 @@ export default class BoundingBox<Box extends TypeSprite>
 
   update = () => {
     this.box.setOrigins(this.object.sprite.originX, this.object.sprite.originY)
-    this.box.moveTo(this.object.sprite.x, this.object.sprite.y)
+    this.box.moveTo(
+      this.object.sprite.x + this.x,
+      this.object.sprite.y + this.y
+    )
     this.box.angle = this.object.sprite.angle
   }
 
