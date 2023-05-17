@@ -18,6 +18,12 @@ export default class BoundingBox<Box extends TypeSprite>
     this.box.setPaint('stroke').setColor('#ff55ff')
   }
 
+  moveTo(x: number, y: number): this {
+    this.x = x
+    this.y = y
+    return this
+  }
+
   update = () => {
     this.box.setOrigins(this.object.sprite.originX, this.object.sprite.originY)
     this.box.moveTo(

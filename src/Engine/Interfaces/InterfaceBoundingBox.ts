@@ -1,6 +1,5 @@
 import Collided from '@Engine/Collided'
 import Object from '@Engine/Modules/Object'
-import TypeSide from '@Engine/Types/TypeSide'
 import TypeSprite from '@Type/TypeSprite'
 
 export default interface InterfaceBoundingBox {
@@ -9,6 +8,7 @@ export default interface InterfaceBoundingBox {
   readonly collided: Collided
   x: number
   y: number
+  moveTo(x: number, y: number): this
   update(): void
   debug(context: CanvasRenderingContext2D): void
 }
