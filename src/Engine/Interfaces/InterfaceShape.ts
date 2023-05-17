@@ -16,6 +16,8 @@ export default interface InterfaceShape {
 
   readonly shape: TypeShape
 
+  addX(value: number): this
+  addY(value: number): this
   copy<Copy extends TypeSprite>(): Copy
   draw(context: CanvasRenderingContext2D): this
   getOriginX(): number

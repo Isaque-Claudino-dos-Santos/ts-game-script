@@ -21,6 +21,16 @@ export default abstract class Shape implements InterfaceShape {
 
   abstract copy<Copy extends TypeSprite>(): Copy
 
+  addX(value: number): this {
+    this.x += value
+    return this
+  }
+
+  addY(value: number): this {
+    this.y = value
+    return this
+  }
+
   getOriginX(): number {
     return this.x + this.originX
   }
