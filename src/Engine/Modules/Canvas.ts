@@ -7,10 +7,13 @@ export default abstract class Canvas<Context extends RenderingContext>
 {
   readonly screen: HTMLCanvasElement
   readonly context: Context
+  screenWidth: number = 0
+  screenHeight: number = 0
 
   constructor(contextType: TypeContextType) {
     this.screen = this.getElementCanvas()
     this.context = this.screen.getContext(contextType) as Context
+    this.screenSize(300, 300)
   }
 
   private getElementCanvas(): HTMLCanvasElement {
@@ -30,6 +33,8 @@ export default abstract class Canvas<Context extends RenderingContext>
 
   public screenSize(width: number, height: number): this {
     this.screen.style.imageRendering = `pixelated`
+    this.screenWidth = width
+    this.screenHeight = height
     this.screen.style.width = `${width}px`
     this.screen.style.height = `${height}px`
     return this
