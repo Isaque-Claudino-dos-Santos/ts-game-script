@@ -16,6 +16,8 @@ export default class Bird extends Object<Sprite> {
       .resizeSource(32, 32)
       .moveTo(10, 10)
       .moveSourceTo(32, 0)
+    this.boundingBox.moveTo(0, 5)
+    this.boundingBox.box.resize(31, 18)
   }
 
   update = () => {
