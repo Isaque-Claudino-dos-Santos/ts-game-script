@@ -8,7 +8,8 @@ import imgBird from '@Asset/Bird.png'
 export default class Bird extends Object<Sprite> {
   sprite: Sprite = new Sprite()
   boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
-  jump = { force: 0, acceleration: 0.6, max: 5, enable: false }
+  isDead: boolean = false
+  jump = { force: 0, acceleration: 0.5, max: 5, enable: false }
   gravityY = {
     velocity: 0,
     acceleration: 0.07,
@@ -27,11 +28,14 @@ export default class Bird extends Object<Sprite> {
   }
 
   onGravity() {
-    if (!this.gravityY.enable) return
+    if (!this.gravityY.enable || this.isDead) return
     if (
       this.sprite.y + this.boundingBox.box.height >=
       this.engine.canvas.height()
     ) {
+      this.isDead = true
+      console.log('%c Game Over', 'font-size: 20px; color:red;')
+
       this.gravityY.acceleration = 0
       this.gravityY.velocity = 0
       this.sprite.y = Math.round(this.sprite.y)
@@ -42,6 +46,7 @@ export default class Bird extends Object<Sprite> {
   }
 
   onJump() {
+    if (this.isDead) return
     const key = this.engine.keyboard
     if (key.check('Space')) {
       this.jump.enable = true
