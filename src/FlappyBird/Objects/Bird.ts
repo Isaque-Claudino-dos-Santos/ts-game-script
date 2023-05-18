@@ -11,7 +11,7 @@ export default class Bird extends Object<Sprite> {
   jump = { force: 0, acceleration: 0.6, max: 5, enable: false }
   gravityY = {
     velocity: 0,
-    acceleration: 0.05,
+    acceleration: 0.07,
     enable: true,
   }
 
