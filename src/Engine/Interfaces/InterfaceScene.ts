@@ -8,4 +8,5 @@ type Types = InterfaceGameLoop
 export default interface InterfaceScene extends Types {
   readonly objects: Object<TypeSprite>[]
   readonly engine: Engine
+  enable: boolean
 }
