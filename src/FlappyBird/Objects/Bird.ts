@@ -23,6 +23,7 @@ export default class Bird extends Object<Sprite> {
       .resizeSource(32, 32)
       .moveTo(10, 10)
       .moveSourceTo(32, 0)
+      .setOrigins(this.sprite.width / 2, this.sprite.height / 2)
     this.boundingBox.moveTo(0, 5)
     this.boundingBox.box.resize(31, 18)
   }
@@ -43,6 +44,8 @@ export default class Bird extends Object<Sprite> {
 
     this.gravityY.velocity += this.gravityY.acceleration
     this.sprite.y += this.gravityY.velocity
+    if (this.sprite.angle <= 1.2) this.sprite.angle += 0.02
+    this.sprite.moveSourceTo(0, 0)
   }
 
   onJump() {
@@ -50,13 +53,16 @@ export default class Bird extends Object<Sprite> {
     const key = this.engine.keyboard
     if (key.check('Space')) {
       this.jump.enable = true
+      this.sprite.moveSourceTo(0, 32)
       key.lockKey('Space')
     }
     if (!this.jump.enable) return
     this.gravityY.enable = false
     this.jump.force += this.jump.acceleration
     this.sprite.y -= this.jump.force
+    if (this.sprite.angle >= 0) this.sprite.angle -= 0.2
     if (this.jump.force > this.jump.max) {
+      this.sprite.moveSourceTo(32, 0)
       this.jump.force = 0
       this.sprite.y = Math.round(this.sprite.y)
       this.jump.enable = false
