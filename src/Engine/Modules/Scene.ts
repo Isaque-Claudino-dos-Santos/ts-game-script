@@ -15,6 +15,6 @@ export default abstract class Scene implements InterfaceScene {
     this.objects.forEach((obj) => obj.update())
   }
   readonly render = () => {
-    this.objects.forEach((obj) => obj.update())
+    this.objects.forEach((obj) => obj.render())
   }
 }
