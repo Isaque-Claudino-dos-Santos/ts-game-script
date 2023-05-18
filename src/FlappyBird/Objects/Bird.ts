@@ -19,7 +19,7 @@ export default class Bird extends Object<Sprite> {
   init = () => {
     this.sprite
       .setSourceImage(imgBird)
-      .resize(32, 32)
+      .resize(31, 31)
       .resizeSource(32, 32)
       .moveTo(10, 10)
       .moveSourceTo(32, 0)
@@ -60,7 +60,7 @@ export default class Bird extends Object<Sprite> {
     this.gravityY.enable = false
     this.jump.force += this.jump.acceleration
     this.sprite.y -= this.jump.force
-    if (this.sprite.angle >= 0) this.sprite.angle -= 0.2
+    if (this.sprite.angle >= 0) this.sprite.angle -= 0.7
     if (this.jump.force > this.jump.max) {
       this.sprite.moveSourceTo(32, 0)
       this.jump.force = 0
