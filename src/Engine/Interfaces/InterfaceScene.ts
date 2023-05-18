@@ -1,0 +1,9 @@
+import Object from '@Engine/Modules/Object'
+import TypeSprite from '@Engine/Types/TypeSprite'
+import InterfaceGameLoop from './InterfaceGameLoop'
+
+type Types = InterfaceGameLoop
+
+export default interface InterfaceScene extends Types {
+  readonly objects: Object<TypeSprite>[]
+}
