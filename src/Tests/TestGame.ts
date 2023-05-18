@@ -1,22 +1,18 @@
 import Game from '@Engine/Modules/Game'
-import Player from './Player'
-import Background from './Background'
+import SceneWord from './Scenes/SceneWord'
 
 export default class TestGame extends Game {
-  readonly background = new Background(this.engine)
-  readonly player = new Player(this.engine)
+  sceneWord = new SceneWord(this.engine)
 
   init = () => {
-    this.background.init()
-    this.player.init()
+    this.sceneWord.init()
   }
 
   update = () => {
-    this.player.update()
+    this.sceneWord.update()
   }
 
   render = () => {
-    this.background.render()
-    this.player.render()
+    this.sceneWord.render()
   }
 }
