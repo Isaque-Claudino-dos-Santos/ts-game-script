@@ -6,7 +6,7 @@ import Background from '../Objects/Background'
 
 export default class SceneSky extends Scene {
   readonly objects: Object<TypeSprite>[] = [
-    new Bird(this.engine),
     new Background(this.engine),
+    new Bird(this.engine),
   ]
 }
