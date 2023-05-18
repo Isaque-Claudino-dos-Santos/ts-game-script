@@ -6,6 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV == 'production'
 
+/**
+ * @type {import('webpack-cli').WebpackConfiguration}
+ */
+
+console.log(path.resolve('assets'))
 const config = {
   entry: {
     main: './src/index.ts',
@@ -37,8 +42,11 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg|webp)$/i,
-        type: 'asset/resource',
-        use: [{ loader: 'file-loader' }],
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+        },
+        include: path.resolve('assets'),
       },
 
       // Add your rules for custom modules here
@@ -58,6 +66,7 @@ const config = {
       '@Interface': path.resolve(__dirname, 'src', 'Interfaces'),
       '@Enum': path.resolve(__dirname, 'src', 'Enums'),
       '@Type': path.resolve(__dirname, 'src', 'Types'),
+      '@Asset': path.resolve(__dirname, 'assets'),
       Game$: path.resolve(__dirname, 'src', 'Game', 'index.ts'),
     },
   },

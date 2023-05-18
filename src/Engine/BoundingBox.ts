@@ -1,28 +1,42 @@
-import InterfaceBoundingBox from '@Interface/InterfaceBoundingBox'
-import TypeSprite from '@Type/TypeSprite'
-import Rect from './Draw/Rect'
+import InterfaceBoundingBox from '@Engine/Interfaces/InterfaceBoundingBox'
+import TypeSprite from '@Engine/Types/TypeSprite'
+import Object from './Modules/Object'
+import Collided from './Collided'
 
 export default class BoundingBox<Box extends TypeSprite>
   implements InterfaceBoundingBox
 {
-  constructor(public box: Box, public parent: TypeSprite) {
-    this.box.setPaint('stroke').setColor('#ff0000')
+  readonly box: Box
+  readonly object: Object<TypeSprite>
+  readonly collided: Collided = new Collided()
+  enable: boolean = true
+  x: number = 0
+  y: number = 0
+
+  constructor(object: Object<TypeSprite>, box: Box) {
+    this.object = object
+    this.box = box
+    this.box.setPaint('stroke').setColor('#ff55ff')
   }
 
-  update() {
-    if (this.box.shape === 'rect') {
-      const box = this.box as Rect
-      this.box.x = this.parent.centerX() - box.width / 2
-      this.box.y = this.parent.centerY() - box.height / 2
-    }
+  moveTo(x: number, y: number): this {
+    this.x = x
+    this.y = y
+    return this
+  }
 
-    if (this.box.shape === 'arc') {
-      this.box.x = this.parent.x
-      this.box.y = this.parent.y
-    }
+  update = () => {
+    if (!this.enable) return
+    this.box.setOrigins(this.object.sprite.originX, this.object.sprite.originY)
+    this.box.moveTo(
+      this.object.sprite.x + this.x,
+      this.object.sprite.y + this.y
+    )
+    this.box.angle = this.object.sprite.angle
   }
 
   debug(context: CanvasRenderingContext2D): void {
+    if (!this.enable) return
     this.box.draw(context)
   }
 }

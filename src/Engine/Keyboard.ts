@@ -1,7 +1,7 @@
 import InterfaceKeyboard, {
   TypeKeyboardKeys,
-} from '@Interface/InterfaceKeyboard'
-import TypeVK from '@Type/TypeVK'
+} from '@Engine/Interfaces/InterfaceKeyboard'
+import TypeVK from '@Engine/Types/TypeVK'
 
 export default class Keyboard implements InterfaceKeyboard {
   readonly keys: TypeKeyboardKeys = {
@@ -292,7 +292,7 @@ export default class Keyboard implements InterfaceKeyboard {
     this.keys[vk].locked = true
   }
 
-  check(vk: TypeVK): boolean {
-    return this.keys[vk].isDown
+  check(vk: TypeVK): number {
+    return this.keys[vk].isDown ? 1 : 0
   }
 }

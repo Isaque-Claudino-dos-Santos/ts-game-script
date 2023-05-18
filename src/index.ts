@@ -1,8 +1,9 @@
-import Canvas2d from '@Game/Canvas2d'
 import Engine from '@Engine/Engine'
-import GamePacMan from './PacMan/GamePacMan'
+import TestGame from './Tests/TestGame'
 
-const engine = new Engine(new Canvas2d(600, 450))
-engine.game = new GamePacMan(engine)
+const engine = new Engine()
 
-engine.init()
+engine.canvas.screenSize(760, 350)
+engine.canvas.resolution(760 / 3, 350 / 3)
+
+engine.init(new TestGame(engine))

@@ -1,33 +1,23 @@
-import InterfaceEngine, { TypeInitFN } from '@Interface/InterfaceEngine'
-import Window from '@Module/Window'
+import InterfaceEngine, { TypeInitFN } from '@Engine/Interfaces/InterfaceEngine'
 import Mouse from './Mouse'
-import Game from '@Game/Game'
 import Keyboard from './Keyboard'
+import Canvas2D from './Canvas2D'
+import Collider from './Collider'
+import Game from './Modules/Game'
 
 export default class Engine implements InterfaceEngine {
-  private secondsPassed: number = 0
-  private oldTimeStamp: number = 0
-  readonly mouse: Mouse
-  readonly context2d: CanvasRenderingContext2D
-  readonly keyboard: Keyboard
-  game: Game | undefined
-  fps: number = 0
+  readonly canvas = new Canvas2D()
+  readonly keyboard = new Keyboard()
+  readonly mouse = new Mouse(this.canvas)
+  readonly collider = new Collider()
+  private game: Game | null = null
 
-  constructor(public readonly window: Window) {
-    this.context2d = this.window.context2d
-    this.mouse = new Mouse(this.window.screen)
-    this.keyboard = new Keyboard()
-  }
-
-  init: TypeInitFN = () => {
-    if (!this.game) throw console.error(new Error('Game in engine not defined'))
+  public init: TypeInitFN = (game: Game) => {
+    this.game = game
 
     this.game.init()
-    const loop = (timeStamp: number = 0) => {
-      this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000
-      this.oldTimeStamp = timeStamp
-      this.fps = Number((1 / this.secondsPassed).toFixed(1))
 
+    const loop = () => {
       if (!this.game) return
       this.game.update()
       this.game.render()

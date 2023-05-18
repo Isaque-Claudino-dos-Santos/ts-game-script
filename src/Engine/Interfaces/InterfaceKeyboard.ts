@@ -1,4 +1,4 @@
-import TypeVK from '@Type/TypeVK'
+import TypeVK from '@Engine/Types/TypeVK'
 
 export type TypeKeyboardKey = {
   isDown: boolean
@@ -10,6 +10,6 @@ export type TypeKeyboardKeys = {
 
 export default interface InterfaceKeyboard {
   readonly keys: TypeKeyboardKeys
-  check(vk: TypeVK): Boolean
+  check(vk: TypeVK): number
   lockKey(vk: TypeVK): void
 }

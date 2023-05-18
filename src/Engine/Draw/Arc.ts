@@ -1,6 +1,6 @@
-import InterfaceArc from '@Interface/InterfaceArc'
-import { TypeShape } from '@Interface/InterfaceShape'
-import Shape from '@Module/Shape'
+import Shape from '@Engine/Modules/Shape'
+import InterfaceArc from '@Engine/Interfaces/InterfaceArc'
+import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
 
 export default class Arc extends Shape implements InterfaceArc {
   readonly shape: TypeShape = 'arc'
@@ -9,12 +9,8 @@ export default class Arc extends Shape implements InterfaceArc {
   endAngle: number = Math.PI * 180
   counterclockwise: boolean = false
 
-  centerX(): number {
-    return this.x
-  }
-
-  centerY(): number {
-    return this.y
+  copy<Arc>(): Arc {
+    return Object.assign(new Arc(), this) as Arc
   }
 
   resize(size: number): this {
@@ -23,11 +19,16 @@ export default class Arc extends Shape implements InterfaceArc {
   }
 
   draw(context: CanvasRenderingContext2D): this {
+    if (!this.enable) return this
+    context.save()
     context.beginPath()
+    context.translate(this.x + this.originX, this.y + this.originY)
+    context.rotate(this.angle)
+    context.lineWidth = this.lineWidth
     context[`${this.paint}Style`] = this.color
     context.arc(
-      this.x,
-      this.y,
+      this.originX,
+      this.originY,
       this.radius,
       this.startAngle,
       this.endAngle,
@@ -35,6 +36,7 @@ export default class Arc extends Shape implements InterfaceArc {
     )
     context[`${this.paint}`]()
     context.closePath()
+    context.restore()
     return this
   }
 }

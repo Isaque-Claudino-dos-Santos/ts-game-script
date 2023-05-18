@@ -1,19 +1,14 @@
-import InterfaceRect from '@Interface/InterfaceRect'
-import { TypeShape } from '@Interface/InterfaceShape'
-import Shape from '@Module/Shape'
+import Shape from '@Engine/Modules/Shape'
+import InterfaceRect from '@Engine/Interfaces/InterfaceRect'
+import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
 
 export default class Rect extends Shape implements InterfaceRect {
   readonly shape: TypeShape = 'rect'
   width: number = 10
   height: number = 10
-  angle: number = 0
 
-  centerX(): number {
-    return this.x + this.width / 2
-  }
-
-  centerY(): number {
-    return this.y + this.height / 2
+  copy<Rect>(): Rect {
+    return Object.assign(new Rect(), this) as Rect
   }
 
   resize(width: number, height: number): this {
@@ -23,14 +18,16 @@ export default class Rect extends Shape implements InterfaceRect {
   }
 
   draw(context: CanvasRenderingContext2D): this {
+    if (!this.enable) return this
     context.save()
     context.beginPath()
-    context.translate(this.x + this.width / 2, this.y + this.height / 2)
+    context.translate(this.x + this.originX, this.y + this.originY)
     context.rotate(this.angle)
+    context.lineWidth = this.lineWidth
     context[`${this.paint}Style`] = this.color
     context[`${this.paint}Rect`](
-      -this.width / 2,
-      -this.height / 2,
+      -this.originX,
+      -this.originY,
       this.width,
       this.height
     )

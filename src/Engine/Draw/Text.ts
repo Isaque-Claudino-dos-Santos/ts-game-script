@@ -1,6 +1,6 @@
-import { TypeShape } from '@Interface/InterfaceShape'
-import InterfaceText from '@Interface/InterfaceText'
-import Shape from '@Module/Shape'
+import Shape from '@Engine/Modules/Shape'
+import { TypeShape } from '@Engine/Interfaces/InterfaceShape'
+import InterfaceText from '@Engine/Interfaces/InterfaceText'
 
 export default class Text extends Shape implements InterfaceText {
   readonly shape: TypeShape = 'text'
@@ -12,23 +12,29 @@ export default class Text extends Shape implements InterfaceText {
   direction: CanvasDirection = 'rtl'
   maxWidth: number | undefined
 
-  centerX(): number {
-    return this.x
-  }
-
-  centerY(): number {
-    return this.y
+  copy<Text>(): Text {
+    return Object.assign(new Text(), this) as Text
   }
 
   draw(context: CanvasRenderingContext2D): this {
+    if (!this.enable) return this
+    context.save()
     context.beginPath()
+    context.translate(this.x + this.originX, this.y + this.originY)
     context[`${this.paint}Style`] = this.color
+    context.lineWidth = this.lineWidth
     context.textAlign = this.align
     context.direction = this.direction
     context.textBaseline = this.baseLine
     context.font = `${this.size} ${this.family}`
-    context[`${this.paint}Text`](this.text, this.x, this.y, this.maxWidth)
+    context[`${this.paint}Text`](
+      this.text,
+      this.originX,
+      this.originY,
+      this.maxWidth
+    )
     context.closePath()
+    context.restore()
     return this
   }
 }
