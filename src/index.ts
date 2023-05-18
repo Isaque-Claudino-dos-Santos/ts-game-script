@@ -3,7 +3,7 @@ import FlappyBird from './FlappyBird/FlappyBird'
 
 const engine = new Engine()
 
-engine.canvas.screenSize(760, 350)
-engine.canvas.resolution(760 / 2, 350 / 2)
+engine.canvas.screenSize(640, 320)
+engine.canvas.resolution(640 / 2, 320 / 2)
 
 engine.init(new FlappyBird(engine))
