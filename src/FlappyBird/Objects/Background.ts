@@ -11,7 +11,7 @@ export default class Background extends Object<Rect> {
     this.sprite
       .moveTo(0, 0)
       .resize(this.engine.canvas.width(), this.engine.canvas.height())
-      .setColor('#00ffee')
+      .setColor('#d0d0d0')
   }
 
   render = () => {
