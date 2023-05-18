@@ -13,6 +13,7 @@ export default interface InterfaceShape {
   originX: number
   originY: number
   lineWidth: number
+  enable: boolean
 
   readonly shape: TypeShape
 
