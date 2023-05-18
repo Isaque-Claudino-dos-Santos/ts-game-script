@@ -16,6 +16,7 @@ export default class MixDraw extends Shape implements InterfaceMixDraw {
   }
 
   draw(context: CanvasRenderingContext2D): this {
+    if (!this.enable) return this
     this.shapes.forEach((shape) => {
       shape.x = this.getOriginX() + shape.fixedX
       shape.y = this.getOriginY() + shape.fixedY

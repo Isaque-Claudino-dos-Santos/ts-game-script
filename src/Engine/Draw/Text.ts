@@ -17,6 +17,7 @@ export default class Text extends Shape implements InterfaceText {
   }
 
   draw(context: CanvasRenderingContext2D): this {
+    if (!this.enable) return this
     context.save()
     context.beginPath()
     context.translate(this.x + this.originX, this.y + this.originY)
