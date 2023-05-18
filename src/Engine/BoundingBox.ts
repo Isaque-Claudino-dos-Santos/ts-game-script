@@ -9,6 +9,7 @@ export default class BoundingBox<Box extends TypeSprite>
   readonly box: Box
   readonly object: Object<TypeSprite>
   readonly collided: Collided = new Collided()
+  enable: boolean = true
   x: number = 0
   y: number = 0
 
@@ -25,6 +26,7 @@ export default class BoundingBox<Box extends TypeSprite>
   }
 
   update = () => {
+    if (!this.enable) return
     this.box.setOrigins(this.object.sprite.originX, this.object.sprite.originY)
     this.box.moveTo(
       this.object.sprite.x + this.x,
@@ -34,6 +36,7 @@ export default class BoundingBox<Box extends TypeSprite>
   }
 
   debug(context: CanvasRenderingContext2D): void {
+    if (!this.enable) return
     this.box.draw(context)
   }
 }
