@@ -42,6 +42,8 @@ export default class Sprite extends Shape implements InterfaceSprite {
   draw(context: CanvasRenderingContext2D): this {
     if (!this.enable) return this
     context.save()
+    context.imageSmoothingQuality = 'high'
+    context.imageSmoothingEnabled = false
     context.translate(this.x + this.originX, this.y + this.originY)
     context.rotate(this.angle)
     context.drawImage(
