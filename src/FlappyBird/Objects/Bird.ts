@@ -28,6 +28,12 @@ export default class Bird extends Object<Sprite> {
     this.boundingBox.box.resize(31, 18)
   }
 
+  rotateOnKey() {
+    const key = this.engine.keyboard
+    if (key.check('KeyJ')) this.sprite.angle += 0.01
+    if (key.check('KeyH')) this.sprite.angle -= 0.01
+  }
+
   onGravity() {
     if (!this.gravityY.enable || this.isDead) return
     if (
@@ -72,6 +78,7 @@ export default class Bird extends Object<Sprite> {
   }
 
   update = () => {
+    this.rotateOnKey()
     // this.onGravity()
     // this.onJump()
     this.boundingBox.update()
