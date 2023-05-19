@@ -19,19 +19,13 @@ export default class Bird extends Object<Sprite> {
   init = () => {
     this.sprite
       .setSourceImage(imgBird)
-      .resize(32, 32)
+      .resize(32 * 5, 32 * 5)
       .resizeSource(32, 32)
       .moveTo(10, 10)
       .moveSourceTo(32, 0)
       .setOrigins(this.sprite.width / 2, this.sprite.height / 2)
     this.boundingBox.moveTo(0, 5)
     this.boundingBox.box.resize(31, 18)
-  }
-
-  rotateOnKey() {
-    const key = this.engine.keyboard
-    if (key.check('KeyJ')) this.sprite.angle += 0.01
-    if (key.check('KeyH')) this.sprite.angle -= 0.01
   }
 
   onGravity() {
@@ -78,9 +72,8 @@ export default class Bird extends Object<Sprite> {
   }
 
   update = () => {
-    this.rotateOnKey()
-    // this.onGravity()
-    // this.onJump()
+    this.onGravity()
+    this.onJump()
     this.boundingBox.update()
   }
 
