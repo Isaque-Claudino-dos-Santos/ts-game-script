@@ -19,7 +19,7 @@ export default class Bird extends Object<Sprite> {
   init = () => {
     this.sprite
       .setSourceImage(imgBird)
-      .resize(31, 31)
+      .resize(32, 32)
       .resizeSource(32, 32)
       .moveTo(10, 10)
       .moveSourceTo(32, 0)
@@ -72,8 +72,8 @@ export default class Bird extends Object<Sprite> {
   }
 
   update = () => {
-    this.onGravity()
-    this.onJump()
+    // this.onGravity()
+    // this.onJump()
     this.boundingBox.update()
   }
 
