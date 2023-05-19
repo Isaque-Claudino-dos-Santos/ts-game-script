@@ -9,10 +9,10 @@ export default class Bird extends Object<Sprite> {
   sprite: Sprite = new Sprite()
   boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
   isDead: boolean = false
-  jump = { force: 0, acceleration: 0.5, max: 5, enable: false }
+  jump = { force: 0, acceleration: 1, max: 10, enable: false }
   gravityY = {
     velocity: 0,
-    acceleration: 0.07,
+    acceleration: 0.1,
     enable: true,
   }
 
@@ -21,11 +21,11 @@ export default class Bird extends Object<Sprite> {
       .setSourceImage(imgBird)
       .resize(32 * 5, 32 * 5)
       .resizeSource(32, 32)
-      .moveTo(10, 10)
+      .moveTo(30, this.engine.canvas.height() / 2 - this.sprite.height)
       .moveSourceTo(32, 0)
       .setOrigins(this.sprite.width / 2, this.sprite.height / 2)
-    this.boundingBox.moveTo(0, 5)
-    this.boundingBox.box.resize(31, 18)
+    this.boundingBox.moveTo(3, 5)
+    this.boundingBox.box.resize(this.sprite.width - 10, this.sprite.height - 45)
   }
 
   onGravity() {
@@ -39,7 +39,7 @@ export default class Bird extends Object<Sprite> {
 
       this.gravityY.acceleration = 0
       this.gravityY.velocity = 0
-      this.sprite.y = Math.round(this.sprite.y)
+      this.sprite.y = this.sprite.y
     }
 
     this.gravityY.velocity += this.gravityY.acceleration
@@ -64,7 +64,7 @@ export default class Bird extends Object<Sprite> {
     if (this.jump.force > this.jump.max) {
       this.sprite.moveSourceTo(32, 0)
       this.jump.force = 0
-      this.sprite.y = Math.round(this.sprite.y)
+      this.sprite.y = this.sprite.y
       this.jump.enable = false
       this.gravityY.enable = true
       this.gravityY.velocity = 0
@@ -78,6 +78,7 @@ export default class Bird extends Object<Sprite> {
   }
 
   render = () => {
+    this.boundingBox.debug(this.engine.canvas.context)
     this.sprite.draw(this.engine.canvas.context)
   }
 }
