@@ -9,7 +9,7 @@ export default class Gravity implements InterfaceGravity {
   velocity: number = 0
   force: number = 1
   massa: number = 1
-  enable: boolean = true
+  active: boolean = true
   axis: TypeGravityAxis = 'y'
 
   constructor(public readonly object: Object<TypeSprite>) {}
@@ -29,14 +29,25 @@ export default class Gravity implements InterfaceGravity {
     return this
   }
 
-  reset(): void {
+  reset(): this {
     this.acceleration = 0
     this.velocity = 0
+    return this
+  }
+
+  disable(): this {
+    this.active = false
+    return this
+  }
+
+  enable(): this {
+    this.active = true
+    return this
   }
 
   on(invert: boolean = false): void {
-    if (!this.enable) return
-    this.acceleration = this.force / this.massa
+    if (!this.active) return
+    this.acceleration = this.massa / this.force
     this.velocity += this.acceleration
     if (invert) this.object.sprite[this.axis] -= this.velocity
     else this.object.sprite[this.axis] += this.velocity

@@ -10,11 +10,13 @@ export default interface InterfaceGravity {
   velocity: number
   force: number
   massa: number
-  enable: boolean
+  active: boolean
 
   setAxis(axis: TypeGravityAxis): this
   setMassa(value: number): this
   setForce(value: number): this
-  reset(): void
+  reset(): this
+  disable(): this
+  enable(): this
   on(invert: boolean): void
 }
