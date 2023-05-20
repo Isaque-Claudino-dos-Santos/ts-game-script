@@ -19,6 +19,11 @@ export default class Gravity implements InterfaceGravity {
     return this
   }
 
+  reset(): void {
+    this.acceleration = 0
+    this.velocity = 0
+  }
+
   on(invert: boolean = false): void {
     if (!this.enable) return
     this.acceleration = this.force / this.massa

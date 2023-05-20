@@ -8,5 +8,6 @@ export default interface InterfaceGravity {
 
   setMassa(value: number): this
   setForce(value: number): this
+  reset(): void
   on(invert: boolean): void
 }
