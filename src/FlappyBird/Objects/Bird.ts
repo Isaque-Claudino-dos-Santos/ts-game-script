@@ -4,17 +4,14 @@ import Sprite from '@Engine/Draw/Sprite'
 import Object from '@Engine/Modules/Object'
 
 import imgBird from '@Asset/Bird.png'
+import Gravity from '@Engine/Gravity'
 
 export default class Bird extends Object<Sprite> {
   sprite: Sprite = new Sprite()
   boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
   isDead: boolean = false
-  jump = { force: 0, acceleration: 1.2, max: 20, enable: false }
-  gravityY = {
-    velocity: 0,
-    acceleration: 0.4,
-    enable: true,
-  }
+  jump = new Gravity(this)
+  gravityY = new Gravity(this)
 
   init = () => {
     this.sprite
@@ -26,52 +23,54 @@ export default class Bird extends Object<Sprite> {
       .setOrigins(this.sprite.width / 2, this.sprite.height / 2)
     this.boundingBox.moveTo(3, 5)
     this.boundingBox.box.resize(this.sprite.width - 10, this.sprite.height - 45)
+    this.gravityY.setForce(6).setMassa(6).setAxis('y')
+    this.jump.setForce(6).setMassa(20).setAxis('y').disable()
   }
 
   onGravity() {
-    if (!this.gravityY.enable || this.isDead) return
-    if (
-      this.sprite.y + this.boundingBox.box.height >=
-      this.engine.canvas.height()
-    ) {
-      this.isDead = true
-      console.log('%c Game Over', 'font-size: 20px; color:red;')
+    const collidedWithCanvasBottom =
+      this.sprite.y + this.boundingBox.box.height >= this.engine.canvas.height()
 
-      this.gravityY.acceleration = 0
-      this.gravityY.velocity = 0
-      this.sprite.y = this.sprite.y
+    if (collidedWithCanvasBottom && this.gravityY.active) {
+      this.isDead = true
+      this.gravityY.reset().disable()
+      this.sprite.y = this.engine.canvas.height() - this.boundingBox.box.height
+      console.log('%c Game Over', 'font-size: 20px; color:red;')
     }
 
-    this.gravityY.velocity += this.gravityY.acceleration
-    this.sprite.y += this.gravityY.velocity
-    if (this.sprite.angle <= 1.2) this.sprite.angle += 0.02
+    this.gravityY.on()
+
+    if (this.sprite.angle <= 1.5) this.sprite.angle += 0.02
+
     this.sprite.moveSourceTo(0, 0)
   }
 
   onJump() {
-    if (this.isDead) return
     const key = this.engine.keyboard
-    if (key.check('Space')) {
-      this.jump.enable = true
-      this.sprite.moveSourceTo(0, 32)
-      key.lockKey('Space')
+    const keyToJump = 'Space'
+
+    if (key.check(keyToJump)) {
+      this.jump.enable()
+      this.gravityY.disable().reset()
+      key.lockKey(keyToJump)
     }
-    if (!this.jump.enable) return
-    this.gravityY.enable = false
-    this.jump.force += this.jump.acceleration
-    this.sprite.y -= this.jump.force
+
+    if (!this.jump.active) return
+
+    this.jump.on(true)
+    this.sprite.moveSourceTo(0, 32)
+
     if (this.sprite.angle > 0) this.sprite.angle -= 0.08
-    if (this.jump.force > this.jump.max) {
+
+    if (this.jump.velocity > 40) {
       this.sprite.moveSourceTo(32, 0)
-      this.jump.force = 0
-      this.sprite.y = this.sprite.y
-      this.jump.enable = false
-      this.gravityY.enable = true
-      this.gravityY.velocity = 0
+      this.jump.reset().disable()
+      this.gravityY.reset().enable()
     }
   }
 
   update = () => {
+    if (this.isDead) return
     this.onGravity()
     this.onJump()
     this.boundingBox.update()
