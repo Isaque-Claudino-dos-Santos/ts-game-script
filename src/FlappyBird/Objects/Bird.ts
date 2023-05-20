@@ -9,17 +9,17 @@ export default class Bird extends Object<Sprite> {
   sprite: Sprite = new Sprite()
   boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
   isDead: boolean = false
-  jump = { force: 0, acceleration: 1, max: 10, enable: false }
+  jump = { force: 0, acceleration: 1.2, max: 20, enable: false }
   gravityY = {
     velocity: 0,
-    acceleration: 0.1,
+    acceleration: 0.4,
     enable: true,
   }
 
   init = () => {
     this.sprite
       .setSourceImage(imgBird)
-      .resize(32 * 5, 32 * 5)
+      .resize(32 * 10, 32 * 10)
       .resizeSource(32, 32)
       .moveTo(30, this.engine.canvas.height() / 2 - this.sprite.height)
       .moveSourceTo(32, 0)
@@ -60,7 +60,7 @@ export default class Bird extends Object<Sprite> {
     this.gravityY.enable = false
     this.jump.force += this.jump.acceleration
     this.sprite.y -= this.jump.force
-    if (this.sprite.angle >= 0) this.sprite.angle -= 0.7
+    if (this.sprite.angle > 0) this.sprite.angle -= 0.08
     if (this.jump.force > this.jump.max) {
       this.sprite.moveSourceTo(32, 0)
       this.jump.force = 0
