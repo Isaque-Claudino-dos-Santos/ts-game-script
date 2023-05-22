@@ -14,25 +14,9 @@
         "outDir": "dist",
 
         "paths": {
-            "@Draw/*": [
-                "./src/Draw/*"
-            ],
-            "@Display/*": [
-                "./src/Display/*"
-            ],
-            "@Event/*": [
-                "./src/Event/*"
-            ],
-            "@Physical/*": [
-                "./src/Physical/*"
-            ],
-            "@Module/*": ["./src/Modules/*"],
             "@Engine/*": ["./src/Engine/*"],
-            "Game": ["./src/Game/index.ts"],
-            "@Game/*": ["./src/Game/*"],
-            "@Interface/*":["./src/Interfaces/*"],
-            "@Enum/*": ["./src/Enums/*"],
             "@Type/*": ["./src/Engine/Types/*"],
+            "@Interface/*": ["./src/Engine/Interfaces/*"],
             "@Asset/*": ["./assets/*"]
         }
     },

@@ -56,18 +56,10 @@ const config = {
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
     alias: {
-      '@Draw': path.resolve(__dirname, 'src', 'Draw'),
-      '@Display': path.resolve(__dirname, 'src', 'Display'),
-      '@Event': path.resolve(__dirname, 'src', 'Event'),
-      '@Physical': path.resolve(__dirname, 'src', 'Physical'),
-      '@Game': path.resolve(__dirname, 'src', 'Game'),
-      '@Module': path.resolve(__dirname, 'src', 'Modules'),
       '@Engine': path.resolve(__dirname, 'src', 'Engine'),
-      '@Interface': path.resolve(__dirname, 'src', 'Interfaces'),
-      '@Enum': path.resolve(__dirname, 'src', 'Enums'),
-      '@Type': path.resolve(__dirname, 'src', 'Types'),
+      '@Type': path.resolve(__dirname, 'src', 'Engine', 'Types'),
+      '@Interface': path.resolve(__dirname, 'src', 'Engine', 'Interfaces'),
       '@Asset': path.resolve(__dirname, 'assets'),
-      Game$: path.resolve(__dirname, 'src', 'Game', 'index.ts'),
     },
   },
 }
