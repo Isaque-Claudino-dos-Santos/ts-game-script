@@ -30,6 +30,10 @@ export default class Bird extends Object<Sprite> {
     this.jump.setForce(6).setMassa(20).setAxis('y').disable()
   }
 
+  dead() {
+    this.isDead = true
+  }
+
   onGravity() {
     const collidedWithCanvasBottom =
       this.sprite.y + this.boundingBox.box.height >= this.engine.canvas.height()
