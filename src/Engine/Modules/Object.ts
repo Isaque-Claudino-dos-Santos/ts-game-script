@@ -1,5 +1,6 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Engine from '@Engine/Engine'
+import { TypeGameLoopFN } from '@Engine/Interfaces/InterfaceGameLoop'
 import InterfaceObject from '@Engine/Interfaces/InterfaceObject'
 import TypeSprite from '@Engine/Types/TypeSprite'
 
@@ -18,4 +19,5 @@ export default abstract class Object<Sprite extends TypeSprite>
   init = () => {}
   update = () => {}
   render = () => {}
+  collided = () => {}
 }

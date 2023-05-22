@@ -4,4 +4,5 @@ export default interface InterfaceGameLoop {
   init: TypeGameLoopFN
   update: TypeGameLoopFN
   render: TypeGameLoopFN
+  collided: TypeGameLoopFN
 }

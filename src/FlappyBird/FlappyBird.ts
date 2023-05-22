@@ -7,4 +7,5 @@ export default class FlappyBird extends Game {
   init = () => this.sceneSky.init()
   update = () => this.sceneSky.update()
   render = () => this.sceneSky.render()
+  collided = () => this.sceneSky.collided()
 }
