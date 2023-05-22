@@ -6,4 +6,5 @@ export default abstract class Game implements InterfaceGame {
   init = () => {}
   update = () => {}
   render = () => {}
+  collided = () => {}
 }
