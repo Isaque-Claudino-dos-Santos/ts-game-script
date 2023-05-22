@@ -13,23 +13,6 @@ export default class Bird extends Object<Sprite> {
   jump = new Gravity(this)
   gravityY = new Gravity(this)
 
-  init = () => {
-    this.sprite
-      .setSourceImage(imgBird)
-      .resize(32 * 10, 32 * 10)
-      .resizeSource(32, 32)
-      .moveTo(30, this.engine.canvas.height() / 2 - this.sprite.height)
-      .moveSourceTo(32, 0)
-      .setOrigins(this.sprite.width / 2, this.sprite.height / 2)
-    this.boundingBox.moveTo(3, 5)
-    this.boundingBox.box.resize(
-      this.sprite.width - 10,
-      this.sprite.height - 100
-    )
-    this.gravityY.setForce(6).setMassa(6).setAxis('y')
-    this.jump.setForce(6).setMassa(20).setAxis('y').disable()
-  }
-
   dead() {
     this.isDead = true
   }
@@ -74,6 +57,23 @@ export default class Bird extends Object<Sprite> {
       this.jump.reset().disable()
       this.gravityY.reset().enable()
     }
+  }
+
+  init = () => {
+    this.sprite
+      .setSourceImage(imgBird)
+      .resize(32 * 10, 32 * 10)
+      .resizeSource(32, 32)
+      .moveTo(30, this.engine.canvas.height() / 2 - this.sprite.height)
+      .moveSourceTo(32, 0)
+      .setOrigins(this.sprite.width / 2, this.sprite.height / 2)
+    this.boundingBox.moveTo(3, 5)
+    this.boundingBox.box.resize(
+      this.sprite.width - 10,
+      this.sprite.height - 100
+    )
+    this.gravityY.setForce(6).setMassa(6).setAxis('y')
+    this.jump.setForce(6).setMassa(20).setAxis('y').disable()
   }
 
   update = () => {
