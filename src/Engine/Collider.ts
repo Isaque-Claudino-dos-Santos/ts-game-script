@@ -29,7 +29,7 @@ export default class Collider implements InterfaceCollider {
       return this.exceptionTypeBoundBox('Rect')
     }
 
-    const collidedLeft = box1.x + box1.width <= box2.x
+    const collidedLeft = box1.x + box1.width >= box2.x
     const collidedRight = box1.x <= box2.x + box2.width
     const colliderTop = box1.y + box1.height >= box2.y
     const collidedBottom = box1.y <= box2.y + box2.height
