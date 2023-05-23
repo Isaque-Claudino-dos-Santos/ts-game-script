@@ -13,7 +13,7 @@ export default class SceneSky extends Scene {
   collided = () => {
     const { bird, pipe } = this.objects
     this.engine.collider.rectWithRect(bird, pipe, () => {
-      this.objects.bird.dead()
+      bird.dead()
     })
   }
 }
