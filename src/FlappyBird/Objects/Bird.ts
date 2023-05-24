@@ -84,7 +84,6 @@ export default class Bird extends Object<Sprite> {
   }
 
   render = () => {
-    this.boundingBox.debug(this.engine.canvas.context)
     this.sprite.draw(this.engine.canvas.context)
   }
 }
