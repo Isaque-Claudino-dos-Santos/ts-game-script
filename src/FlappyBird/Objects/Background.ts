@@ -1,7 +1,6 @@
 import BoundingBox from '@Engine/BoundingBox'
 import Rect from '@Engine/Draw/Rect'
 import Object from '@Engine/Modules/Object'
-import TypeSprite from '@Engine/Types/TypeSprite'
 
 export default class Background extends Object<Rect> {
   sprite: Rect = new Rect()
