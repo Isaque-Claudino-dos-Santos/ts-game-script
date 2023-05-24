@@ -1,7 +1,9 @@
-import Shape from '@Engine/Modules/Shape'
+import Object from '@Engine/Modules/Object'
+import TypeSprite from '@Engine/Types/TypeSprite'
 
 export default interface InterfaceMixDraw {
-  shapes: Shape[]
+  objects: Object<TypeSprite>[]
 
-  add(shape: Shape): void
+  add(object: Object<TypeSprite>): void
+  callUpdates(): void
 }
