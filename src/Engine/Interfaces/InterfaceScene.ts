@@ -10,4 +10,9 @@ export default interface InterfaceScene extends Types {
   readonly objects: TypeSceneObjects
   readonly engine: Engine
   enable: boolean
+
+  callInits(): void
+  callUpdates(): void
+  callRenders(): void
+  callCollideds(): void
 }

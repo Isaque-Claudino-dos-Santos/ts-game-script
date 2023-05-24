@@ -24,21 +24,32 @@ export default abstract class Scene implements InterfaceScene {
     }
   }
 
-  readonly init = () => {
+  readonly callInits = () => {
     if (!this.enable) return
     this.objectsForEach((obj) => obj.init())
-  }
-  readonly update = () => {
-    if (!this.enable) return
-    this.objectsForEach((obj) => obj.update())
-  }
-  readonly render = () => {
-    if (!this.enable) return
-    this.objectsForEach((obj) => obj.render())
+    this.init()
   }
 
-  readonly collided = () => {
+  readonly callUpdates = () => {
+    if (!this.enable) return
+    this.objectsForEach((obj) => obj.update())
+    this.update()
+  }
+
+  readonly callRenders = () => {
+    if (!this.enable) return
+    this.objectsForEach((obj) => obj.render())
+    this.render()
+  }
+
+  readonly callCollideds = () => {
     if (!this.enable) return
     this.objectsForEach((obj) => obj.collided())
+    this.collided()
   }
+
+  init = () => {}
+  render = () => {}
+  update = () => {}
+  collided = () => {}
 }
