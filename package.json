@@ -1,7 +1,7 @@
 {
-  "version": "1.0.16",
+  "version": "1.0.0",
   "description": "Create game with TypeScript",
-  "name": "ts-2d-game-engine",
+  "name": "@ts-game-script/app",
   "author": "Isaque-Claudino-dos-Santos",
   "devDependencies": {
     "@types/jest": "^29.2.3",
