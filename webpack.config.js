@@ -13,11 +13,10 @@ const isProduction = process.env.NODE_ENV == 'production'
 console.log(path.resolve('assets'))
 const config = {
   entry: {
-    main: './src/index.ts',
+    index: { import: './src/index.ts' },
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
+    filename: '[name].bandle.js',
     path: path.resolve(__dirname, 'build'),
   },
   devServer: {
@@ -56,10 +55,7 @@ const config = {
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
     alias: {
-      '@Engine': path.resolve(__dirname, 'src', 'Engine'),
-      '@Type': path.resolve(__dirname, 'src', 'Engine', 'Types'),
-      '@Interface': path.resolve(__dirname, 'src', 'Engine', 'Interfaces'),
-      '@Asset': path.resolve(__dirname, 'assets'),
+      '@Vendor': path.resolve(__dirname, 'vendor'),
     },
   },
 }
