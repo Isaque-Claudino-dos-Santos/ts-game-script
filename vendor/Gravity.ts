@@ -44,11 +44,12 @@ export default class Gravity implements InterfaceGravity {
     return this
   }
 
-  on(invert: boolean = false): void {
-    if (!this.active) return
+  on(invert: boolean = false): this {
+    if (!this.active) return this
     this.acceleration = this.massa / this.force
     this.velocity += this.acceleration
     if (invert) this.object.sprite[this.axis] -= this.velocity
     else this.object.sprite[this.axis] += this.velocity
+    return this
   }
 }

@@ -1,12 +1,7 @@
-import Engine from '@Vendor/Engine'
+import GameFlapyBird from './GameFlapyBird'
+import engine from './engine'
 
-const engine = new Engine()
-
-engine.canvas.screenSize(640, 384)
-engine.canvas.resolution(640 * 6, 384 * 6)
-
-// Add Game Instance With param
-// engine.init()
+engine.init(new GameFlapyBird(engine))
 
 const screenSizeElement = document.querySelector('.screenSize') as HTMLElement
 const resolutionElement = document.querySelector('.resolution') as HTMLElement

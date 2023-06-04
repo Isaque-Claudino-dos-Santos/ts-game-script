@@ -27,7 +27,7 @@ export default abstract class Shape implements InterfaceShape {
   }
 
   addY(value: number): this {
-    this.y = value
+    this.y += value
     return this
   }
 
