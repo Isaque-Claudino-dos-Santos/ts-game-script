@@ -1,7 +1,7 @@
 import TypeShape from '@Vendor/Types/TypeShape'
 import InterfaceGameLoop from './InterfaceGameLoop'
 import Engine from '@Vendor/Engine'
-import BoundingBox from '@Vendor/Modules/BoundingBox'
+import BoundingBox from '@Vendor/BoundingBox'
 
 type Types = InterfaceGameLoop
 

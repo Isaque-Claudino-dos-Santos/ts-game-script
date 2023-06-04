@@ -1,8 +1,8 @@
-import Collider from '@Vendor/Collider'
-import Keyboard from '@Vendor/Keyboard'
+import Collider from '@Vendor/Engine/Modules/Collider'
+import Keyboard from '@Vendor/Engine/Modules/Keyboard'
+import Mouse from '@Vendor/Engine/Modules/Mouse'
 import Canvas from '@Vendor/Models/Canvas'
 import Game from '@Vendor/Models/Game'
-import Mouse from '@Vendor/Mouse'
 
 export default interface InterfaceEngine {
   readonly mouse: Mouse
