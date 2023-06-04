@@ -1,8 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.20",
   "description": "Create game with TypeScript",
-  "name": "@ts-game-script/app",
+  "name": "ts-game-script",
   "author": "Isaque-Claudino-dos-Santos",
+  "main": "package",
+  "types": "package",
+  "type": "module",
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@webpack-cli/generators": "^2.5.0",
@@ -24,6 +27,8 @@
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "jest",
-    "game": "npx ts-node vendor/TsGameCommands"
+    "game": "npx ts-node vendor/TsGameCommands",
+    "build:vendor": "rm -rf package && npx tsc",
+    "publish": "npm publish"
   }
 }

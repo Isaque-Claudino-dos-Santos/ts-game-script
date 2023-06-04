@@ -1,3 +1,5 @@
 /src
 /.vscode
 /assets
+/vendor
+/package/src
