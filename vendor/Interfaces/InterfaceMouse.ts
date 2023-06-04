@@ -1,4 +1,4 @@
-import Canvas from '@Engine/Modules/Canvas'
+import Canvas from '@Vendor/Models/Canvas'
 
 export default interface InterfaceMouse {
   canvas: Canvas<RenderingContext>

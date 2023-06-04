@@ -1,13 +1,13 @@
-import TypeSprite from '@Engine/Types/TypeSprite'
+import TypeShape from '@Vendor/Types/TypeShape'
 import InterfaceGameLoop from './InterfaceGameLoop'
-import Engine from '@Engine/Engine'
-import BoundingBox from '@Engine/BoundingBox'
+import Engine from '@Vendor/Engine'
+import BoundingBox from '@Vendor/BoundingBox'
 
 type Types = InterfaceGameLoop
 
 export default interface InterfaceObject extends Types {
-  readonly sprite: TypeSprite
-  readonly boundingBox: BoundingBox<TypeSprite> | undefined
+  readonly sprite: TypeShape
+  readonly boundingBox: BoundingBox<TypeShape> | undefined
   readonly engine: Engine
 
   draw(): void

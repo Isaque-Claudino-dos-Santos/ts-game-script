@@ -1,10 +1,10 @@
-import Collided from '@Engine/Collided'
-import Object from '@Engine/Modules/Object'
-import TypeSprite from '@Type/TypeSprite'
+import Collided from '@Vendor/Collided'
+import Object from '@Vendor/Models/Object'
+import TypeShape from '@Vendor/Types/TypeShape'
 
 export default interface InterfaceBoundingBox {
-  readonly box: TypeSprite
-  readonly object: Object<TypeSprite>
+  readonly box: TypeShape
+  readonly object: Object<TypeShape>
   readonly collided: Collided
   enable: boolean
   x: number

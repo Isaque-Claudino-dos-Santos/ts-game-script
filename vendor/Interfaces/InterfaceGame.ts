@@ -1,5 +1,5 @@
-import Engine from '@Engine/Engine'
-import InterfaceGameLoop from '@Engine/Interfaces/InterfaceGameLoop'
+import Engine from '@Vendor/Engine'
+import InterfaceGameLoop from '@Vendor/Interfaces/InterfaceGameLoop'
 
 type Types = InterfaceGameLoop
 

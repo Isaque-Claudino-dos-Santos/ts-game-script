@@ -1,4 +1,4 @@
-import Engine from '@Engine/Engine'
+import Engine from '@Vendor/Engine'
 
 const engine = new Engine()
 
