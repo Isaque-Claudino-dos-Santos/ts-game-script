@@ -1,5 +1,5 @@
-import InterfaceMouse from './Interfaces/InterfaceMouse'
-import Canvas from './Models/Canvas'
+import InterfaceMouse from '@Vendor/Interfaces/InterfaceMouse'
+import Canvas from '@Vendor/Models/Canvas'
 
 export default class Mouse implements InterfaceMouse {
   x: number = 0

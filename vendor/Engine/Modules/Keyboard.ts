@@ -1,6 +1,6 @@
-import InterfaceKeyboard from './Interfaces/InterfaceKeyboard'
-import TypeKeyboardCodes from './Types/TypeKeyboardCodes'
-import TypeKeyboardKeys from './Types/TypeKeyboardKeys'
+import InterfaceKeyboard from '@Vendor/Interfaces/InterfaceKeyboard'
+import TypeKeyboardCodes from '@Vendor/Types/TypeKeyboardCodes'
+import TypeKeyboardKeys from '@Vendor/Types/TypeKeyboardKeys'
 
 export default class Keyboard implements InterfaceKeyboard {
   readonly keys: TypeKeyboardKeys = {

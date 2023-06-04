@@ -1,7 +1,7 @@
 import InterfaceBoundingBox from '@Vendor/Interfaces/InterfaceBoundingBox'
-import TypeShape from './Types/TypeShape'
-import Object from './Models/Object'
-import Collided from './Collided'
+import TypeShape from '@Vendor/Types/TypeShape'
+import Object from '@Vendor/Models/Object'
+import Collided from '@Vendor/Collided'
 
 export default class BoundingBox<Box extends TypeShape>
   implements InterfaceBoundingBox

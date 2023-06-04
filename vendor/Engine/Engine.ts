@@ -1,9 +1,9 @@
-import InterfaceEngine from './Interfaces/InterfaceEngine'
-import Keyboard from './Keyboard'
-import Canvas2D from './Canvas2D'
-import Collider from './Collider'
-import Game from './Models/Game'
-import Mouse from './Mouse'
+import InterfaceEngine from '@Vendor/Interfaces/InterfaceEngine'
+import Keyboard from './Modules/Keyboard'
+import Canvas2D from './Modules/Canvas2D'
+import Collider from './Modules/Collider'
+import Mouse from './Modules/Mouse'
+import Game from '@Vendor/Models/Game'
 
 export default class Engine implements InterfaceEngine {
   readonly canvas = new Canvas2D()

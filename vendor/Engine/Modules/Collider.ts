@@ -1,10 +1,10 @@
-import TypeResolveCollider from './Types/TypeResolveCollider'
-import InterfaceCollider from './Interfaces/InterfaceCollider'
-import TypeShape from './Types/TypeShape'
-import BoundingBox from './BoundingBox'
-import Object from './Models/Object'
-import Rect from './Shapes/Rect'
-import Arc from './Shapes/Arc'
+import TypeResolveCollider from '@Vendor/Types/TypeResolveCollider'
+import InterfaceCollider from '@Vendor/Interfaces/InterfaceCollider'
+import TypeShape from '@Vendor/Types/TypeShape'
+import BoundingBox from '@Vendor/BoundingBox'
+import Object from '@Vendor/Models/Object'
+import Rect from '@Vendor/Shapes/Rect'
+import Arc from '@Vendor/Shapes/Arc'
 
 export default class Collider implements InterfaceCollider {
   private exceptionTypeBoundBox(msgType: string): never {
