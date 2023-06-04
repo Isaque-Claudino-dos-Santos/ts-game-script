@@ -13,8 +13,7 @@ const isProduction = process.env.NODE_ENV == 'production'
 console.log(path.resolve('assets'))
 const config = {
   entry: {
-    vendor: { import: './vendor' },
-    index: { import: './src/index.ts', dependOn: 'vendor' },
+    index: { import: './src/index.ts' },
   },
   output: {
     filename: '[name].bandle.js',
