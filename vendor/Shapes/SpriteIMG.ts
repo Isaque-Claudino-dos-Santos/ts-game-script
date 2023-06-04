@@ -1,9 +1,9 @@
 import InterfaceSprite from '@Vendor/Interfaces/InterfaceSprite'
-import { TypeShape } from '@Vendor/Interfaces/InterfaceShape'
 import Shape from '@Vendor/Models/Shape'
+import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
 
 export default class SpriteIMG extends Shape implements InterfaceSprite {
-  readonly shape: TypeShape = 'image'
+  readonly shape: TypeShapeValue = 'image'
   image: HTMLImageElement = new Image()
   sourceX: number = 0
   sourceY: number = 0

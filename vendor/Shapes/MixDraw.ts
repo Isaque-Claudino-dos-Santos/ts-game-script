@@ -1,18 +1,18 @@
 import InterfaceMixDraw from '@Vendor/Interfaces/InterfaceMixDraw'
-import { TypeShape } from '@Vendor/Interfaces/InterfaceShape'
+import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
 import Object from '@Vendor/Models/Object'
 import Shape from '@Vendor/Models/Shape'
 import TypeShapes from '@Vendor/Types/TypeShape'
 
 export default class MixDraw extends Shape implements InterfaceMixDraw {
-  readonly shape: TypeShape = 'mix'
-  objects: Object<TypeSprite>[] = []
+  readonly shape: TypeShapeValue = 'mix'
+  objects: Object<TypeShapes>[] = []
 
   copy<MixDraw>(): MixDraw {
     return window.Object.assign(new MixDraw(), this) as MixDraw
   }
 
-  add(object: Object<TypeSprite>): void {
+  add(object: Object<TypeShapes>): void {
     this.objects.push(object)
   }
 

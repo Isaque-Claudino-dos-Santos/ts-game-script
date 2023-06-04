@@ -65,4 +65,4 @@ type TypeKeyboardCodes =
   | 'F10'
   | 'F11'
   | 'F12'
-export default TypeKeyboardCode
+export default TypeKeyboardCodes

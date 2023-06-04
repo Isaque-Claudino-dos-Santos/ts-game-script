@@ -1,8 +1,8 @@
-import TypeKeyboardCode from '@Vendor/Types/TypeKeyboardCodes'
-import TypeKeyboardKey from '@Vendor/Types/TypeKeyboardKey'
+import TypeKeyboardCodes from '@Vendor/Types/TypeKeyboardCodes'
+import TypeKeyboardKeys from '@Vendor/Types/TypeKeyboardKeys'
 
 export default interface InterfaceKeyboard {
-  readonly keys: TypeKeyboardKey
-  check(vk: TypeKeyboardCode): number
-  lockKey(vk: TypeKeyboardCode): void
+  readonly keys: TypeKeyboardKeys
+  check(vk: TypeKeyboardCodes): number
+  lockKey(vk: TypeKeyboardCodes): void
 }
