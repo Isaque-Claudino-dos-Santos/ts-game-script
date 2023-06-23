@@ -1,7 +1,6 @@
 import InterfaceEngine from '@Vendor/Interfaces/InterfaceEngine'
 import Keyboard from './Modules/Keyboard'
 import Canvas2D from './Modules/Canvas2D'
-import Collider from './Modules/Collider'
 import Mouse from './Modules/Mouse'
 import Game from '@Vendor/Models/Game'
 

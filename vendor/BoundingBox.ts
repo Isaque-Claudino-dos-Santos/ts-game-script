@@ -1,14 +1,12 @@
 import InterfaceBoundingBox from '@Vendor/Interfaces/InterfaceBoundingBox'
 import TypeShape from '@Vendor/Types/TypeShape'
 import Object from '@Vendor/Models/Object'
-import Collided from '@Vendor/Collided'
 
 export default class BoundingBox<Box extends TypeShape>
   implements InterfaceBoundingBox
 {
   readonly box: Box
   readonly object: Object<TypeShape>
-  readonly collided: Collided = new Collided()
   enable: boolean = true
   x: number = 0
   y: number = 0
