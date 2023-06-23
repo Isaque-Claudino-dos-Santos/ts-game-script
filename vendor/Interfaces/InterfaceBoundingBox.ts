@@ -11,5 +11,5 @@ export default interface InterfaceBoundingBox {
   y: number
   moveTo(x: number, y: number): this
   update(): void
-  debug(context: CanvasRenderingContext2D): void
+  debug(): void
 }
