@@ -9,7 +9,6 @@ export default class Engine implements InterfaceEngine {
   readonly canvas = new Canvas2D()
   readonly keyboard = new Keyboard()
   readonly mouse = new Mouse(this.canvas)
-  readonly collider = new Collider()
   private game: Game | null = null
 
   public init = (game: Game) => {
