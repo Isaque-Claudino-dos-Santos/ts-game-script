@@ -18,7 +18,6 @@ export default class Engine implements InterfaceEngine {
     const loop = () => {
       if (!this.game) return
       this.game.update()
-      this.game.collided()
       this.game.render()
 
       requestAnimationFrame(loop)
