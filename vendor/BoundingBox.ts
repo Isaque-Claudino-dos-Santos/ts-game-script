@@ -35,8 +35,8 @@ export default class BoundingBox<Box extends TypeShape>
     this.box.angle = this.object.sprite.angle
   }
 
-  debug(context: CanvasRenderingContext2D): void {
+  debug(): void {
     if (!this.enable) return
-    this.box.draw(context)
+    this.box.draw(this.object.engine.canvas.context)
   }
 }
