@@ -5,10 +5,6 @@ import InterfaceRender, {
 export default class Render implements InterfaceRender {
   objects: TypeRenderObject[] = []
 
-  constructor() {
-    this.ajustIndex()
-  }
-
   private ajustIndex() {
     this.objects = this.objects.sort((a, b) => a.index - b.index)
   }
