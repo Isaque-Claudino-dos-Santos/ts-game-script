@@ -10,5 +10,4 @@ export default class GameTest extends Game {
 
   init = () => this.currentScene.callInits()
   update = () => this.currentScene.callUpdates()
-  render = () => this.currentScene.callRenders()
 }
