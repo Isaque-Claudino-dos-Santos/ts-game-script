@@ -15,10 +15,6 @@ export default class ObjectPlayer extends Object<Rect> {
   }
 
   update = () => {
-    if (this.engine.keyboard.check('Space')) {
-      this.sprite.setIndex(3)
-      this.engine.keyboard.check('Space')
-    }
     this.moviment.onMovimento()
   }
 }
