@@ -7,6 +7,7 @@ export default abstract class Object<Sprite extends TypeShape>
   implements InterfaceObject
 {
   abstract readonly sprite: Sprite
+  index: number = 1
 
   constructor(public engine: Engine, public scene: Scene | null = null) {}
 
@@ -17,5 +18,4 @@ export default abstract class Object<Sprite extends TypeShape>
   init = () => {}
   update = () => {}
   render = () => {}
-  collided = () => {}
 }

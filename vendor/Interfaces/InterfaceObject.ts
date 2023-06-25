@@ -1,14 +1,12 @@
 import TypeShape from '@Vendor/Types/TypeShape'
-import InterfaceGameLoop from './InterfaceGameLoop'
+import InterfaceLoop from './InterfaceLoop'
 import Engine from '@Vendor/Engine'
 import Scene from '@Vendor/Models/Scene'
 
-type Types = InterfaceGameLoop
-
-export default interface InterfaceObject extends Types {
+export default interface InterfaceObject extends InterfaceLoop {
   readonly sprite: TypeShape
   readonly engine: Engine
   readonly scene: Scene | null
-
+  index: number
   draw(): void
 }
