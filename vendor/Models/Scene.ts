@@ -27,7 +27,7 @@ export default abstract class Scene implements InterfaceScene {
     if (!this.enable) return
     this.objectsForEach((obj) => {
       obj.init()
-      this.engine.render.add(obj)
+      this.engine.render.add(obj.sprite)
     })
   }
 
