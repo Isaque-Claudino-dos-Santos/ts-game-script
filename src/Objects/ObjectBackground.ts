@@ -11,8 +11,4 @@ export default class ObjectBackground extends Object<Rect> {
       .moveTo(0, 0)
       .setColor('#121212')
   }
-
-  render = () => {
-    this.draw()
-  }
 }
