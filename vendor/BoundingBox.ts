@@ -5,25 +5,19 @@ import Object from '@Vendor/Models/Object'
 export default class BoundingBox<Box extends TypeShape>
   implements InterfaceBoundingBox
 {
-  readonly box: Box
-  readonly object: Object<TypeShape>
-  enable: boolean = true
-  x: number = 0
-  y: number = 0
+  public enable: boolean = true
+  public x: number = 0
+  public y: number = 0
 
-  constructor(object: Object<TypeShape>, box: Box) {
-    this.object = object
-    this.box = box
+  constructor(readonly box: Box, readonly object: Object<TypeShape>) {
+    this.setupBox()
+  }
+
+  private setupBox(): void {
     this.box.setPaint('stroke').setColor('#ff55ff')
   }
 
-  moveTo(x: number, y: number): this {
-    this.x = x
-    this.y = y
-    return this
-  }
-
-  readonly update = () => {
+  public readonly update = () => {
     if (!this.enable) return
     this.box.setOrigins(this.object.sprite.originX, this.object.sprite.originY)
     this.box.moveTo(
@@ -33,7 +27,13 @@ export default class BoundingBox<Box extends TypeShape>
     this.box.angle = this.object.sprite.angle
   }
 
-  debug(): void {
+  public moveTo(x: number, y: number): this {
+    this.x = x
+    this.y = y
+    return this
+  }
+
+  public debug(): void {
     if (!this.enable) return
     this.box.draw(this.object.engine.canvas.context)
   }
