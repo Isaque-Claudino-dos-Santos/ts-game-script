@@ -16,6 +16,7 @@ export default abstract class Shape implements InterfaceShape {
   originY: number = 0
   lineWidth: number = 1
   enable: boolean = true
+  index: number = 0
 
   abstract draw(context: CanvasRenderingContext2D): this
 
@@ -64,6 +65,11 @@ export default abstract class Shape implements InterfaceShape {
 
   setPaint(paint: TypePaint): this {
     this.paint = paint
+    return this
+  }
+
+  setIndex(index: number): this {
+    this.index = index
     return this
   }
 }

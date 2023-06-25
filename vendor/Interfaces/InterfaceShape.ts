@@ -13,6 +13,7 @@ export default interface InterfaceShape {
   originY: number
   lineWidth: number
   enable: boolean
+  index: number
 
   readonly shape: TypeShapeValue
 
@@ -27,4 +28,5 @@ export default interface InterfaceShape {
   moveTo(x: number, y: number): this
   setPaint(paint: TypePaint): this
   fixTo(x: number, y: number): this
+  setIndex(index: number): this
 }
