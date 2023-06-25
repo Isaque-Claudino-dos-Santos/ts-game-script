@@ -23,7 +23,7 @@ export default class BoundingBox<Box extends TypeShape>
     return this
   }
 
-  update = () => {
+  readonly update = () => {
     if (!this.enable) return
     this.box.setOrigins(this.object.sprite.originX, this.object.sprite.originY)
     this.box.moveTo(
