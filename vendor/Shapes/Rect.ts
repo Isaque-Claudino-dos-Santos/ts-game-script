@@ -43,4 +43,12 @@ export default class Rect extends Shape implements InterfaceRect {
   getHalfHeight(): number {
     return this.height / 2
   }
+
+  getCenterX(): number {
+    return this.x + this.width / 2
+  }
+
+  getCenterY(): number {
+    return this.y + this.height / 2
+  }
 }
