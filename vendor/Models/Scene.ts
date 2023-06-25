@@ -10,7 +10,7 @@ export default abstract class Scene implements InterfaceScene {
 
   constructor(public readonly engine: Engine) {}
 
-  objectsForEach(
+  private objectsForEach(
     callback: (
       object: Object<TypeShape>,
       name: string,
