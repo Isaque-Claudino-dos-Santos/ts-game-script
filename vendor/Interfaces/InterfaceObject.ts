@@ -7,6 +7,5 @@ export default interface InterfaceObject extends InterfaceLoop {
   readonly sprite: TypeShape
   readonly engine: Engine
   readonly scene: Scene | null
-  index: number
   draw(): void
 }
