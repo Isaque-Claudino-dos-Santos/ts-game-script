@@ -291,7 +291,7 @@ export default class Keyboard implements InterfaceKeyboard {
     this.keys[vk].locked = true
   }
 
-  check(vk: TypeKeyboardCodes): number {
+  check(vk: TypeKeyboardCodes): 1 | 0 {
     return this.keys[vk].isDown ? 1 : 0
   }
 }
