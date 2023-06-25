@@ -1,8 +1,8 @@
-import InterfaceGameLoop from './InterfaceGameLoop'
+import InterfaceLoop from './InterfaceLoop'
 import Engine from '@Vendor/Engine'
 import TypeSceneObjects from '@Vendor/Types/TypeSceneObjects'
 
-type Types = InterfaceGameLoop
+type Types = Omit<InterfaceLoop, 'render'>
 
 export default interface InterfaceScene extends Types {
   readonly objects: TypeSceneObjects
@@ -11,6 +11,4 @@ export default interface InterfaceScene extends Types {
 
   callInits(): void
   callUpdates(): void
-  callRenders(): void
-  callCollideds(): void
 }
