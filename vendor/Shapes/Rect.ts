@@ -35,4 +35,12 @@ export default class Rect extends Shape implements InterfaceRect {
     context.restore()
     return this
   }
+
+  getHalfWidth(): number {
+    return this.width / 2
+  }
+
+  getHalfHeight(): number {
+    return this.height / 2
+  }
 }
