@@ -1,10 +1,10 @@
-export type TypeRenderObject = {
-  index: number
-  render(): void
-}
+import Engine from '@Vendor/Engine'
+import TypeShape from '@Vendor/Types/TypeShape'
 
 export default interface InterfaceRender {
-  objects: TypeRenderObject[]
+  readonly engine: Engine
+  shapes: TypeShape[]
+
   all(): void
-  add(object: TypeRenderObject): void
+  add(shape: TypeShape): void
 }

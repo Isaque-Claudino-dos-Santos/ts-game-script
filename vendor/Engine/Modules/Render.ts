@@ -1,20 +1,22 @@
-import InterfaceRender, {
-  TypeRenderObject,
-} from '@Vendor/Interfaces/InterfaceRender'
+import InterfaceRender from '@Vendor/Interfaces/InterfaceRender'
+import Engine from '../Engine'
+import TypeShape from '@Vendor/Types/TypeShape'
 
 export default class Render implements InterfaceRender {
-  objects: TypeRenderObject[] = []
+  shapes: TypeShape[] = []
+
+  constructor(readonly engine: Engine) {}
 
   private ajustIndex() {
-    this.objects = this.objects.sort((a, b) => a.index - b.index)
+    this.shapes = this.shapes.sort((a, b) => a.index - b.index)
   }
 
   all(): void {
     this.ajustIndex()
-    this.objects.forEach((o) => o.render())
+    this.shapes.forEach((o) => o.draw(this.engine.canvas.context))
   }
 
-  add(object: TypeRenderObject): void {
-    this.objects.push(object)
+  add(shape: TypeShape): void {
+    this.shapes.push(shape)
   }
 }
