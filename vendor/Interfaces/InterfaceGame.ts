@@ -1,8 +1,6 @@
 import Engine from '@Vendor/Engine'
-import InterfaceGameLoop from '@Vendor/Interfaces/InterfaceGameLoop'
+import InterfaceLoop from '@Vendor/Interfaces/InterfaceLoop'
 
-type Types = InterfaceGameLoop
-
-export default interface InterfaceGame extends Types {
+export default interface InterfaceGame extends InterfaceLoop {
   engine: Engine
 }
