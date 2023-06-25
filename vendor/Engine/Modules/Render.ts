@@ -17,4 +17,8 @@ export default class Render implements InterfaceRender {
     this.ajustIndex()
     this.objects.forEach((o) => o.render())
   }
+
+  add(object: TypeRenderObject): void {
+    this.objects.push(object)
+  }
 }

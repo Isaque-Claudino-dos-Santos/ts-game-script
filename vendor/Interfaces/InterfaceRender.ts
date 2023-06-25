@@ -6,4 +6,5 @@ export type TypeRenderObject = {
 export default interface InterfaceRender {
   objects: TypeRenderObject[]
   all(): void
+  add(object: TypeRenderObject): void
 }
