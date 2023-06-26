@@ -8,6 +8,6 @@ export default class SceneMain extends Scene {
   objects: TypeSceneObjects = {
     background: new ObjectBackground(this.engine),
     wall1: new ObjectWall(this.engine),
-    player: new ObjectPlayer(this.engine, this),
+    player: new ObjectPlayer(this.engine),
   }
 }
