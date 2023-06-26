@@ -1,4 +1,3 @@
-import Collider from '@Vendor/Engine/Modules/Collider'
 import Keyboard from '@Vendor/Engine/Modules/Keyboard'
 import Mouse from '@Vendor/Engine/Modules/Mouse'
 import Render from '@Vendor/Engine/Modules/Render'
@@ -10,7 +9,6 @@ export default interface InterfaceEngine {
   readonly keyboard: Keyboard
   readonly canvas: Canvas<RenderingContext>
   readonly render: Render
-  readonly collider: Collider
 
   init: (game: Game) => void
 }
