@@ -1,6 +1,6 @@
-import InterfaceShape from './InterfaceShape'
+import Geometry from '@Vendor/Models/Geometry'
 
-export default interface InterfaceText extends InterfaceShape {
+export default interface InterfaceText extends Geometry {
   text: string
   family: string
   size: string

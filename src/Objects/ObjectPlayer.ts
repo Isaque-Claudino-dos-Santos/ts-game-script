@@ -1,5 +1,5 @@
 import Object from '@Vendor/Models/Object'
-import Rect from '@Vendor/Shapes/Rect'
+import Rect from '@Vendor/Geometries/Rect'
 import ScriptPlayerMoviment from '../Scripts/ScriptPlayerMoviment'
 
 export default class ObjectPlayer extends Object<Rect> {

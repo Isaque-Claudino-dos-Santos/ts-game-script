@@ -1,5 +1,5 @@
-import InterfaceCanvas from '@Vendor/Interfaces/InterfaceCanvas'
-import TypeContextType from '@Vendor/Types/TypeContextType'
+import InterfaceCanvas from './InterfaceCanvas'
+import { TypeContextType } from './TypesCanvas'
 
 export default abstract class Canvas<Context extends RenderingContext>
   implements InterfaceCanvas

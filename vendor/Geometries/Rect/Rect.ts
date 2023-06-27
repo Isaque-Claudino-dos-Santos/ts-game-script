@@ -1,9 +1,7 @@
-import Shape from '@Vendor/Models/Shape'
-import InterfaceRect from '@Vendor/Interfaces/InterfaceRect'
-import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
+import InterfaceRect from './InterfaceRect'
+import Geometry from '@Vendor/Models/Geometry'
 
-export default class Rect extends Shape implements InterfaceRect {
-  readonly shape: TypeShapeValue = 'rect'
+export default class Rect extends Geometry implements InterfaceRect {
   width: number = 10
   height: number = 10
 

@@ -1,9 +1,7 @@
-import InterfaceSprite from '@Vendor/Interfaces/InterfaceSprite'
-import Shape from '@Vendor/Models/Shape'
-import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
+import InterfaceSprite from './InterfaceSprite'
+import Geometry from '@Vendor/Models/Geometry'
 
-export default class SpriteIMG extends Shape implements InterfaceSprite {
-  readonly shape: TypeShapeValue = 'image'
+export default class Sprite extends Geometry implements InterfaceSprite {
   image: HTMLImageElement = new Image()
   sourceX: number = 0
   sourceY: number = 0
@@ -36,7 +34,7 @@ export default class SpriteIMG extends Shape implements InterfaceSprite {
   }
 
   copy<Image>(): Image {
-    return Object.assign(new SpriteIMG(), this) as Image
+    return Object.assign(new Sprite(), this) as Image
   }
 
   draw(context: CanvasRenderingContext2D): this {

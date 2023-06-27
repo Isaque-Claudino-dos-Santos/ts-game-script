@@ -1,5 +1,5 @@
 import Object from '@Vendor/Models/Object'
-import Rect from '@Vendor/Shapes/Rect'
+import Rect from '@Vendor/Geometries/Rect'
 
 export default class ObjectWall extends Object<Rect> {
   sprite: Rect = new Rect()

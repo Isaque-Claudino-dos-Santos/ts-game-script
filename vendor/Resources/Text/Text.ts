@@ -1,9 +1,7 @@
-import Shape from '@Vendor/Models/Shape'
-import InterfaceText from '@Vendor/Interfaces/InterfaceText'
-import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
+import Geometry from '@Vendor/Models/Geometry'
+import InterfaceText from './InterfaceText'
 
-export default class Text extends Shape implements InterfaceText {
-  readonly shape: TypeShapeValue = 'text'
+export default class Text extends Geometry implements InterfaceText {
   text: string = ''
   family: string = 'Arial'
   size: string = '10px'

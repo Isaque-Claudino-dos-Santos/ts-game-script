@@ -1,6 +1,6 @@
-import InterfaceShape from '@Vendor/Interfaces/InterfaceShape'
+import Geometry from '@Vendor/Models/Geometry'
 
-export default interface InterfaceRect extends InterfaceShape {
+export default interface InterfaceRect extends Geometry {
   width: number
   height: number
   angle: number

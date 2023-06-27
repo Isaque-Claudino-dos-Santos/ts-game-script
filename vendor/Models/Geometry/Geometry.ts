@@ -1,16 +1,12 @@
-import InterfaceShape from '@Vendor/Interfaces/InterfaceShape'
-import TypePaint from '@Vendor/Types/TypePaint'
-import TypeShape from '@Vendor/Types/TypeShape'
-import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
+import InterfaceGeometry from './InterfaceGeometry'
 
-export default abstract class Shape implements InterfaceShape {
-  abstract readonly shape: TypeShapeValue
+export default abstract class Geometry implements InterfaceGeometry {
   x: number = 0
   y: number = 0
   fixedX: number = 0
   fixedY: number = 0
   color: string = 'black'
-  paint: TypePaint = 'fill'
+  paint: 'fill' | 'stroke' = 'fill'
   angle: number = 0
   originX: number = 0
   originY: number = 0
@@ -20,7 +16,7 @@ export default abstract class Shape implements InterfaceShape {
 
   abstract draw(context: CanvasRenderingContext2D): this
 
-  abstract copy<Copy extends TypeShape>(): Copy
+  abstract copy<Copy>(): Copy
 
   addX(value: number): this {
     this.x += value
@@ -63,7 +59,7 @@ export default abstract class Shape implements InterfaceShape {
     return this
   }
 
-  setPaint(paint: TypePaint): this {
+  setPaint(paint: 'fill' | 'stroke'): this {
     this.paint = paint
     return this
   }

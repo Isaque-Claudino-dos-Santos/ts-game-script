@@ -1,4 +1,6 @@
-export default interface InterfaceSprite {
+import Geometry from '@Vendor/Models/Geometry'
+
+export default interface InterfaceSprite extends Geometry {
   image: HTMLImageElement
   sourceX: number
   sourceY: number

@@ -1,9 +1,7 @@
-import Shape from '@Vendor/Models/Shape'
-import InterfaceArc from '@Vendor/Interfaces/InterfaceArc'
-import TypeShapeValue from '@Vendor/Types/TypeShapeValue'
+import InterfaceArc from './InterfaceArc'
+import Geometry from '@Vendor/Models/Geometry'
 
-export default class Arc extends Shape implements InterfaceArc {
-  readonly shape: TypeShapeValue = 'arc'
+export default class Arc extends Geometry implements InterfaceArc {
   radius: number = 5
   startAngle: number = 0
   endAngle: number = Math.PI * 180

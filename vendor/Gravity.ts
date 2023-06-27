@@ -1,4 +1,4 @@
-import Object from './Models/Object'
+import Object from './Models/Object/Object'
 import TypeShape from './Types/TypeShape'
 import InterfaceGravity from './Interfaces/InterfaceGravity'
 import TypeGravityAxis from './Types/TypeGravityAxis'

@@ -1,6 +1,6 @@
 import InterfaceScene from '@Vendor/Interfaces/InterfaceScene'
 import TypeShape from '@Vendor/Types/TypeShape'
-import Object from './Object'
+import Object from './Object/Object'
 import Engine from '@Vendor/Engine'
 import TypeSceneObjects from '@Vendor/Types/TypeSceneObjects'
 
