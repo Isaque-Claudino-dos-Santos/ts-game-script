@@ -1,9 +1,8 @@
 import Geometry from '@Vendor/Models/Geometry'
-import Object from '@Vendor/Models/Object'
+import { TypeMixedGeomitry } from './TypesMixed'
 
 export default interface InterfaceMixed extends Geometry {
-  objects: Object[]
+  geomitries: TypeMixedGeomitry[]
 
-  add(object: Object): void
-  callUpdates(): void
+  add(geomitry: TypeMixedGeomitry): void
 }

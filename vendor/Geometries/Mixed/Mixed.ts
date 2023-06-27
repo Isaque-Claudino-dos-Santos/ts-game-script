@@ -1,31 +1,26 @@
 import InterfaceMixed from './InterfaceMixed'
-import Object from '@Vendor/Models/Object'
 import Geometry from '@Vendor/Models/Geometry'
+import { TypeMixedGeomitry } from './TypesMixed'
 
 export default class Mixed extends Geometry implements InterfaceMixed {
-  objects: Object[] = []
+  geomitries: TypeMixedGeomitry[] = []
 
-  copy<MixDraw>(): MixDraw {
-    return window.Object.assign(new Mixed(), this) as MixDraw
+  copy<Mixed>(): Mixed {
+    return window.Object.assign(new Mixed(), this) as Mixed
   }
 
-  add(object: Object): void {
-    this.objects.push(object)
-  }
-
-  callUpdates(): void {
-    this.objects.forEach((o) => o.update())
+  add(geomitry: TypeMixedGeomitry): void {
+    this.geomitries.push(geomitry)
   }
 
   draw(context: CanvasRenderingContext2D): this {
     if (!this.enable) return this
-    this.objects.forEach(({ sprite }) => {
-      sprite.x = this.getOriginX() + sprite.fixedX
-      sprite.y = this.getOriginY() + sprite.fixedY
-      sprite.angle = this.angle
-      sprite.draw(context)
+    this.geomitries.forEach((geomitry) => {
+      geomitry.x = this.getOriginX() + geomitry.fixedX
+      geomitry.y = this.getOriginY() + geomitry.fixedY
+      geomitry.angle = this.angle
+      geomitry.draw(context)
     })
-    this.objects.forEach((o) => o.render())
     return this
   }
 }
