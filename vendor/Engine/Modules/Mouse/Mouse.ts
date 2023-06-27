@@ -1,4 +1,4 @@
-import InterfaceMouse from '@Vendor/Interfaces/InterfaceMouse'
+import InterfaceMouse from './InterfaceMouse'
 import Canvas from '@Vendor/Models/Canvas'
 
 export default class Mouse implements InterfaceMouse {
