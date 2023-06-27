@@ -1,4 +1,11 @@
-type TypeKeyboardCodes =
+export type TypeKeyboardKeys = {
+  [index: string]: {
+    isDown: boolean
+    locked: boolean
+  }
+}
+
+export type TypeKeyboardCode =
   | 'KeyA'
   | 'KeyB'
   | 'KeyC'
@@ -65,4 +72,3 @@ type TypeKeyboardCodes =
   | 'F10'
   | 'F11'
   | 'F12'
-export default TypeKeyboardCodes

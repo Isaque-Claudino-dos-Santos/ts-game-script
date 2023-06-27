@@ -1,5 +1,5 @@
 import InterfaceEngine from '@Vendor/Interfaces/InterfaceEngine'
-import Keyboard from './Modules/Keyboard'
+import Keyboard from './Modules/Keyboard/Keyboard'
 import Canvas2D from './Modules/Canvas2D'
 import Mouse from './Modules/Mouse'
 import Game from '@Vendor/Models/Game'

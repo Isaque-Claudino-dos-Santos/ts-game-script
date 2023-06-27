@@ -1,6 +1,5 @@
-import InterfaceKeyboard from '@Vendor/Interfaces/InterfaceKeyboard'
-import TypeKeyboardCodes from '@Vendor/Types/TypeKeyboardCodes'
-import TypeKeyboardKeys from '@Vendor/Types/TypeKeyboardKeys'
+import InterfaceKeyboard from './InterfaceKeyboard'
+import { TypeKeyboardCode, TypeKeyboardKeys } from './TypesKeyboard'
 
 export default class Keyboard implements InterfaceKeyboard {
   readonly keys: TypeKeyboardKeys = {
@@ -272,7 +271,7 @@ export default class Keyboard implements InterfaceKeyboard {
 
   constructor() {
     addEventListener('keydown', (e) => {
-      const code = e.code as TypeKeyboardCodes
+      const code = e.code as TypeKeyboardCode
       const key = this.keys[code]
       if (!key.locked) {
         key.isDown = true
@@ -286,12 +285,12 @@ export default class Keyboard implements InterfaceKeyboard {
     })
   }
 
-  lockKey(vk: TypeKeyboardCodes): void {
+  lockKey(vk: TypeKeyboardCode): void {
     this.keys[vk].isDown = false
     this.keys[vk].locked = true
   }
 
-  check(vk: TypeKeyboardCodes): 1 | 0 {
+  check(vk: TypeKeyboardCode): 1 | 0 {
     return this.keys[vk].isDown ? 1 : 0
   }
 }

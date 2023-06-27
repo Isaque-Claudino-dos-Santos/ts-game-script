@@ -1,7 +1,7 @@
-import TypeKeyboardCodes from '@Vendor/Types/TypeKeyboardCodes'
+import Keyboard from '@Vendor/Engine/Modules/Keyboard'
 import ObjectPlayer from '../Objects/ObjectPlayer'
 import Engine from '@Vendor/Engine'
-import Keyboard from '@Vendor/Engine/Modules/Keyboard'
+import { TypeKeyboardCode } from '@Vendor/Engine/Modules/Keyboard/TypesKeyboard'
 
 type TypeSide<T> = {
   left: T
@@ -14,7 +14,7 @@ export default class ScriptPlayerMoviment {
   private readonly engine: Engine
   private readonly keyboard: Keyboard
 
-  controls: TypeSide<TypeKeyboardCodes> = {
+  controls: TypeSide<TypeKeyboardCode> = {
     left: 'KeyA',
     right: 'KeyD',
     top: 'KeyW',
