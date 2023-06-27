@@ -1,8 +1,7 @@
-import InterfaceScene from '@Vendor/Interfaces/InterfaceScene'
-import TypeShape from '@Vendor/Types/TypeShape'
-import Object from './Object/Object'
+import Object from '../Object/Object'
 import Engine from '@Vendor/Engine'
-import TypeSceneObjects from '@Vendor/Types/TypeSceneObjects'
+import InterfaceScene from './InterfaceScene'
+import { TypeSceneObjects } from './TypesScene'
 
 export default abstract class Scene implements InterfaceScene {
   abstract objects: TypeSceneObjects
@@ -11,11 +10,7 @@ export default abstract class Scene implements InterfaceScene {
   constructor(public readonly engine: Engine) {}
 
   private objectsForEach(
-    callback: (
-      object: Object<TypeShape>,
-      name: string,
-      objects: TypeSceneObjects
-    ) => void
+    callback: (object: Object, name: string, objects: TypeSceneObjects) => void
   ): void {
     for (const name in this.objects) {
       const object = this.objects[name]
@@ -35,7 +30,4 @@ export default abstract class Scene implements InterfaceScene {
     if (!this.enable) return
     this.objectsForEach((obj) => obj.update())
   }
-
-  init = () => {}
-  update = () => {}
 }

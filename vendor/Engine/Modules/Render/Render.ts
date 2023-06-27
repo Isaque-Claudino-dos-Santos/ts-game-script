@@ -1,9 +1,9 @@
-import InterfaceRender from '@Vendor/Interfaces/InterfaceRender'
-import Engine from '../Engine'
-import TypeShape from '@Vendor/Types/TypeShape'
+import { TypeObjectShape } from '@Vendor/Models/Object/TypesObject'
+import Engine from '../../Engine'
+import InterfaceRender from './InterfaceRender'
 
 export default class Render implements InterfaceRender {
-  shapes: TypeShape[] = []
+  shapes: TypeObjectShape[] = []
 
   constructor(readonly engine: Engine) {
     this.ajustIndex()
@@ -17,7 +17,7 @@ export default class Render implements InterfaceRender {
     this.shapes.forEach((o) => o.draw(this.engine.canvas.context))
   }
 
-  add(shape: TypeShape): void {
+  add(shape: TypeObjectShape): void {
     this.shapes.push(shape)
   }
 }

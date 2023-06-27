@@ -10,4 +10,8 @@ export default abstract class Object implements InterfaceObject {
   draw(): void {
     this.sprite.draw(this.engine.canvas.context)
   }
+
+  init(): void {}
+  update(): void {}
+  render(): void {}
 }

@@ -1,7 +1,7 @@
 import Object from '@Vendor/Models/Object'
 import Rect from '@Vendor/Geometries/Rect'
 
-export default class ObjectBackground extends Object<Rect> {
+export default class ObjectBackground extends Object {
   sprite: Rect = new Rect()
 
   init = () => {

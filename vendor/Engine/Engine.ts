@@ -3,7 +3,7 @@ import Keyboard from './Modules/Keyboard'
 import Canvas2D from './Modules/Canvas2D'
 import Mouse from './Modules/Mouse'
 import Game from '@Vendor/Models/Game'
-import Render from './Modules/Render'
+import Render from './Modules/Render/Render'
 
 export default class Engine implements InterfaceEngine {
   readonly canvas = new Canvas2D()

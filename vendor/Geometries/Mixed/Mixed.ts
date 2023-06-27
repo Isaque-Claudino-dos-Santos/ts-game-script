@@ -1,16 +1,15 @@
 import InterfaceMixed from './InterfaceMixed'
 import Object from '@Vendor/Models/Object'
-import TypeShapes from '@Vendor/Types/TypeShape'
 import Geometry from '@Vendor/Models/Geometry'
 
 export default class Mixed extends Geometry implements InterfaceMixed {
-  objects: Object<TypeShapes>[] = []
+  objects: Object[] = []
 
   copy<MixDraw>(): MixDraw {
     return window.Object.assign(new Mixed(), this) as MixDraw
   }
 
-  add(object: Object<TypeShapes>): void {
+  add(object: Object): void {
     this.objects.push(object)
   }
 
