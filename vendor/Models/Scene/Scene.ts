@@ -2,9 +2,11 @@ import Object from '../Object/Object'
 import Engine from '@Vendor/Engine'
 import InterfaceScene from './InterfaceScene'
 import { TypeSceneObjects } from './TypesScene'
+import Collider from '../Collider'
 
 export default abstract class Scene implements InterfaceScene {
   abstract objects: TypeSceneObjects
+  readonly collider: Collider = new Collider()
   enable: boolean = true
 
   constructor(public readonly engine: Engine) {}
