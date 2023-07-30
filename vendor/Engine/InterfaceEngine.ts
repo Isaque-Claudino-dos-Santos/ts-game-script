@@ -1,5 +1,5 @@
-import Keyboard from '@Vendor/Engine/Modules/Keyboard'
-import Mouse from '@Vendor/Engine/Modules/Mouse'
+import Keyboard from '@Vendor/Events/Keyboard'
+import Mouse from '@Vendor/Events/Mouse'
 import Render from '@Vendor/Engine/Modules/Render'
 import Canvas from '@Vendor/Models/Canvas'
 import Game from '@Vendor/Models/Game'

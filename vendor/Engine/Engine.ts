@@ -1,7 +1,7 @@
 import InterfaceEngine from './InterfaceEngine'
-import Keyboard from './Modules/Keyboard/Keyboard'
+import Keyboard from '../Events/Keyboard/Keyboard'
 import Canvas2D from './Modules/Canvas2D'
-import Mouse from './Modules/Mouse/Mouse'
+import Mouse from '../Events/Mouse/Mouse'
 import Game from '@Vendor/Models/Game'
 import Render from './Modules/Render/Render'
 

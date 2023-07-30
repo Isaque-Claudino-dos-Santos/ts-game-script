@@ -1,7 +1,7 @@
-import Keyboard from '@Vendor/Engine/Modules/Keyboard'
+import Keyboard from '@Vendor/Events/Keyboard'
 import ObjectPlayer from '../Objects/ObjectPlayer'
 import Engine from '@Vendor/Engine'
-import { TypeKeyboardCode } from '@Vendor/Engine/Modules/Keyboard/TypesKeyboard'
+import { TypeKeyboardCode } from '@Vendor/Events/Keyboard/TypesKeyboard'
 
 type TypeSide<T> = {
   left: T
