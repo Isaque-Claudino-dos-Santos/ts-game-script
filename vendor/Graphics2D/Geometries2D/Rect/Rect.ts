@@ -26,20 +26,15 @@ export default class Rect
 
   private drawBg(context: CanvasRenderingContext2D): void {
     if (!is.null(this.bgColor())) {
-      context.fillRect(
-        -this.originX(),
-        -this.originY(),
-        this.width(),
-        this.height()
-      )
+      context.fillRect(-this.pivotX, -this.pivotY, this.width(), this.height())
     }
   }
 
   private drawLine(context: CanvasRenderingContext2D): void {
     if (!is.null(this.lineColor())) {
       context.strokeRect(
-        -this.originX(),
-        -this.originY(),
+        -this.pivotX,
+        -this.pivotY,
         this.width(),
         this.height()
       )
@@ -49,7 +44,7 @@ export default class Rect
   width(): number
   width(sizeWidth: number): this
   width(sizeWidth?: unknown): number | this {
-    if (is.number(sizeWidth) && !is.null(sizeWidth)) {
+    if (is.number(sizeWidth)) {
       this.sizeWidth = sizeWidth
       return this
     }
@@ -59,7 +54,7 @@ export default class Rect
   height(): number
   height(sizeHeight: number): this
   height(sizeHeight?: unknown): number | this {
-    if (is.number(sizeHeight) && !is.null(sizeHeight)) {
+    if (is.number(sizeHeight)) {
       this.sizeHeight = sizeHeight
       return this
     }
