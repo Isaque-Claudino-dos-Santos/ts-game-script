@@ -16,7 +16,7 @@ export default abstract class AbstractGeometries2D
   x(): number
   x(posX: number): this
   x(posX?: unknown): number | this {
-    if (is.number(posX) && !is.null(posX)) {
+    if (is.number(posX)) {
       this.posX = posX
       return this
     }
@@ -26,7 +26,7 @@ export default abstract class AbstractGeometries2D
   y(): number
   y(posY: number): this
   y(posY?: unknown): number | this {
-    if (is.number(posY) && !is.null(posY)) {
+    if (is.number(posY)) {
       this.posY = posY
       return this
     }
@@ -36,7 +36,7 @@ export default abstract class AbstractGeometries2D
   originX(): number
   originX(pivotX: number): this
   originX(pivotX?: unknown): number | this {
-    if (is.number(pivotX) && !is.null(pivotX)) {
+    if (is.number(pivotX)) {
       this.pivotX = pivotX
       return this
     }
@@ -46,7 +46,7 @@ export default abstract class AbstractGeometries2D
   originY(): number
   originY(pivotY: number): this
   originY(pivotY?: unknown): number | this {
-    if (is.number(pivotY) && !is.null(pivotY)) {
+    if (is.number(pivotY)) {
       this.pivotY = pivotY
       return this
     }
@@ -76,7 +76,7 @@ export default abstract class AbstractGeometries2D
   lineSize(): number
   lineSize(lineWidth: number): this
   lineSize(lineWidth?: unknown): number | this {
-    if (is.number(lineWidth) && !is.null(lineWidth)) {
+    if (is.number(lineWidth)) {
       this.lineWidth = lineWidth
       return this
     }
