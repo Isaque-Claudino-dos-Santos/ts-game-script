@@ -9,8 +9,8 @@ export default abstract class AbstractGeometries2D
   posY: number = 0
   pivotX: number = 0
   pivotY: number = 0
-  fillColor: string | null = null
-  strokeColor: string | null = 'black'
+  fillColor: string = 'black'
+  strokeColor: string = ''
   lineWidth: number = 1
 
   x(): number
@@ -53,9 +53,9 @@ export default abstract class AbstractGeometries2D
     return this.posY + this.pivotY
   }
 
-  bgColor(): string | null
-  bgColor(color: string | null): this
-  bgColor(color?: unknown): string | this | null {
+  bgColor(): string
+  bgColor(color: string): this
+  bgColor(color?: unknown): string | this {
     if (is.string(color)) {
       this.fillColor = color
       return this
@@ -64,8 +64,8 @@ export default abstract class AbstractGeometries2D
   }
 
   lineColor(): string
-  lineColor(color: string | null): this
-  lineColor(color?: unknown): string | this | null {
+  lineColor(color: string): this
+  lineColor(color?: unknown): string | this {
     if (is.string(color)) {
       this.strokeColor = color
       return this

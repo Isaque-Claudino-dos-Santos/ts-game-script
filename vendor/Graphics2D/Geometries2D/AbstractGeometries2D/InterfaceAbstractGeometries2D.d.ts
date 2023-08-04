@@ -5,8 +5,8 @@ export default interface InterfaceAbstractGeometries2D {
   posY: number
   pivotX: number
   pivotY: number
-  fillColor: string | null
-  strokeColor: string | null
+  fillColor: string
+  strokeColor: string
   lineWidth: number
 
   x(): number
@@ -21,11 +21,11 @@ export default interface InterfaceAbstractGeometries2D {
   originY(): number
   originY(pivotY: number): this
 
-  bgColor(): string | null
-  bgColor(color: string | null): this
+  bgColor(): string
+  bgColor(color: string): this
 
-  lineColor(): string | null
-  lineColor(color: string | null): this
+  lineColor(): string
+  lineColor(color: string): this
 
   lineSize(): number
   lineSize(lineWidth: number): this
