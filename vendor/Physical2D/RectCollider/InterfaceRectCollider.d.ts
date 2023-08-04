@@ -6,4 +6,5 @@ export default interface InterfaceRectCollider {
 
   addStatic(rect: Rect | Rect[]): this
   addMoving(rect: Rect | Rect[]): this
+  collided(r1: Rect, r2: Rect): boolean
 }
