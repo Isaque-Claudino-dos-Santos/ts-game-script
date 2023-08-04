@@ -10,4 +10,6 @@ export default interface InterfaceIs {
   undefined(value: any): value is undefined
 
   function(value: any): value is Function
+
+  empty(value: any): boolean
 }

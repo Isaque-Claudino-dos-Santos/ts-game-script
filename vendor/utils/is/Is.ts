@@ -24,4 +24,13 @@ export default class Is implements InterfaceIs {
   function(value: any): value is Function {
     return typeof value === 'function'
   }
+
+  empty(value: any): boolean {
+    return (
+      value === null ||
+      value?.length < 1 ||
+      value?.trim() === '' ||
+      Object.keys(value)?.length < 1
+    )
+  }
 }
