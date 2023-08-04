@@ -11,27 +11,14 @@ export default class Rect
   sizeHeight: number = 4
   rotate: number = 0
 
-  private setUpBg(context: CanvasRenderingContext2D): void {
-    if (!is.null(this.bgColor())) {
-      context.fillStyle = this.bgColor() as string
-    }
-  }
-
-  private seyUpLine(context: CanvasRenderingContext2D): void {
-    if (!is.null(this.lineColor())) {
-      context.strokeStyle = this.lineColor() as string
-      context.lineWidth = this.lineSize()
-    }
-  }
-
   private drawBg(context: CanvasRenderingContext2D): void {
-    if (!is.null(this.bgColor())) {
+    if (!is.empty(this.bgColor())) {
       context.fillRect(-this.pivotX, -this.pivotY, this.width(), this.height())
     }
   }
 
   private drawLine(context: CanvasRenderingContext2D): void {
-    if (!is.null(this.lineColor())) {
+    if (!is.empty(this.lineColor())) {
       context.strokeRect(
         -this.pivotX,
         -this.pivotY,
@@ -94,9 +81,12 @@ export default class Rect
     context.save()
     context.translate(this.originX(), this.originY())
     context.rotate(this.angle() * (Math.PI / 180))
-    this.setUpBg(context)
-    this.seyUpLine(context)
+    context.fillStyle = this.bgColor()
+    context.strokeStyle = this.lineColor()
+    context.lineWidth = this.lineSize()
+
     callback(context)
+
     this.drawBg(context)
     this.drawLine(context)
     context.restore()
