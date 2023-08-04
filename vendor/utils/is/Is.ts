@@ -10,7 +10,7 @@ export default class Is implements InterfaceIs {
   }
 
   null(value: any): value is null {
-    return !value
+    return value === null
   }
 
   array(value: any): value is [] {
