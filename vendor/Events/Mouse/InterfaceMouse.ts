@@ -1,7 +1,5 @@
-import Canvas from '@Vendor/Models/Canvas'
-
 export default interface InterfaceMouse {
-  canvas: Canvas<RenderingContext>
+  screen: HTMLCanvasElement
   x: number
   y: number
 }
