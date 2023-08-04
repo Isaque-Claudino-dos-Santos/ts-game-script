@@ -7,13 +7,13 @@ export default class Loop implements InterfaceLoop {
   update(): void {}
   render(): void {}
 
-  boot(): void {
+  boot = () => {
     if (!this.initalized) {
       this.init()
       this.initalized = true
     }
     this.update()
     this.render()
-    requestAnimationFrame(() => this.boot)
+    requestAnimationFrame(this.boot)
   }
 }
