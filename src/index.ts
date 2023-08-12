@@ -7,7 +7,7 @@ const canvas = new Canvas2D()
 const mouse = new Mouse(canvas.screen)
 const loop = new Loop()
 
-const game = new GameMyGame(canvas.context)
+const game = new GameMyGame(canvas.screen, canvas.context)
 
 loop.init = () => {
   game.gameInit()
