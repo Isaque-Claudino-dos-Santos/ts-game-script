@@ -12,7 +12,10 @@ export default class HandlerScenes implements InterfaceHadlerScenes {
     this.currentSceneName = name
   }
 
-  getCurrent(): AbstractScene {
+  getCurrent(): AbstractScene | never {
+    if (!(this.currentSceneName in this.list)) {
+      throw `The scene with name "${this.currentSceneName}" not defined.`
+    }
     return this.list[this.currentSceneName]
   }
 
