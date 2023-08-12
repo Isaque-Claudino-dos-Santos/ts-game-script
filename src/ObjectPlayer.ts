@@ -10,9 +10,17 @@ export default class ObjectPlayer extends AbstractGameObject {
       .height(16)
       .x(10)
       .y(10)
-      .bgColor('#343434')
+      .bgColor('red')
       .originX(this.sprite.halfWidth())
       .originY(this.sprite.halfHeight())
+  }
+
+  update = () => {
+    const key = this.game.keyboard
+    if (key.check('Space')) {
+      this.sprite.bgColor(this.sprite.bgColor() === 'blue' ? 'red' : 'blue')
+      key.lockKey('Space')
+    }
   }
 
   render = () => {
