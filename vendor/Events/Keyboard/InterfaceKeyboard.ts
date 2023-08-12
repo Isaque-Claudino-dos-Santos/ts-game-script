@@ -1,7 +1,7 @@
-import { TypeKeyboardCode, TypeKeyboardKeys } from './TypesKeyboard'
+import { KeyboardCode, KeyboardKeys } from './TypesKeyboard'
 
 export default interface InterfaceKeyboard {
-  readonly keys: TypeKeyboardKeys
-  check(vk: TypeKeyboardCode): 1 | 0
-  lockKey(vk: TypeKeyboardCode): void
+  readonly keys: KeyboardKeys
+  check(vk: KeyboardCode): 1 | 0
+  lockKey(vk: KeyboardCode): void
 }

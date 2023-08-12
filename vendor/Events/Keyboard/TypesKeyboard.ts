@@ -1,11 +1,11 @@
-export type TypeKeyboardKeys = {
+export type KeyboardKeys = {
   [index: string]: {
     isDown: boolean
     locked: boolean
   }
 }
 
-export type TypeKeyboardCode =
+export type KeyboardCode =
   | 'KeyA'
   | 'KeyB'
   | 'KeyC'
