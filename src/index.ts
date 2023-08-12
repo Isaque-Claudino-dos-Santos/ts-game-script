@@ -13,6 +13,10 @@ loop.init = () => {
   game.gameInit()
 }
 
+loop.update = () => {
+  game.gameUpdate()
+}
+
 loop.render = () => {
   canvas.context.clearRect(0, 0, 1000, 1000)
   game.gameRender()
