@@ -17,6 +17,17 @@ export default class ObjectPlayer extends AbstractGameObject {
 
   colliderWithBox() {
     const box = this.game.scenes.current().object<ObjectBox>('box').sprite
+    const player = this.sprite
+
+    const catX = player.centerX() - box.centerX()
+    const catY = player.centerY() - box.centerY()
+    const sumHalfWidth = player.halfWidth() + box.halfWidth()
+    const sumHalfHeight = player.halfHeight() + box.halfHeight()
+    const overlapX = sumHalfWidth - Math.abs(catX)
+    const overlapY = sumHalfHeight - Math.abs(catY)
+    if (overlapX >= 0 && overlapY >= 0) {
+      console.log('Resolve Collider')
+    }
   }
 
   init = () => {
@@ -28,11 +39,11 @@ export default class ObjectPlayer extends AbstractGameObject {
       .bgColor('red')
       .originX(this.sprite.halfWidth())
       .originY(this.sprite.halfHeight())
-    this.colliderWithBox()
   }
 
   update = () => {
     this.moviment()
+    this.colliderWithBox()
   }
 
   render = () => {
