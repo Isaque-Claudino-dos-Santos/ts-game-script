@@ -1,20 +1,14 @@
 import Keyboard from '@Vendor/Events/Keyboard'
 import Mouse from '@Vendor/Events/Mouse'
 import HandlerScenes from '../HandlerScenes'
-import InterfaceAbstractGame, { GameCanvas } from './InterfaceAbstractGame'
+import InterfaceAbstractGame from './InterfaceAbstractGame'
+import Canvas2D from '@Vendor/Graphics2D/Canvas2D'
 
 export default abstract class AbstractGame implements InterfaceAbstractGame {
-  readonly mouse: Mouse
-  readonly screen: HTMLCanvasElement
-  readonly context: CanvasRenderingContext2D
+  readonly canvas: Canvas2D = new Canvas2D()
+  readonly mouse: Mouse = new Mouse(this.canvas.screen)
   readonly keyboard: Keyboard = new Keyboard()
   readonly scenes: HandlerScenes = new HandlerScenes(this)
-
-  constructor({ screen, context }: GameCanvas) {
-    this.screen = screen
-    this.context = context
-    this.mouse = new Mouse(this.screen)
-  }
 
   beforeInit() {}
   afterInit() {}
