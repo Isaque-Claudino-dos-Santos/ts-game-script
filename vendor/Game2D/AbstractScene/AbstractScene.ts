@@ -26,10 +26,10 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
     }, this.objects)
   }
 
-  object(name: string): AbstractGameObject {
+  object<T extends AbstractGameObject>(name: string): T {
     if (!(name in this.objects)) {
       throw `Game Object ${name}, on scene ${this['constructor'].name} not defined`
     }
-    return this.objects[name]
+    return this.objects[name] as T
   }
 }

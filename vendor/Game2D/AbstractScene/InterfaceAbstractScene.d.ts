@@ -11,5 +11,5 @@ export default interface InterfaceAbstractScene {
   callUpdateInObjects(): void
   callRenderInObjects(): void
 
-  object(name: string): AbstractGameObject
+  object<T extends AbstractGameObject>(name: string): T
 }
