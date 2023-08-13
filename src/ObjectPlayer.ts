@@ -1,5 +1,6 @@
 import AbstractGameObject from '@Vendor/Game2D/AbstractGameObject'
 import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
+import ObjectBox from './ObjectBox'
 
 export default class ObjectPlayer extends AbstractGameObject {
   sprite = new Rect()
@@ -14,6 +15,10 @@ export default class ObjectPlayer extends AbstractGameObject {
     if (key.check('ArrowDown')) this.sprite.y(this.sprite.y() + this.speedY)
   }
 
+  colliderWithBox() {
+    const box = this.game.scenes.current().object<ObjectBox>('box').sprite
+  }
+
   init = () => {
     this.sprite
       .width(16)
@@ -23,6 +28,7 @@ export default class ObjectPlayer extends AbstractGameObject {
       .bgColor('red')
       .originX(this.sprite.halfWidth())
       .originY(this.sprite.halfHeight())
+    this.colliderWithBox()
   }
 
   update = () => {
