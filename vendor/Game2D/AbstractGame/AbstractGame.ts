@@ -19,19 +19,19 @@ export default abstract class AbstractGame implements InterfaceAbstractGame {
 
   gameInit = () => {
     this.beforeInit()
-    this.scenes.getCurrent().callInitInObjects()
+    this.scenes.current().callInitInObjects()
     this.afterInit()
   }
 
   gameUpdate = () => {
     this.beforeUpdate()
-    this.scenes.getCurrent().callUpdateInObjects()
+    this.scenes.current().callUpdateInObjects()
     this.afterUpdate()
   }
 
   gameRender = () => {
     this.beforeRender()
-    this.scenes.getCurrent().callRenderInObjects()
+    this.scenes.current().callRenderInObjects()
     this.afterRender()
   }
 }

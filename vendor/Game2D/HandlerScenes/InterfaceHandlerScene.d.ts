@@ -11,5 +11,5 @@ export default interface InterfaceHadlerScenes {
   currentSceneName: string
   add(name: string, scene: AbstractScene): this
   setCurrent(name: string): void
-  getCurrent(): AbstractScene | never
+  current(): AbstractScene | never
 }
