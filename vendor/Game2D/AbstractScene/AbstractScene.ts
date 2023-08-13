@@ -6,7 +6,7 @@ import Collider2D from '../Collider2D'
 
 export default abstract class AbstractScene implements InterfaceAbstractScene {
   abstract objects: SceneObjects
-  readonly collider: Collider2D = new Collider2D()
+  readonly collider: Collider2D = new Collider2D(this)
 
   constructor(readonly game: AbstractGame) {}
 
