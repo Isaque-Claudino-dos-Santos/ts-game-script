@@ -1,23 +1,3 @@
-import Loop from '@Vendor/Events/Loop'
-import Canvas2D from '@Vendor/Graphics2D/Canvas2D'
-import GameMyGame from './GameMyGame'
+import Engine2D from '@Vendor/Engine2D'
 
-const canvas = new Canvas2D()
-const loop = new Loop()
-
-const game = new GameMyGame(canvas.screen, canvas.context)
-
-loop.init = () => {
-  game.gameInit()
-}
-
-loop.update = () => {
-  game.gameUpdate()
-}
-
-loop.render = () => {
-  canvas.context.clearRect(0, 0, 1000, 1000)
-  game.gameRender()
-}
-
-loop.boot()
+// const engine = new Engine2D()
