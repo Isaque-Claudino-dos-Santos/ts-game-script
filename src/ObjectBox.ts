@@ -1,8 +1,6 @@
 import AbstractGameObject from '@Vendor/Game2D/AbstractGameObject'
 import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
 import GameMyGame from './GameMyGame'
-import BoundingBox from '@Vendor/Game2D/BoundingBox'
-import AbstractGeometries2D from '@Vendor/Graphics2D/Geometries2D/AbstractGeometries2D'
 
 type Axis = {
   x: number
