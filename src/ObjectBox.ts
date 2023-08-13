@@ -12,7 +12,14 @@ export default class ObjectBox extends AbstractGameObject {
 
   constructor(game: GameMyGame, { x, y }: Axis) {
     super(game)
-    this.sprite.x(x).y(y).width(40).height(40)
+    this.sprite
+      .x(x)
+      .y(y)
+      .width(40)
+      .height(40)
+      .lineColor('black')
+      .bgColor('')
+      .lineSize(2)
   }
 
   render = () => {
