@@ -10,19 +10,19 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
 
   constructor(readonly game: AbstractGame) {}
 
-  callInitInObjects = () => {
+  readonly callInitInObjects = () => {
     objFor((value) => {
       value.init()
     }, this.objects)
   }
 
-  callUpdateInObjects = () => {
+  readonly callUpdateInObjects = () => {
     objFor((value) => {
       value.update()
     }, this.objects)
   }
 
-  callRenderInObjects = () => {
+  readonly callRenderInObjects = () => {
     objFor((value) => {
       value.render()
     }, this.objects)
