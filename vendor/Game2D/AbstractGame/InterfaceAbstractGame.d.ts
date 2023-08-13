@@ -2,6 +2,11 @@ import Mouse from '@Vendor/Events/Mouse'
 import HandlerScenes from '../HandlerScenes'
 import Keyboard from '@Vendor/Events/Keyboard'
 
+export type GameCanvas = {
+  screen: HTMLCanvasElement
+  context: CanvasRenderingContext2D
+}
+
 export default interface InterfaceAbstractGame {
   readonly scenes: HandlerScenes
   readonly screen: HTMLCanvasElement
