@@ -1,6 +1,7 @@
 import objFor from '@Vendor/utils/objFor'
 import AbstractGame from '../AbstractGame'
 import InterfaceAbstractScene, { SceneObjects } from './InterfaceAbstractScene'
+import AbstractGameObject from '../AbstractGameObject'
 
 export default abstract class AbstractScene implements InterfaceAbstractScene {
   abstract objects: SceneObjects
@@ -23,5 +24,9 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
     objFor((value) => {
       value.render()
     }, this.objects)
+  }
+
+  object(name: keyof typeof this.objects): AbstractGameObject {
+    return this.objects[name]
   }
 }
