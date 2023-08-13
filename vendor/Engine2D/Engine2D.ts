@@ -7,12 +7,10 @@ export default class Engine2D implements InterfaceEngine2D {
   readonly canvas: Canvas2D = new Canvas2D()
   readonly loop: Loop = new Loop()
 
-  constructor(readonly game: AbstractGame) {}
-
-  initialize = (callback: Function) => {
-    this.loop.init = () => this.game.gameInit()
-    this.loop.update = () => this.game.gameUpdate()
-    this.loop.render = () => this.game.gameRender()
+  initialize = (game: AbstractGame, callback: Function = () => {}) => {
+    this.loop.init = () => game.gameInit()
+    this.loop.update = () => game.gameUpdate()
+    this.loop.render = () => game.gameRender()
     this.loop.boot()
     callback()
   }
