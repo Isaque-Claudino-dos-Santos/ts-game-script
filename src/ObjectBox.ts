@@ -11,7 +11,7 @@ type Axis = {
 
 export default class ObjectBox extends AbstractGameObject {
   sprite: Rect = new Rect()
-  boundingBox: BoundingBox<AbstractGeometries2D> | null = null
+  boundingBox = null
 
   constructor(game: GameMyGame, { x, y }: Axis) {
     super(game)

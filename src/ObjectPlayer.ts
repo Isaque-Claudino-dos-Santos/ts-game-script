@@ -2,11 +2,10 @@ import AbstractGameObject from '@Vendor/Game2D/AbstractGameObject'
 import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
 import ObjectBox from './ObjectBox'
 import BoundingBox from '@Vendor/Game2D/BoundingBox'
-import AbstractGeometries2D from '@Vendor/Graphics2D/Geometries2D/AbstractGeometries2D'
 
 export default class ObjectPlayer extends AbstractGameObject {
-  sprite = new Rect()
-  boundingBox: BoundingBox<Rect> | null = new BoundingBox(this, new Rect())
+  readonly sprite = new Rect()
+  readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
   speedX = 3
   speedY = 3
 
@@ -47,11 +46,11 @@ export default class ObjectPlayer extends AbstractGameObject {
   update = () => {
     this.moviment()
     this.colliderWithBox()
-    this.boundingBox?.update()
+    this.boundingBox.update()
   }
 
   render = () => {
     this.sprite.draw(this.game.canvas.context)
-    this.boundingBox?.draw(this.game.canvas.context)
+    this.boundingBox.draw(this.game.canvas.context)
   }
 }
