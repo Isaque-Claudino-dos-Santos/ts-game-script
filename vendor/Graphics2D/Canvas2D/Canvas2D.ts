@@ -27,4 +27,8 @@ export default class Canvas2D implements InterfaceCanvas2D {
     if (!context) throw 'Unexpected error with the getContext("2d")'
     return context
   }
+
+  clearScreen(): void {
+    this.context.clearRect(0, 0, this.screen.width, this.screen.height)
+  }
 }
