@@ -3,6 +3,16 @@ import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
 
 export default class ObjectPlayer extends AbstractGameObject {
   sprite = new Rect()
+  speedX = 3
+  speedY = 3
+
+  moviment() {
+    const key = this.game.keyboard
+    if (key.check('ArrowRight')) this.sprite.x(this.sprite.x() + this.speedX)
+    if (key.check('ArrowLeft')) this.sprite.x(this.sprite.x() - this.speedX)
+    if (key.check('ArrowUp')) this.sprite.y(this.sprite.y() - this.speedY)
+    if (key.check('ArrowDown')) this.sprite.y(this.sprite.y() + this.speedY)
+  }
 
   init = () => {
     this.sprite
@@ -16,15 +26,7 @@ export default class ObjectPlayer extends AbstractGameObject {
   }
 
   update = () => {
-    const key = this.game.keyboard
-    if (key.check('Space')) {
-      this.sprite.bgColor(this.sprite.bgColor() === 'blue' ? 'red' : 'blue')
-      key.lockKey('Space')
-    }
-
-    if (key.check('ArrowRight')) {
-      this.sprite.x(this.sprite.x() + 3)
-    }
+    this.moviment()
   }
 
   render = () => {
