@@ -1,4 +1,5 @@
 import AbstractGameObject from '../AbstractGameObject'
+import AbstractScene from '../AbstractScene'
 
 export type ColliderData = {
   overlapX: number
@@ -6,15 +7,16 @@ export type ColliderData = {
   distanceX: number
   distanceY: number
 }
-export type ColliderResolve = (
-  obj: AbstractGameObject,
+export type ColliderResolve<Obj extends AbstractGameObject> = (
+  obj: Obj,
   data: ColliderData
 ) => void
 
 export default interface InterfaceCollider2D {
+  readonly scene: AbstractScene
   rect(
     obj1: AbstractGameObject,
-    obj2: AbstractGameObject,
-    resolve: ColliderResolve
+    objInScene: string,
+    resolve: ColliderResolve<AbstractGameObject>
   ): void
 }
