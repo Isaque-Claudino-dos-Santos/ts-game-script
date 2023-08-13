@@ -21,9 +21,13 @@ export default class ObjectPlayer extends AbstractGameObject {
       this.sprite.bgColor(this.sprite.bgColor() === 'blue' ? 'red' : 'blue')
       key.lockKey('Space')
     }
+
+    if (key.check('ArrowRight')) {
+      this.sprite.x(this.sprite.x() + 3)
+    }
   }
 
   render = () => {
-    this.sprite.draw(this.game.context)
+    this.sprite.draw(this.game.canvas.context)
   }
 }
