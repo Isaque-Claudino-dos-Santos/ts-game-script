@@ -2,24 +2,42 @@ import AbstractGameObject from '@Vendor/Game2D/AbstractGameObject'
 import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
 import ObjectBox from './ObjectBox'
 import BoundingBox from '@Vendor/Game2D/BoundingBox'
-import { ColliderData } from '@Vendor/Game2D/Collider2D'
+import { ColliderData } from './Game2D/Collider2D'
 
 export default class ObjectPlayer extends AbstractGameObject {
   readonly sprite = new Rect()
   readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
-  speedX = 3
-  speedY = 3
+  speedX = 0
+  speedY = 0
+  mvX = 0
+  mvY = 0
 
-  moviment() {
-    const key = this.game.keyboard
-    if (key.check('ArrowRight')) this.sprite.x(this.sprite.x() + this.speedX)
-    if (key.check('ArrowLeft')) this.sprite.x(this.sprite.x() - this.speedX)
-    if (key.check('ArrowUp')) this.sprite.y(this.sprite.y() - this.speedY)
-    if (key.check('ArrowDown')) this.sprite.y(this.sprite.y() + this.speedY)
+  onBoxCollider(data: ColliderData) {
+    if (data.overlapX <= data.overlapY) {
+      if (data.distanceX < 0) {
+        this.sprite.x(this.sprite.x() - data.overlapX)
+      } else {
+        this.sprite.x(this.sprite.x() + data.overlapX)
+      }
+    } else {
+      if (data.distanceY < 0) {
+        this.sprite.y(this.sprite.y() - data.overlapY)
+      } else {
+        this.sprite.y(this.sprite.y() + data.overlapY)
+      }
+    }
   }
 
-  colliderWithBox(box: ObjectBox, data: ColliderData) {
-    console.log('ok')
+  moviment() {
+    this.speedX = 1
+    this.speedY = 1
+    const key = this.game.keyboard
+    this.mvX = key.check('ArrowRight') - key.check('ArrowLeft')
+    this.mvY = key.check('ArrowDown') - key.check('ArrowUp')
+    const vx = this.mvX * this.speedX
+    const vy = this.mvY * this.speedY
+    this.sprite.x(this.sprite.x() + vx)
+    this.sprite.y(this.sprite.y() + vy)
   }
 
   init = () => {
@@ -36,7 +54,11 @@ export default class ObjectPlayer extends AbstractGameObject {
   update = () => {
     this.moviment()
     this.boundingBox.update()
-    this.game.scenes.current().collider.rect(this, 'box', this.colliderWithBox)
+    this.game.scenes
+      .current()
+      .collider.rect<ObjectBox>(this, 'box', (box, data) =>
+        this.onBoxCollider(data)
+      )
   }
 
   render = () => {
