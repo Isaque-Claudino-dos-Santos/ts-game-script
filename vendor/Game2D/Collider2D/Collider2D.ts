@@ -38,6 +38,8 @@ export default class Collider2D implements InterfaceCollider2D {
         overlapY,
         distanceX: catX,
         distanceY: catY,
+        sumHalfHeight,
+        sumHalfWidth,
       })
     }
   }

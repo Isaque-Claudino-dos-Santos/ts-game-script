@@ -6,6 +6,8 @@ export type ColliderData = {
   overlapY: number
   distanceX: number
   distanceY: number
+  sumHalfWidth: number
+  sumHalfHeight: number
 }
 export type ColliderResolve<Obj extends AbstractGameObject> = (
   obj: Obj,
