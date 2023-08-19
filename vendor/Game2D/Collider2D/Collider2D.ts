@@ -14,6 +14,7 @@ export default class Collider2D implements InterfaceCollider2D {
     const obj2 = this.scene.object(objInScene)
     const boundingBox1 = obj1.boundingBox
     const boundingBox2 = obj2.boundingBox
+
     if (!boundingBox1)
       throw `BoundingBox not defined in ${obj1['constructor'].name}`
     if (!boundingBox2)
@@ -29,17 +30,15 @@ export default class Collider2D implements InterfaceCollider2D {
       boundingBox1.box.halfWidth() + boundingBox2.box.halfWidth()
     const sumHalfHeight =
       boundingBox1.box.halfHeight() + boundingBox2.box.halfHeight()
-    const overlapX = sumHalfWidth - Math.abs(catX)
-    const overlapY = sumHalfHeight - Math.abs(catY)
 
-    if (overlapX >= 0 && overlapY >= 0) {
+    if (Math.abs(catX) < sumHalfWidth && Math.abs(catY) < sumHalfHeight) {
+      const overlapX = sumHalfWidth - Math.abs(catX)
+      const overlapY = sumHalfHeight - Math.abs(catY)
       resolve(obj2 as Obj, {
         overlapX,
         overlapY,
         distanceX: catX,
         distanceY: catY,
-        sumHalfHeight,
-        sumHalfWidth,
       })
     }
   }
