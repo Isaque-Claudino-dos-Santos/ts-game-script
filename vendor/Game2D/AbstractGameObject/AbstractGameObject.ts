@@ -10,9 +10,10 @@ export default abstract class AbstractGameObject
   abstract sprite: AbstractGeometries2D
   abstract boundingBox: BoundingBox<AbstractGeometries2D> | null
 
-  constructor(readonly game: AbstractGame) {}
+  constructor(readonly name: string, readonly game: AbstractGame) {}
 
   init(): void {}
   update(): void {}
   render(): void {}
+  onCollider(obj: AbstractGameObject): void {}
 }
