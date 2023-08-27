@@ -13,7 +13,6 @@ export default class ObjectPlayer extends AbstractGameObject {
 
   checkTime() {
     const key = this.game.keyboard
-    const timer = this.game.timer
 
     if (key.check('Space')) {
       key.lockKey('Space')
