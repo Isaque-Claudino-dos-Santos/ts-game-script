@@ -31,6 +31,7 @@ export default interface InterfaceAbstractScene {
   add<T extends AbstractGameObject>(
     name: string,
     object: GenericObject<T>,
+    callback: (object: T) => void,
     type: ObjectType
   ): T
 }
