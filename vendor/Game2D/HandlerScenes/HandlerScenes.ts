@@ -1,10 +1,11 @@
+import is from '@Vendor/utils/is'
 import AbstractGame from '../AbstractGame'
 import AbstractScene from '../AbstractScene'
-import InterfaceHadlerScenes, { ScenesList } from './InterfaceHandlerScene'
+import InterfaceHadlerScenes, { GenericScene } from './InterfaceHandlerScene'
 
 export default class HandlerScenes implements InterfaceHadlerScenes {
   currentSceneName: string = ''
-  readonly list: ScenesList = {}
+  readonly list: AbstractScene[] = []
 
   constructor(readonly game: AbstractGame) {}
 
@@ -13,14 +14,16 @@ export default class HandlerScenes implements InterfaceHadlerScenes {
   }
 
   current(): AbstractScene | never {
-    if (!(this.currentSceneName in this.list)) {
+    const scene = this.list.filter((s) => s.name === this.currentSceneName)[0]
+    if (is.undefined(scene)) {
       throw `The scene with name "${this.currentSceneName}" not defined.`
     }
-    return this.list[this.currentSceneName]
+    return scene
   }
 
-  add(name: string, scene: AbstractScene): this {
-    Object.assign(this.list, { [name]: scene })
+  add(name: string, scene: GenericScene): this {
+    const newScene = new scene(name, this.game)
+    this.list.push(newScene)
     return this
   }
 }
