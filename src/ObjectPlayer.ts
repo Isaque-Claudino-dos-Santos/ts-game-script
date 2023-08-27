@@ -11,6 +11,15 @@ export default class ObjectPlayer extends AbstractGameObject {
   mvX = 0
   mvY = 0
 
+  checkTime() {
+    const key = this.game.keyboard
+    const timer = this.game.timer
+
+    if (key.check('Space')) {
+      key.lockKey('Space')
+    }
+  }
+
   moviment() {
     this.speedX = 1
     this.speedY = 1
@@ -45,6 +54,7 @@ export default class ObjectPlayer extends AbstractGameObject {
 
   update = () => {
     this.moviment()
+    this.checkTime()
     this.boundingBox.update()
   }
 
