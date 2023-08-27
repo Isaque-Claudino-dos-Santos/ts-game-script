@@ -22,9 +22,13 @@ export default interface InterfaceAbstractScene {
   callUpdateInObjects(): void
   callRenderInObjects(): void
 
-  getObjectMoving(name: string): AbstractGameObject | null
-  getObjectStatic(name: string): AbstractGameObject | null
-  getObject(name: string): AbstractGameObject | null
+  getObjectMovingByName(name: string): AbstractGameObject | null
+  getObjectStaticByName(name: string): AbstractGameObject | null
+  getObjectByName(name: string): AbstractGameObject | null
+
+  getObjectsMovingByClassName(name: string): AbstractGameObject[]
+  getObjectsStaticByClassName(name: string): AbstractGameObject[]
+  getObjectsByClassName(name: string): AbstractGameObject[]
 
   add<T extends GenericObject>(
     name: string,

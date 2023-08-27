@@ -31,17 +31,36 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
     this.staticObjects.forEach((o) => o.render())
   }
 
-  getObjectMoving(name: string): AbstractGameObject | null {
+  getObjectMovingByName(name: string): AbstractGameObject | null {
     return this.movingObjects.filter((o) => o.name === name)[0] ?? null
   }
 
-  getObjectStatic(name: string): AbstractGameObject | null {
+  getObjectStaticByName(name: string): AbstractGameObject | null {
     return this.staticObjects.filter((o) => o.name === name)[0] ?? null
   }
 
-  getObject(name: string): AbstractGameObject | null {
-    const movingObject = this.getObjectMoving(name)
-    return movingObject ? movingObject : this.getObjectStatic(name)
+  getObjectByName(name: string): AbstractGameObject | null {
+    const movingObject = this.getObjectMovingByName(name)
+    return movingObject ? movingObject : this.getObjectStaticByName(name)
+  }
+
+  getObjectsMovingByClassName(name: string): AbstractGameObject[] {
+    return this.movingObjects.filter(
+      (o) => o['constructor'].name === name.trim()
+    )
+  }
+
+  getObjectsStaticByClassName(name: string): AbstractGameObject[] {
+    return this.staticObjects.filter(
+      (o) => o['constructor'].name === name.trim()
+    )
+  }
+
+  getObjectsByClassName(name: string): AbstractGameObject[] {
+    return [
+      ...this.getObjectsMovingByClassName(name),
+      ...this.getObjectsStaticByClassName(name),
+    ]
   }
 
   public add<T extends GenericObject>(
