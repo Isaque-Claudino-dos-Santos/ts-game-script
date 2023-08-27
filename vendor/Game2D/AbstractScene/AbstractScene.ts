@@ -70,7 +70,7 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
   ): AbstractGameObject {
     const obj = new object(name, this.game)
     if (type === 'moving') this.movingObjects.push(obj)
-    if (type === 'static') this.movingObjects.push(obj)
+    if (type === 'static') this.staticObjects.push(obj)
     return obj
   }
 }
