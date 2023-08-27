@@ -65,11 +65,13 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
   public add<T extends AbstractGameObject>(
     name: string,
     object: GenericObject<T>,
+    callback: (object: T) => void = () => {},
     type: ObjectType = 'static'
   ): T {
     const obj = new object(name, this.game)
     if (type === 'moving') this.movingObjects.push(obj)
     if (type === 'static') this.staticObjects.push(obj)
+    callback(obj)
     return obj
   }
 }
