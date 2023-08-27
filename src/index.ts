@@ -19,5 +19,3 @@ game.canvas.screen.style.height = '400px' // canvas height
 engine.initialize(() => {
   console.log('Initialized Game!')
 })
-
-console.log(engine)
