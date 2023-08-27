@@ -14,7 +14,6 @@ export default interface InterfaceAbstractScene {
   readonly game: AbstractGame
   readonly movingObjects: SceneObjects
   readonly staticObjects: SceneObjects
-  readonly collider: Collider2D
   readonly name: string
 
   init(): void

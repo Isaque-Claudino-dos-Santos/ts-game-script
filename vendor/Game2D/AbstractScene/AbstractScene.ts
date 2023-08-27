@@ -10,7 +10,6 @@ import AbstractGameObject from '../AbstractGameObject'
 export default abstract class AbstractScene implements InterfaceAbstractScene {
   readonly movingObjects: SceneObjects = []
   readonly staticObjects: SceneObjects = []
-  readonly collider: Collider2D = new Collider2D(this)
 
   constructor(readonly name: string, readonly game: AbstractGame) {}
 
