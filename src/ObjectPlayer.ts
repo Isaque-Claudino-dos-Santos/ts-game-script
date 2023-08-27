@@ -28,11 +28,11 @@ export default class ObjectPlayer extends AbstractGameObject {
     const vx = this.mvX * this.speedX
     const vy = this.mvY * this.speedY
 
-    if (this.collider.placeMeeting(this.speedX * this.mvX, 0, ObjectBox)) {
+    if (this.collider.placeMeeting(vx, 0, ObjectBox)) {
       this.sprite.x(this.sprite.x() - vx)
     }
 
-    if (this.collider.placeMeeting(0, this.speedY * this.mvY, ObjectBox)) {
+    if (this.collider.placeMeeting(0, vy, ObjectBox)) {
       this.sprite.y(this.sprite.y() - vy)
     }
 
