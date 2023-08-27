@@ -17,5 +17,4 @@ export default abstract class AbstractGameObject
   init(): void {}
   update(): void {}
   render(): void {}
-  onCollider(obj: AbstractGameObject): void {}
 }

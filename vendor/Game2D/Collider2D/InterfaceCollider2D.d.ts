@@ -1,5 +1,5 @@
 import AbstractGameObject from '../AbstractGameObject'
-import AbstractScene from '../AbstractScene'
+import HandlerScenes from '../HandlerScenes'
 
 export type ColliderData = {
   overlapX: number
@@ -7,16 +7,16 @@ export type ColliderData = {
   distanceX: number
   distanceY: number
 }
-export type ColliderResolve<Obj extends AbstractGameObject> = (
-  obj: Obj,
-  data: ColliderData
-) => void
+
+export type ColliderResolve = (data: ColliderData) => void
 
 export default interface InterfaceCollider2D {
-  readonly scene: AbstractScene
-  rect(
-    obj1: AbstractGameObject,
-    objInScene: string,
-    resolve: ColliderResolve<AbstractGameObject>
-  ): void
+  readonly object: AbstractGameObject
+  readonly scenes: HandlerScenes
+
+  placeMeeting(
+    x: number,
+    y: number,
+    obj: { new (): AbstractGameObject } | string
+  ): boolean
 }
