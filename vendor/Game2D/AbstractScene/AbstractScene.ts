@@ -1,37 +1,45 @@
-import objFor from '@Vendor/utils/objFor'
 import AbstractGame from '../AbstractGame'
-import InterfaceAbstractScene, { SceneObjects } from './InterfaceAbstractScene'
-import AbstractGameObject from '../AbstractGameObject'
+import InterfaceAbstractScene, {
+  GenericObject,
+  ObjectType,
+  SceneObjects,
+} from './InterfaceAbstractScene'
 import Collider2D from '../Collider2D'
+import AbstractGameObject from '../AbstractGameObject'
 
 export default abstract class AbstractScene implements InterfaceAbstractScene {
-  abstract objects: SceneObjects
+  readonly movingObjects: SceneObjects = []
+  readonly staticObjects: SceneObjects = []
   readonly collider: Collider2D = new Collider2D(this)
 
-  constructor(readonly game: AbstractGame) {}
+  constructor(readonly name: string, readonly game: AbstractGame) {}
+
+  abstract init(): void
 
   readonly callInitInObjects = () => {
-    objFor((value) => {
-      value.init()
-    }, this.objects)
+    this.init()
+    this.movingObjects.forEach((o) => o.init())
+    this.staticObjects.forEach((o) => o.init())
   }
 
   readonly callUpdateInObjects = () => {
-    objFor((value) => {
-      value.update()
-    }, this.objects)
+    this.movingObjects.forEach((o) => o.update())
+    this.staticObjects.forEach((o) => o.update())
   }
 
   readonly callRenderInObjects = () => {
-    objFor((value) => {
-      value.render()
-    }, this.objects)
+    this.movingObjects.forEach((o) => o.render())
+    this.staticObjects.forEach((o) => o.render())
   }
 
-  object<T extends AbstractGameObject>(name: string): T {
-    if (!(name in this.objects)) {
-      throw `Game Object ${name}, on scene ${this['constructor'].name} not defined`
-    }
-    return this.objects[name] as T
+  public add<T extends GenericObject>(
+    name: string,
+    object: T,
+    type: ObjectType = 'static'
+  ): AbstractGameObject {
+    const obj = new object(name, this.game)
+    if (type === 'moving') this.movingObjects.push(obj)
+    if (type === 'static') this.movingObjects.push(obj)
+    return obj
   }
 }

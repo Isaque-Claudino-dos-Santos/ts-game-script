@@ -1,3 +1,7 @@
 import AbstractScene from './AbstractScene'
-export { SceneObjects } from './InterfaceAbstractScene'
+export {
+  SceneObjects,
+  ObjectType,
+  GenericObject,
+} from './InterfaceAbstractScene'
 export default AbstractScene

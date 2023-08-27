@@ -2,16 +2,30 @@ import AbstractGame from '../AbstractGame'
 import AbstractGameObject from '../AbstractGameObject'
 import Collider2D from '../Collider2D'
 
-export type SceneObjects = { [index: string]: AbstractGameObject }
+export type GenericObject = {
+  new (
+    ...args: ConstructorParameters<typeof AbstractGameObject>
+  ): AbstractGameObject
+}
+export type SceneObjects = AbstractGameObject[]
+export type ObjectType = 'static' | 'moving'
 
 export default interface InterfaceAbstractScene {
   readonly game: AbstractGame
-  readonly objects: SceneObjects
+  readonly movingObjects: SceneObjects
+  readonly staticObjects: SceneObjects
   readonly collider: Collider2D
+  readonly name: string
+
+  init(): void
 
   callInitInObjects(): void
   callUpdateInObjects(): void
   callRenderInObjects(): void
 
-  object<T extends AbstractGameObject>(name: string): T
+  add<T extends GenericObject>(
+    name: string,
+    object: T,
+    type: ObjectType
+  ): AbstractGameObject
 }
