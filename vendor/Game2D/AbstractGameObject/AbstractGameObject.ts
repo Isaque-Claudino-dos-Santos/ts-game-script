@@ -9,7 +9,7 @@ export default abstract class AbstractGameObject
 {
   index: number = 0
   abstract sprite: AbstractGeometries2D
-  abstract boundingBox: BoundingBox<AbstractGeometries2D> | null
+  abstract boundingBox: BoundingBox<AbstractGeometries2D>
   readonly collider: Collider2D = new Collider2D(this.game.scenes, this)
 
   constructor(readonly name: string, readonly game: AbstractGame) {}
@@ -17,5 +17,4 @@ export default abstract class AbstractGameObject
   init(): void {}
   update(): void {}
   render(): void {}
-  onCollider(obj: AbstractGameObject): void {}
 }
