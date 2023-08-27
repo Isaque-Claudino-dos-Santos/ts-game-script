@@ -1,12 +1,10 @@
 import AbstractGame from '../AbstractGame'
 import AbstractGameObject from '../AbstractGameObject'
-import Collider2D from '../Collider2D'
 
-export type GenericObject = {
-  new (
-    ...args: ConstructorParameters<typeof AbstractGameObject>
-  ): AbstractGameObject
+export type GenericObject<T extends AbstractGameObject> = {
+  new (...args: ConstructorParameters<typeof AbstractGameObject>): T
 }
+
 export type SceneObjects = AbstractGameObject[]
 export type ObjectType = 'static' | 'moving'
 
@@ -30,9 +28,9 @@ export default interface InterfaceAbstractScene {
   getObjectsStaticByClassName(name: string): AbstractGameObject[]
   getObjectsByClassName(name: string): AbstractGameObject[]
 
-  add<T extends GenericObject>(
+  add<T extends AbstractGameObject>(
     name: string,
-    object: T,
+    object: GenericObject<T>,
     type: ObjectType
-  ): AbstractGameObject
+  ): T
 }

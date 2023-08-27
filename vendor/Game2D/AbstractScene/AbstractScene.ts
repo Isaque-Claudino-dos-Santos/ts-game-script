@@ -4,7 +4,6 @@ import InterfaceAbstractScene, {
   ObjectType,
   SceneObjects,
 } from './InterfaceAbstractScene'
-import Collider2D from '../Collider2D'
 import AbstractGameObject from '../AbstractGameObject'
 
 export default abstract class AbstractScene implements InterfaceAbstractScene {
@@ -63,11 +62,11 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
     ]
   }
 
-  public add<T extends GenericObject>(
+  public add<T extends AbstractGameObject>(
     name: string,
-    object: T,
+    object: GenericObject<T>,
     type: ObjectType = 'static'
-  ): AbstractGameObject {
+  ): T {
     const obj = new object(name, this.game)
     if (type === 'moving') this.movingObjects.push(obj)
     if (type === 'static') this.staticObjects.push(obj)
