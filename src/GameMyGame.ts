@@ -3,7 +3,8 @@ import SceneMain from './MainScene'
 
 export default class GameMyGame extends AbstractGame {
   override beforeInit(): void {
-    this.scenes.add('main', new SceneMain(this)).setCurrent('main')
+    this.scenes.add('main', SceneMain)
+    this.scenes.setCurrent('main')
   }
 
   override beforeRender(): void {

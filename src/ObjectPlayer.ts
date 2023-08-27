@@ -1,8 +1,7 @@
 import AbstractGameObject from '@Vendor/Game2D/AbstractGameObject'
 import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
-import ObjectBox from './ObjectBox'
 import BoundingBox from '@Vendor/Game2D/BoundingBox'
-import { ColliderData } from './Game2D/Collider2D'
+import { ColliderData } from '@Vendor/Game2D/Collider2D'
 
 export default class ObjectPlayer extends AbstractGameObject {
   readonly sprite = new Rect()
@@ -54,11 +53,6 @@ export default class ObjectPlayer extends AbstractGameObject {
   update = () => {
     this.moviment()
     this.boundingBox.update()
-    this.game.scenes
-      .current()
-      .collider.rect<ObjectBox>(this, 'box', (box, data) =>
-        this.onBoxCollider(data)
-      )
   }
 
   render = () => {
