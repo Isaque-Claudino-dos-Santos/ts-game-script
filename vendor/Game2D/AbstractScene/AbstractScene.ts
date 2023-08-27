@@ -4,6 +4,7 @@ import InterfaceAbstractScene, {
   ObjectType,
   SceneObjects,
 } from './InterfaceAbstractScene'
+import Collider2D from '../Collider2D'
 import AbstractGameObject from '../AbstractGameObject'
 
 export default abstract class AbstractScene implements InterfaceAbstractScene {
@@ -62,12 +63,16 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
     ]
   }
 
-  public add<T extends AbstractGameObject>(
+  public add<T extends GenericObject>(
     name: string,
+<<<<<<< HEAD
     object: GenericObject<T>,
     callback: (object: T) => void = () => {},
+=======
+    object: T,
+>>>>>>> parent of 26cc23a... fix: fixed error declaration type
     type: ObjectType = 'static'
-  ): T {
+  ): AbstractGameObject {
     const obj = new object(name, this.game)
     if (type === 'moving') this.movingObjects.push(obj)
     if (type === 'static') this.staticObjects.push(obj)
