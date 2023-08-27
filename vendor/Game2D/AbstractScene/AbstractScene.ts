@@ -32,6 +32,19 @@ export default abstract class AbstractScene implements InterfaceAbstractScene {
     this.staticObjects.forEach((o) => o.render())
   }
 
+  getObjectMoving(name: string): AbstractGameObject | null {
+    return this.movingObjects.filter((o) => o.name === name)[0] ?? null
+  }
+
+  getObjectStatic(name: string): AbstractGameObject | null {
+    return this.staticObjects.filter((o) => o.name === name)[0] ?? null
+  }
+
+  getObject(name: string): AbstractGameObject | null {
+    const movingObject = this.getObjectMoving(name)
+    return movingObject ? movingObject : this.getObjectStatic(name)
+  }
+
   public add<T extends GenericObject>(
     name: string,
     object: T,
