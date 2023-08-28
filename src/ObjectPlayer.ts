@@ -20,23 +20,29 @@ export default class ObjectPlayer extends AbstractGameObject {
   }
 
   moviment() {
-    this.speedX = 1
-    this.speedY = 1
+    this.speedX = 10
+    this.speedY = 10
     const key = this.game.keyboard
     this.mvX = key.check('ArrowRight') - key.check('ArrowLeft')
     this.mvY = key.check('ArrowDown') - key.check('ArrowUp')
-    const vx = this.mvX * this.speedX
-    const vy = this.mvY * this.speedY
+    let vx = this.mvX * this.speedX
+    let vy = this.mvY * this.speedY
 
     if (this.collider.placeMeeting(vx, 0, ObjectBox)) {
-      this.sprite.x(this.sprite.x() - vx)
+      if (!this.collider.placeMeeting(Math.sign(vx), 0, ObjectBox)) {
+        this.sprite.x(this.sprite.x() + Math.sign(vx))
+      }
+      vx = 0
     }
+    this.sprite.x(this.sprite.x() + vx)
 
     if (this.collider.placeMeeting(0, vy, ObjectBox)) {
-      this.sprite.y(this.sprite.y() - vy)
+      if (!this.collider.placeMeeting(0, Math.sign(vy), ObjectBox)) {
+        this.sprite.y(this.sprite.y() + Math.sign(vy))
+      }
+      vy = 0
     }
 
-    this.sprite.x(this.sprite.x() + vx)
     this.sprite.y(this.sprite.y() + vy)
   }
 
