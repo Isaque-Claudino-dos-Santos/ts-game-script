@@ -26,10 +26,7 @@ export default abstract class AbstractGame implements InterfaceAbstractGame {
   }
 
   gameUpdate = () => {
-    this.time.prevTime = this.time.currentTime
-    this.time.currentTime = new Date().getMilliseconds()
-    this.time.deltaTime = this.time.currentTime - this.time.prevTime
-    this.time.totalFrames++
+    this.time.handle()
 
     this.beforeUpdate()
     this.scenes.current().callUpdateInObjects()
