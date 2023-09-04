@@ -10,10 +10,6 @@ export default class ObjectPlayer extends AbstractGameObject {
   readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
   readonly timeColor = new Timer(this.game)
   readonly textName = new Text()
-  speedX = 0
-  speedY = 0
-  mvX = 0
-  mvY = 0
 
   checkTime() {
     const key = this.game.keyboard
@@ -32,13 +28,13 @@ export default class ObjectPlayer extends AbstractGameObject {
   }
 
   moviment() {
-    this.speedX = 3
-    this.speedY = 3
     const key = this.game.keyboard
-    this.mvX = key.check('ArrowRight') - key.check('ArrowLeft')
-    this.mvY = key.check('ArrowDown') - key.check('ArrowUp')
-    let vx = this.mvX * this.speedX
-    let vy = this.mvY * this.speedY
+    const mvX = key.check('ArrowRight') - key.check('ArrowLeft')
+    const mvY = key.check('ArrowDown') - key.check('ArrowUp')
+    let speedX = 10
+    let speedY = 10
+    let vx = mvX * speedX
+    let vy = mvY * speedY
 
     if (this.collider.placeMeeting(vx, 0, ObjectBox)) {
       if (!this.collider.placeMeeting(Math.sign(vx), 0, ObjectBox)) {
@@ -46,7 +42,6 @@ export default class ObjectPlayer extends AbstractGameObject {
       }
       vx = 0
     }
-    this.sprite.x(this.sprite.x() + vx)
 
     if (this.collider.placeMeeting(0, vy, ObjectBox)) {
       if (!this.collider.placeMeeting(0, Math.sign(vy), ObjectBox)) {
@@ -55,6 +50,7 @@ export default class ObjectPlayer extends AbstractGameObject {
       vy = 0
     }
 
+    this.sprite.x(this.sprite.x() + vx)
     this.sprite.y(this.sprite.y() + vy)
   }
 
