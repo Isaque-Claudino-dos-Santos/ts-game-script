@@ -18,10 +18,10 @@ export default class Vector2D implements InterfaceVector2D {
   y(posY: number): this
   y(posY?: unknown): number | this {
     if (is.number(posY)) {
-      this.posY = this.posX
+      this.posY = this.posY
       return this
     }
-    return this.posX
+    return this.posY
   }
 
   distance(dot1: number, dot2: number): number {
