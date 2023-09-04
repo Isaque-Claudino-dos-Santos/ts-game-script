@@ -88,6 +88,8 @@ export default class Text
     context.fillStyle = this.bgColor()
     context.strokeStyle = this.lineColor()
     context.lineWidth = this.lineSize()
+    context.textBaseline = this.baseLine()
+    context.direction = this.direction()
 
     callback(context)
 
