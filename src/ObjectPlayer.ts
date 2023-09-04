@@ -3,12 +3,13 @@ import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
 import BoundingBox from '@Vendor/Game2D/BoundingBox'
 import ObjectBox from './ObjectBox'
 import Timer from '@Vendor/Events/Timer'
+import Text from '@Vendor/Graphics2D/Resources/Text'
 
 export default class ObjectPlayer extends AbstractGameObject {
   readonly sprite = new Rect()
   readonly boundingBox: BoundingBox<Rect> = new BoundingBox(this, new Rect())
   readonly timeColor = new Timer(this.game)
-
+  readonly textName = new Text()
   speedX = 0
   speedY = 0
   mvX = 0
@@ -59,23 +60,27 @@ export default class ObjectPlayer extends AbstractGameObject {
 
   init = () => {
     this.sprite
-      .width(16)
-      .height(16)
+      .width(32)
+      .height(32)
       .x(10)
       .y(10)
       .bgColor('red')
       .originX(this.sprite.halfWidth())
       .originY(this.sprite.halfHeight())
+
+    this.textName.text(this.name).size(20).family('Cascadia Mono')
   }
 
   update = () => {
     this.moviment()
     this.checkTime()
+    this.textName.x(this.sprite.x() - 5).y(this.sprite.y() - 5)
     this.boundingBox.update()
   }
 
   render = () => {
     this.sprite.draw(this.game.canvas.context)
+    this.textName.draw(this.game.canvas.context)
     this.boundingBox.draw(this.game.canvas.context)
   }
 }
