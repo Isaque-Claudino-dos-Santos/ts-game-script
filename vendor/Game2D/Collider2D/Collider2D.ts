@@ -27,9 +27,8 @@ export default class Collider2D implements InterfaceCollider2D {
 
       for (const box of boxies) {
         if (box instanceof Rect && objBox instanceof Rect) {
-          let catX = box.x() + box.halfWidth() - (objBox.originX() + x)
-          let catY = box.y() + box.halfHeight() - (objBox.originY() + y)
-
+          const catX = box.x() + box.halfWidth() - (objBox.originX() + x)
+          const catY = box.y() + box.halfHeight() - (objBox.originY() + y)
           const sumWidth = objBox.halfWidth() + box.halfWidth()
           const sumHeight = objBox.halfHeight() + box.halfHeight()
 
