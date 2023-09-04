@@ -8,6 +8,6 @@ export default class SceneMain extends AbstractScene {
     const b1 = this.add('box1', ObjectBox)
     b1.sprite.x(100).y(30).width(56).height(56)
     const b2 = this.add('box2', ObjectBox)
-    b2.sprite.x(100).y(135).width(56).height(56)
+    b2.sprite.x(100).y(125).width(56).height(56)
   }
 }
