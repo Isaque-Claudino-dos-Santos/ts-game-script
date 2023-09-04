@@ -2,7 +2,7 @@ import AbstractGeometries2D from '@Vendor/Graphics2D/Geometries2D/AbstractGeomet
 import InterfaceAbstractGameObject from './InterfaceAbstractGameObject'
 import AbstractGame from '../AbstractGame/AbstractGame'
 import BoundingBox from '../BoundingBox'
-import Collider2D from '../Collider2D'
+import Collider2D from '@Vendor/Physical2D/Collider2D'
 
 export default abstract class AbstractGameObject
   implements InterfaceAbstractGameObject
