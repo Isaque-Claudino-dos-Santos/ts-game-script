@@ -8,6 +8,8 @@ export default interface InterfaceText extends AbstractGeometries2D {
   fontSize: number
   fontFamily: string
   unitMeasurement: UnitMeasurement
+  textBaseLine: CanvasTextBaseline
+  drawDirection: CanvasDirection
 
   text(): string
   text(textContent: string): this
@@ -20,4 +22,10 @@ export default interface InterfaceText extends AbstractGeometries2D {
 
   limitWidth(): number | undefined
   limitWidth(maxWidth: number): this
+
+  baseLine(): CanvasTextBaseline
+  baseLine(textBaseLine: CanvasTextBaseline): this
+
+  direction(): CanvasDirection
+  direction(drawDirection: CanvasDirection): this
 }

@@ -12,6 +12,8 @@ export default class Text
   fontSize: number = 14
   fontFamily: string = 'Arial'
   unitMeasurement: UnitMeasurement = 'px'
+  drawDirection: CanvasDirection = 'inherit'
+  textBaseLine: CanvasTextBaseline = 'alphabetic'
 
   text(): string
   text(textContent: string): this
@@ -55,6 +57,26 @@ export default class Text
       return this
     }
     return this.maxWidth
+  }
+
+  direction(): CanvasDirection
+  direction(drawDirection: CanvasDirection): this
+  direction(drawDirection?: unknown): this | CanvasDirection {
+    if (is.string(drawDirection)) {
+      this.drawDirection = drawDirection as CanvasDirection
+      return this
+    }
+    return this.drawDirection
+  }
+
+  baseLine(): CanvasTextBaseline
+  baseLine(textBaseLine: CanvasTextBaseline): this
+  baseLine(textBaseLine?: unknown): this | CanvasTextBaseline {
+    if (is.string(textBaseLine)) {
+      this.textBaseLine = textBaseLine as CanvasTextBaseline
+      return this
+    }
+    return this.textBaseLine
   }
 
   draw(
