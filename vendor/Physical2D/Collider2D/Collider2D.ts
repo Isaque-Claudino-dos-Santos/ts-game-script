@@ -1,7 +1,7 @@
 import InterfaceCollider2D from './InterfaceCollider2D'
-import { GenericObject } from '../AbstractScene'
-import AbstractGameObject from '../AbstractGameObject'
-import HandlerScenes from '../HandlerScenes'
+import { GenericObject } from '../../Game2D/AbstractScene'
+import AbstractGameObject from '../../Game2D/AbstractGameObject'
+import HandlerScenes from '../../Game2D/HandlerScenes'
 import is from '@Vendor/utils/is'
 import Rect from '@Vendor/Graphics2D/Geometries2D/Rect'
 

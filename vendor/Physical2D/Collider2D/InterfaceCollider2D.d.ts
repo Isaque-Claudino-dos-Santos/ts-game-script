@@ -1,5 +1,5 @@
-import AbstractGameObject from '../AbstractGameObject'
-import HandlerScenes from '../HandlerScenes'
+import AbstractGameObject from '../../Game2D/AbstractGameObject'
+import HandlerScenes from '../../Game2D/HandlerScenes'
 
 export type ColliderData = {
   overlapX: number
