@@ -33,10 +33,10 @@ export default class Collider2D implements InterfaceCollider2D {
           const sumHeight = objBox.halfHeight() + box.halfHeight()
 
           if (sumWidth > Math.abs(catX) && sumHeight > Math.abs(catY)) {
-            const overlapX = sumWidth + catX
-            const overlapY = sumHeight + catY
+            const overlapX = sumWidth - Math.abs(catX)
+            const overlapY = sumHeight - Math.abs(catY)
 
-            return overlapX > 0 && overlapY > 0
+            return overlapX >= 0 && overlapY >= 0
           }
         }
       }
