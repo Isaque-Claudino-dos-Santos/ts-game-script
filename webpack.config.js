@@ -1,31 +1,32 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-const path = require('path')
-const dotenv = require('dotenv-webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const dotenv = require("dotenv-webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV == 'production'
+const isProduction = process.env.NODE_ENV == "production";
 
 /**
  * @type {import('webpack-cli').WebpackConfiguration}
  */
 
-console.log(path.resolve('assets'))
+console.log(path.resolve("assets"));
 const config = {
   entry: {
-    index: { import: './src/index.ts' },
+    index: { import: "./src/index.ts" },
   },
   output: {
-    filename: '[name].bandle.js',
-    path: path.resolve(__dirname, 'build'),
+    filename: "[name].bandle.js",
+    path: path.resolve(__dirname, "build"),
   },
   devServer: {
     open: true,
-    host: 'localhost',
+    host: "localhost",
+    allowedHosts: "all",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: "public/index.html",
     }),
     new dotenv(),
 
@@ -36,16 +37,16 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx)$/i,
-        loader: 'ts-loader',
-        exclude: ['/node_modules/'],
+        loader: "ts-loader",
+        exclude: ["/node_modules/"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|svg|webp)$/i,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          outputPath: 'images',
+          outputPath: "images",
         },
-        include: path.resolve('assets'),
+        include: path.resolve("assets"),
       },
 
       // Add your rules for custom modules here
@@ -53,18 +54,18 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
     alias: {
-      '@Vendor': path.resolve(__dirname, 'vendor'),
+      "@Vendor": path.resolve(__dirname, "vendor"),
     },
   },
-}
+};
 
 module.exports = () => {
   if (isProduction) {
-    config.mode = 'production'
+    config.mode = "production";
   } else {
-    config.mode = 'development'
+    config.mode = "development";
   }
-  return config
-}
+  return config;
+};
